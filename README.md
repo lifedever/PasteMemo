@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lifedever/PasteMemo/releases/latest">⬇️ <strong>Download Latest</strong></a> ｜ <a href="https://lifedever.github.io/PasteMemo/">🌐 <strong>Website</strong></a>
+  <a href="https://github.com/lifedever/PasteMemo/releases/latest">⬇️ <strong>Download Latest</strong></a> ｜ <a href="https://www.lifedever.com/PasteMemo/">🌐 <strong>Website</strong></a>
 </p>
 
 <p align="center">
@@ -27,15 +27,24 @@
 
 ---
 
+## Highlights
+
+- **Copy → File, Instantly** — Paste copied text as a `.txt` file, paste screenshots as image files. Drag directly into Finder or any file dialog.
+- **AI Terminal Ready** — Seamlessly paste images and files into AI terminals. Built for developers who live in the command line.
+- **Smart Recognition** — Automatically detects content type — links with favicons, code snippets, colors, phone numbers, files — with intelligent previews.
+- **Beyond Copy-Paste** — Paste file paths, filenames, save to folders, or paste-and-enter for terminal commands. Every clip is a multi-tool.
+
 ## Features
 
-- **Clipboard History** — automatically captures text, links, images, code, and files
-- **Quick Paste** — press ⌘⇧V to search and paste from history, without leaving your current app
-- **Smart Detection** — recognizes content types: links with favicons, code snippets, colors, file paths
-- **Pin & Favorite** — pin important clips, star frequently used items for quick recall
-- **Multi-Language** — English, 中文, 日本語, 한국어, Deutsch, Français, Español
-- **Menu Bar Resident** — lives in menu bar, never in the Dock, minimal resource usage
-- **Auto Updates** — checks for new versions automatically
+- **Global Hotkey** — Press ⌘⇧V from anywhere to open Quick Paste. Search, select, paste — keyboard driven.
+- **Pin to Top** — Pin frequently used clips so they're always one click away.
+- **Filter by App** — See which app each clip came from. Filter by source — Chrome, VS Code, Figma, etc.
+- **Paste + Enter** — ⇧↵ pastes and presses Enter. Perfect for terminal commands and chat apps.
+- **Phone Detection** — Recognizes phone numbers with call, message, and copy actions.
+- **Fully Offline** — Zero network connections. Your data never leaves your Mac. No account, no cloud, no tracking.
+- **Lightweight & Native** — Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory.
+- **7 Languages** — English, 中文, 日本語, 한국어, Deutsch, Français, Español
+- **Auto Updates** — Checks GitHub & Gitee for new versions automatically.
 
 ## Requirements
 
@@ -50,7 +59,7 @@ Grab the latest `.dmg` from [Releases](https://github.com/lifedever/PasteMemo/re
 
 | File | Architecture |
 |------|-------------|
-| `PasteMemo-x.x.x-arm64.dmg` | Apple Silicon (M1/M2/M3/M4) |
+| `PasteMemo-x.x.x-arm64.dmg` | Apple Silicon (M1/M2/M3/M4/M5) |
 | `PasteMemo-x.x.x-x86_64.dmg` | Intel Mac |
 
 > On first launch: **Right-click PasteMemo.app → Open → Open**
