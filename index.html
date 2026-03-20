@@ -440,7 +440,7 @@
         <option value="de">Deutsch</option>
         <option value="es">Español</option>
       </select>
-      <button class="theme-toggle" id="themeToggle" title="Toggle theme">☀️</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
     </div>
   </nav>
 </header>
@@ -756,37 +756,32 @@ langSelect.addEventListener("change", e => {
   applyLanguage(currentLang);
 });
 
-// Theme toggle
-let currentTheme = localStorage.getItem("theme") || "system";
-applyTheme(currentTheme);
+// Theme toggle — light/dark only, auto-follows system changes
+const sunIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+const moonIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
-themeToggle.addEventListener("click", () => {
-  if (currentTheme === "dark") {
-    currentTheme = "light";
-  } else if (currentTheme === "light") {
-    currentTheme = "system";
-  } else {
-    currentTheme = "dark";
-  }
-  localStorage.setItem("theme", currentTheme);
-  applyTheme(currentTheme);
+function isDark() {
+  return document.documentElement.classList.contains("theme-dark");
+}
+
+function applyTheme(dark) {
+  document.documentElement.classList.remove("theme-dark", "theme-light");
+  document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+  themeToggle.innerHTML = dark ? moonIcon : sunIcon;
+}
+
+// Init from system preference
+applyTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+// Auto-follow system changes
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+  applyTheme(e.matches);
 });
 
-function applyTheme(theme) {
-  document.documentElement.classList.remove("theme-dark", "theme-light");
-  if (theme === "dark") {
-    document.documentElement.classList.add("theme-dark");
-    themeToggle.textContent = "🌙";
-    themeToggle.title = "Dark mode (click for system)";
-  } else if (theme === "light") {
-    document.documentElement.classList.add("theme-light");
-    themeToggle.textContent = "☀️";
-    themeToggle.title = "Light mode (click for dark)";
-  } else {
-    themeToggle.textContent = "💻";
-    themeToggle.title = "System mode (click for light)";
-  }
-}
+// Manual toggle
+themeToggle.addEventListener("click", () => {
+  applyTheme(!isDark());
+});
 </script>
 </body>
 </html>
