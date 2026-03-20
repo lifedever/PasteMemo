@@ -1,9 +1,9 @@
 {
-  "version": "0.2.1",
-  "notes_zh": "- **修复** 更新检查失败时提供 GitHub/Gitee 手动下载链接\n- **修复** 切换链接时预览显示错误内容\n- **修复** 删除条目后偶发崩溃\n- **优化** 全局快捷键无需等待辅助功能授权即可生效",
-  "notes_en": "- **Fix** Show GitHub/Gitee download links when update check fails\n- **Fix** Link preview showing wrong content when switching URLs\n- **Fix** Occasional crash after deleting items\n- **Improve** Global hotkey works immediately without accessibility permission",
+  "version": "0.2.2",
+  "notes_zh": "- **新增** 主窗口历史列表支持上下箭头键导航\n- **优化** 删除条目后自动高亮下一条\n- **修复** 文件/文件夹（.app等）大小计算错误\n- **新增** 代码语法高亮与语言检测\n- **优化** 文件大小显示与访达一致",
+  "notes_en": "- **New** Arrow key navigation in main history list\n- **Improve** Auto-select next item after deletion\n- **Fix** File/directory (.app bundles) size calculation\n- **New** Code syntax highlighting with language detection\n- **Improve** File size display matches Finder",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.2-x86_64.dmg"
   }
 }
