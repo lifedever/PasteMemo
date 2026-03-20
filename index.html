@@ -985,20 +985,34 @@ document.addEventListener("click", e => {
   }
 });
 
+function latestRelease(releases) {
+  if (!releases || !releases.length) return null;
+  return releases.reduce((a, b) => {
+    const av = a.tag_name.replace(/^[vV]/, "").split(".").map(Number);
+    const bv = b.tag_name.replace(/^[vV]/, "").split(".").map(Number);
+    for (let i = 0; i < Math.max(av.length, bv.length); i++) {
+      if ((bv[i]||0) > (av[i]||0)) return b;
+      if ((bv[i]||0) < (av[i]||0)) return a;
+    }
+    return a;
+  });
+}
+
 async function fetchRelease() {
   if (releaseCache) return releaseCache;
   try {
     const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
     if (res.ok) {
       const releases = await res.json();
-      if (releases.length) { releaseCache = releases[0]; return releaseCache; }
+      const latest = latestRelease(releases);
+      if (latest) { releaseCache = latest; return releaseCache; }
     }
   } catch(e) {}
   try {
     const res = await fetch("https://api.github.com/repos/lifedever/PasteMemo/releases");
     if (!res.ok) return null;
     const releases = await res.json();
-    releaseCache = releases[0] || null;
+    releaseCache = latestRelease(releases);
     return releaseCache;
   } catch(e) { return null; }
 }
