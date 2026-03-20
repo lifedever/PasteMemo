@@ -449,8 +449,12 @@
     .download-item:hover { background: var(--bg-alt); }
     .download-item + .download-item { border-top: 1px solid var(--border); }
 
+    .download-item span {
+      display: flex;
+      flex-direction: column;
+    }
+
     .download-item strong {
-      display: block;
       font-size: 14px;
       color: var(--text-heading);
     }
