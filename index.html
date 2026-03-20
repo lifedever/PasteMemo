@@ -267,6 +267,50 @@
       margin: 0 auto;
     }
 
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .carousel-track img {
+      min-width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      opacity: 0.3;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .carousel-dot.active {
+      opacity: 1;
+      background: var(--orange-500);
+      width: 24px;
+      border-radius: 4px;
+    }
+
     .screenshot-placeholder {
       background: var(--placeholder-bg);
       border: 2px dashed var(--placeholder-border);
@@ -536,9 +580,14 @@
   </div>
 </section>
 
-<section class="screenshot-section" style="display:flex; flex-direction:column; gap:40px; align-items:center;">
-  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-11.51.51@2x.png" width="800" alt="PasteMemo Main Window" style="border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,0.12); max-width:100%;">
-  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-12.33.38@2x.png" width="800" alt="PasteMemo Quick Paste" style="border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,0.12); max-width:100%;">
+<section class="screenshot-section">
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-11.51.51@2x.png" alt="PasteMemo Main Window">
+      <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-12.33.38@2x.png" alt="PasteMemo Quick Paste">
+    </div>
+  </div>
+  <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
 <section class="features" id="features">
@@ -859,6 +908,32 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e =
 themeToggle.addEventListener("click", () => {
   applyTheme(!isDark());
 });
+
+// --- Carousel ---
+(function() {
+  const track = document.getElementById("carouselTrack");
+  const dotsContainer = document.getElementById("carouselDots");
+  const slides = track.querySelectorAll("img");
+  let current = 0;
+  const total = slides.length;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsContainer.querySelectorAll(".carousel-dot").forEach((d, i) => {
+      d.classList.toggle("active", i === current);
+    });
+  }
+
+  setInterval(() => goTo((current + 1) % total), 4000);
+})();
 
 // --- Download dropdown ---
 let releaseCache = null;
