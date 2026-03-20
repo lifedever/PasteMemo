@@ -361,8 +361,8 @@
     }
 
     .highlight-icon {
-      font-size: 28px;
       margin-bottom: 14px;
+      line-height: 1;
     }
 
     .highlight-card h3 {
@@ -376,6 +376,11 @@
       font-size: 14px;
       color: var(--text-secondary);
       line-height: 1.7;
+    }
+
+    .highlight-card p strong {
+      color: var(--orange-500);
+      font-weight: 600;
     }
 
     .features-grid {
@@ -397,14 +402,13 @@
     }
 
     .feature-icon {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border-radius: 10px;
       background: var(--orange-50);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
       margin-bottom: 16px;
     }
 
@@ -671,56 +675,56 @@
     <!-- Highlights: 2-col large cards -->
     <div class="features-highlights">
       <div class="highlight-card">
-        <div class="highlight-icon">📄</div>
+        <div class="highlight-icon"><svg width="24" height="24" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3 data-i18n="features.filefy.title">Copy → File, Instantly</h3>
-        <p data-i18n="features.filefy.desc">Paste copied text as a .txt file, paste screenshots as image files. Drag directly into Finder, file dialogs, or any app that accepts files.</p>
+        <p data-i18n-html="features.filefy.desc">Paste copied text as a <strong>.txt file</strong>, paste screenshots as <strong>image files</strong>. Drag directly into Finder, file dialogs, or any app that accepts files.</p>
       </div>
       <div class="highlight-card">
-        <div class="highlight-icon">🤖</div>
+        <div class="highlight-icon"><svg width="24" height="24" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10h2m2 0h2m2 0h2" stroke-linecap="round"/></svg></div>
         <h3 data-i18n="features.ai.title">AI Terminal Ready</h3>
-        <p data-i18n="features.ai.desc">Seamlessly paste images and files into AI terminals. Built for developers who live in the command line and AI workflows.</p>
+        <p data-i18n-html="features.ai.desc">Seamlessly paste <strong>images and files</strong> into AI terminals. Built for developers who live in the <strong>command line</strong> and AI workflows.</p>
       </div>
       <div class="highlight-card">
-        <div class="highlight-icon">🧠</div>
+        <div class="highlight-icon"><svg width="24" height="24" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M8 11h6M11 8v6" stroke-linecap="round"/></svg></div>
         <h3 data-i18n="features.smart.title">Smart Recognition</h3>
-        <p data-i18n="features.smart.desc">Automatically detects content type — links with favicons, code snippets, colors, phone numbers, files — and shows intelligent previews.</p>
+        <p data-i18n-html="features.smart.desc">Automatically detects content type — <strong>links</strong> with favicons, <strong>code snippets</strong>, colors, phone numbers, files — and shows <strong>intelligent previews</strong>.</p>
       </div>
       <div class="highlight-card">
-        <div class="highlight-icon">♻️</div>
+        <div class="highlight-icon"><svg width="24" height="24" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
         <h3 data-i18n="features.reuse.title">Beyond Copy-Paste</h3>
-        <p data-i18n="features.reuse.desc">Paste file paths, filenames, save to folders, or paste-and-enter for terminal commands. Every clip becomes a multi-tool.</p>
+        <p data-i18n-html="features.reuse.desc">Paste <strong>file paths</strong>, <strong>filenames</strong>, save to folders, or <strong>paste-and-enter</strong> for terminal commands. Every clip becomes a multi-tool.</p>
       </div>
     </div>
 
     <!-- Essentials: 3-col small cards -->
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">📌</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="17" x2="12" y2="3"/><line x1="5" y1="10" x2="12" y2="3"/><line x1="19" y1="10" x2="12" y2="3"/><line x1="5" y1="21" x2="19" y2="21"/></svg></div>
         <h3 data-i18n="features.pin.title">Pin to Top</h3>
         <p data-i18n="features.pin.desc">Pin frequently used clips. They stay at the top, always one click away.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">📱</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
         <h3 data-i18n="features.appfilter.title">Filter by App</h3>
         <p data-i18n="features.appfilter.desc">See what you copied from which app. Filter clips by source — Chrome, VS Code, Figma, or any app.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">⌨️</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></div>
         <h3 data-i18n="features.hotkey.title">Global Hotkey</h3>
         <p data-i18n="features.hotkey.desc">Press ⌘⇧V from anywhere to open Quick Paste. Search, select, paste — all without touching the mouse.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🔒</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <h3 data-i18n="features.privacy.title">Fully Offline</h3>
         <p data-i18n="features.privacy.desc">Zero network connections. Your clipboard data never leaves your Mac. No account, no cloud, no tracking.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🪶</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div>
         <h3 data-i18n="features.native.title">Lightweight & Native</h3>
         <p data-i18n="features.native.desc">Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🌍</div>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h3 data-i18n="features.lang.title">7 Languages</h3>
         <p data-i18n="features.lang.desc">English, 中文, 日本語, 한국어, Deutsch, Français, Español — switch anytime.</p>
       </div>
@@ -760,13 +764,13 @@ const i18n = {
     "screenshot.placeholder": "App screenshot coming soon",
     "features.title": "Everything you need, nothing you don't.",
     "features.filefy.title": "Copy → File, Instantly",
-    "features.filefy.desc": "Paste copied text as a .txt file, paste screenshots as image files. Drag directly into Finder, file dialogs, or any app that accepts files.",
+    "features.filefy.desc": "Paste copied text as a <strong>.txt file</strong>, paste screenshots as <strong>image files</strong>. Drag directly into Finder, file dialogs, or any app that accepts files.",
     "features.ai.title": "AI Terminal Ready",
-    "features.ai.desc": "Seamlessly paste images and files into AI terminals. Built for developers who live in the command line and AI workflows.",
+    "features.ai.desc": "Seamlessly paste <strong>images and files</strong> into AI terminals. Built for developers who live in the <strong>command line</strong> and AI workflows.",
     "features.smart.title": "Smart Recognition",
-    "features.smart.desc": "Automatically detects content type — links with favicons, code snippets, colors, phone numbers, files — and shows intelligent previews.",
+    "features.smart.desc": "Automatically detects content type — <strong>links</strong> with favicons, <strong>code snippets</strong>, colors, phone numbers, files — and shows <strong>intelligent previews</strong>.",
     "features.reuse.title": "Beyond Copy-Paste",
-    "features.reuse.desc": "Paste file paths, filenames, save to folders, or paste-and-enter for terminal commands. Every clip becomes a multi-tool.",
+    "features.reuse.desc": "Paste <strong>file paths</strong>, <strong>filenames</strong>, save to folders, or <strong>paste-and-enter</strong> for terminal commands. Every clip becomes a multi-tool.",
     "features.pin.title": "Pin to Top",
     "features.pin.desc": "Pin frequently used clips. They stay at the top, always one click away.",
     "features.appfilter.title": "Filter by App",
@@ -795,13 +799,13 @@ const i18n = {
     "screenshot.placeholder": "应用截图即将上线",
     "features.title": "恰到好处，不多不少。",
     "features.filefy.title": "复制即文件",
-    "features.filefy.desc": "文本一键粘贴为 .txt 文件，截图直接粘贴为图片文件。可拖入访达、文件对话框或任何支持文件的应用。",
+    "features.filefy.desc": "文本一键粘贴为 <strong>.txt 文件</strong>，截图直接粘贴为<strong>图片文件</strong>。可拖入访达、文件对话框或任何支持文件的应用。",
     "features.ai.title": "AI 终端就绪",
-    "features.ai.desc": "无缝粘贴图片和文件到 AI 终端。为命令行和 AI 工作流而生的开发者利器。",
+    "features.ai.desc": "无缝粘贴<strong>图片和文件</strong>到 AI 终端。为<strong>命令行</strong>和 AI 工作流而生的开发者利器。",
     "features.smart.title": "智能识别",
-    "features.smart.desc": "自动检测内容类型——链接自动抓取图标、代码片段、颜色值、电话号码、文件路径——并进行智能预览。",
+    "features.smart.desc": "自动检测内容类型——<strong>链接</strong>自动抓取图标、<strong>代码片段</strong>、颜色值、电话号码、文件路径——并进行<strong>智能预览</strong>。",
     "features.reuse.title": "不止复制粘贴",
-    "features.reuse.desc": "粘贴路径、粘贴文件名、保存到文件夹、粘贴后自动回车。每条记录都是一把瑞士军刀。",
+    "features.reuse.desc": "粘贴<strong>路径</strong>、粘贴<strong>文件名</strong>、保存到文件夹、<strong>粘贴后自动回车</strong>。每条记录都是一把瑞士军刀。",
     "features.pin.title": "置顶",
     "features.pin.desc": "常用内容一键置顶，始终在列表最上方，随时一点即用。",
     "features.appfilter.title": "按应用筛选",
@@ -830,13 +834,13 @@ const i18n = {
     "screenshot.placeholder": "スクリーンショットは近日公開",
     "features.title": "必要なものだけ、過不足なく。",
     "features.filefy.title": "コピー → ファイル、一瞬で",
-    "features.filefy.desc": "コピーしたテキストを .txt ファイルとして、スクリーンショットを画像ファイルとして貼り付け。Finder やファイルダイアログに直接ドラッグ。",
+    "features.filefy.desc": "コピーしたテキストを <strong>.txt ファイル</strong>として、スクリーンショットを<strong>画像ファイル</strong>として貼り付け。Finder やファイルダイアログに直接ドラッグ。",
     "features.ai.title": "AIターミナル対応",
-    "features.ai.desc": "AIターミナルに画像やファイルをシームレスに貼り付け。コマンドラインとAIワークフローで働く開発者のために。",
+    "features.ai.desc": "AIターミナルに<strong>画像やファイル</strong>をシームレスに貼り付け。<strong>コマンドライン</strong>とAIワークフローで働く開発者のために。",
     "features.smart.title": "スマート認識",
-    "features.smart.desc": "コンテンツタイプを自動検出——ファビコン付きリンク、コードスニペット、色、電話番号、ファイル——インテリジェントなプレビュー付き。",
+    "features.smart.desc": "コンテンツタイプを自動検出——ファビコン付き<strong>リンク</strong>、<strong>コードスニペット</strong>、色、電話番号、ファイル——<strong>インテリジェントなプレビュー</strong>付き。",
     "features.reuse.title": "コピペを超えて",
-    "features.reuse.desc": "ファイルパス、ファイル名の貼り付け、フォルダへの保存、ペースト＋Enterでターミナルコマンド実行。すべてのクリップが多機能ツールに。",
+    "features.reuse.desc": "<strong>ファイルパス</strong>、<strong>ファイル名</strong>の貼り付け、フォルダへの保存、<strong>ペースト＋Enter</strong>でターミナルコマンド実行。すべてのクリップが多機能ツールに。",
     "features.pin.title": "ピン留め",
     "features.pin.desc": "よく使うクリップをピン留め。常にリストの上部に表示、ワンクリックでアクセス。",
     "features.appfilter.title": "アプリ別フィルタ",
@@ -865,13 +869,13 @@ const i18n = {
     "screenshot.placeholder": "앱 스크린샷 곧 공개",
     "features.title": "필요한 것만, 딱 그만큼.",
     "features.filefy.title": "복사 → 파일, 즉시",
-    "features.filefy.desc": "복사한 텍스트를 .txt 파일로, 스크린샷을 이미지 파일로 붙여넣기. Finder나 파일 대화상자에 바로 드래그.",
+    "features.filefy.desc": "복사한 텍스트를 <strong>.txt 파일</strong>로, 스크린샷을 <strong>이미지 파일</strong>로 붙여넣기. Finder나 파일 대화상자에 바로 드래그.",
     "features.ai.title": "AI 터미널 지원",
-    "features.ai.desc": "AI 터미널에 이미지와 파일을 매끄럽게 붙여넣기. 커맨드라인과 AI 워크플로우를 위한 개발자 도구.",
+    "features.ai.desc": "AI 터미널에 <strong>이미지와 파일</strong>을 매끄럽게 붙여넣기. <strong>커맨드라인</strong>과 AI 워크플로우를 위한 개발자 도구.",
     "features.smart.title": "스마트 인식",
-    "features.smart.desc": "콘텐츠 유형 자동 감지 — 파비콘 포함 링크, 코드 스니펫, 색상, 전화번호, 파일 — 지능형 미리보기.",
+    "features.smart.desc": "콘텐츠 유형 자동 감지 — 파비콘 포함 <strong>링크</strong>, <strong>코드 스니펫</strong>, 색상, 전화번호, 파일 — <strong>지능형 미리보기</strong>.",
     "features.reuse.title": "복사-붙여넣기 그 이상",
-    "features.reuse.desc": "파일 경로, 파일명 붙여넣기, 폴더에 저장, 붙여넣기+엔터로 터미널 명령 실행. 모든 클립이 만능 도구.",
+    "features.reuse.desc": "<strong>파일 경로</strong>, <strong>파일명</strong> 붙여넣기, 폴더에 저장, <strong>붙여넣기+엔터</strong>로 터미널 명령 실행. 모든 클립이 만능 도구.",
     "features.pin.title": "상단 고정",
     "features.pin.desc": "자주 쓰는 클립을 고정. 항상 목록 상단에, 한 번의 클릭으로.",
     "features.appfilter.title": "앱별 필터",
@@ -900,13 +904,13 @@ const i18n = {
     "screenshot.placeholder": "Captures d'écran à venir",
     "features.title": "Tout ce qu'il faut, rien de superflu.",
     "features.filefy.title": "Copier → Fichier, instantanément",
-    "features.filefy.desc": "Collez du texte copié en fichier .txt, collez des captures d'écran en fichiers image. Glissez directement dans le Finder ou tout dialogue de fichiers.",
+    "features.filefy.desc": "Collez du texte copié en <strong>fichier .txt</strong>, collez des captures d'écran en <strong>fichiers image</strong>. Glissez directement dans le Finder ou tout dialogue de fichiers.",
     "features.ai.title": "Compatible terminal IA",
-    "features.ai.desc": "Collez images et fichiers dans les terminaux IA. Conçu pour les développeurs qui vivent en ligne de commande et dans les workflows IA.",
+    "features.ai.desc": "Collez <strong>images et fichiers</strong> dans les terminaux IA. Conçu pour les développeurs qui vivent en <strong>ligne de commande</strong> et dans les workflows IA.",
     "features.smart.title": "Reconnaissance intelligente",
-    "features.smart.desc": "Détecte automatiquement le type de contenu — liens avec favicons, extraits de code, couleurs, numéros de téléphone, fichiers — avec aperçu intelligent.",
+    "features.smart.desc": "Détecte automatiquement le type de contenu — <strong>liens</strong> avec favicons, <strong>extraits de code</strong>, couleurs, numéros de téléphone, fichiers — avec <strong>aperçu intelligent</strong>.",
     "features.reuse.title": "Au-delà du copier-coller",
-    "features.reuse.desc": "Collez chemins, noms de fichiers, enregistrez dans des dossiers, ou collez-et-validez pour le terminal. Chaque clip devient un outil polyvalent.",
+    "features.reuse.desc": "Collez <strong>chemins</strong>, <strong>noms de fichiers</strong>, enregistrez dans des dossiers, ou <strong>collez-et-validez</strong> pour le terminal. Chaque clip devient un outil polyvalent.",
     "features.pin.title": "Épingler en haut",
     "features.pin.desc": "Épinglez vos clips fréquents. Toujours en haut de la liste, à un clic.",
     "features.appfilter.title": "Filtrer par app",
@@ -935,13 +939,13 @@ const i18n = {
     "screenshot.placeholder": "App-Screenshots folgen",
     "features.title": "Alles, was du brauchst. Nichts, was du nicht brauchst.",
     "features.filefy.title": "Kopieren → Datei, sofort",
-    "features.filefy.desc": "Kopierten Text als .txt-Datei einfügen, Screenshots als Bilddateien. Direkt in den Finder, Dateidialoge oder jede App ziehen.",
+    "features.filefy.desc": "Kopierten Text als <strong>.txt-Datei</strong> einfügen, Screenshots als <strong>Bilddateien</strong>. Direkt in den Finder, Dateidialoge oder jede App ziehen.",
     "features.ai.title": "AI-Terminal kompatibel",
-    "features.ai.desc": "Bilder und Dateien nahtlos in AI-Terminals einfügen. Für Entwickler, die in der Kommandozeile und mit KI-Workflows arbeiten.",
+    "features.ai.desc": "<strong>Bilder und Dateien</strong> nahtlos in AI-Terminals einfügen. Für Entwickler, die in der <strong>Kommandozeile</strong> und mit KI-Workflows arbeiten.",
     "features.smart.title": "Intelligente Erkennung",
-    "features.smart.desc": "Erkennt Inhaltstypen automatisch — Links mit Favicons, Code-Snippets, Farben, Telefonnummern, Dateien — mit intelligenter Vorschau.",
+    "features.smart.desc": "Erkennt Inhaltstypen automatisch — <strong>Links</strong> mit Favicons, <strong>Code-Snippets</strong>, Farben, Telefonnummern, Dateien — mit <strong>intelligenter Vorschau</strong>.",
     "features.reuse.title": "Mehr als Kopieren & Einfügen",
-    "features.reuse.desc": "Dateipfade, Dateinamen einfügen, in Ordner speichern oder Einfügen+Enter für Terminal-Befehle. Jeder Clip wird zum Multitool.",
+    "features.reuse.desc": "<strong>Dateipfade</strong>, <strong>Dateinamen</strong> einfügen, in Ordner speichern oder <strong>Einfügen+Enter</strong> für Terminal-Befehle. Jeder Clip wird zum Multitool.",
     "features.pin.title": "Oben anheften",
     "features.pin.desc": "Häufig genutzte Clips anheften. Immer oben in der Liste, ein Klick entfernt.",
     "features.appfilter.title": "Nach App filtern",
@@ -970,13 +974,13 @@ const i18n = {
     "screenshot.placeholder": "Capturas de pantalla próximamente",
     "features.title": "Todo lo que necesitas, nada que no.",
     "features.filefy.title": "Copiar → Archivo, al instante",
-    "features.filefy.desc": "Pega texto copiado como archivo .txt, capturas de pantalla como archivos de imagen. Arrastra directamente al Finder o cualquier diálogo de archivos.",
+    "features.filefy.desc": "Pega texto copiado como <strong>archivo .txt</strong>, capturas de pantalla como <strong>archivos de imagen</strong>. Arrastra directamente al Finder o cualquier diálogo de archivos.",
     "features.ai.title": "Compatible con terminal IA",
-    "features.ai.desc": "Pega imágenes y archivos en terminales IA. Diseñado para desarrolladores que viven en la línea de comandos y flujos de trabajo con IA.",
+    "features.ai.desc": "Pega <strong>imágenes y archivos</strong> en terminales IA. Diseñado para desarrolladores que viven en la <strong>línea de comandos</strong> y flujos de trabajo con IA.",
     "features.smart.title": "Reconocimiento inteligente",
-    "features.smart.desc": "Detecta automáticamente el tipo de contenido — enlaces con favicons, fragmentos de código, colores, números de teléfono, archivos — con vista previa inteligente.",
+    "features.smart.desc": "Detecta automáticamente el tipo de contenido — <strong>enlaces</strong> con favicons, <strong>fragmentos de código</strong>, colores, números de teléfono, archivos — con <strong>vista previa inteligente</strong>.",
     "features.reuse.title": "Más allá de copiar y pegar",
-    "features.reuse.desc": "Pega rutas, nombres de archivo, guarda en carpetas, o pega-y-ejecuta para comandos de terminal. Cada clip se convierte en una herramienta multiusos.",
+    "features.reuse.desc": "Pega <strong>rutas</strong>, <strong>nombres de archivo</strong>, guarda en carpetas, o <strong>pega-y-ejecuta</strong> para comandos de terminal. Cada clip se convierte en una herramienta multiusos.",
     "features.pin.title": "Fijar arriba",
     "features.pin.desc": "Fija tus clips frecuentes. Siempre en la parte superior, a un clic.",
     "features.appfilter.title": "Filtrar por app",
