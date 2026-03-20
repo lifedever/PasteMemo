@@ -640,7 +640,7 @@
         <a class="download-item" id="dlArm64" href="#">
           <span>
             <strong>Apple Silicon</strong>
-            <small>M1 / M2 / M3 / M4</small>
+            <small>M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
         <a class="download-item" id="dlX86" href="#">
@@ -1026,7 +1026,7 @@ function applyLanguage(lang) {
 }
 
 // --- Init ---
-let currentLang = detectLanguage();
+let currentLang = localStorage.getItem("lang") || detectLanguage();
 const langSelect = document.getElementById("langSelect");
 const themeToggle = document.getElementById("themeToggle");
 
@@ -1035,6 +1035,7 @@ applyLanguage(currentLang);
 
 langSelect.addEventListener("change", e => {
   currentLang = e.target.value;
+  localStorage.setItem("lang", currentLang);
   applyLanguage(currentLang);
 });
 
