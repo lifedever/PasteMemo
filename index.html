@@ -341,10 +341,48 @@
       margin-bottom: 48px;
     }
 
+    .features-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .highlight-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border-left: 3px solid var(--orange-500);
+      transition: box-shadow 0.2s;
+    }
+
+    .highlight-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    }
+
+    .highlight-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .highlight-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .highlight-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 20px;
     }
 
     .feature-card {
@@ -538,6 +576,7 @@
 
       .features { padding: 48px 16px; }
       .features h2 { font-size: 24px; margin-bottom: 28px; }
+      .features-highlights { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; gap: 16px; }
       .feature-card { padding: 20px; }
 
@@ -629,36 +668,62 @@
 <section class="features" id="features">
   <div class="features-inner">
     <h2 data-i18n="features.title">Everything you need, nothing you don't.</h2>
+
+    <!-- Highlights: 2-col large cards -->
+    <div class="features-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">📄</div>
+        <h3 data-i18n="features.filefy.title">Copy → File, Instantly</h3>
+        <p data-i18n="features.filefy.desc">Paste copied text as a .txt file, paste screenshots as image files. Drag directly into Finder, file dialogs, or any app that accepts files.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🤖</div>
+        <h3 data-i18n="features.ai.title">AI Terminal Ready</h3>
+        <p data-i18n="features.ai.desc">Seamlessly paste images and files into AI terminals. Built for developers who live in the command line and AI workflows.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🧠</div>
+        <h3 data-i18n="features.smart.title">Smart Recognition</h3>
+        <p data-i18n="features.smart.desc">Automatically detects content type — links with favicons, code snippets, colors, phone numbers, files — and shows intelligent previews.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">♻️</div>
+        <h3 data-i18n="features.reuse.title">Beyond Copy-Paste</h3>
+        <p data-i18n="features.reuse.desc">Paste file paths, filenames, save to folders, or paste-and-enter for terminal commands. Every clip becomes a multi-tool.</p>
+      </div>
+    </div>
+
+    <!-- Essentials: 3-col small cards -->
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3 data-i18n="features.history.title">Clipboard History</h3>
-        <p data-i18n="features.history.desc">Automatically captures text, links, images, code, and files. Never lose a copied item again.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3 data-i18n="features.quickpaste.title">Quick Paste</h3>
-        <p data-i18n="features.quickpaste.desc">Press a hotkey to instantly search and paste from history — without leaving your current app.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔍</div>
-        <h3 data-i18n="features.detection.title">Smart Detection</h3>
-        <p data-i18n="features.detection.desc">Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.</p>
-      </div>
       <div class="feature-card">
         <div class="feature-icon">📌</div>
         <h3 data-i18n="features.pin.title">Pin to Top</h3>
-        <p data-i18n="features.pin.desc">Pin important clips to keep them always at the top. Quick access to your most essential items.</p>
+        <p data-i18n="features.pin.desc">Pin frequently used clips. They stay at the top, always one click away.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <h3 data-i18n="features.lang.title">Multi-Language</h3>
-        <p data-i18n="features.lang.desc">Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.</p>
+        <div class="feature-icon">📱</div>
+        <h3 data-i18n="features.appfilter.title">Filter by App</h3>
+        <p data-i18n="features.appfilter.desc">See what you copied from which app. Filter clips by source — Chrome, VS Code, Figma, or any app.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⌨️</div>
+        <h3 data-i18n="features.hotkey.title">Global Hotkey</h3>
+        <p data-i18n="features.hotkey.desc">Press ⌘⇧V from anywhere to open Quick Paste. Search, select, paste — all without touching the mouse.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3 data-i18n="features.privacy.title">Fully Offline</h3>
+        <p data-i18n="features.privacy.desc">Zero network connections. Your clipboard data never leaves your Mac. No account, no cloud, no tracking.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🪶</div>
         <h3 data-i18n="features.native.title">Lightweight & Native</h3>
         <p data-i18n="features.native.desc">Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3 data-i18n="features.lang.title">7 Languages</h3>
+        <p data-i18n="features.lang.desc">English, 中文, 日本語, 한국어, Deutsch, Français, Español — switch anytime.</p>
       </div>
     </div>
   </div>
@@ -695,16 +760,24 @@ const i18n = {
     "hero.download": "Download for macOS",
     "screenshot.placeholder": "App screenshot coming soon",
     "features.title": "Everything you need, nothing you don't.",
-    "features.history.title": "Clipboard History",
-    "features.history.desc": "Automatically captures text, links, images, code, and files. Never lose a copied item again.",
-    "features.quickpaste.title": "Quick Paste",
-    "features.quickpaste.desc": "Press a hotkey to instantly search and paste from history — without leaving your current app.",
-    "features.detection.title": "Smart Detection",
-    "features.detection.desc": "Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.",
+    "features.filefy.title": "Copy → File, Instantly",
+    "features.filefy.desc": "Paste copied text as a .txt file, paste screenshots as image files. Drag directly into Finder, file dialogs, or any app that accepts files.",
+    "features.ai.title": "AI Terminal Ready",
+    "features.ai.desc": "Seamlessly paste images and files into AI terminals. Built for developers who live in the command line and AI workflows.",
+    "features.smart.title": "Smart Recognition",
+    "features.smart.desc": "Automatically detects content type — links with favicons, code snippets, colors, phone numbers, files — and shows intelligent previews.",
+    "features.reuse.title": "Beyond Copy-Paste",
+    "features.reuse.desc": "Paste file paths, filenames, save to folders, or paste-and-enter for terminal commands. Every clip becomes a multi-tool.",
     "features.pin.title": "Pin to Top",
-    "features.pin.desc": "Pin important clips to keep them always at the top. Quick access to your most essential items.",
-    "features.lang.title": "Multi-Language",
-    "features.lang.desc": "Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.",
+    "features.pin.desc": "Pin frequently used clips. They stay at the top, always one click away.",
+    "features.appfilter.title": "Filter by App",
+    "features.appfilter.desc": "See what you copied from which app. Filter clips by source — Chrome, VS Code, Figma, or any app.",
+    "features.hotkey.title": "Global Hotkey",
+    "features.hotkey.desc": "Press ⌘⇧V from anywhere to open Quick Paste. Search, select, paste — all without touching the mouse.",
+    "features.privacy.title": "Fully Offline",
+    "features.privacy.desc": "Zero network connections. Your clipboard data never leaves your Mac. No account, no cloud, no tracking.",
+    "features.lang.title": "7 Languages",
+    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — switch anytime.",
     "features.native.title": "Lightweight & Native",
     "features.native.desc": "Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.",
     "shortcut.title": "Access anywhere, instantly.",
@@ -722,16 +795,24 @@ const i18n = {
     "hero.download": "下载 macOS 版",
     "screenshot.placeholder": "应用截图即将上线",
     "features.title": "恰到好处，不多不少。",
-    "features.history.title": "剪贴板历史",
-    "features.history.desc": "自动记录文本、链接、图片、代码和文件，再也不会丢失复制过的内容。",
-    "features.quickpaste.title": "快速粘贴",
-    "features.quickpaste.desc": "按下快捷键，即刻搜索并粘贴历史记录，无需离开当前应用。",
-    "features.detection.title": "智能识别",
-    "features.detection.desc": "自动识别内容类型——链接自动抓取图标、代码片段、颜色值、文件路径等。",
+    "features.filefy.title": "复制即文件",
+    "features.filefy.desc": "文本一键粘贴为 .txt 文件，截图直接粘贴为图片文件。可拖入访达、文件对话框或任何支持文件的应用。",
+    "features.ai.title": "AI 终端就绪",
+    "features.ai.desc": "无缝粘贴图片和文件到 AI 终端。为命令行和 AI 工作流而生的开发者利器。",
+    "features.smart.title": "智能识别",
+    "features.smart.desc": "自动检测内容类型——链接自动抓取图标、代码片段、颜色值、电话号码、文件路径——并进行智能预览。",
+    "features.reuse.title": "不止复制粘贴",
+    "features.reuse.desc": "粘贴路径、粘贴文件名、保存到文件夹、粘贴后自动回车。每条记录都是一把瑞士军刀。",
     "features.pin.title": "置顶",
-    "features.pin.desc": "将重要内容置顶，始终保持在列表最上方，随时快速访问。",
-    "features.lang.title": "多语言支持",
-    "features.lang.desc": "完整支持英语、中文、日语、韩语、德语、法语和西班牙语。",
+    "features.pin.desc": "常用内容一键置顶，始终在列表最上方，随时一点即用。",
+    "features.appfilter.title": "按应用筛选",
+    "features.appfilter.desc": "清楚看到每条记录来自哪个应用。按来源筛选——Chrome、VS Code、Figma，一目了然。",
+    "features.hotkey.title": "全局快捷键",
+    "features.hotkey.desc": "在任何应用中按下 ⌘⇧V 打开快捷粘贴。搜索、选择、粘贴，全程不碰鼠标。",
+    "features.privacy.title": "完全离线",
+    "features.privacy.desc": "零网络连接，剪贴板数据绝不离开你的 Mac。无需账号、无需云端、无任何追踪。",
+    "features.lang.title": "7 种语言",
+    "features.lang.desc": "English、中文、日本語、한국어、Deutsch、Français、Español——随时切换。",
     "features.native.title": "轻量原生",
     "features.native.desc": "SwiftUI 原生构建，仅驻留菜单栏，不占用 Dock，CPU 和内存占用极低。",
     "shortcut.title": "随时随地，即刻访问。",
@@ -749,16 +830,24 @@ const i18n = {
     "hero.download": "macOS 版をダウンロード",
     "screenshot.placeholder": "スクリーンショットは近日公開",
     "features.title": "必要なものだけ、過不足なく。",
-    "features.history.title": "クリップボード履歴",
-    "features.history.desc": "テキスト、リンク、画像、コード、ファイルを自動的にキャプチャ。コピーしたものを二度と失いません。",
-    "features.quickpaste.title": "クイックペースト",
-    "features.quickpaste.desc": "ホットキーで履歴を即座に検索してペースト。現在のアプリを離れる必要はありません。",
-    "features.detection.title": "スマート検出",
-    "features.detection.desc": "コンテンツタイプを自動認識——ファビコン付きリンク、コードスニペット、カラー、ファイルパスなど。",
+    "features.filefy.title": "コピー → ファイル、一瞬で",
+    "features.filefy.desc": "コピーしたテキストを .txt ファイルとして、スクリーンショットを画像ファイルとして貼り付け。Finder やファイルダイアログに直接ドラッグ。",
+    "features.ai.title": "AIターミナル対応",
+    "features.ai.desc": "AIターミナルに画像やファイルをシームレスに貼り付け。コマンドラインとAIワークフローで働く開発者のために。",
+    "features.smart.title": "スマート認識",
+    "features.smart.desc": "コンテンツタイプを自動検出——ファビコン付きリンク、コードスニペット、色、電話番号、ファイル——インテリジェントなプレビュー付き。",
+    "features.reuse.title": "コピペを超えて",
+    "features.reuse.desc": "ファイルパス、ファイル名の貼り付け、フォルダへの保存、ペースト＋Enterでターミナルコマンド実行。すべてのクリップが多機能ツールに。",
     "features.pin.title": "ピン留め",
-    "features.pin.desc": "重要なクリップをピン留めして常にリストのトップに表示。すぐにアクセスできます。",
-    "features.lang.title": "多言語対応",
-    "features.lang.desc": "英語、中国語、日本語、韓国語、ドイツ語、フランス語、スペイン語を完全サポート。",
+    "features.pin.desc": "よく使うクリップをピン留め。常にリストの上部に表示、ワンクリックでアクセス。",
+    "features.appfilter.title": "アプリ別フィルタ",
+    "features.appfilter.desc": "どのアプリからコピーしたか一目瞭然。Chrome、VS Code、Figmaなど、ソース別にフィルタ。",
+    "features.hotkey.title": "グローバルホットキー",
+    "features.hotkey.desc": "どこからでも⌘⇧Vでクイックペーストを起動。検索、選択、貼り付け——マウス不要。",
+    "features.privacy.title": "完全オフライン",
+    "features.privacy.desc": "ネットワーク接続ゼロ。クリップボードデータはMacの外に出ません。アカウント不要、クラウド不要、追跡なし。",
+    "features.lang.title": "7言語対応",
+    "features.lang.desc": "English、中文、日本語、한국어、Deutsch、Français、Español——いつでも切替。",
     "features.native.title": "軽量＆ネイティブ",
     "features.native.desc": "SwiftUI で構築。メニューバーに常駐し、Dock には表示されません。CPU・メモリ使用量は最小限。",
     "shortcut.title": "どこからでも、すぐにアクセス。",
@@ -776,16 +865,24 @@ const i18n = {
     "hero.download": "macOS용 다운로드",
     "screenshot.placeholder": "앱 스크린샷 곧 공개",
     "features.title": "필요한 것만, 딱 그만큼.",
-    "features.history.title": "클립보드 기록",
-    "features.history.desc": "텍스트, 링크, 이미지, 코드, 파일을 자동으로 캡처합니다. 복사한 항목을 다시는 잃어버리지 마세요.",
-    "features.quickpaste.title": "빠른 붙여넣기",
-    "features.quickpaste.desc": "단축키를 눌러 기록에서 즉시 검색하고 붙여넣기 — 현재 앱을 떠나지 않고도.",
-    "features.detection.title": "스마트 감지",
-    "features.detection.desc": "콘텐츠 유형을 자동 인식 — 파비콘이 포함된 링크, 코드 스니펫, 색상, 파일 경로 등.",
+    "features.filefy.title": "복사 → 파일, 즉시",
+    "features.filefy.desc": "복사한 텍스트를 .txt 파일로, 스크린샷을 이미지 파일로 붙여넣기. Finder나 파일 대화상자에 바로 드래그.",
+    "features.ai.title": "AI 터미널 지원",
+    "features.ai.desc": "AI 터미널에 이미지와 파일을 매끄럽게 붙여넣기. 커맨드라인과 AI 워크플로우를 위한 개발자 도구.",
+    "features.smart.title": "스마트 인식",
+    "features.smart.desc": "콘텐츠 유형 자동 감지 — 파비콘 포함 링크, 코드 스니펫, 색상, 전화번호, 파일 — 지능형 미리보기.",
+    "features.reuse.title": "복사-붙여넣기 그 이상",
+    "features.reuse.desc": "파일 경로, 파일명 붙여넣기, 폴더에 저장, 붙여넣기+엔터로 터미널 명령 실행. 모든 클립이 만능 도구.",
     "features.pin.title": "상단 고정",
-    "features.pin.desc": "중요한 클립을 고정하여 항상 목록 상단에 표시. 빠르게 접근할 수 있습니다.",
-    "features.lang.title": "다국어 지원",
-    "features.lang.desc": "영어, 중국어, 일본어, 한국어, 독일어, 프랑스어, 스페인어를 완벽 지원.",
+    "features.pin.desc": "자주 쓰는 클립을 고정. 항상 목록 상단에, 한 번의 클릭으로.",
+    "features.appfilter.title": "앱별 필터",
+    "features.appfilter.desc": "어떤 앱에서 복사했는지 한눈에. Chrome, VS Code, Figma 등 소스별 필터링.",
+    "features.hotkey.title": "글로벌 단축키",
+    "features.hotkey.desc": "어디서든 ⌘⇧V로 빠른 붙여넣기 실행. 검색, 선택, 붙여넣기 — 마우스 없이.",
+    "features.privacy.title": "완전 오프라인",
+    "features.privacy.desc": "네트워크 연결 제로. 클립보드 데이터는 Mac 밖으로 나가지 않습니다. 계정 불필요, 클라우드 불필요, 추적 없음.",
+    "features.lang.title": "7개 언어",
+    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — 언제든 전환.",
     "features.native.title": "가볍고 네이티브",
     "features.native.desc": "SwiftUI로 제작. 메뉴 바에만 상주하며, Dock에 표시되지 않습니다. 최소한의 CPU 및 메모리 사용.",
     "shortcut.title": "어디서든, 즉시 접근.",
@@ -803,16 +900,24 @@ const i18n = {
     "hero.download": "Télécharger pour macOS",
     "screenshot.placeholder": "Captures d'écran à venir",
     "features.title": "Tout ce qu'il faut, rien de superflu.",
-    "features.history.title": "Historique du presse-papiers",
-    "features.history.desc": "Capture automatiquement textes, liens, images, code et fichiers. Ne perdez plus jamais un élément copié.",
-    "features.quickpaste.title": "Collage rapide",
-    "features.quickpaste.desc": "Appuyez sur un raccourci pour rechercher et coller instantanément depuis l'historique — sans quitter votre application.",
-    "features.detection.title": "Détection intelligente",
-    "features.detection.desc": "Reconnaît automatiquement les types de contenu — liens avec favicons, extraits de code, couleurs, chemins de fichiers, et plus.",
+    "features.filefy.title": "Copier → Fichier, instantanément",
+    "features.filefy.desc": "Collez du texte copié en fichier .txt, collez des captures d'écran en fichiers image. Glissez directement dans le Finder ou tout dialogue de fichiers.",
+    "features.ai.title": "Compatible terminal IA",
+    "features.ai.desc": "Collez images et fichiers dans les terminaux IA. Conçu pour les développeurs qui vivent en ligne de commande et dans les workflows IA.",
+    "features.smart.title": "Reconnaissance intelligente",
+    "features.smart.desc": "Détecte automatiquement le type de contenu — liens avec favicons, extraits de code, couleurs, numéros de téléphone, fichiers — avec aperçu intelligent.",
+    "features.reuse.title": "Au-delà du copier-coller",
+    "features.reuse.desc": "Collez chemins, noms de fichiers, enregistrez dans des dossiers, ou collez-et-validez pour le terminal. Chaque clip devient un outil polyvalent.",
     "features.pin.title": "Épingler en haut",
-    "features.pin.desc": "Épinglez les clips importants pour qu'ils restent toujours en haut de la liste. Accès rapide garanti.",
-    "features.lang.title": "Multilingue",
-    "features.lang.desc": "Prise en charge complète de l'anglais, du chinois, du japonais, du coréen, de l'allemand, du français et de l'espagnol.",
+    "features.pin.desc": "Épinglez vos clips fréquents. Toujours en haut de la liste, à un clic.",
+    "features.appfilter.title": "Filtrer par app",
+    "features.appfilter.desc": "Voyez de quelle app provient chaque copie. Filtrez par source — Chrome, VS Code, Figma, ou toute autre app.",
+    "features.hotkey.title": "Raccourci global",
+    "features.hotkey.desc": "Appuyez sur ⌘⇧V depuis n'importe où pour ouvrir le collage rapide. Cherchez, sélectionnez, collez — sans toucher la souris.",
+    "features.privacy.title": "Totalement hors ligne",
+    "features.privacy.desc": "Zéro connexion réseau. Vos données de presse-papiers ne quittent jamais votre Mac. Pas de compte, pas de cloud, pas de tracking.",
+    "features.lang.title": "7 langues",
+    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — changez à tout moment.",
     "features.native.title": "Léger & Natif",
     "features.native.desc": "Construit avec SwiftUI. Vit dans la barre de menus, jamais dans le Dock. Utilisation minimale du CPU et de la mémoire.",
     "shortcut.title": "Accessible partout, instantanément.",
@@ -830,16 +935,24 @@ const i18n = {
     "hero.download": "Für macOS herunterladen",
     "screenshot.placeholder": "App-Screenshots folgen",
     "features.title": "Alles, was du brauchst. Nichts, was du nicht brauchst.",
-    "features.history.title": "Zwischenablage-Verlauf",
-    "features.history.desc": "Erfasst automatisch Texte, Links, Bilder, Code und Dateien. Verliere nie wieder ein kopiertes Element.",
-    "features.quickpaste.title": "Schnelles Einfügen",
-    "features.quickpaste.desc": "Drücke eine Tastenkombination, um den Verlauf sofort zu durchsuchen und einzufügen — ohne deine aktuelle App zu verlassen.",
-    "features.detection.title": "Intelligente Erkennung",
-    "features.detection.desc": "Erkennt Inhaltstypen automatisch — Links mit Favicons, Code-Snippets, Farben, Dateipfade und mehr.",
+    "features.filefy.title": "Kopieren → Datei, sofort",
+    "features.filefy.desc": "Kopierten Text als .txt-Datei einfügen, Screenshots als Bilddateien. Direkt in den Finder, Dateidialoge oder jede App ziehen.",
+    "features.ai.title": "AI-Terminal kompatibel",
+    "features.ai.desc": "Bilder und Dateien nahtlos in AI-Terminals einfügen. Für Entwickler, die in der Kommandozeile und mit KI-Workflows arbeiten.",
+    "features.smart.title": "Intelligente Erkennung",
+    "features.smart.desc": "Erkennt Inhaltstypen automatisch — Links mit Favicons, Code-Snippets, Farben, Telefonnummern, Dateien — mit intelligenter Vorschau.",
+    "features.reuse.title": "Mehr als Kopieren & Einfügen",
+    "features.reuse.desc": "Dateipfade, Dateinamen einfügen, in Ordner speichern oder Einfügen+Enter für Terminal-Befehle. Jeder Clip wird zum Multitool.",
     "features.pin.title": "Oben anheften",
-    "features.pin.desc": "Hefte wichtige Clips an, damit sie immer ganz oben in der Liste stehen. Schneller Zugriff garantiert.",
-    "features.lang.title": "Mehrsprachig",
-    "features.lang.desc": "Vollständige Unterstützung für Englisch, Chinesisch, Japanisch, Koreanisch, Deutsch, Französisch und Spanisch.",
+    "features.pin.desc": "Häufig genutzte Clips anheften. Immer oben in der Liste, ein Klick entfernt.",
+    "features.appfilter.title": "Nach App filtern",
+    "features.appfilter.desc": "Sieh, aus welcher App jede Kopie stammt. Filtere nach Quelle — Chrome, VS Code, Figma oder jede App.",
+    "features.hotkey.title": "Globales Tastenkürzel",
+    "features.hotkey.desc": "Drücke überall ⌘⇧V für Schnell-Einfügen. Suchen, auswählen, einfügen — ganz ohne Maus.",
+    "features.privacy.title": "Komplett offline",
+    "features.privacy.desc": "Null Netzwerkverbindungen. Deine Zwischenablage-Daten verlassen nie deinen Mac. Kein Konto, keine Cloud, kein Tracking.",
+    "features.lang.title": "7 Sprachen",
+    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — jederzeit wechseln.",
     "features.native.title": "Leicht & Nativ",
     "features.native.desc": "Mit SwiftUI gebaut. Lebt in der Menüleiste, nie im Dock. Minimaler CPU- und Speicherverbrauch.",
     "shortcut.title": "Überall erreichbar, sofort.",
@@ -857,16 +970,24 @@ const i18n = {
     "hero.download": "Descargar para macOS",
     "screenshot.placeholder": "Capturas de pantalla próximamente",
     "features.title": "Todo lo que necesitas, nada que no.",
-    "features.history.title": "Historial del portapapeles",
-    "features.history.desc": "Captura automáticamente texto, enlaces, imágenes, código y archivos. Nunca pierdas un elemento copiado.",
-    "features.quickpaste.title": "Pegado rápido",
-    "features.quickpaste.desc": "Pulsa un atajo para buscar y pegar al instante desde el historial, sin salir de tu aplicación actual.",
-    "features.detection.title": "Detección inteligente",
-    "features.detection.desc": "Reconoce tipos de contenido automáticamente: enlaces con favicons, fragmentos de código, colores, rutas de archivos y más.",
+    "features.filefy.title": "Copiar → Archivo, al instante",
+    "features.filefy.desc": "Pega texto copiado como archivo .txt, capturas de pantalla como archivos de imagen. Arrastra directamente al Finder o cualquier diálogo de archivos.",
+    "features.ai.title": "Compatible con terminal IA",
+    "features.ai.desc": "Pega imágenes y archivos en terminales IA. Diseñado para desarrolladores que viven en la línea de comandos y flujos de trabajo con IA.",
+    "features.smart.title": "Reconocimiento inteligente",
+    "features.smart.desc": "Detecta automáticamente el tipo de contenido — enlaces con favicons, fragmentos de código, colores, números de teléfono, archivos — con vista previa inteligente.",
+    "features.reuse.title": "Más allá de copiar y pegar",
+    "features.reuse.desc": "Pega rutas, nombres de archivo, guarda en carpetas, o pega-y-ejecuta para comandos de terminal. Cada clip se convierte en una herramienta multiusos.",
     "features.pin.title": "Fijar arriba",
-    "features.pin.desc": "Fija clips importantes para que siempre aparezcan en la parte superior de la lista. Acceso rápido garantizado.",
-    "features.lang.title": "Multiidioma",
-    "features.lang.desc": "Soporte completo para inglés, chino, japonés, coreano, alemán, francés y español.",
+    "features.pin.desc": "Fija tus clips frecuentes. Siempre en la parte superior, a un clic.",
+    "features.appfilter.title": "Filtrar por app",
+    "features.appfilter.desc": "Mira de qué app proviene cada copia. Filtra por origen — Chrome, VS Code, Figma, o cualquier app.",
+    "features.hotkey.title": "Atajo global",
+    "features.hotkey.desc": "Pulsa ⌘⇧V desde cualquier lugar para abrir el pegado rápido. Busca, selecciona, pega — sin tocar el ratón.",
+    "features.privacy.title": "Totalmente offline",
+    "features.privacy.desc": "Cero conexiones de red. Tus datos del portapapeles nunca salen de tu Mac. Sin cuenta, sin nube, sin rastreo.",
+    "features.lang.title": "7 idiomas",
+    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — cambia en cualquier momento.",
     "features.native.title": "Ligero y Nativo",
     "features.native.desc": "Construido con SwiftUI. Vive en la barra de menús, nunca en el Dock. Uso mínimo de CPU y memoria.",
     "shortcut.title": "Accede desde cualquier lugar, al instante.",
