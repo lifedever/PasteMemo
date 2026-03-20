@@ -645,13 +645,13 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" id="dlArm64" href="#">
+        <a class="download-item" href="https://github.com/lifedever/PasteMemo/releases">
           <span>
             <strong>Apple Silicon</strong>
             <small>M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" id="dlX86" href="#">
+        <a class="download-item" href="https://github.com/lifedever/PasteMemo/releases">
           <span>
             <strong>Intel</strong>
             <small>x86_64</small>
@@ -1101,7 +1101,6 @@ themeToggle.addEventListener("click", () => {
 })();
 
 // --- Download dropdown ---
-let releaseCache = null;
 const downloadMenu = document.getElementById("downloadMenu");
 
 function toggleDropdown() {
@@ -1112,52 +1111,6 @@ document.addEventListener("click", e => {
   if (!e.target.closest(".download-dropdown")) {
     downloadMenu.classList.remove("show");
   }
-});
-
-function latestRelease(releases) {
-  if (!releases || !releases.length) return null;
-  return releases.reduce((a, b) => {
-    const av = a.tag_name.replace(/^[vV]/, "").split(".").map(Number);
-    const bv = b.tag_name.replace(/^[vV]/, "").split(".").map(Number);
-    for (let i = 0; i < Math.max(av.length, bv.length); i++) {
-      if ((bv[i]||0) > (av[i]||0)) return b;
-      if ((bv[i]||0) < (av[i]||0)) return a;
-    }
-    return a;
-  });
-}
-
-async function fetchRelease() {
-  if (releaseCache) return releaseCache;
-  try {
-    const res = await fetch("https://api.github.com/repos/lifedever/PasteMemo/releases");
-    if (res.ok) {
-      const releases = await res.json();
-      const latest = latestRelease(releases);
-      if (latest) { releaseCache = latest; return releaseCache; }
-    }
-  } catch(e) {}
-  try {
-    const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
-    if (!res.ok) return null;
-    const releases = await res.json();
-    releaseCache = latestRelease(releases);
-    return releaseCache;
-  } catch(e) { return null; }
-}
-
-function findDmgUrl(release, arch) {
-  if (!release || !release.assets) return null;
-  const asset = release.assets.find(a => a.name.includes(arch) && a.name.endsWith(".dmg"));
-  return asset ? asset.browser_download_url : null;
-}
-
-fetchRelease().then(release => {
-  if (!release) return;
-  const arm64Url = findDmgUrl(release, "arm64");
-  const x86Url = findDmgUrl(release, "x86_64");
-  if (arm64Url) document.getElementById("dlArm64").href = arm64Url;
-  if (x86Url) document.getElementById("dlX86").href = x86Url;
 });
 </script>
 </body>
