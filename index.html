@@ -645,13 +645,13 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" href="https://github.com/lifedever/PasteMemo/releases">
+        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases">
           <span>
             <strong>Apple Silicon</strong>
             <small>M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" href="https://github.com/lifedever/PasteMemo/releases">
+        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases">
           <span>
             <strong>Intel</strong>
             <small>x86_64</small>
@@ -1112,6 +1112,21 @@ document.addEventListener("click", e => {
     downloadMenu.classList.remove("show");
   }
 });
+
+// --- Fetch latest.json for download links ---
+fetch("latest.json")
+  .then(r => r.json())
+  .then(data => {
+    if (data.downloads) {
+      if (data.downloads.arm64) {
+        document.getElementById("downloadArm64").href = data.downloads.arm64;
+      }
+      if (data.downloads.x86_64) {
+        document.getElementById("downloadX86").href = data.downloads.x86_64;
+      }
+    }
+  })
+  .catch(() => {});
 </script>
 </body>
 </html>
