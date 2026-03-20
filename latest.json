@@ -1,9 +1,9 @@
 {
-  "version": "0.2.0",
-  "notes_zh": "- **优化** 粘贴后的条目自动移到列表顶部，最近使用的内容始终在最前面",
-  "notes_en": "- **Improve** Pasted items now move to the top of the list, keeping recently used content front and center",
+  "version": "0.2.1",
+  "notes_zh": "- **修复** 更新检查失败时提供 GitHub/Gitee 手动下载链接\n- **修复** 切换链接时预览显示错误内容\n- **修复** 删除条目后偶发崩溃\n- **优化** 全局快捷键无需等待辅助功能授权即可生效",
+  "notes_en": "- **Fix** Show GitHub/Gitee download links when update check fails\n- **Fix** Link preview showing wrong content when switching URLs\n- **Fix** Occasional crash after deleting items\n- **Improve** Global hotkey works immediately without accessibility permission",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.1-x86_64.dmg"
   }
 }
