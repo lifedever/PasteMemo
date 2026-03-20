@@ -632,7 +632,7 @@
 </header>
 
 <section class="hero">
-  <span data-i18n="hero.beta" style="display:inline-block;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;font-size:13px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:0.5px;">Beta</span>
+  <span id="versionBadge" style="display:inline-block;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;font-size:13px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:0.5px;" data-i18n="hero.beta">Beta</span>
   <br>
   <img src="logo.svg" alt="PasteMemo" class="hero-icon">
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
@@ -659,6 +659,12 @@
         </a>
       </div>
     </div>
+    <p id="downloadFallback" style="display:none;margin-top:12px;font-size:13px;color:var(--text-muted);">
+      <span data-i18n="hero.download_trouble">Download issues?</span>
+      <a href="https://github.com/lifedever/PasteMemo/releases" style="color:var(--orange-500);text-decoration:none;">GitHub</a>
+      /
+      <a href="https://gitee.com/lifedever/pastememo/releases" style="color:var(--orange-500);text-decoration:none;">Gitee</a>
+    </p>
   </div>
 </section>
 
@@ -789,6 +795,7 @@ const i18n = {
     "features.native.desc": "Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.",
     "shortcut.title": "Access anywhere, instantly.",
     "shortcut.desc": "Press the shortcut to open Quick Paste panel from any app. Search, click, done.",
+    "hero.download_trouble": "Download issues?",
     "footer.releases": "Releases",
     "footer.issues": "Issues",
   },
@@ -824,6 +831,7 @@ const i18n = {
     "features.native.desc": "SwiftUI 原生构建，仅驻留菜单栏，不占用 Dock，CPU 和内存占用极低。",
     "shortcut.title": "随时随地，即刻访问。",
     "shortcut.desc": "在任意应用中按下快捷键，打开快速粘贴面板。搜索、点击、完成。",
+    "hero.download_trouble": "下载遇到问题？",
     "footer.releases": "版本发布",
     "footer.issues": "问题反馈",
   },
@@ -859,6 +867,7 @@ const i18n = {
     "features.native.desc": "SwiftUI で構築。メニューバーに常駐し、Dock には表示されません。CPU・メモリ使用量は最小限。",
     "shortcut.title": "どこからでも、すぐにアクセス。",
     "shortcut.desc": "どのアプリからでもショートカットを押すだけ。検索して、クリックして、完了。",
+    "hero.download_trouble": "ダウンロードに問題がありますか？",
     "footer.releases": "リリース",
     "footer.issues": "課題",
   },
@@ -894,6 +903,7 @@ const i18n = {
     "features.native.desc": "SwiftUI로 제작. 메뉴 바에만 상주하며, Dock에 표시되지 않습니다. 최소한의 CPU 및 메모리 사용.",
     "shortcut.title": "어디서든, 즉시 접근.",
     "shortcut.desc": "어떤 앱에서든 단축키를 눌러 빠른 붙여넣기 패널을 열 수 있습니다. 검색, 클릭, 완료.",
+    "hero.download_trouble": "다운로드에 문제가 있나요?",
     "footer.releases": "릴리스",
     "footer.issues": "이슈",
   },
@@ -929,6 +939,7 @@ const i18n = {
     "features.native.desc": "Construit avec SwiftUI. Vit dans la barre de menus, jamais dans le Dock. Utilisation minimale du CPU et de la mémoire.",
     "shortcut.title": "Accessible partout, instantanément.",
     "shortcut.desc": "Appuyez sur le raccourci pour ouvrir le panneau de collage rapide depuis n'importe quelle app. Cherchez, cliquez, c'est fait.",
+    "hero.download_trouble": "Problème de téléchargement ?",
     "footer.releases": "Versions",
     "footer.issues": "Problèmes",
   },
@@ -964,6 +975,7 @@ const i18n = {
     "features.native.desc": "Mit SwiftUI gebaut. Lebt in der Menüleiste, nie im Dock. Minimaler CPU- und Speicherverbrauch.",
     "shortcut.title": "Überall erreichbar, sofort.",
     "shortcut.desc": "Drücke die Tastenkombination, um das Schnell-Einfügen-Panel aus jeder App zu öffnen. Suchen, klicken, fertig.",
+    "hero.download_trouble": "Probleme beim Download?",
     "footer.releases": "Versionen",
     "footer.issues": "Probleme",
   },
@@ -999,6 +1011,7 @@ const i18n = {
     "features.native.desc": "Construido con SwiftUI. Vive en la barra de menús, nunca en el Dock. Uso mínimo de CPU y memoria.",
     "shortcut.title": "Accede desde cualquier lugar, al instante.",
     "shortcut.desc": "Pulsa el atajo para abrir el panel de pegado rápido desde cualquier app. Busca, haz clic, listo.",
+    "hero.download_trouble": "¿Problemas con la descarga?",
     "footer.releases": "Versiones",
     "footer.issues": "Problemas",
   },
@@ -1113,10 +1126,13 @@ document.addEventListener("click", e => {
   }
 });
 
-// --- Fetch latest.json for download links ---
+// --- Fetch latest.json for download links & version ---
 fetch("latest.json")
   .then(r => r.json())
   .then(data => {
+    if (data.version) {
+      document.getElementById("versionBadge").textContent = "v" + data.version;
+    }
     if (data.downloads) {
       if (data.downloads.arm64) {
         document.getElementById("downloadArm64").href = data.downloads.arm64;
@@ -1125,8 +1141,11 @@ fetch("latest.json")
         document.getElementById("downloadX86").href = data.downloads.x86_64;
       }
     }
+    document.getElementById("downloadFallback").style.display = "block";
   })
-  .catch(() => {});
+  .catch(() => {
+    document.getElementById("downloadFallback").style.display = "block";
+  });
 </script>
 </body>
 </html>
