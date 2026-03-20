@@ -515,11 +515,47 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .features-grid { grid-template-columns: 1fr; }
-      header { padding: 16px 20px; }
-      .hero { padding: 48px 20px 40px; }
-      .nav-links { gap: 16px; }
+      header { padding: 14px 16px; }
+      .logo-group span { font-size: 17px; }
+
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 13px; }
+      .nav-controls { gap: 6px; margin-left: 4px; }
+      .lang-select { font-size: 12px; padding: 4px 22px 4px 8px; }
+      .theme-toggle { width: 30px; height: 30px; }
+
+      .hero { padding: 40px 16px 32px; }
+      .hero-icon { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 24px; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 15px; margin-bottom: 24px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn { padding: 10px 24px; font-size: 14px; }
+
+      .download-menu { min-width: 200px; }
+
+      .screenshot-section { padding: 0 16px 48px; }
+      .carousel { border-radius: 10px; }
+
+      .features { padding: 48px 16px; }
+      .features h2 { font-size: 24px; margin-bottom: 28px; }
+      .features-grid { grid-template-columns: 1fr; gap: 16px; }
+      .feature-card { padding: 20px; }
+
+      .shortcut-section { padding: 48px 16px; }
+      .shortcut-section h2 { font-size: 22px; }
+      .shortcut-section p { font-size: 14px; }
+      kbd { padding: 6px 12px; font-size: 16px; }
+
+      footer { padding: 28px 16px; }
+      .footer-links { gap: 16px; }
+    }
+
+    @media (max-width: 420px) {
+      header { flex-wrap: wrap; gap: 8px; justify-content: center; }
+      .nav-links { width: 100%; justify-content: center; }
+      .hero h1 { font-size: 24px; }
+      .hero p { font-size: 14px; }
+      .features h2 { font-size: 20px; }
     }
   </style>
 </head>
