@@ -637,7 +637,7 @@
   <img src="logo.svg" alt="PasteMemo" class="hero-icon">
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
-  <div class="hero-actions">
+  <div id="download" class="hero-actions">
     <div class="download-dropdown">
       <button class="btn btn-primary" id="downloadBtn" onclick="toggleDropdown()">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -1125,6 +1125,10 @@ document.addEventListener("click", e => {
     downloadMenu.classList.remove("show");
   }
 });
+
+if (window.location.hash === "#download") {
+  downloadMenu.classList.add("show");
+}
 
 // --- Fetch latest.json for download links & version ---
 fetch("latest.json")
