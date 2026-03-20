@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Pure white background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <!-- Accent color - Vibrant Orange -->
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+    <!-- Front paper - light orange tint -->
+    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFEDD5"/>
+    </linearGradient>
+    <!-- Middle paper -->
+    <linearGradient id="middle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FED7AA"/>
+      <stop offset="100%" stop-color="#FDBA74"/>
+    </linearGradient>
+    <!-- Back paper -->
+    <linearGradient id="back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FB923C"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <!-- Shadows -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#C2410C" flood-opacity="0.3"/>
+    </filter>
+    <filter id="shadow2">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#C2410C" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- White background -->
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- Stacked papers -->
+  <g filter="url(#shadow2)">
+    <rect x="340" y="250" width="380" height="480" rx="24" fill="url(#back)" transform="rotate(6, 530, 490)"/>
+  </g>
+
+  <g filter="url(#shadow2)">
+    <rect x="320" y="270" width="380" height="480" rx="24" fill="url(#middle)" transform="rotate(-3, 510, 510)"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="300" y="290" width="380" height="480" rx="24" fill="url(#front)"/>
+
+    <!-- P letter -->
+    <g fill="url(#accent)">
+      <rect x="380" y="370" width="70" height="320" rx="8"/>
+      <path d="M 415 370
+               H 520
+               C 620 370, 620 530, 520 530
+               H 450
+               V 460
+               H 500
+               C 540 460, 540 440, 500 440
+               H 450
+               V 370
+               Z"/>
+    </g>
+  </g>
+
+  <!-- Text accents -->
+  <rect x="600" y="640" width="60" height="8" rx="4" fill="#FDBA74"/>
+  <rect x="600" y="660" width="40" height="8" rx="4" fill="#FED7AA"/>
+</svg>

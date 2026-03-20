@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PasteMemo — Smart Clipboard Manager for macOS</title>
+  <style>
+    :root {
+      --orange-50: #FFF7ED;
+      --orange-100: #FFEDD5;
+      --orange-400: #FB923C;
+      --orange-500: #F97316;
+      --orange-600: #EA580C;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-400: #9CA3AF;
+      --gray-500: #6B7280;
+      --gray-600: #4B5563;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+      color: var(--gray-800);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-group img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+
+    .logo-group span {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gray-900); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--gray-100);
+      color: var(--gray-800);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gray-50);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    /* Screenshot placeholder */
+    .screenshot-section {
+      text-align: center;
+      padding: 0 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .screenshot-placeholder {
+      background: var(--gray-50);
+      border: 2px dashed var(--gray-400);
+      border-radius: 16px;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      font-size: 16px;
+    }
+
+    /* Features */
+    .features {
+      padding: 80px 24px;
+      background: var(--gray-50);
+    }
+
+    .features-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--orange-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* Shortcut callout */
+    .shortcut-section {
+      padding: 80px 24px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .shortcut-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--gray-900);
+    }
+
+    .shortcut-section p {
+      font-size: 16px;
+      color: var(--gray-500);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .kbd-group {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    kbd {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--gray-100);
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      font-family: -apple-system, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gray-800);
+      box-shadow: 0 2px 0 #D1D5DB;
+    }
+
+    .kbd-plus {
+      font-size: 16px;
+      color: var(--gray-400);
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--gray-400);
+    }
+
+    footer a {
+      color: var(--gray-500);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--orange-500); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .features-grid { grid-template-columns: 1fr; }
+      header { padding: 16px 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-group">
+    <img src="logo.svg" alt="PasteMemo">
+    <span>PasteMemo</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#features">Features</a>
+    <a href="https://github.com/lifedever/PasteMemo/releases">Download</a>
+    <a href="https://github.com/lifedever/PasteMemo/issues">Feedback</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="logo.svg" alt="PasteMemo" class="hero-icon">
+  <h1>Your clipboard,<br><span class="highlight">supercharged.</span></h1>
+  <p>A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/lifedever/PasteMemo/releases/latest" class="btn btn-primary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Download for macOS
+    </a>
+    <a href="https://github.com/lifedever/PasteMemo" class="btn btn-secondary">
+      GitHub
+    </a>
+  </div>
+</section>
+
+<section class="screenshot-section">
+  <div class="screenshot-placeholder">App screenshot coming soon</div>
+</section>
+
+<section class="features" id="features">
+  <div class="features-inner">
+    <h2>Everything you need, nothing you don't.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Clipboard History</h3>
+        <p>Automatically captures text, links, images, code, and files. Never lose a copied item again.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Quick Paste</h3>
+        <p>Press a hotkey to instantly search and paste from history — without leaving your current app.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Smart Detection</h3>
+        <p>Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📌</div>
+        <h3>Pin & Favorite</h3>
+        <p>Pin important clips to keep them always accessible. Star your frequently used items for quick recall.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Multi-Language</h3>
+        <p>Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🪶</div>
+        <h3>Lightweight & Native</h3>
+        <p>Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortcut-section">
+  <h2>Access anywhere, instantly.</h2>
+  <p>Press the shortcut to open Quick Paste panel from any app. Search, click, done.</p>
+  <div class="kbd-group">
+    <kbd>⌘</kbd>
+    <span class="kbd-plus">+</span>
+    <kbd>⇧</kbd>
+    <span class="kbd-plus">+</span>
+    <kbd>V</kbd>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://github.com/lifedever/PasteMemo/releases">Releases</a>
+    <a href="https://github.com/lifedever/PasteMemo/issues">Issues</a>
+    <a href="https://github.com/lifedever/PasteMemo">GitHub</a>
+  </div>
+  <p>&copy; 2026 lifedever. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
