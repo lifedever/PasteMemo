@@ -11,25 +11,51 @@
       --orange-400: #FB923C;
       --orange-500: #F97316;
       --orange-600: #EA580C;
-      --gray-50: #F9FAFB;
-      --gray-100: #F3F4F6;
-      --gray-400: #9CA3AF;
-      --gray-500: #6B7280;
-      --gray-600: #4B5563;
-      --gray-800: #1F2937;
-      --gray-900: #111827;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #F3F4F6;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --kbd-bg: #F3F4F6;
+      --kbd-border: #E5E7EB;
+      --kbd-shadow: #D1D5DB;
+      --placeholder-bg: #F9FAFB;
+      --placeholder-border: #9CA3AF;
+      --btn-secondary-bg: #F3F4F6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --orange-50: rgba(249, 115, 22, 0.1);
+        --bg: #0F0F0F;
+        --bg-alt: #1A1A1A;
+        --card-bg: #1E1E1E;
+        --border: #2A2A2A;
+        --text: #E5E5E5;
+        --text-heading: #F5F5F5;
+        --text-secondary: #A3A3A3;
+        --text-muted: #737373;
+        --kbd-bg: #262626;
+        --kbd-border: #404040;
+        --kbd-shadow: #171717;
+        --placeholder-bg: #1A1A1A;
+        --placeholder-border: #525252;
+        --btn-secondary-bg: #262626;
+      }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-      color: var(--gray-800);
-      background: #fff;
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Header */
     header {
       padding: 20px 40px;
       display: flex;
@@ -54,7 +80,7 @@
     .logo-group span {
       font-size: 20px;
       font-weight: 600;
-      color: var(--gray-900);
+      color: var(--text-heading);
     }
 
     .nav-links {
@@ -64,15 +90,14 @@
     }
 
     .nav-links a {
-      color: var(--gray-500);
+      color: var(--text-secondary);
       text-decoration: none;
       font-size: 15px;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--gray-900); }
+    .nav-links a:hover { color: var(--text-heading); }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 80px 24px 60px;
@@ -93,7 +118,7 @@
       font-weight: 700;
       letter-spacing: -0.5px;
       line-height: 1.15;
-      color: var(--gray-900);
+      color: var(--text-heading);
       margin-bottom: 16px;
     }
 
@@ -106,7 +131,7 @@
 
     .hero p {
       font-size: 18px;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       line-height: 1.6;
       margin-bottom: 36px;
     }
@@ -142,16 +167,15 @@
     }
 
     .btn-secondary {
-      background: var(--gray-100);
-      color: var(--gray-800);
+      background: var(--btn-secondary-bg);
+      color: var(--text);
     }
 
     .btn-secondary:hover {
-      background: var(--gray-50);
+      opacity: 0.85;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    /* Screenshot placeholder */
     .screenshot-section {
       text-align: center;
       padding: 0 24px 80px;
@@ -160,21 +184,20 @@
     }
 
     .screenshot-placeholder {
-      background: var(--gray-50);
-      border: 2px dashed var(--gray-400);
+      background: var(--placeholder-bg);
+      border: 2px dashed var(--placeholder-border);
       border-radius: 16px;
       height: 420px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gray-400);
+      color: var(--text-muted);
       font-size: 16px;
     }
 
-    /* Features */
     .features {
       padding: 80px 24px;
-      background: var(--gray-50);
+      background: var(--bg-alt);
     }
 
     .features-inner {
@@ -186,7 +209,7 @@
       text-align: center;
       font-size: 32px;
       font-weight: 700;
-      color: var(--gray-900);
+      color: var(--text-heading);
       margin-bottom: 48px;
     }
 
@@ -197,7 +220,7 @@
     }
 
     .feature-card {
-      background: #fff;
+      background: var(--card-bg);
       border-radius: 14px;
       padding: 28px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
@@ -205,7 +228,7 @@
     }
 
     .feature-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
 
     .feature-icon {
@@ -223,17 +246,16 @@
     .feature-card h3 {
       font-size: 17px;
       font-weight: 600;
-      color: var(--gray-900);
+      color: var(--text-heading);
       margin-bottom: 8px;
     }
 
     .feature-card p {
       font-size: 14px;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
-    /* Shortcut callout */
     .shortcut-section {
       padding: 80px 24px;
       text-align: center;
@@ -245,12 +267,12 @@
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 16px;
-      color: var(--gray-900);
+      color: var(--text-heading);
     }
 
     .shortcut-section p {
       font-size: 16px;
-      color: var(--gray-500);
+      color: var(--text-secondary);
       margin-bottom: 28px;
       line-height: 1.6;
     }
@@ -265,35 +287,34 @@
     kbd {
       display: inline-block;
       padding: 8px 16px;
-      background: var(--gray-100);
-      border: 1px solid #E5E7EB;
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
       border-radius: 8px;
       font-family: -apple-system, sans-serif;
       font-size: 18px;
       font-weight: 500;
-      color: var(--gray-800);
-      box-shadow: 0 2px 0 #D1D5DB;
+      color: var(--text);
+      box-shadow: 0 2px 0 var(--kbd-shadow);
     }
 
     .kbd-plus {
       font-size: 16px;
-      color: var(--gray-400);
+      color: var(--text-muted);
     }
 
-    /* Footer */
     footer {
       padding: 40px 24px;
       text-align: center;
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid var(--border);
     }
 
     footer p {
       font-size: 14px;
-      color: var(--gray-400);
+      color: var(--text-muted);
     }
 
     footer a {
-      color: var(--gray-500);
+      color: var(--text-secondary);
       text-decoration: none;
     }
 
@@ -306,7 +327,6 @@
       margin-bottom: 12px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 32px; }
       .features-grid { grid-template-columns: 1fr; }
@@ -324,89 +344,302 @@
     <span>PasteMemo</span>
   </div>
   <nav class="nav-links">
-    <a href="#features">Features</a>
-    <a href="https://github.com/lifedever/PasteMemo/releases">Download</a>
-    <a href="https://github.com/lifedever/PasteMemo/issues">Feedback</a>
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="nav.download">Download</a>
+    <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
   </nav>
 </header>
 
 <section class="hero">
   <img src="logo.svg" alt="PasteMemo" class="hero-icon">
-  <h1>Your clipboard,<br><span class="highlight">supercharged.</span></h1>
-  <p>A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
+  <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
+  <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
   <div class="hero-actions">
     <a href="https://github.com/lifedever/PasteMemo/releases/latest" class="btn btn-primary">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-      Download for macOS
+      <span data-i18n="hero.download">Download for macOS</span>
     </a>
-    <a href="https://github.com/lifedever/PasteMemo" class="btn btn-secondary">
-      GitHub
-    </a>
+    <a href="https://github.com/lifedever/PasteMemo" class="btn btn-secondary">GitHub</a>
   </div>
 </section>
 
 <section class="screenshot-section">
-  <div class="screenshot-placeholder">App screenshot coming soon</div>
+  <div class="screenshot-placeholder" data-i18n="screenshot.placeholder">App screenshot coming soon</div>
 </section>
 
 <section class="features" id="features">
   <div class="features-inner">
-    <h2>Everything you need, nothing you don't.</h2>
+    <h2 data-i18n="features.title">Everything you need, nothing you don't.</h2>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">📋</div>
-        <h3>Clipboard History</h3>
-        <p>Automatically captures text, links, images, code, and files. Never lose a copied item again.</p>
+        <h3 data-i18n="features.history.title">Clipboard History</h3>
+        <p data-i18n="features.history.desc">Automatically captures text, links, images, code, and files. Never lose a copied item again.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">⚡</div>
-        <h3>Quick Paste</h3>
-        <p>Press a hotkey to instantly search and paste from history — without leaving your current app.</p>
+        <h3 data-i18n="features.quickpaste.title">Quick Paste</h3>
+        <p data-i18n="features.quickpaste.desc">Press a hotkey to instantly search and paste from history — without leaving your current app.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔍</div>
-        <h3>Smart Detection</h3>
-        <p>Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.</p>
+        <h3 data-i18n="features.detection.title">Smart Detection</h3>
+        <p data-i18n="features.detection.desc">Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📌</div>
-        <h3>Pin & Favorite</h3>
-        <p>Pin important clips to keep them always accessible. Star your frequently used items for quick recall.</p>
+        <h3 data-i18n="features.pin.title">Pin & Favorite</h3>
+        <p data-i18n="features.pin.desc">Pin important clips to keep them always accessible. Star your frequently used items for quick recall.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌍</div>
-        <h3>Multi-Language</h3>
-        <p>Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.</p>
+        <h3 data-i18n="features.lang.title">Multi-Language</h3>
+        <p data-i18n="features.lang.desc">Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🪶</div>
-        <h3>Lightweight & Native</h3>
-        <p>Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
+        <h3 data-i18n="features.native.title">Lightweight & Native</h3>
+        <p data-i18n="features.native.desc">Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="shortcut-section">
-  <h2>Access anywhere, instantly.</h2>
-  <p>Press the shortcut to open Quick Paste panel from any app. Search, click, done.</p>
+  <h2 data-i18n="shortcut.title">Access anywhere, instantly.</h2>
+  <p data-i18n="shortcut.desc">Press the shortcut to open Quick Paste panel from any app. Search, click, done.</p>
   <div class="kbd-group">
-    <kbd>⌘</kbd>
-    <span class="kbd-plus">+</span>
-    <kbd>⇧</kbd>
-    <span class="kbd-plus">+</span>
+    <kbd>⌘</kbd><span class="kbd-plus">+</span>
+    <kbd>⇧</kbd><span class="kbd-plus">+</span>
     <kbd>V</kbd>
   </div>
 </section>
 
 <footer>
   <div class="footer-links">
-    <a href="https://github.com/lifedever/PasteMemo/releases">Releases</a>
-    <a href="https://github.com/lifedever/PasteMemo/issues">Issues</a>
+    <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="footer.releases">Releases</a>
+    <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="footer.issues">Issues</a>
     <a href="https://github.com/lifedever/PasteMemo">GitHub</a>
   </div>
   <p>&copy; 2026 lifedever. All rights reserved.</p>
 </footer>
 
+<script>
+const i18n = {
+  en: {
+    "nav.features": "Features",
+    "nav.download": "Download",
+    "nav.feedback": "Feedback",
+    "hero.title": 'Your clipboard,<br><span class="highlight">supercharged.</span>',
+    "hero.desc": "A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.",
+    "hero.download": "Download for macOS",
+    "screenshot.placeholder": "App screenshot coming soon",
+    "features.title": "Everything you need, nothing you don't.",
+    "features.history.title": "Clipboard History",
+    "features.history.desc": "Automatically captures text, links, images, code, and files. Never lose a copied item again.",
+    "features.quickpaste.title": "Quick Paste",
+    "features.quickpaste.desc": "Press a hotkey to instantly search and paste from history — without leaving your current app.",
+    "features.detection.title": "Smart Detection",
+    "features.detection.desc": "Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.",
+    "features.pin.title": "Pin & Favorite",
+    "features.pin.desc": "Pin important clips to keep them always accessible. Star your frequently used items for quick recall.",
+    "features.lang.title": "Multi-Language",
+    "features.lang.desc": "Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.",
+    "features.native.title": "Lightweight & Native",
+    "features.native.desc": "Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.",
+    "shortcut.title": "Access anywhere, instantly.",
+    "shortcut.desc": "Press the shortcut to open Quick Paste panel from any app. Search, click, done.",
+    "footer.releases": "Releases",
+    "footer.issues": "Issues",
+  },
+  "zh-Hans": {
+    "nav.features": "功能",
+    "nav.download": "下载",
+    "nav.feedback": "反馈",
+    "hero.title": '你的剪贴板，<br><span class="highlight">超级加强。</span>',
+    "hero.desc": "一款轻量级原生 macOS 剪贴板管理器，常驻菜单栏。自动记录你复制的一切，即搜即用，随处粘贴。",
+    "hero.download": "下载 macOS 版",
+    "screenshot.placeholder": "应用截图即将上线",
+    "features.title": "恰到好处，不多不少。",
+    "features.history.title": "剪贴板历史",
+    "features.history.desc": "自动记录文本、链接、图片、代码和文件，再也不会丢失复制过的内容。",
+    "features.quickpaste.title": "快速粘贴",
+    "features.quickpaste.desc": "按下快捷键，即刻搜索并粘贴历史记录，无需离开当前应用。",
+    "features.detection.title": "智能识别",
+    "features.detection.desc": "自动识别内容类型——链接自动抓取图标、代码片段、颜色值、文件路径等。",
+    "features.pin.title": "置顶与收藏",
+    "features.pin.desc": "置顶重要内容，收藏常用条目，随时快速访问。",
+    "features.lang.title": "多语言支持",
+    "features.lang.desc": "完整支持英语、中文、日语、韩语、德语、法语和西班牙语。",
+    "features.native.title": "轻量原生",
+    "features.native.desc": "SwiftUI 原生构建，仅驻留菜单栏，不占用 Dock，CPU 和内存占用极低。",
+    "shortcut.title": "随时随地，即刻访问。",
+    "shortcut.desc": "在任意应用中按下快捷键，打开快速粘贴面板。搜索、点击、完成。",
+    "footer.releases": "版本发布",
+    "footer.issues": "问题反馈",
+  },
+  ja: {
+    "nav.features": "機能",
+    "nav.download": "ダウンロード",
+    "nav.feedback": "フィードバック",
+    "hero.title": 'クリップボードを、<br><span class="highlight">もっとスマートに。</span>',
+    "hero.desc": "メニューバーに常駐する軽量なネイティブ macOS クリップボードマネージャー。コピーしたものを自動記録、すぐに検索、どこでもペースト。",
+    "hero.download": "macOS 版をダウンロード",
+    "screenshot.placeholder": "スクリーンショットは近日公開",
+    "features.title": "必要なものだけ、過不足なく。",
+    "features.history.title": "クリップボード履歴",
+    "features.history.desc": "テキスト、リンク、画像、コード、ファイルを自動的にキャプチャ。コピーしたものを二度と失いません。",
+    "features.quickpaste.title": "クイックペースト",
+    "features.quickpaste.desc": "ホットキーで履歴を即座に検索してペースト。現在のアプリを離れる必要はありません。",
+    "features.detection.title": "スマート検出",
+    "features.detection.desc": "コンテンツタイプを自動認識——ファビコン付きリンク、コードスニペット、カラー、ファイルパスなど。",
+    "features.pin.title": "ピン留め＆お気に入り",
+    "features.pin.desc": "重要なクリップをピン留めして常にアクセス可能に。よく使うアイテムをお気に入りに追加。",
+    "features.lang.title": "多言語対応",
+    "features.lang.desc": "英語、中国語、日本語、韓国語、ドイツ語、フランス語、スペイン語を完全サポート。",
+    "features.native.title": "軽量＆ネイティブ",
+    "features.native.desc": "SwiftUI で構築。メニューバーに常駐し、Dock には表示されません。CPU・メモリ使用量は最小限。",
+    "shortcut.title": "どこからでも、すぐにアクセス。",
+    "shortcut.desc": "どのアプリからでもショートカットを押すだけ。検索して、クリックして、完了。",
+    "footer.releases": "リリース",
+    "footer.issues": "課題",
+  },
+  ko: {
+    "nav.features": "기능",
+    "nav.download": "다운로드",
+    "nav.feedback": "피드백",
+    "hero.title": '당신의 클립보드,<br><span class="highlight">슈퍼 파워.</span>',
+    "hero.desc": "메뉴 바에 상주하는 가벼운 네이티브 macOS 클립보드 관리자. 복사한 모든 것을 자동 기록하고, 즉시 검색하고, 어디서든 붙여넣기.",
+    "hero.download": "macOS용 다운로드",
+    "screenshot.placeholder": "앱 스크린샷 곧 공개",
+    "features.title": "필요한 것만, 딱 그만큼.",
+    "features.history.title": "클립보드 기록",
+    "features.history.desc": "텍스트, 링크, 이미지, 코드, 파일을 자동으로 캡처합니다. 복사한 항목을 다시는 잃어버리지 마세요.",
+    "features.quickpaste.title": "빠른 붙여넣기",
+    "features.quickpaste.desc": "단축키를 눌러 기록에서 즉시 검색하고 붙여넣기 — 현재 앱을 떠나지 않고도.",
+    "features.detection.title": "스마트 감지",
+    "features.detection.desc": "콘텐츠 유형을 자동 인식 — 파비콘이 포함된 링크, 코드 스니펫, 색상, 파일 경로 등.",
+    "features.pin.title": "고정 & 즐겨찾기",
+    "features.pin.desc": "중요한 클립을 고정하여 항상 접근 가능하게. 자주 사용하는 항목을 즐겨찾기에 추가.",
+    "features.lang.title": "다국어 지원",
+    "features.lang.desc": "영어, 중국어, 일본어, 한국어, 독일어, 프랑스어, 스페인어를 완벽 지원.",
+    "features.native.title": "가볍고 네이티브",
+    "features.native.desc": "SwiftUI로 제작. 메뉴 바에만 상주하며, Dock에 표시되지 않습니다. 최소한의 CPU 및 메모리 사용.",
+    "shortcut.title": "어디서든, 즉시 접근.",
+    "shortcut.desc": "어떤 앱에서든 단축키를 눌러 빠른 붙여넣기 패널을 열 수 있습니다. 검색, 클릭, 완료.",
+    "footer.releases": "릴리스",
+    "footer.issues": "이슈",
+  },
+  fr: {
+    "nav.features": "Fonctionnalités",
+    "nav.download": "Télécharger",
+    "nav.feedback": "Retour",
+    "hero.title": 'Votre presse-papiers,<br><span class="highlight">surpuissant.</span>',
+    "hero.desc": "Un gestionnaire de presse-papiers macOS natif et léger, logé dans votre barre de menus. Capturez tout ce que vous copiez, retrouvez-le instantanément, collez-le partout.",
+    "hero.download": "Télécharger pour macOS",
+    "screenshot.placeholder": "Captures d'écran à venir",
+    "features.title": "Tout ce qu'il faut, rien de superflu.",
+    "features.history.title": "Historique du presse-papiers",
+    "features.history.desc": "Capture automatiquement textes, liens, images, code et fichiers. Ne perdez plus jamais un élément copié.",
+    "features.quickpaste.title": "Collage rapide",
+    "features.quickpaste.desc": "Appuyez sur un raccourci pour rechercher et coller instantanément depuis l'historique — sans quitter votre application.",
+    "features.detection.title": "Détection intelligente",
+    "features.detection.desc": "Reconnaît automatiquement les types de contenu — liens avec favicons, extraits de code, couleurs, chemins de fichiers, et plus.",
+    "features.pin.title": "Épingler & Favoris",
+    "features.pin.desc": "Épinglez les clips importants pour un accès permanent. Ajoutez vos éléments fréquents aux favoris.",
+    "features.lang.title": "Multilingue",
+    "features.lang.desc": "Prise en charge complète de l'anglais, du chinois, du japonais, du coréen, de l'allemand, du français et de l'espagnol.",
+    "features.native.title": "Léger & Natif",
+    "features.native.desc": "Construit avec SwiftUI. Vit dans la barre de menus, jamais dans le Dock. Utilisation minimale du CPU et de la mémoire.",
+    "shortcut.title": "Accessible partout, instantanément.",
+    "shortcut.desc": "Appuyez sur le raccourci pour ouvrir le panneau de collage rapide depuis n'importe quelle app. Cherchez, cliquez, c'est fait.",
+    "footer.releases": "Versions",
+    "footer.issues": "Problèmes",
+  },
+  de: {
+    "nav.features": "Funktionen",
+    "nav.download": "Download",
+    "nav.feedback": "Feedback",
+    "hero.title": 'Deine Zwischenablage,<br><span class="highlight">aufgeladen.</span>',
+    "hero.desc": "Ein leichtgewichtiger, nativer macOS-Zwischenablage-Manager in deiner Menüleiste. Erfasse alles, was du kopierst, finde es sofort, füge es überall ein.",
+    "hero.download": "Für macOS herunterladen",
+    "screenshot.placeholder": "App-Screenshots folgen",
+    "features.title": "Alles, was du brauchst. Nichts, was du nicht brauchst.",
+    "features.history.title": "Zwischenablage-Verlauf",
+    "features.history.desc": "Erfasst automatisch Texte, Links, Bilder, Code und Dateien. Verliere nie wieder ein kopiertes Element.",
+    "features.quickpaste.title": "Schnelles Einfügen",
+    "features.quickpaste.desc": "Drücke eine Tastenkombination, um den Verlauf sofort zu durchsuchen und einzufügen — ohne deine aktuelle App zu verlassen.",
+    "features.detection.title": "Intelligente Erkennung",
+    "features.detection.desc": "Erkennt Inhaltstypen automatisch — Links mit Favicons, Code-Snippets, Farben, Dateipfade und mehr.",
+    "features.pin.title": "Anheften & Favoriten",
+    "features.pin.desc": "Hefte wichtige Clips an, damit sie immer zugänglich sind. Markiere häufig verwendete Elemente als Favoriten.",
+    "features.lang.title": "Mehrsprachig",
+    "features.lang.desc": "Vollständige Unterstützung für Englisch, Chinesisch, Japanisch, Koreanisch, Deutsch, Französisch und Spanisch.",
+    "features.native.title": "Leicht & Nativ",
+    "features.native.desc": "Mit SwiftUI gebaut. Lebt in der Menüleiste, nie im Dock. Minimaler CPU- und Speicherverbrauch.",
+    "shortcut.title": "Überall erreichbar, sofort.",
+    "shortcut.desc": "Drücke die Tastenkombination, um das Schnell-Einfügen-Panel aus jeder App zu öffnen. Suchen, klicken, fertig.",
+    "footer.releases": "Versionen",
+    "footer.issues": "Probleme",
+  },
+  es: {
+    "nav.features": "Funciones",
+    "nav.download": "Descargar",
+    "nav.feedback": "Comentarios",
+    "hero.title": 'Tu portapapeles,<br><span class="highlight">potenciado.</span>',
+    "hero.desc": "Un gestor de portapapeles nativo y ligero para macOS que vive en tu barra de menús. Captura todo lo que copias, encuéntralo al instante, pégalo en cualquier lugar.",
+    "hero.download": "Descargar para macOS",
+    "screenshot.placeholder": "Capturas de pantalla próximamente",
+    "features.title": "Todo lo que necesitas, nada que no.",
+    "features.history.title": "Historial del portapapeles",
+    "features.history.desc": "Captura automáticamente texto, enlaces, imágenes, código y archivos. Nunca pierdas un elemento copiado.",
+    "features.quickpaste.title": "Pegado rápido",
+    "features.quickpaste.desc": "Pulsa un atajo para buscar y pegar al instante desde el historial, sin salir de tu aplicación actual.",
+    "features.detection.title": "Detección inteligente",
+    "features.detection.desc": "Reconoce tipos de contenido automáticamente: enlaces con favicons, fragmentos de código, colores, rutas de archivos y más.",
+    "features.pin.title": "Fijar y Favoritos",
+    "features.pin.desc": "Fija clips importantes para tenerlos siempre accesibles. Marca tus elementos más usados como favoritos.",
+    "features.lang.title": "Multiidioma",
+    "features.lang.desc": "Soporte completo para inglés, chino, japonés, coreano, alemán, francés y español.",
+    "features.native.title": "Ligero y Nativo",
+    "features.native.desc": "Construido con SwiftUI. Vive en la barra de menús, nunca en el Dock. Uso mínimo de CPU y memoria.",
+    "shortcut.title": "Accede desde cualquier lugar, al instante.",
+    "shortcut.desc": "Pulsa el atajo para abrir el panel de pegado rápido desde cualquier app. Busca, haz clic, listo.",
+    "footer.releases": "Versiones",
+    "footer.issues": "Problemas",
+  },
+};
+
+function detectLanguage() {
+  const langs = navigator.languages || [navigator.language];
+  for (const lang of langs) {
+    const lower = lang.toLowerCase();
+    if (lower.startsWith("zh")) return "zh-Hans";
+    if (lower.startsWith("ja")) return "ja";
+    if (lower.startsWith("ko")) return "ko";
+    if (lower.startsWith("fr")) return "fr";
+    if (lower.startsWith("de")) return "de";
+    if (lower.startsWith("es")) return "es";
+  }
+  return "en";
+}
+
+function applyLanguage(lang) {
+  const strings = i18n[lang] || i18n.en;
+  document.documentElement.lang = lang === "zh-Hans" ? "zh-CN" : lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (strings[key]) el.textContent = strings[key];
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const key = el.getAttribute("data-i18n-html");
+    if (strings[key]) el.innerHTML = strings[key];
+  });
+}
+
+applyLanguage(detectLanguage());
+</script>
 </body>
 </html>
