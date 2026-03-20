@@ -453,10 +453,11 @@
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
   <div class="hero-actions">
-    <a href="https://github.com/lifedever/PasteMemo/releases/latest" class="btn btn-primary">
+    <a id="downloadBtn" href="https://github.com/lifedever/PasteMemo/releases/latest" class="btn btn-primary" onclick="return handleDownload(event)">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       <span data-i18n="hero.download">Download for macOS</span>
     </a>
+    <a id="downloadAlt" href="#" style="display:none;font-size:13px;color:var(--text-muted);text-decoration:underline;align-self:center;" onclick="return handleAltDownload(event)"></a>
   </div>
 </section>
 
@@ -781,6 +782,91 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e =
 // Manual toggle
 themeToggle.addEventListener("click", () => {
   applyTheme(!isDark());
+});
+
+// --- Download ---
+let releaseCache = null;
+
+function detectArch() {
+  const ua = navigator.userAgent;
+  // Apple Silicon Macs report "ARM" in some browsers
+  if (/arm64|aarch64/i.test(ua)) return "arm64";
+  // Chrome on Apple Silicon may not say ARM, but we can check platform
+  if (navigator.platform === "MacIntel" && typeof navigator.cpuClass === "undefined") {
+    // Heuristic: if WebGL renderer contains "Apple" it's likely Apple Silicon
+    try {
+      const canvas = document.createElement("canvas");
+      const gl = canvas.getContext("webgl");
+      const renderer = gl && gl.getParameter(gl.RENDERER);
+      if (renderer && /apple/i.test(renderer)) return "arm64";
+    } catch(e) {}
+  }
+  return "arm64"; // Default to arm64 — most Mac users now
+}
+
+async function fetchRelease() {
+  if (releaseCache) return releaseCache;
+  // Try Gitee first, fallback to GitHub
+  try {
+    const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
+    if (res.ok) {
+      const releases = await res.json();
+      if (releases.length) { releaseCache = releases[0]; return releaseCache; }
+    }
+  } catch(e) {}
+  try {
+    const res = await fetch("https://api.github.com/repos/lifedever/PasteMemo/releases");
+    if (!res.ok) return null;
+    const releases = await res.json();
+    releaseCache = releases[0] || null;
+    return releaseCache;
+  } catch(e) { return null; }
+}
+
+function findDmgUrl(release, arch) {
+  if (!release || !release.assets) return null;
+  const asset = release.assets.find(a => a.name.includes(arch) && a.name.endsWith(".dmg"));
+  return asset ? asset.browser_download_url : null;
+}
+
+async function handleDownload(e) {
+  e.preventDefault();
+  const arch = detectArch();
+  const release = await fetchRelease();
+  const url = findDmgUrl(release, arch);
+  if (url) {
+    window.location.href = url;
+    // Show alt download link
+    const altArch = arch === "arm64" ? "x86_64" : "arm64";
+    const altUrl = findDmgUrl(release, altArch);
+    if (altUrl) {
+      const altBtn = document.getElementById("downloadAlt");
+      altBtn.href = altUrl;
+      altBtn.textContent = altArch === "x86_64" ? "Intel Mac" : "Apple Silicon";
+      altBtn.style.display = "inline";
+    }
+  } else {
+    window.location.href = "https://github.com/lifedever/PasteMemo/releases/latest";
+  }
+  return false;
+}
+
+function handleAltDownload(e) {
+  // href already set, let browser follow it
+  return true;
+}
+
+// Pre-fetch release info on page load
+fetchRelease().then(release => {
+  if (!release) return;
+  const altArch = detectArch() === "arm64" ? "x86_64" : "arm64";
+  const altUrl = findDmgUrl(release, altArch);
+  if (altUrl) {
+    const altBtn = document.getElementById("downloadAlt");
+    altBtn.href = altUrl;
+    altBtn.textContent = altArch === "x86_64" ? "Intel Mac" : "Apple Silicon";
+    altBtn.style.display = "inline";
+  }
 });
 </script>
 </body>
