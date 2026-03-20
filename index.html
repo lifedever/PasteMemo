@@ -411,6 +411,61 @@
       margin-bottom: 12px;
     }
 
+    /* Download dropdown */
+    .download-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .download-dropdown .btn { cursor: pointer; border: none; }
+
+    .download-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--card-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      min-width: 220px;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .download-menu.show { display: block; }
+
+    .download-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+
+    .download-item:hover { background: var(--bg-alt); }
+    .download-item + .download-item { border-top: 1px solid var(--border); }
+
+    .download-item strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text-heading);
+    }
+
+    .download-item small {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .download-item-icon {
+      font-size: 24px;
+      width: 32px;
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 32px; }
       .features-grid { grid-template-columns: 1fr; }
@@ -453,11 +508,29 @@
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
   <div class="hero-actions">
-    <a id="downloadBtn" href="https://github.com/lifedever/PasteMemo/releases/latest" class="btn btn-primary" onclick="return handleDownload(event)">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-      <span data-i18n="hero.download">Download for macOS</span>
-    </a>
-    <a id="downloadAlt" href="#" style="display:none;font-size:13px;color:var(--text-muted);text-decoration:underline;align-self:center;" onclick="return handleAltDownload(event)"></a>
+    <div class="download-dropdown">
+      <button class="btn btn-primary" id="downloadBtn" onclick="toggleDropdown()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span data-i18n="hero.download">Download for macOS</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="download-menu" id="downloadMenu">
+        <a class="download-item" id="dlArm64" href="#">
+          <span class="download-item-icon">🍎</span>
+          <span>
+            <strong>Apple Silicon</strong>
+            <small>M1 / M2 / M3 / M4</small>
+          </span>
+        </a>
+        <a class="download-item" id="dlX86" href="#">
+          <span class="download-item-icon">💻</span>
+          <span>
+            <strong>Intel</strong>
+            <small>x86_64</small>
+          </span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -784,29 +857,22 @@ themeToggle.addEventListener("click", () => {
   applyTheme(!isDark());
 });
 
-// --- Download ---
+// --- Download dropdown ---
 let releaseCache = null;
+const downloadMenu = document.getElementById("downloadMenu");
 
-function detectArch() {
-  const ua = navigator.userAgent;
-  // Apple Silicon Macs report "ARM" in some browsers
-  if (/arm64|aarch64/i.test(ua)) return "arm64";
-  // Chrome on Apple Silicon may not say ARM, but we can check platform
-  if (navigator.platform === "MacIntel" && typeof navigator.cpuClass === "undefined") {
-    // Heuristic: if WebGL renderer contains "Apple" it's likely Apple Silicon
-    try {
-      const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl");
-      const renderer = gl && gl.getParameter(gl.RENDERER);
-      if (renderer && /apple/i.test(renderer)) return "arm64";
-    } catch(e) {}
-  }
-  return "arm64"; // Default to arm64 — most Mac users now
+function toggleDropdown() {
+  downloadMenu.classList.toggle("show");
 }
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".download-dropdown")) {
+    downloadMenu.classList.remove("show");
+  }
+});
 
 async function fetchRelease() {
   if (releaseCache) return releaseCache;
-  // Try Gitee first, fallback to GitHub
   try {
     const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
     if (res.ok) {
@@ -829,44 +895,12 @@ function findDmgUrl(release, arch) {
   return asset ? asset.browser_download_url : null;
 }
 
-async function handleDownload(e) {
-  e.preventDefault();
-  const arch = detectArch();
-  const release = await fetchRelease();
-  const url = findDmgUrl(release, arch);
-  if (url) {
-    window.location.href = url;
-    // Show alt download link
-    const altArch = arch === "arm64" ? "x86_64" : "arm64";
-    const altUrl = findDmgUrl(release, altArch);
-    if (altUrl) {
-      const altBtn = document.getElementById("downloadAlt");
-      altBtn.href = altUrl;
-      altBtn.textContent = altArch === "x86_64" ? "Intel Mac" : "Apple Silicon";
-      altBtn.style.display = "inline";
-    }
-  } else {
-    window.location.href = "https://github.com/lifedever/PasteMemo/releases/latest";
-  }
-  return false;
-}
-
-function handleAltDownload(e) {
-  // href already set, let browser follow it
-  return true;
-}
-
-// Pre-fetch release info on page load
 fetchRelease().then(release => {
   if (!release) return;
-  const altArch = detectArch() === "arm64" ? "x86_64" : "arm64";
-  const altUrl = findDmgUrl(release, altArch);
-  if (altUrl) {
-    const altBtn = document.getElementById("downloadAlt");
-    altBtn.href = altUrl;
-    altBtn.textContent = altArch === "x86_64" ? "Intel Mac" : "Apple Silicon";
-    altBtn.style.display = "inline";
-  }
+  const arm64Url = findDmgUrl(release, "arm64");
+  const x86Url = findDmgUrl(release, "x86_64");
+  if (arm64Url) document.getElementById("dlArm64").href = arm64Url;
+  if (x86Url) document.getElementById("dlX86").href = x86Url;
 });
 </script>
 </body>
