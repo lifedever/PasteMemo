@@ -98,6 +98,88 @@
 
     .nav-links a:hover { color: var(--text-heading); }
 
+    /* Theme & Language controls */
+    .nav-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 8px;
+    }
+
+    .theme-toggle {
+      background: var(--btn-secondary-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+      color: var(--text-secondary);
+      line-height: 1;
+    }
+
+    .theme-toggle:hover { color: var(--text-heading); }
+
+    .lang-select {
+      background: var(--btn-secondary-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 26px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .lang-select:focus { outline: none; border-color: var(--orange-500); }
+
+    /* Force dark/light via class */
+    html.theme-dark {
+      --orange-50: rgba(249, 115, 22, 0.1);
+      --bg: #0F0F0F;
+      --bg-alt: #1A1A1A;
+      --card-bg: #1E1E1E;
+      --border: #2A2A2A;
+      --text: #E5E5E5;
+      --text-heading: #F5F5F5;
+      --text-secondary: #A3A3A3;
+      --text-muted: #737373;
+      --kbd-bg: #262626;
+      --kbd-border: #404040;
+      --kbd-shadow: #171717;
+      --placeholder-bg: #1A1A1A;
+      --placeholder-border: #525252;
+      --btn-secondary-bg: #262626;
+    }
+
+    html.theme-light {
+      --orange-50: #FFF7ED;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #F3F4F6;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --kbd-bg: #F3F4F6;
+      --kbd-border: #E5E7EB;
+      --kbd-shadow: #D1D5DB;
+      --placeholder-bg: #F9FAFB;
+      --placeholder-border: #9CA3AF;
+      --btn-secondary-bg: #F3F4F6;
+    }
+
     .hero {
       text-align: center;
       padding: 80px 24px 60px;
@@ -347,6 +429,18 @@
     <a href="#features" data-i18n="nav.features">Features</a>
     <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="nav.download">Download</a>
     <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
+    <div class="nav-controls">
+      <select class="lang-select" id="langSelect">
+        <option value="en">English</option>
+        <option value="zh-Hans">简体中文</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+      </select>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">☀️</button>
+    </div>
   </nav>
 </header>
 
@@ -388,8 +482,8 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon">📌</div>
-        <h3 data-i18n="features.pin.title">Pin & Favorite</h3>
-        <p data-i18n="features.pin.desc">Pin important clips to keep them always accessible. Star your frequently used items for quick recall.</p>
+        <h3 data-i18n="features.pin.title">Pin to Top</h3>
+        <p data-i18n="features.pin.desc">Pin important clips to keep them always at the top. Quick access to your most essential items.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌍</div>
@@ -441,8 +535,8 @@ const i18n = {
     "features.quickpaste.desc": "Press a hotkey to instantly search and paste from history — without leaving your current app.",
     "features.detection.title": "Smart Detection",
     "features.detection.desc": "Recognizes content types automatically — links with favicons, code snippets, colors, file paths, and more.",
-    "features.pin.title": "Pin & Favorite",
-    "features.pin.desc": "Pin important clips to keep them always accessible. Star your frequently used items for quick recall.",
+    "features.pin.title": "Pin to Top",
+    "features.pin.desc": "Pin important clips to keep them always at the top. Quick access to your most essential items.",
     "features.lang.title": "Multi-Language",
     "features.lang.desc": "Full support for English, Chinese, Japanese, Korean, German, French, and Spanish.",
     "features.native.title": "Lightweight & Native",
@@ -467,8 +561,8 @@ const i18n = {
     "features.quickpaste.desc": "按下快捷键，即刻搜索并粘贴历史记录，无需离开当前应用。",
     "features.detection.title": "智能识别",
     "features.detection.desc": "自动识别内容类型——链接自动抓取图标、代码片段、颜色值、文件路径等。",
-    "features.pin.title": "置顶与收藏",
-    "features.pin.desc": "置顶重要内容，收藏常用条目，随时快速访问。",
+    "features.pin.title": "置顶",
+    "features.pin.desc": "将重要内容置顶，始终保持在列表最上方，随时快速访问。",
     "features.lang.title": "多语言支持",
     "features.lang.desc": "完整支持英语、中文、日语、韩语、德语、法语和西班牙语。",
     "features.native.title": "轻量原生",
@@ -493,8 +587,8 @@ const i18n = {
     "features.quickpaste.desc": "ホットキーで履歴を即座に検索してペースト。現在のアプリを離れる必要はありません。",
     "features.detection.title": "スマート検出",
     "features.detection.desc": "コンテンツタイプを自動認識——ファビコン付きリンク、コードスニペット、カラー、ファイルパスなど。",
-    "features.pin.title": "ピン留め＆お気に入り",
-    "features.pin.desc": "重要なクリップをピン留めして常にアクセス可能に。よく使うアイテムをお気に入りに追加。",
+    "features.pin.title": "ピン留め",
+    "features.pin.desc": "重要なクリップをピン留めして常にリストのトップに表示。すぐにアクセスできます。",
     "features.lang.title": "多言語対応",
     "features.lang.desc": "英語、中国語、日本語、韓国語、ドイツ語、フランス語、スペイン語を完全サポート。",
     "features.native.title": "軽量＆ネイティブ",
@@ -519,8 +613,8 @@ const i18n = {
     "features.quickpaste.desc": "단축키를 눌러 기록에서 즉시 검색하고 붙여넣기 — 현재 앱을 떠나지 않고도.",
     "features.detection.title": "스마트 감지",
     "features.detection.desc": "콘텐츠 유형을 자동 인식 — 파비콘이 포함된 링크, 코드 스니펫, 색상, 파일 경로 등.",
-    "features.pin.title": "고정 & 즐겨찾기",
-    "features.pin.desc": "중요한 클립을 고정하여 항상 접근 가능하게. 자주 사용하는 항목을 즐겨찾기에 추가.",
+    "features.pin.title": "상단 고정",
+    "features.pin.desc": "중요한 클립을 고정하여 항상 목록 상단에 표시. 빠르게 접근할 수 있습니다.",
     "features.lang.title": "다국어 지원",
     "features.lang.desc": "영어, 중국어, 일본어, 한국어, 독일어, 프랑스어, 스페인어를 완벽 지원.",
     "features.native.title": "가볍고 네이티브",
@@ -545,8 +639,8 @@ const i18n = {
     "features.quickpaste.desc": "Appuyez sur un raccourci pour rechercher et coller instantanément depuis l'historique — sans quitter votre application.",
     "features.detection.title": "Détection intelligente",
     "features.detection.desc": "Reconnaît automatiquement les types de contenu — liens avec favicons, extraits de code, couleurs, chemins de fichiers, et plus.",
-    "features.pin.title": "Épingler & Favoris",
-    "features.pin.desc": "Épinglez les clips importants pour un accès permanent. Ajoutez vos éléments fréquents aux favoris.",
+    "features.pin.title": "Épingler en haut",
+    "features.pin.desc": "Épinglez les clips importants pour qu'ils restent toujours en haut de la liste. Accès rapide garanti.",
     "features.lang.title": "Multilingue",
     "features.lang.desc": "Prise en charge complète de l'anglais, du chinois, du japonais, du coréen, de l'allemand, du français et de l'espagnol.",
     "features.native.title": "Léger & Natif",
@@ -571,8 +665,8 @@ const i18n = {
     "features.quickpaste.desc": "Drücke eine Tastenkombination, um den Verlauf sofort zu durchsuchen und einzufügen — ohne deine aktuelle App zu verlassen.",
     "features.detection.title": "Intelligente Erkennung",
     "features.detection.desc": "Erkennt Inhaltstypen automatisch — Links mit Favicons, Code-Snippets, Farben, Dateipfade und mehr.",
-    "features.pin.title": "Anheften & Favoriten",
-    "features.pin.desc": "Hefte wichtige Clips an, damit sie immer zugänglich sind. Markiere häufig verwendete Elemente als Favoriten.",
+    "features.pin.title": "Oben anheften",
+    "features.pin.desc": "Hefte wichtige Clips an, damit sie immer ganz oben in der Liste stehen. Schneller Zugriff garantiert.",
     "features.lang.title": "Mehrsprachig",
     "features.lang.desc": "Vollständige Unterstützung für Englisch, Chinesisch, Japanisch, Koreanisch, Deutsch, Französisch und Spanisch.",
     "features.native.title": "Leicht & Nativ",
@@ -597,8 +691,8 @@ const i18n = {
     "features.quickpaste.desc": "Pulsa un atajo para buscar y pegar al instante desde el historial, sin salir de tu aplicación actual.",
     "features.detection.title": "Detección inteligente",
     "features.detection.desc": "Reconoce tipos de contenido automáticamente: enlaces con favicons, fragmentos de código, colores, rutas de archivos y más.",
-    "features.pin.title": "Fijar y Favoritos",
-    "features.pin.desc": "Fija clips importantes para tenerlos siempre accesibles. Marca tus elementos más usados como favoritos.",
+    "features.pin.title": "Fijar arriba",
+    "features.pin.desc": "Fija clips importantes para que siempre aparezcan en la parte superior de la lista. Acceso rápido garantizado.",
     "features.lang.title": "Multiidioma",
     "features.lang.desc": "Soporte completo para inglés, chino, japonés, coreano, alemán, francés y español.",
     "features.native.title": "Ligero y Nativo",
@@ -639,7 +733,50 @@ function applyLanguage(lang) {
   });
 }
 
-applyLanguage(detectLanguage());
+// --- Init ---
+let currentLang = detectLanguage();
+const langSelect = document.getElementById("langSelect");
+const themeToggle = document.getElementById("themeToggle");
+
+langSelect.value = currentLang;
+applyLanguage(currentLang);
+
+langSelect.addEventListener("change", e => {
+  currentLang = e.target.value;
+  applyLanguage(currentLang);
+});
+
+// Theme toggle
+let currentTheme = localStorage.getItem("theme") || "system";
+applyTheme(currentTheme);
+
+themeToggle.addEventListener("click", () => {
+  if (currentTheme === "dark") {
+    currentTheme = "light";
+  } else if (currentTheme === "light") {
+    currentTheme = "system";
+  } else {
+    currentTheme = "dark";
+  }
+  localStorage.setItem("theme", currentTheme);
+  applyTheme(currentTheme);
+});
+
+function applyTheme(theme) {
+  document.documentElement.classList.remove("theme-dark", "theme-light");
+  if (theme === "dark") {
+    document.documentElement.classList.add("theme-dark");
+    themeToggle.textContent = "🌙";
+    themeToggle.title = "Dark mode (click for system)";
+  } else if (theme === "light") {
+    document.documentElement.classList.add("theme-light");
+    themeToggle.textContent = "☀️";
+    themeToggle.title = "Light mode (click for dark)";
+  } else {
+    themeToggle.textContent = "💻";
+    themeToggle.title = "System mode (click for light)";
+  }
+}
 </script>
 </body>
 </html>
