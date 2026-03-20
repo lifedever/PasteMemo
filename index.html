@@ -632,8 +632,7 @@
 </header>
 
 <section class="hero">
-  <span id="versionBadge" style="display:inline-block;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;font-size:13px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:0.5px;" data-i18n="hero.beta">Beta</span>
-  <span id="versionNumber" style="display:inline-block;font-size:13px;font-weight:500;color:var(--text-secondary);margin-left:8px;margin-bottom:20px;letter-spacing:0.5px;"></span>
+  <span id="versionBadge" style="display:inline-block;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;font-size:13px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:0.5px;"><span data-i18n="hero.beta">Beta</span><span id="versionNumber" style="margin-left:6px;font-weight:400;opacity:0.85;"></span></span>
   <br>
   <img src="logo.svg" alt="PasteMemo" class="hero-icon">
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
@@ -1136,7 +1135,7 @@ fetch("latest.json")
   .then(r => r.json())
   .then(data => {
     if (data.version) {
-      document.getElementById("versionNumber").textContent = "v" + data.version;
+      document.getElementById("versionNumber").textContent = "· v" + data.version;
     }
     if (data.downloads) {
       if (data.downloads.arm64) {
