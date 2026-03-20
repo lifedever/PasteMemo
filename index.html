@@ -1130,7 +1130,7 @@ function latestRelease(releases) {
 async function fetchRelease() {
   if (releaseCache) return releaseCache;
   try {
-    const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
+    const res = await fetch("https://api.github.com/repos/lifedever/PasteMemo/releases");
     if (res.ok) {
       const releases = await res.json();
       const latest = latestRelease(releases);
@@ -1138,7 +1138,7 @@ async function fetchRelease() {
     }
   } catch(e) {}
   try {
-    const res = await fetch("https://api.github.com/repos/lifedever/PasteMemo/releases");
+    const res = await fetch("https://gitee.com/api/v5/repos/lifedever/pastememo/releases");
     if (!res.ok) return null;
     const releases = await res.json();
     releaseCache = latestRelease(releases);
