@@ -1,9 +1,10 @@
 {
-  "version": "0.2.2",
-  "notes_zh": "- **新增** 主窗口历史列表支持上下箭头键导航\n- **优化** 删除条目后自动高亮下一条\n- **修复** 文件/文件夹（.app等）大小计算错误\n- **新增** 代码语法高亮与语言检测\n- **优化** 文件大小显示与访达一致",
-  "notes_en": "- **New** Arrow key navigation in main history list\n- **Improve** Auto-select next item after deletion\n- **Fix** File/directory (.app bundles) size calculation\n- **New** Code syntax highlighting with language detection\n- **Improve** File size display matches Finder",
+  "version": "0.2.3",
+  "notes_zh": "- **修复** 快捷面板与主窗口上下箭头键冲突\n- **修复** 快捷面板重新打开时「粘贴到」显示旧应用\n- **修复** 快捷面板分类左右箭头无法循环切换",
+  "notes_en": "- **Fix** Arrow key conflict between quick panel and main window\n- **Fix** Paste-to app name not updating when quick panel reopened\n- **Fix** Type filter left/right arrow not cycling at boundaries",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.2-x86_64.dmg"
-  }
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.3-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.3-x86_64.dmg"
+  },
+  "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
