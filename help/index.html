@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PasteMemo — Help</title>
+  <link rel="icon" type="image/svg+xml" href="../logo-2.svg">
+  <style>
+    :root {
+      --orange-50: #FFF7ED;
+      --orange-100: #FFEDD5;
+      --orange-400: #FB923C;
+      --orange-500: #F97316;
+      --orange-600: #EA580C;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #F3F4F6;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --kbd-bg: #F3F4F6;
+      --kbd-border: #E5E7EB;
+      --kbd-shadow: #D1D5DB;
+      --placeholder-bg: #F9FAFB;
+      --placeholder-border: #9CA3AF;
+      --btn-secondary-bg: #F3F4F6;
+      --sidebar-w: 260px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --orange-50: rgba(249, 115, 22, 0.1);
+        --bg: #0F0F0F;
+        --bg-alt: #1A1A1A;
+        --card-bg: #1E1E1E;
+        --border: #2A2A2A;
+        --text: #E5E5E5;
+        --text-heading: #F5F5F5;
+        --text-secondary: #A3A3A3;
+        --text-muted: #737373;
+        --kbd-bg: #262626;
+        --kbd-border: #404040;
+        --kbd-shadow: #171717;
+        --placeholder-bg: #1A1A1A;
+        --placeholder-border: #525252;
+        --btn-secondary-bg: #262626;
+      }
+    }
+
+    html.theme-dark {
+      --orange-50: rgba(249, 115, 22, 0.1);
+      --bg: #0F0F0F;
+      --bg-alt: #1A1A1A;
+      --card-bg: #1E1E1E;
+      --border: #2A2A2A;
+      --text: #E5E5E5;
+      --text-heading: #F5F5F5;
+      --text-secondary: #A3A3A3;
+      --text-muted: #737373;
+      --kbd-bg: #262626;
+      --kbd-border: #404040;
+      --kbd-shadow: #171717;
+      --placeholder-bg: #1A1A1A;
+      --placeholder-border: #525252;
+      --btn-secondary-bg: #262626;
+    }
+
+    html.theme-light {
+      --orange-50: #FFF7ED;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #F3F4F6;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --kbd-bg: #F3F4F6;
+      --kbd-border: #E5E7EB;
+      --kbd-shadow: #D1D5DB;
+      --placeholder-bg: #F9FAFB;
+      --placeholder-border: #9CA3AF;
+      --btn-secondary-bg: #F3F4F6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Header ---- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-group img { width: 36px; height: 36px; border-radius: 8px; }
+    .logo-group span { font-size: 20px; font-weight: 600; color: var(--text-heading); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-heading); }
+    .nav-links a.active { color: var(--orange-500); font-weight: 500; }
+
+    .nav-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 8px;
+    }
+
+    .theme-toggle {
+      background: var(--btn-secondary-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+      color: var(--text-secondary);
+      line-height: 1;
+    }
+
+    .theme-toggle:hover { color: var(--text-heading); }
+
+    .lang-select {
+      background: var(--btn-secondary-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      padding-right: 26px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .lang-select:focus { outline: none; border-color: var(--orange-500); }
+
+    /* ---- Layout ---- */
+    .doc-layout {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: calc(100vh - 65px);
+    }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: sticky;
+      top: 65px;
+      height: calc(100vh - 65px);
+      overflow-y: auto;
+      padding: 24px 0 24px 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .sidebar-nav { list-style: none; }
+
+    .sidebar-nav li { margin-bottom: 2px; }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 7px 16px 7px 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 8px;
+      transition: all 0.15s;
+      line-height: 1.5;
+    }
+
+    .sidebar-nav a:hover {
+      color: var(--text-heading);
+      background: var(--bg-alt);
+    }
+
+    .sidebar-nav a.active {
+      color: var(--orange-500);
+      background: var(--orange-50);
+      font-weight: 500;
+    }
+
+    /* ---- Mobile sidebar toggle ---- */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+      cursor: pointer;
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 149;
+    }
+
+    /* ---- Content ---- */
+    .doc-content {
+      flex: 1;
+      min-width: 0;
+      padding: 40px 48px 80px;
+      max-width: 800px;
+    }
+
+    .doc-content section {
+      margin-bottom: 56px;
+    }
+
+    .doc-content h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+
+    .doc-content .subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .doc-content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+
+    .doc-content h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    .doc-content p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .doc-content ul, .doc-content ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .doc-content li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .doc-content strong { color: var(--text-heading); }
+
+    .doc-content code {
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 13px;
+      font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    }
+
+    kbd {
+      display: inline-block;
+      padding: 3px 8px;
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 6px;
+      font-family: -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 1px 0 var(--kbd-shadow);
+      line-height: 1.4;
+    }
+
+    .tip {
+      background: var(--orange-50);
+      border-left: 3px solid var(--orange-500);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .tip strong { color: var(--orange-600); }
+
+    /* ---- Shortcut tables ---- */
+    .shortcut-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 14px;
+    }
+
+    .shortcut-table th,
+    .shortcut-table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shortcut-table th {
+      font-weight: 600;
+      color: var(--text-heading);
+      background: var(--bg-alt);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .shortcut-table td:first-child {
+      white-space: nowrap;
+    }
+
+    .shortcut-table tr:last-child td { border-bottom: none; }
+
+    .shortcut-table tr:hover td {
+      background: var(--bg-alt);
+    }
+
+    /* ---- Divider ---- */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 8px;
+    }
+
+    .doc-img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      margin: 16px 0 24px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .doc-img { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    }
+    html.theme-dark .doc-img { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+
+    /* ---- Footer ---- */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p { font-size: 14px; color: var(--text-muted); }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--orange-500); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    /* ---- Pro badge ---- */
+    .pro-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      vertical-align: middle;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .header-inner { padding: 14px 16px; }
+      .logo-group span { font-size: 17px; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 13px; }
+      .nav-controls { gap: 6px; margin-left: 4px; }
+      .lang-select { font-size: 12px; padding: 4px 22px 4px 8px; }
+      .theme-toggle { width: 30px; height: 30px; }
+      .doc-content { padding: 24px 20px 60px; }
+      .doc-content h1 { font-size: 26px; }
+      .doc-content h2 { font-size: 20px; }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 150;
+        background: var(--bg);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding: 80px 20px 24px 20px;
+        width: 280px;
+        border-right: 1px solid var(--border);
+        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-overlay.show {
+        display: block;
+      }
+
+      .sidebar-toggle {
+        display: flex;
+      }
+
+      .doc-content {
+        padding: 24px 16px 80px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-inner { flex-wrap: wrap; gap: 8px; justify-content: center; }
+      .nav-links { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo-group" href="../">
+      <img src="../logo-2.svg" alt="PasteMemo">
+      <span>PasteMemo</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../#features" data-i18n="nav.features">Features</a>
+      <a href="./" class="active" data-i18n="nav.help">Help</a>
+      <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
+      <div class="nav-controls">
+        <select class="lang-select" id="langSelect">
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+          <option value="ru">Русский</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <ul class="sidebar-nav" id="sidebarNav">
+      <li><a href="#quick-start" data-i18n="sidebar.quickstart">Quick Start</a></li>
+      <li><a href="#quick-paste" data-i18n="sidebar.quickpaste">Quick Paste Panel</a></li>
+      <li><a href="#main-window" data-i18n="sidebar.mainwindow">Main Window</a></li>
+      <li><a href="#sensitive" data-i18n="sidebar.sensitive">Sensitive Content</a></li>
+      <li><a href="#ignored-apps" data-i18n="sidebar.ignored">Ignored Apps</a></li>
+      <li><a href="#data" data-i18n="sidebar.data">Data Management</a></li>
+      <li><a href="#rich-text" data-i18n="sidebar.richtext">Rich Text & Plain Text</a></li>
+      <li><a href="#sound" data-i18n="sidebar.sound">Sound Effects</a></li>
+      <li><a href="#shortcuts" data-i18n="sidebar.shortcuts">Keyboard Shortcuts</a></li>
+      <li><a href="#settings" data-i18n="sidebar.settings">Settings</a></li>
+      <li><a href="#pro" data-i18n="sidebar.pro">Pro Features</a></li>
+    </ul>
+  </aside>
+
+  <!-- Mobile sidebar overlay & toggle -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+  </button>
+
+  <!-- Content -->
+  <main class="doc-content">
+
+    <h1 data-i18n="doc.title">PasteMemo Help</h1>
+    <p class="subtitle" data-i18n="doc.subtitle">Everything you need to know about PasteMemo, the smart clipboard manager for macOS.</p>
+
+    <!-- 1. Quick Start -->
+    <section id="quick-start">
+      <hr class="section-divider">
+      <h2 data-i18n="s1.title">Quick Start</h2>
+
+      <h3 data-i18n="s1.launch.title">First Launch & Onboarding</h3>
+      <img src="images/onboarding.png" alt="Onboarding" class="doc-img">
+      <p data-i18n-html="s1.launch.desc">When you first open PasteMemo, a brief onboarding guide will walk you through the essential setup. PasteMemo runs as a <strong>menu bar app</strong> &mdash; you will see its icon in the top-right area of your screen. It does not appear in the Dock.</p>
+
+      <h3 data-i18n="s1.accessibility.title">Accessibility Permission</h3>
+      <p data-i18n-html="s1.accessibility.desc">PasteMemo requires <strong>Accessibility permission</strong> to simulate paste actions. On first install, macOS will prompt you to grant this in <strong>System Settings &gt; Privacy &amp; Security &gt; Accessibility</strong>. After a system or app update, the permission may need to be re-granted &mdash; simply toggle PasteMemo off and on again in the list.</p>
+
+      <h3 data-i18n="s1.shortcut.title">Setting Up the Quick Paste Shortcut</h3>
+      <p data-i18n-html="s1.shortcut.desc">The default shortcut is <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>. You can customize it in <strong>Settings &gt; General</strong>. This global shortcut opens the Quick Paste panel from any application.</p>
+    </section>
+
+    <!-- 2. Quick Paste Panel -->
+    <section id="quick-paste">
+      <hr class="section-divider">
+      <h2 data-i18n="s2.title">Quick Paste Panel</h2>
+      <img src="images/quick-paste-panel.png" alt="Quick Paste Panel" class="doc-img">
+
+      <h3 data-i18n="s2.open.title">Opening & Closing</h3>
+      <p data-i18n-html="s2.open.desc">Press your configured shortcut (default <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>) to open the panel. Press <kbd>Esc</kbd> or click outside the panel to close it.</p>
+
+      <h3 data-i18n="s2.search.title">Search & Filter</h3>
+      <p data-i18n-html="s2.search.desc">Start typing to search your clipboard history instantly. Use the <strong>type tabs</strong> at the top to filter by content type (Text, Image, Link, File, Code, Color). Switch between tabs with <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>&#8592;</kbd> <kbd>&#8594;</kbd>.</p>
+
+      <h3 data-i18n="s2.nav.title">Navigation</h3>
+      <p data-i18n-html="s2.nav.desc">Use <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> arrow keys to navigate items, or use the mouse/trackpad to scroll and click.</p>
+
+      <h3 data-i18n="s2.paste.title">Paste Actions</h3>
+      <ul>
+        <li data-i18n-html="s2.paste.enter"><kbd>Enter</kbd> &mdash; Paste with original formatting. When pasting text to Finder, it is saved as a file.</li>
+        <li data-i18n-html="s2.paste.shift"><kbd>Shift</kbd>+<kbd>Enter</kbd> &mdash; Paste and append a newline (great for terminal commands).</li>
+        <li data-i18n-html="s2.paste.cmd"><kbd>&#8984;</kbd>+<kbd>Enter</kbd> &mdash; Plain text paste (strips formatting). For files, this pastes the file path.</li>
+        <li data-i18n-html="s2.paste.dbl"><strong>Double-click</strong> &mdash; Same as Enter (paste with format).</li>
+      </ul>
+
+      <h3 data-i18n="s2.multi.title">Multi-Select</h3>
+      <p data-i18n-html="s2.multi.desc">Hold <kbd>&#8984;</kbd> and click to toggle individual items. Hold <kbd>Shift</kbd> and click to select a range. Use <kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> to extend the selection with the keyboard.</p>
+
+      <h3 data-i18n="s2.batch.title">Batch Paste</h3>
+      <p data-i18n="s2.batch.desc">When multiple items are selected, pressing Enter pastes them all. Items of the same type are merged (e.g., multiple text clips become one block), while different types are pasted sequentially.</p>
+
+      <h3 data-i18n="s2.other.title">Other Actions</h3>
+      <ul>
+        <li data-i18n-html="s2.other.copy"><kbd>&#8984;</kbd>+<kbd>C</kbd> &mdash; Copy the selected item to clipboard without pasting.</li>
+        <li data-i18n-html="s2.other.option">Hold <kbd>Option</kbd> &mdash; Temporarily reveal sensitive content for the current item.</li>
+        <li data-i18n-html="s2.other.preview"><kbd>&#8984;</kbd>+<kbd>O</kbd> &mdash; Preview item or open link in browser.</li>
+        <li data-i18n-html="s2.other.delete"><kbd>&#8984;</kbd>+<kbd>Delete</kbd> &mdash; Delete the selected item.</li>
+        <li data-i18n-html="s2.other.rightclick"><strong>Right-click</strong> &mdash; Context menu with pin, mark sensitive, copy, delete actions.</li>
+      </ul>
+
+      <div class="tip">
+        <strong data-i18n="s2.tip.label">Tip: </strong><span data-i18n="s2.tip.text">The footer of the Quick Paste panel shows context-sensitive shortcut hints based on what you have selected.</span>
+      </div>
+    </section>
+
+    <!-- 3. Main Window -->
+    <section id="main-window">
+      <hr class="section-divider">
+      <h2 data-i18n="s3.title">Main Window</h2>
+      <img src="images/main-window.png" alt="Main Window" class="doc-img">
+
+      <h3 data-i18n="s3.sidebar.title">Sidebar Filters</h3>
+      <p data-i18n="s3.sidebar.desc">The left sidebar provides quick filters: All, Pinned, Sensitive, filter by Type (text, image, link, file, code, color), and filter by Source App.</p>
+
+      <h3 data-i18n="s3.list.title">List Operations</h3>
+      <p data-i18n-html="s3.list.desc">Click to select an item. Use <kbd>&#8984;</kbd>+click for multi-select and <kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> for range selection. <kbd>&#8984;</kbd>+<kbd>A</kbd> selects all items in the current view.</p>
+
+      <h3 data-i18n="s3.detail.title">Detail View & Preview</h3>
+      <p data-i18n="s3.detail.desc">The right pane shows a detailed preview of the selected item. Rich text is rendered with its original formatting. Images are displayed at full resolution. Links show metadata and favicons.</p>
+
+      <h3 data-i18n="s3.edit.title">Edit Mode</h3>
+      <p data-i18n="s3.edit.desc">For text and code items, you can enter edit mode to modify the content before pasting. Changes are saved to the clipboard history.</p>
+
+      <h3 data-i18n="s3.copy.title">Copy</h3>
+      <p data-i18n-html="s3.copy.desc"><kbd>&#8984;</kbd>+<kbd>C</kbd> copies intelligently: if you have text selected in the detail view, it copies the selection. Otherwise, it copies the full item.</p>
+
+      <h3 data-i18n="s3.menu.title">Right-Click Menu</h3>
+      <p data-i18n="s3.menu.desc">Right-click any item for options: Pin/Unpin, Mark/Unmark Sensitive, Copy, Merge selected items, and Delete.</p>
+
+      <h3 data-i18n="s3.multiaction.title">Multi-Select Actions</h3>
+      <p data-i18n="s3.multiaction.desc">When multiple items are selected, an action panel appears at the bottom with bulk operations: Pin, Mark Sensitive, Merge into one item, and Delete.</p>
+    </section>
+
+    <!-- 4. Sensitive Content -->
+    <section id="sensitive">
+      <hr class="section-divider">
+      <h2 data-i18n="s4.title">Sensitive Content Protection</h2>
+      <img src="images/sensitive.png" alt="Sensitive Content" class="doc-img">
+
+      <h3 data-i18n="s4.auto.title">Auto-Detection</h3>
+      <p data-i18n="s4.auto.desc">PasteMemo uses multiple layers to automatically detect sensitive content:</p>
+      <ul>
+        <li data-i18n-html="s4.auto.apps"><strong>Source app detection</strong> &mdash; Content from password managers (1Password, Bitwarden, KeePass, etc.) is automatically marked sensitive.</li>
+        <li data-i18n-html="s4.auto.keyword"><strong>Keyword + context</strong> &mdash; Patterns like <code>password=</code>, <code>token:</code>, <code>secret_key</code>, etc.</li>
+        <li data-i18n-html="s4.auto.regex"><strong>Regex patterns</strong> &mdash; AWS keys, GitHub tokens, JWT tokens, SSH private keys, API keys, and more.</li>
+        <li data-i18n-html="s4.auto.entropy"><strong>High entropy strings</strong> &mdash; Random strings that look like passwords or tokens.</li>
+      </ul>
+
+      <h3 data-i18n="s4.exclude.title">What is NOT Marked Sensitive</h3>
+      <p data-i18n="s4.exclude.desc">Email addresses, phone numbers, CJK text, URLs, and plain names are not flagged as sensitive to avoid false positives.</p>
+
+      <h3 data-i18n="s4.display.title">Display</h3>
+      <p data-i18n-html="s4.display.desc">Sensitive items show partial masking: the first and last characters are visible, with the middle replaced by <code>&&bull;&bull;&bull;&bull;</code>. The source app badge is displayed alongside.</p>
+
+      <h3 data-i18n="s4.reveal.title">Revealing Content</h3>
+      <ul>
+        <li data-i18n-html="s4.reveal.btn">In the detail view, click the <strong>reveal button</strong> to show the full content. It auto-hides after 30 seconds.</li>
+        <li data-i18n-html="s4.reveal.option">In the Quick Paste panel, hold the <kbd>Option</kbd> key to peek at the current item only.</li>
+      </ul>
+
+      <h3 data-i18n="s4.manual.title">Manual Control</h3>
+      <p data-i18n="s4.manual.desc">You can manually mark or unmark items as sensitive via the right-click menu, both individually and in batch. The auto-detection can be toggled on/off in Settings.</p>
+
+      <div class="tip">
+        <strong data-i18n="s4.tip.label">Note: </strong><span data-i18n="s4.tip.text">Non-text content types (images, files, videos, audio) are not scanned for sensitive content.</span>
+      </div>
+    </section>
+
+    <!-- 5. Ignored Apps -->
+    <section id="ignored-apps">
+      <hr class="section-divider">
+      <h2><span data-i18n="s5.title">Ignored Apps</span> <span class="pro-badge">PRO</span></h2>
+
+      <p data-i18n="s5.desc">Prevent specific applications from being recorded in your clipboard history. Any content copied from an ignored app will be silently skipped.</p>
+
+      <h3 data-i18n="s5.configure.title">Configuration</h3>
+      <p data-i18n-html="s5.configure.desc">Go to <strong>Settings &gt; Rules</strong> to manage your ignored apps list. You can add apps from your currently running applications (with multi-select) or browse <code>/Applications</code>.</p>
+
+      <h3 data-i18n="s5.recommend.title">Recommendations</h3>
+      <p data-i18n="s5.recommend.desc">During onboarding, PasteMemo automatically recommends adding password managers to the ignore list for maximum security.</p>
+    </section>
+
+    <!-- 6. Data Management -->
+    <section id="data">
+      <hr class="section-divider">
+      <h2 data-i18n="s6.title">Data Management</h2>
+
+      <h3 data-i18n="s6.export.title">Export</h3>
+      <p data-i18n-html="s6.export.desc">Export your clipboard history to a <code>.pastememo</code> file. You can optionally enable <strong>AES-256-GCM encryption</strong> with a password. The filename includes a timestamp for easy identification.</p>
+
+      <h3 data-i18n="s6.import.title">Import</h3>
+      <p data-i18n="s6.import.desc">Import from a .pastememo file. Encryption is auto-detected (you will be prompted for the password if encrypted). Duplicate items are automatically skipped during import.</p>
+
+      <h3 data-i18n="s6.access.title">Quick Access</h3>
+      <p data-i18n="s6.access.desc">Export and Import are available from the File menu for convenient access.</p>
+
+      <h3 data-i18n="s6.clear.title">Clear Data</h3>
+      <p data-i18n-html="s6.clear.desc">You can clear all clipboard history from Settings. <strong>Pinned items are preserved</strong> and will not be deleted.</p>
+
+      <h3 data-i18n="s6.retention.title">History Retention</h3>
+      <p data-i18n="s6.retention.desc">The retention period is a soft filter. Changing it to a longer period will recover previously hidden items &mdash; no data is actually deleted until you explicitly clear it.</p>
+    </section>
+
+    <!-- 7. Rich Text -->
+    <section id="rich-text">
+      <hr class="section-divider">
+      <h2 data-i18n="s7.title">Rich Text & Plain Text</h2>
+      <img src="images/link-preview.png" alt="Link Preview" class="doc-img">
+
+      <h3 data-i18n="s7.capture.title">Capturing</h3>
+      <p data-i18n="s7.capture.desc">PasteMemo preserves the original formatting (RTF/HTML) from your clipboard. When you copy styled text from a browser, document, or editor, the formatting is retained.</p>
+
+      <h3 data-i18n="s7.paste.title">Paste Options</h3>
+      <ul>
+        <li data-i18n-html="s7.paste.enter"><kbd>Enter</kbd> &mdash; Paste with original formatting preserved.</li>
+        <li data-i18n-html="s7.paste.cmd"><kbd>&#8984;</kbd>+<kbd>Enter</kbd> &mdash; Strip all formatting and paste as plain text only.</li>
+      </ul>
+
+      <h3 data-i18n="s7.downgrade.title">Auto-Downgrade</h3>
+      <p data-i18n-html="s7.downgrade.desc">For 30+ apps that produce unnecessary rich text (WeChat, QQ, DingTalk, Slack, VS Code, JetBrains IDEs, Terminal, etc.), PasteMemo automatically strips formatting and stores content as plain text.</p>
+
+      <h3 data-i18n="s7.preview.title">Preview</h3>
+      <p data-i18n="s7.preview.desc">Rich text items are rendered with their full formatting in the Main Window detail view. Deduplication takes rich text data into account.</p>
+    </section>
+
+    <!-- 8. Sound Effects -->
+    <section id="sound">
+      <hr class="section-divider">
+      <h2 data-i18n="s8.title">Sound Effects</h2>
+
+      <p data-i18n="s8.desc">PasteMemo can play sound effects to provide auditory feedback:</p>
+      <ul>
+        <li data-i18n-html="s8.copy"><strong>Copy sound</strong> &mdash; Plays when any application copies content (global monitoring).</li>
+        <li data-i18n-html="s8.paste"><strong>Paste sound</strong> &mdash; Plays when you paste via PasteMemo.</li>
+      </ul>
+      <p data-i18n="s8.options">14 built-in system sounds are available. The sound previews when you select it in Settings. Each sound type can be independently enabled or disabled.</p>
+    </section>
+
+    <!-- 9. Keyboard Shortcuts -->
+    <section id="shortcuts">
+      <hr class="section-divider">
+      <h2 data-i18n="s9.title">Keyboard Shortcuts</h2>
+
+      <h3 data-i18n="s9.panel.title">Quick Paste Panel</h3>
+      <table class="shortcut-table">
+        <thead>
+          <tr>
+            <th data-i18n="s9.col.shortcut">Shortcut</th>
+            <th data-i18n="s9.col.action">Action</th>
+          </tr>
+        </thead>
+        <tbody id="panelShortcuts">
+          <tr><td><kbd>&#8593;</kbd> <kbd>&#8595;</kbd></td><td data-i18n="s9.p.nav">Navigate items</td></tr>
+          <tr><td><kbd>&#8592;</kbd> <kbd>&#8594;</kbd></td><td data-i18n="s9.p.tab">Switch type filter</td></tr>
+          <tr><td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd></td><td data-i18n="s9.p.tabtab">Switch type filter</td></tr>
+          <tr><td><kbd>Enter</kbd></td><td data-i18n="s9.p.enter">Paste (with format)</td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>Enter</kbd></td><td data-i18n="s9.p.shiftenter">Paste + newline</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>Enter</kbd></td><td data-i18n="s9.p.cmdenter">Plain text paste</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>C</kbd></td><td data-i18n="s9.p.copy">Copy to clipboard</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+Click</td><td data-i18n="s9.p.cmdclick">Toggle multi-select</td></tr>
+          <tr><td><kbd>Shift</kbd>+Click</td><td data-i18n="s9.p.shiftclick">Range select</td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd></td><td data-i18n="s9.p.shiftarrow">Extend selection</td></tr>
+          <tr><td><kbd>Option</kbd> <span data-i18n="s9.hold">(hold)</span></td><td data-i18n="s9.p.option">Peek sensitive content</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>O</kbd></td><td data-i18n="s9.p.preview">Preview / Open link</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>Delete</kbd></td><td data-i18n="s9.p.delete">Delete item</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td data-i18n="s9.p.esc">Close panel</td></tr>
+        </tbody>
+      </table>
+
+      <h3 data-i18n="s9.main.title">Main Window</h3>
+      <table class="shortcut-table">
+        <thead>
+          <tr>
+            <th data-i18n="s9.col.shortcut">Shortcut</th>
+            <th data-i18n="s9.col.action">Action</th>
+          </tr>
+        </thead>
+        <tbody id="mainShortcuts">
+          <tr><td><kbd>&#8593;</kbd> <kbd>&#8595;</kbd></td><td data-i18n="s9.m.nav">Navigate items</td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd></td><td data-i18n="s9.m.range">Range select</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>A</kbd></td><td data-i18n="s9.m.all">Select all</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>C</kbd></td><td data-i18n="s9.m.copy">Copy item / selected text</td></tr>
+          <tr><td><kbd>Delete</kbd></td><td data-i18n="s9.m.delete">Delete selected</td></tr>
+          <tr><td><kbd>Space</kbd></td><td data-i18n="s9.m.space">Quick Look</td></tr>
+        </tbody>
+      </table>
+
+      <h3 data-i18n="s9.modifier.title">Modifier Keys</h3>
+      <ul>
+        <li data-i18n-html="s9.modifier.cmd"><kbd>&#8984;</kbd> &mdash; Command</li>
+        <li data-i18n-html="s9.modifier.shift"><kbd>&#8679;</kbd> / <kbd>Shift</kbd> &mdash; Shift</li>
+        <li data-i18n-html="s9.modifier.option"><kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt</li>
+        <li data-i18n-html="s9.modifier.ctrl"><kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control</li>
+      </ul>
+    </section>
+
+    <!-- 10. Settings -->
+    <section id="settings">
+      <hr class="section-divider">
+      <h2 data-i18n="s10.title">Settings</h2>
+      <img src="images/settings-features.png" alt="Settings" class="doc-img">
+
+      <p data-i18n="s10.desc">The Settings window has 6 tabs:</p>
+      <ul>
+        <li data-i18n-html="s10.general"><strong>General</strong> &mdash; Launch at login, global shortcut, language, appearance, menu bar icon style.</li>
+        <li data-i18n-html="s10.features"><strong>Features</strong> &mdash; Sound effects, sensitive content detection, smart recognition toggles.</li>
+        <li data-i18n-html="s10.rules"><strong>Rules</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.</li>
+        <li data-i18n-html="s10.data"><strong>Data</strong> &mdash; History retention period, clear data, export/import.</li>
+        <li data-i18n-html="s10.pro"><strong>Pro</strong> &mdash; Manage your Pro subscription, view feature comparison.</li>
+        <li data-i18n-html="s10.about"><strong>About</strong> &mdash; Version info, acknowledgements, links.</li>
+      </ul>
+    </section>
+
+    <!-- 11. Pro Features -->
+    <section id="pro">
+      <hr class="section-divider">
+      <h2><span data-i18n="s11.title">Pro Features</span> <span class="pro-badge">PRO</span></h2>
+
+      <p data-i18n="s11.desc">PasteMemo Pro unlocks advanced capabilities:</p>
+      <ul>
+        <li data-i18n-html="s11.history"><strong>Unlimited history</strong> &mdash; Free version keeps the most recent items; Pro removes the limit.</li>
+        <li data-i18n-html="s11.grouping"><strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.</li>
+        <li data-i18n-html="s11.ignore"><strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.</li>
+        <li data-i18n-html="s11.icloud"><strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="footer.releases">Releases</a>
+    <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="footer.issues">Issues</a>
+    <a href="https://github.com/lifedever/PasteMemo">GitHub</a>
+  </div>
+  <p>&copy; 2026 lifedever. All rights reserved.</p>
+</footer>
+
+<script>
+// ---- i18n ----
+const i18n = {
+  en: {
+    "nav.features": "Features",
+    "nav.help": "Help",
+    "nav.feedback": "Feedback",
+    "footer.releases": "Releases",
+    "footer.issues": "Issues",
+    "sidebar.quickstart": "Quick Start",
+    "sidebar.quickpaste": "Quick Paste Panel",
+    "sidebar.mainwindow": "Main Window",
+    "sidebar.sensitive": "Sensitive Content",
+    "sidebar.ignored": "Ignored Apps",
+    "sidebar.data": "Data Management",
+    "sidebar.richtext": "Rich Text & Plain Text",
+    "sidebar.sound": "Sound Effects",
+    "sidebar.shortcuts": "Keyboard Shortcuts",
+    "sidebar.settings": "Settings",
+    "sidebar.pro": "Pro Features",
+    "doc.title": "PasteMemo Help",
+    "doc.subtitle": "Everything you need to know about PasteMemo, the smart clipboard manager for macOS.",
+    "s1.title": "Quick Start",
+    "s1.launch.title": "First Launch & Onboarding",
+    "s1.launch.desc": "When you first open PasteMemo, a brief onboarding guide will walk you through the essential setup. PasteMemo runs as a <strong>menu bar app</strong> &mdash; you will see its icon in the top-right area of your screen. It does not appear in the Dock.",
+    "s1.accessibility.title": "Accessibility Permission",
+    "s1.accessibility.desc": "PasteMemo requires <strong>Accessibility permission</strong> to simulate paste actions. On first install, macOS will prompt you to grant this in <strong>System Settings &gt; Privacy &amp; Security &gt; Accessibility</strong>. After a system or app update, the permission may need to be re-granted &mdash; simply toggle PasteMemo off and on again in the list.",
+    "s1.shortcut.title": "Setting Up the Quick Paste Shortcut",
+    "s1.shortcut.desc": "The default shortcut is <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>. You can customize it in <strong>Settings &gt; General</strong>. This global shortcut opens the Quick Paste panel from any application.",
+    "s2.title": "Quick Paste Panel",
+    "s2.open.title": "Opening & Closing",
+    "s2.open.desc": "Press your configured shortcut (default <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>) to open the panel. Press <kbd>Esc</kbd> or click outside the panel to close it.",
+    "s2.search.title": "Search & Filter",
+    "s2.search.desc": "Start typing to search your clipboard history instantly. Use the <strong>type tabs</strong> at the top to filter by content type (Text, Image, Link, File, Code, Color). Switch between tabs with <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> or <kbd>&#8592;</kbd> <kbd>&#8594;</kbd>.",
+    "s2.nav.title": "Navigation",
+    "s2.nav.desc": "Use <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> arrow keys to navigate items, or use the mouse/trackpad to scroll and click.",
+    "s2.paste.title": "Paste Actions",
+    "s2.paste.enter": "<kbd>Enter</kbd> &mdash; Paste with original formatting. When pasting text to Finder, it is saved as a file.",
+    "s2.paste.shift": "<kbd>Shift</kbd>+<kbd>Enter</kbd> &mdash; Paste and append a newline (great for terminal commands).",
+    "s2.paste.cmd": "<kbd>&#8984;</kbd>+<kbd>Enter</kbd> &mdash; Plain text paste (strips formatting). For files, this pastes the file path.",
+    "s2.paste.dbl": "<strong>Double-click</strong> &mdash; Same as Enter (paste with format).",
+    "s2.multi.title": "Multi-Select",
+    "s2.multi.desc": "Hold <kbd>&#8984;</kbd> and click to toggle individual items. Hold <kbd>Shift</kbd> and click to select a range. Use <kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> to extend the selection with the keyboard.",
+    "s2.batch.title": "Batch Paste",
+    "s2.batch.desc": "When multiple items are selected, pressing Enter pastes them all. Items of the same type are merged (e.g., multiple text clips become one block), while different types are pasted sequentially.",
+    "s2.other.title": "Other Actions",
+    "s2.other.copy": "<kbd>&#8984;</kbd>+<kbd>C</kbd> &mdash; Copy the selected item to clipboard without pasting.",
+    "s2.other.option": "Hold <kbd>Option</kbd> &mdash; Temporarily reveal sensitive content for the current item.",
+    "s2.other.preview": "<kbd>&#8984;</kbd>+<kbd>O</kbd> &mdash; Preview item or open link in browser.",
+    "s2.other.delete": "<kbd>&#8984;</kbd>+<kbd>Delete</kbd> &mdash; Delete the selected item.",
+    "s2.other.rightclick": "<strong>Right-click</strong> &mdash; Context menu with pin, mark sensitive, copy, delete actions.",
+    "s2.tip.label": "Tip: ",
+    "s2.tip.text": "The footer of the Quick Paste panel shows context-sensitive shortcut hints based on what you have selected.",
+    "s3.title": "Main Window",
+    "s3.sidebar.title": "Sidebar Filters",
+    "s3.sidebar.desc": "The left sidebar provides quick filters: All, Pinned, Sensitive, filter by Type (text, image, link, file, code, color), and filter by Source App.",
+    "s3.list.title": "List Operations",
+    "s3.list.desc": "Click to select an item. Use <kbd>&#8984;</kbd>+click for multi-select and <kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> for range selection. <kbd>&#8984;</kbd>+<kbd>A</kbd> selects all items in the current view.",
+    "s3.detail.title": "Detail View & Preview",
+    "s3.detail.desc": "The right pane shows a detailed preview of the selected item. Rich text is rendered with its original formatting. Images are displayed at full resolution. Links show metadata and favicons.",
+    "s3.edit.title": "Edit Mode",
+    "s3.edit.desc": "For text and code items, you can enter edit mode to modify the content before pasting. Changes are saved to the clipboard history.",
+    "s3.copy.title": "Copy",
+    "s3.copy.desc": "<kbd>&#8984;</kbd>+<kbd>C</kbd> copies intelligently: if you have text selected in the detail view, it copies the selection. Otherwise, it copies the full item.",
+    "s3.menu.title": "Right-Click Menu",
+    "s3.menu.desc": "Right-click any item for options: Pin/Unpin, Mark/Unmark Sensitive, Copy, Merge selected items, and Delete.",
+    "s3.multiaction.title": "Multi-Select Actions",
+    "s3.multiaction.desc": "When multiple items are selected, an action panel appears at the bottom with bulk operations: Pin, Mark Sensitive, Merge into one item, and Delete.",
+    "s4.title": "Sensitive Content Protection",
+    "s4.auto.title": "Auto-Detection",
+    "s4.auto.desc": "PasteMemo uses multiple layers to automatically detect sensitive content:",
+    "s4.auto.apps": "<strong>Source app detection</strong> &mdash; Content from password managers (1Password, Bitwarden, KeePass, etc.) is automatically marked sensitive.",
+    "s4.auto.keyword": "<strong>Keyword + context</strong> &mdash; Patterns like <code>password=</code>, <code>token:</code>, <code>secret_key</code>, etc.",
+    "s4.auto.regex": "<strong>Regex patterns</strong> &mdash; AWS keys, GitHub tokens, JWT tokens, SSH private keys, API keys, and more.",
+    "s4.auto.entropy": "<strong>High entropy strings</strong> &mdash; Random strings that look like passwords or tokens.",
+    "s4.exclude.title": "What is NOT Marked Sensitive",
+    "s4.exclude.desc": "Email addresses, phone numbers, CJK text, URLs, and plain names are not flagged as sensitive to avoid false positives.",
+    "s4.display.title": "Display",
+    "s4.display.desc": "Sensitive items show partial masking: the first and last characters are visible, with the middle replaced by <code>&&bull;&bull;&bull;&bull;</code>. The source app badge is displayed alongside.",
+    "s4.reveal.title": "Revealing Content",
+    "s4.reveal.btn": "In the detail view, click the <strong>reveal button</strong> to show the full content. It auto-hides after 30 seconds.",
+    "s4.reveal.option": "In the Quick Paste panel, hold the <kbd>Option</kbd> key to peek at the current item only.",
+    "s4.manual.title": "Manual Control",
+    "s4.manual.desc": "You can manually mark or unmark items as sensitive via the right-click menu, both individually and in batch. The auto-detection can be toggled on/off in Settings.",
+    "s4.tip.label": "Note: ",
+    "s4.tip.text": "Non-text content types (images, files, videos, audio) are not scanned for sensitive content.",
+    "s5.title": "Ignored Apps",
+    "s5.desc": "Prevent specific applications from being recorded in your clipboard history. Any content copied from an ignored app will be silently skipped.",
+    "s5.configure.title": "Configuration",
+    "s5.configure.desc": "Go to <strong>Settings &gt; Rules</strong> to manage your ignored apps list. You can add apps from your currently running applications (with multi-select) or browse <code>/Applications</code>.",
+    "s5.recommend.title": "Recommendations",
+    "s5.recommend.desc": "During onboarding, PasteMemo automatically recommends adding password managers to the ignore list for maximum security.",
+    "s6.title": "Data Management",
+    "s6.export.title": "Export",
+    "s6.export.desc": "Export your clipboard history to a <code>.pastememo</code> file. You can optionally enable <strong>AES-256-GCM encryption</strong> with a password. The filename includes a timestamp for easy identification.",
+    "s6.import.title": "Import",
+    "s6.import.desc": "Import from a .pastememo file. Encryption is auto-detected (you will be prompted for the password if encrypted). Duplicate items are automatically skipped during import.",
+    "s6.access.title": "Quick Access",
+    "s6.access.desc": "Export and Import are available from the File menu for convenient access.",
+    "s6.clear.title": "Clear Data",
+    "s6.clear.desc": "You can clear all clipboard history from Settings. <strong>Pinned items are preserved</strong> and will not be deleted.",
+    "s6.retention.title": "History Retention",
+    "s6.retention.desc": "The retention period is a soft filter. Changing it to a longer period will recover previously hidden items &mdash; no data is actually deleted until you explicitly clear it.",
+    "s7.title": "Rich Text & Plain Text",
+    "s7.capture.title": "Capturing",
+    "s7.capture.desc": "PasteMemo preserves the original formatting (RTF/HTML) from your clipboard. When you copy styled text from a browser, document, or editor, the formatting is retained.",
+    "s7.paste.title": "Paste Options",
+    "s7.paste.enter": "<kbd>Enter</kbd> &mdash; Paste with original formatting preserved.",
+    "s7.paste.cmd": "<kbd>&#8984;</kbd>+<kbd>Enter</kbd> &mdash; Strip all formatting and paste as plain text only.",
+    "s7.downgrade.title": "Auto-Downgrade",
+    "s7.downgrade.desc": "For 30+ apps that produce unnecessary rich text (WeChat, QQ, DingTalk, Slack, VS Code, JetBrains IDEs, Terminal, etc.), PasteMemo automatically strips formatting and stores content as plain text.",
+    "s7.preview.title": "Preview",
+    "s7.preview.desc": "Rich text items are rendered with their full formatting in the Main Window detail view. Deduplication takes rich text data into account.",
+    "s8.title": "Sound Effects",
+    "s8.desc": "PasteMemo can play sound effects to provide auditory feedback:",
+    "s8.copy": "<strong>Copy sound</strong> &mdash; Plays when any application copies content (global monitoring).",
+    "s8.paste": "<strong>Paste sound</strong> &mdash; Plays when you paste via PasteMemo.",
+    "s8.options": "14 built-in system sounds are available. The sound previews when you select it in Settings. Each sound type can be independently enabled or disabled.",
+    "s9.title": "Keyboard Shortcuts",
+    "s9.panel.title": "Quick Paste Panel",
+    "s9.main.title": "Main Window",
+    "s9.col.shortcut": "Shortcut",
+    "s9.col.action": "Action",
+    "s9.p.nav": "Navigate items",
+    "s9.p.tab": "Switch type filter",
+    "s9.p.tabtab": "Switch type filter",
+    "s9.p.enter": "Paste (with format)",
+    "s9.p.shiftenter": "Paste + newline",
+    "s9.p.cmdenter": "Plain text paste",
+    "s9.p.copy": "Copy to clipboard",
+    "s9.p.cmdclick": "Toggle multi-select",
+    "s9.p.shiftclick": "Range select",
+    "s9.p.shiftarrow": "Extend selection",
+    "s9.hold": "(hold)",
+    "s9.p.option": "Peek sensitive content",
+    "s9.p.preview": "Preview / Open link",
+    "s9.p.delete": "Delete item",
+    "s9.p.esc": "Close panel",
+    "s9.m.nav": "Navigate items",
+    "s9.m.range": "Range select",
+    "s9.m.all": "Select all",
+    "s9.m.copy": "Copy item / selected text",
+    "s9.m.delete": "Delete selected",
+    "s9.m.space": "Quick Look",
+    "s9.modifier.title": "Modifier Keys",
+    "s9.modifier.cmd": "<kbd>&#8984;</kbd> &mdash; Command",
+    "s9.modifier.shift": "<kbd>&#8679;</kbd> / <kbd>Shift</kbd> &mdash; Shift",
+    "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
+    "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
+    "s10.title": "Settings",
+    "s10.desc": "The Settings window has 6 tabs:",
+    "s10.general": "<strong>General</strong> &mdash; Launch at login, global shortcut, language, appearance, menu bar icon style.",
+    "s10.features": "<strong>Features</strong> &mdash; Sound effects, sensitive content detection, smart recognition toggles.",
+    "s10.rules": "<strong>Rules</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.",
+    "s10.data": "<strong>Data</strong> &mdash; History retention period, clear data, export/import.",
+    "s10.pro": "<strong>Pro</strong> &mdash; Manage your Pro subscription, view feature comparison.",
+    "s10.about": "<strong>About</strong> &mdash; Version info, acknowledgements, links.",
+    "s11.title": "Pro Features",
+    "s11.desc": "PasteMemo Pro unlocks advanced capabilities:",
+    "s11.history": "<strong>Unlimited history</strong> &mdash; Free version keeps the most recent items; Pro removes the limit.",
+    "s11.grouping": "<strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.",
+    "s11.ignore": "<strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.",
+    "s11.icloud": "<strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.",
+  },
+  zh: {
+    "nav.features": "功能",
+    "nav.help": "帮助",
+    "nav.feedback": "反馈",
+    "footer.releases": "版本发布",
+    "footer.issues": "问题反馈",
+    "sidebar.quickstart": "快速开始",
+    "sidebar.quickpaste": "快捷粘贴面板",
+    "sidebar.mainwindow": "主窗口",
+    "sidebar.sensitive": "敏感内容保护",
+    "sidebar.ignored": "忽略应用",
+    "sidebar.data": "数据管理",
+    "sidebar.richtext": "富文本与纯文本",
+    "sidebar.sound": "音效",
+    "sidebar.shortcuts": "快捷键",
+    "sidebar.settings": "设置",
+    "sidebar.pro": "Pro 功能",
+    "doc.title": "PasteMemo 帮助",
+    "doc.subtitle": "关于 PasteMemo（macOS 智能剪贴板管理器）你需要知道的一切。",
+    "s1.title": "快速开始",
+    "s1.launch.title": "首次启动与引导",
+    "s1.launch.desc": "首次打开 PasteMemo 时，会有一个简短的引导流程帮助你完成基本设置。PasteMemo 是一款<strong>菜单栏应用</strong>——你会在屏幕右上角看到它的图标，它不会出现在 Dock 中。",
+    "s1.accessibility.title": "辅助功能权限",
+    "s1.accessibility.desc": "PasteMemo 需要<strong>辅助功能权限</strong>来模拟粘贴操作。首次安装时，macOS 会提示你在<strong>系统设置 &gt; 隐私与安全性 &gt; 辅助功能</strong>中授权。系统或应用更新后，可能需要重新授权——只需在列表中将 PasteMemo 关闭再打开即可。",
+    "s1.shortcut.title": "设置快捷粘贴快捷键",
+    "s1.shortcut.desc": "默认快捷键为 <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>，你可以在<strong>设置 &gt; 通用</strong>中自定义。这个全局快捷键可以在任何应用中打开快捷粘贴面板。",
+    "s2.title": "快捷粘贴面板",
+    "s2.open.title": "打开与关闭",
+    "s2.open.desc": "按下你设置的快捷键（默认 <kbd>&#8984;</kbd> <kbd>&#8679;</kbd> <kbd>V</kbd>）打开面板。按 <kbd>Esc</kbd> 或点击面板外区域关闭。",
+    "s2.search.title": "搜索与筛选",
+    "s2.search.desc": "直接输入即可实时搜索剪贴板历史。使用顶部的<strong>类型标签</strong>按内容类型筛选（文本、图片、链接、文件、代码、颜色）。通过 <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> 或 <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> 切换标签。",
+    "s2.nav.title": "导航",
+    "s2.nav.desc": "使用 <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> 方向键浏览条目，或使用鼠标/触控板滚动和点击。",
+    "s2.paste.title": "粘贴操作",
+    "s2.paste.enter": "<kbd>Enter</kbd> —— 保留原格式粘贴。在访达中粘贴文本时会保存为文件。",
+    "s2.paste.shift": "<kbd>Shift</kbd>+<kbd>Enter</kbd> —— 粘贴并追加换行（适合终端命令）。",
+    "s2.paste.cmd": "<kbd>&#8984;</kbd>+<kbd>Enter</kbd> —— 纯文本粘贴（去除格式）。文件类型则粘贴文件路径。",
+    "s2.paste.dbl": "<strong>双击</strong> —— 等同于 Enter（保留格式粘贴）。",
+    "s2.multi.title": "多选",
+    "s2.multi.desc": "按住 <kbd>&#8984;</kbd> 点击可逐个切换选中。按住 <kbd>Shift</kbd> 点击可范围选择。使用 <kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> 用键盘扩展选区。",
+    "s2.batch.title": "批量粘贴",
+    "s2.batch.desc": "选中多个条目时，按 Enter 全部粘贴。相同类型的条目会合并（如多段文本合为一段），不同类型按顺序依次粘贴。",
+    "s2.other.title": "其他操作",
+    "s2.other.copy": "<kbd>&#8984;</kbd>+<kbd>C</kbd> —— 仅复制选中条目到剪贴板，不粘贴。",
+    "s2.other.option": "按住 <kbd>Option</kbd> —— 临时显示当前条目的敏感内容。",
+    "s2.other.preview": "<kbd>&#8984;</kbd>+<kbd>O</kbd> —— 预览条目或在浏览器中打开链接。",
+    "s2.other.delete": "<kbd>&#8984;</kbd>+<kbd>Delete</kbd> —— 删除选中条目。",
+    "s2.other.rightclick": "<strong>右键点击</strong> —— 弹出菜单，含置顶、标记敏感、复制、删除等操作。",
+    "s2.tip.label": "提示：",
+    "s2.tip.text": "快捷粘贴面板底部会根据当前选中内容显示相应的快捷键提示。",
+    "s3.title": "主窗口",
+    "s3.sidebar.title": "侧边栏筛选",
+    "s3.sidebar.desc": "左侧边栏提供快速筛选：全部、已置顶、敏感内容、按类型筛选（文本、图片、链接、文件、代码、颜色）和按来源应用筛选。",
+    "s3.list.title": "列表操作",
+    "s3.list.desc": "点击选中条目。<kbd>&#8984;</kbd>+点击多选，<kbd>Shift</kbd>+<kbd>&#8593;</kbd>/<kbd>&#8595;</kbd> 范围选择。<kbd>&#8984;</kbd>+<kbd>A</kbd> 选中当前视图所有条目。",
+    "s3.detail.title": "详情视图与预览",
+    "s3.detail.desc": "右侧面板显示选中条目的详细预览。富文本以原格式渲染，图片以原分辨率显示，链接显示元数据和网站图标。",
+    "s3.edit.title": "编辑模式",
+    "s3.edit.desc": "对于文本和代码条目，你可以进入编辑模式修改内容再粘贴，修改会保存到剪贴板历史中。",
+    "s3.copy.title": "复制",
+    "s3.copy.desc": "<kbd>&#8984;</kbd>+<kbd>C</kbd> 智能复制：如果你在详情视图中选中了文字，则复制选中部分；否则复制整个条目。",
+    "s3.menu.title": "右键菜单",
+    "s3.menu.desc": "右键点击任意条目可看到：置顶/取消置顶、标记/取消敏感、复制、合并选中项、删除。",
+    "s3.multiaction.title": "多选操作",
+    "s3.multiaction.desc": "选中多个条目时，底部会出现操作面板，支持批量操作：置顶、标记敏感、合并为一条、删除。",
+    "s4.title": "敏感内容保护",
+    "s4.auto.title": "自动检测",
+    "s4.auto.desc": "PasteMemo 通过多层机制自动检测敏感内容：",
+    "s4.auto.apps": "<strong>来源应用检测</strong> —— 来自密码管理器（1Password、Bitwarden、KeePass 等）的内容自动标记为敏感。",
+    "s4.auto.keyword": "<strong>关键词 + 上下文</strong> —— 如 <code>password=</code>、<code>token:</code>、<code>secret_key</code> 等模式。",
+    "s4.auto.regex": "<strong>正则表达式匹配</strong> —— AWS 密钥、GitHub Token、JWT、SSH 私钥、API Key 等。",
+    "s4.auto.entropy": "<strong>高熵字符串</strong> —— 看起来像密码或令牌的随机字符串。",
+    "s4.exclude.title": "不会被标记为敏感的内容",
+    "s4.exclude.desc": "邮箱地址、电话号码、中日韩文字、URL、普通人名不会被误标为敏感内容。",
+    "s4.display.title": "显示方式",
+    "s4.display.desc": "敏感条目显示部分遮罩：首尾字符可见，中间以 <code>&&bull;&bull;&bull;&bull;</code> 替代，同时显示来源应用标记。",
+    "s4.reveal.title": "查看内容",
+    "s4.reveal.btn": "在详情视图中，点击<strong>显示按钮</strong>查看完整内容，30 秒后自动隐藏。",
+    "s4.reveal.option": "在快捷粘贴面板中，按住 <kbd>Option</kbd> 键可临时查看当前条目。",
+    "s4.manual.title": "手动控制",
+    "s4.manual.desc": "你可以通过右键菜单手动标记或取消标记敏感，支持单个和批量操作。自动检测功能可在设置中开关。",
+    "s4.tip.label": "注意：",
+    "s4.tip.text": "非文本类型（图片、文件、视频、音频）不会进行敏感内容扫描。",
+    "s5.title": "忽略应用",
+    "s5.desc": "阻止特定应用的内容被记录到剪贴板历史中。来自被忽略应用的复制内容会被静默跳过。",
+    "s5.configure.title": "配置方式",
+    "s5.configure.desc": "前往<strong>设置 &gt; 规则</strong>管理忽略应用列表。你可以从正在运行的应用中选择（支持多选），或浏览 <code>/Applications</code> 添加。",
+    "s5.recommend.title": "推荐",
+    "s5.recommend.desc": "引导流程中，PasteMemo 会自动推荐将密码管理器添加到忽略列表，以确保最大安全性。",
+    "s6.title": "数据管理",
+    "s6.export.title": "导出",
+    "s6.export.desc": "将剪贴板历史导出为 <code>.pastememo</code> 文件。可选启用 <strong>AES-256-GCM 加密</strong>并设置密码。文件名包含时间戳便于识别。",
+    "s6.import.title": "导入",
+    "s6.import.desc": "从 .pastememo 文件导入。自动检测是否加密（加密文件会提示输入密码）。导入时自动跳过重复条目。",
+    "s6.access.title": "快速访问",
+    "s6.access.desc": "导出和导入可从文件菜单快速访问。",
+    "s6.clear.title": "清除数据",
+    "s6.clear.desc": "可以在设置中清除所有剪贴板历史。<strong>已置顶的条目会被保留</strong>，不会被删除。",
+    "s6.retention.title": "历史保留期",
+    "s6.retention.desc": "保留期是一个软筛选器。将期限调长可以恢复之前隐藏的条目——在你主动清除之前，数据不会被真正删除。",
+    "s7.title": "富文本与纯文本",
+    "s7.capture.title": "内容捕获",
+    "s7.capture.desc": "PasteMemo 保留剪贴板中的原始格式（RTF/HTML）。从浏览器、文档或编辑器复制带格式的文本时，格式信息会被完整保存。",
+    "s7.paste.title": "粘贴选项",
+    "s7.paste.enter": "<kbd>Enter</kbd> —— 保留原始格式粘贴。",
+    "s7.paste.cmd": "<kbd>&#8984;</kbd>+<kbd>Enter</kbd> —— 去除所有格式，仅粘贴纯文本。",
+    "s7.downgrade.title": "自动降级",
+    "s7.downgrade.desc": "对于 30 多个会产生不必要富文本的应用（微信、QQ、钉钉、Slack、VS Code、JetBrains IDE、终端等），PasteMemo 会自动去除格式，以纯文本存储。",
+    "s7.preview.title": "预览",
+    "s7.preview.desc": "富文本条目在主窗口详情视图中以完整格式渲染。去重时会考虑富文本数据。",
+    "s8.title": "音效",
+    "s8.desc": "PasteMemo 可以播放音效提供听觉反馈：",
+    "s8.copy": "<strong>复制音效</strong> —— 任何应用复制内容时播放（全局监听）。",
+    "s8.paste": "<strong>粘贴音效</strong> —— 通过 PasteMemo 粘贴时播放。",
+    "s8.options": "内置 14 种系统音效可供选择，在设置中选择时可预览。每种音效可独立启用或禁用。",
+    "s9.title": "快捷键",
+    "s9.panel.title": "快捷粘贴面板",
+    "s9.main.title": "主窗口",
+    "s9.col.shortcut": "快捷键",
+    "s9.col.action": "操作",
+    "s9.p.nav": "浏览条目",
+    "s9.p.tab": "切换类型筛选",
+    "s9.p.tabtab": "切换类型筛选",
+    "s9.p.enter": "粘贴（保留格式）",
+    "s9.p.shiftenter": "粘贴 + 换行",
+    "s9.p.cmdenter": "纯文本粘贴",
+    "s9.p.copy": "复制到剪贴板",
+    "s9.p.cmdclick": "切换多选",
+    "s9.p.shiftclick": "范围选择",
+    "s9.p.shiftarrow": "扩展选区",
+    "s9.hold": "（按住）",
+    "s9.p.option": "预览敏感内容",
+    "s9.p.preview": "预览 / 打开链接",
+    "s9.p.delete": "删除条目",
+    "s9.p.esc": "关闭面板",
+    "s9.m.nav": "浏览条目",
+    "s9.m.range": "范围选择",
+    "s9.m.all": "全选",
+    "s9.m.copy": "复制条目 / 选中文字",
+    "s9.m.delete": "删除选中",
+    "s9.m.space": "快速预览",
+    "s9.modifier.title": "修饰键说明",
+    "s9.modifier.cmd": "<kbd>&#8984;</kbd> —— Command",
+    "s9.modifier.shift": "<kbd>&#8679;</kbd> / <kbd>Shift</kbd> —— Shift",
+    "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> —— Option / Alt",
+    "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> —— Control",
+    "s10.title": "设置",
+    "s10.desc": "设置窗口包含 6 个标签页：",
+    "s10.general": "<strong>通用</strong> —— 开机启动、全局快捷键、语言、外观、菜单栏图标样式。",
+    "s10.features": "<strong>功能</strong> —— 音效、敏感内容检测、智能识别开关。",
+    "s10.rules": "<strong>规则</strong> —— 忽略应用列表、富文本自动降级规则。",
+    "s10.data": "<strong>数据</strong> —— 历史保留期、清除数据、导入/导出。",
+    "s10.pro": "<strong>Pro</strong> —— 管理 Pro 订阅、查看功能对比。",
+    "s10.about": "<strong>关于</strong> —— 版本信息、致谢、相关链接。",
+    "s11.title": "Pro 功能",
+    "s11.desc": "PasteMemo Pro 解锁高级功能：",
+    "s11.history": "<strong>无限历史</strong> —— 免费版仅保留最近条目，Pro 移除数量限制。",
+    "s11.grouping": "<strong>智能分组</strong> —— 自动将相关的剪贴板条目分组。",
+    "s11.ignore": "<strong>忽略特定应用</strong> —— 排除指定应用的剪贴板监控。",
+    "s11.icloud": "<strong>iCloud 自动备份</strong> —— 即将推出，安全地跨设备同步剪贴板历史。",
+  }
+};
+
+// ---- Language ----
+function detectLanguage() {
+  const langs = navigator.languages || [navigator.language];
+  for (const lang of langs) {
+    if (lang.toLowerCase().startsWith("zh")) return "zh";
+  }
+  return "en";
+}
+
+function applyLanguage(lang) {
+  const strings = i18n[lang] || i18n.en;
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (strings[key]) el.textContent = strings[key];
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const key = el.getAttribute("data-i18n-html");
+    if (strings[key]) el.innerHTML = strings[key];
+  });
+}
+
+let currentLang = localStorage.getItem("lang");
+// Map main site lang codes to help page codes
+if (currentLang === "zh-Hans") currentLang = "zh";
+if (!currentLang || !i18n[currentLang]) currentLang = detectLanguage();
+
+const langSelect = document.getElementById("langSelect");
+langSelect.value = currentLang;
+applyLanguage(currentLang);
+
+langSelect.addEventListener("change", e => {
+  currentLang = e.target.value;
+  localStorage.setItem("lang", currentLang);
+  applyLanguage(currentLang);
+});
+
+// ---- Theme ----
+const themeToggle = document.getElementById("themeToggle");
+const sunIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+const moonIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+function isDark() {
+  return document.documentElement.classList.contains("theme-dark");
+}
+
+function applyTheme(dark) {
+  document.documentElement.classList.remove("theme-dark", "theme-light");
+  document.documentElement.classList.add(dark ? "theme-dark" : "theme-light");
+  themeToggle.innerHTML = dark ? moonIcon : sunIcon;
+}
+
+applyTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+  applyTheme(e.matches);
+});
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(!isDark());
+});
+
+// ---- Sidebar active section highlight ----
+const sections = document.querySelectorAll(".doc-content section[id]");
+const sidebarLinks = document.querySelectorAll(".sidebar-nav a");
+
+function updateActiveSection() {
+  let current = "";
+  const offset = 100;
+
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top <= offset) {
+      current = section.id;
+    }
+  });
+
+  sidebarLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveSection, { passive: true });
+updateActiveSection();
+
+// ---- Mobile sidebar ----
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const sidebarToggleBtn = document.getElementById("sidebarToggle");
+
+function openSidebar() {
+  sidebar.classList.add("open");
+  sidebarOverlay.classList.add("show");
+}
+
+function closeSidebar() {
+  sidebar.classList.remove("open");
+  sidebarOverlay.classList.remove("show");
+}
+
+sidebarToggleBtn.addEventListener("click", () => {
+  if (sidebar.classList.contains("open")) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+});
+
+sidebarOverlay.addEventListener("click", closeSidebar);
+
+// Close sidebar on link click (mobile)
+sidebarLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      closeSidebar();
+    }
+  });
+});
+</script>
+
+</body>
+</html>

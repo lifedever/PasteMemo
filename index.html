@@ -616,15 +616,20 @@
     <a href="#features" data-i18n="nav.features">Features</a>
     <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="nav.download">Download</a>
     <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
+    <a href="help/" data-i18n="nav.help">Help</a>
     <div class="nav-controls">
       <select class="lang-select" id="langSelect">
-        <option value="en">English</option>
         <option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+        <option value="en">English</option>
         <option value="ja">日本語</option>
         <option value="ko">한국어</option>
         <option value="fr">Français</option>
         <option value="de">Deutsch</option>
         <option value="es">Español</option>
+        <option value="it">Italiano</option>
+        <option value="ru">Русский</option>
+        <option value="id">Bahasa Indonesia</option>
       </select>
       <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
     </div>
@@ -735,8 +740,8 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3 data-i18n="features.lang.title">7 Languages</h3>
-        <p data-i18n="features.lang.desc">English, 中文, 日本語, 한국어, Deutsch, Français, Español — switch anytime.</p>
+        <h3 data-i18n="features.lang.title">11 Languages</h3>
+        <p data-i18n="features.lang.desc">English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — switch anytime.</p>
       </div>
     </div>
   </div>
@@ -768,6 +773,7 @@ const i18n = {
     "nav.features": "Features",
     "nav.download": "Download",
     "nav.feedback": "Feedback",
+    "nav.help": "Help",
     "hero.title": 'Your clipboard,<br><span class="highlight">supercharged.</span>',
     "hero.desc": "A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.",
     "hero.download": "Download for macOS",
@@ -789,8 +795,8 @@ const i18n = {
     "features.hotkey.desc": "Press ⌘⇧V from anywhere to open Quick Paste. Search, select, paste — all without touching the mouse.",
     "features.privacy.title": "Fully Offline",
     "features.privacy.desc": "Zero network connections. Your clipboard data never leaves your Mac. No account, no cloud, no tracking.",
-    "features.lang.title": "7 Languages",
-    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — switch anytime.",
+    "features.lang.title": "11 Languages",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — switch anytime.",
     "features.native.title": "Lightweight & Native",
     "features.native.desc": "Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.",
     "shortcut.title": "Access anywhere, instantly.",
@@ -804,6 +810,7 @@ const i18n = {
     "nav.features": "功能",
     "nav.download": "下载",
     "nav.feedback": "反馈",
+    "nav.help": "帮助",
     "hero.title": '你的剪贴板，<br><span class="highlight">超级加强。</span>',
     "hero.desc": "一款轻量级原生 macOS 剪贴板管理器，常驻菜单栏。自动记录你复制的一切，即搜即用，随处粘贴。",
     "hero.download": "下载 macOS 版",
@@ -825,8 +832,8 @@ const i18n = {
     "features.hotkey.desc": "在任何应用中按下 ⌘⇧V 打开快捷粘贴。搜索、选择、粘贴，全程不碰鼠标。",
     "features.privacy.title": "完全离线",
     "features.privacy.desc": "零网络连接，剪贴板数据绝不离开你的 Mac。无需账号、无需云端、无任何追踪。",
-    "features.lang.title": "7 种语言",
-    "features.lang.desc": "English、中文、日本語、한국어、Deutsch、Français、Español——随时切换。",
+    "features.lang.title": "11 种语言",
+    "features.lang.desc": "English、简体中文、繁體中文、日本語、한국어、Français、Deutsch、Español、Italiano、Русский、Bahasa Indonesia——随时切换。",
     "features.native.title": "轻量原生",
     "features.native.desc": "SwiftUI 原生构建，仅驻留菜单栏，不占用 Dock，CPU 和内存占用极低。",
     "shortcut.title": "随时随地，即刻访问。",
@@ -840,6 +847,7 @@ const i18n = {
     "nav.features": "機能",
     "nav.download": "ダウンロード",
     "nav.feedback": "フィードバック",
+    "nav.help": "ヘルプ",
     "hero.title": 'クリップボードを、<br><span class="highlight">もっとスマートに。</span>',
     "hero.desc": "メニューバーに常駐する軽量なネイティブ macOS クリップボードマネージャー。コピーしたものを自動記録、すぐに検索、どこでもペースト。",
     "hero.download": "macOS 版をダウンロード",
@@ -861,8 +869,8 @@ const i18n = {
     "features.hotkey.desc": "どこからでも⌘⇧Vでクイックペーストを起動。検索、選択、貼り付け——マウス不要。",
     "features.privacy.title": "完全オフライン",
     "features.privacy.desc": "ネットワーク接続ゼロ。クリップボードデータはMacの外に出ません。アカウント不要、クラウド不要、追跡なし。",
-    "features.lang.title": "7言語対応",
-    "features.lang.desc": "English、中文、日本語、한국어、Deutsch、Français、Español——いつでも切替。",
+    "features.lang.title": "11言語対応",
+    "features.lang.desc": "English、简体中文、繁體中文、日本語、한국어、Français、Deutsch、Español、Italiano、Русский、Bahasa Indonesia——いつでも切替。",
     "features.native.title": "軽量＆ネイティブ",
     "features.native.desc": "SwiftUI で構築。メニューバーに常駐し、Dock には表示されません。CPU・メモリ使用量は最小限。",
     "shortcut.title": "どこからでも、すぐにアクセス。",
@@ -876,6 +884,7 @@ const i18n = {
     "nav.features": "기능",
     "nav.download": "다운로드",
     "nav.feedback": "피드백",
+    "nav.help": "도움말",
     "hero.title": '당신의 클립보드,<br><span class="highlight">슈퍼 파워.</span>',
     "hero.desc": "메뉴 바에 상주하는 가벼운 네이티브 macOS 클립보드 관리자. 복사한 모든 것을 자동 기록하고, 즉시 검색하고, 어디서든 붙여넣기.",
     "hero.download": "macOS용 다운로드",
@@ -897,8 +906,8 @@ const i18n = {
     "features.hotkey.desc": "어디서든 ⌘⇧V로 빠른 붙여넣기 실행. 검색, 선택, 붙여넣기 — 마우스 없이.",
     "features.privacy.title": "완전 오프라인",
     "features.privacy.desc": "네트워크 연결 제로. 클립보드 데이터는 Mac 밖으로 나가지 않습니다. 계정 불필요, 클라우드 불필요, 추적 없음.",
-    "features.lang.title": "7개 언어",
-    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — 언제든 전환.",
+    "features.lang.title": "11개 언어",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — 언제든 전환.",
     "features.native.title": "가볍고 네이티브",
     "features.native.desc": "SwiftUI로 제작. 메뉴 바에만 상주하며, Dock에 표시되지 않습니다. 최소한의 CPU 및 메모리 사용.",
     "shortcut.title": "어디서든, 즉시 접근.",
@@ -912,6 +921,7 @@ const i18n = {
     "nav.features": "Fonctionnalités",
     "nav.download": "Télécharger",
     "nav.feedback": "Retour",
+    "nav.help": "Aide",
     "hero.title": 'Votre presse-papiers,<br><span class="highlight">surpuissant.</span>',
     "hero.desc": "Un gestionnaire de presse-papiers macOS natif et léger, logé dans votre barre de menus. Capturez tout ce que vous copiez, retrouvez-le instantanément, collez-le partout.",
     "hero.download": "Télécharger pour macOS",
@@ -933,8 +943,8 @@ const i18n = {
     "features.hotkey.desc": "Appuyez sur ⌘⇧V depuis n'importe où pour ouvrir le collage rapide. Cherchez, sélectionnez, collez — sans toucher la souris.",
     "features.privacy.title": "Totalement hors ligne",
     "features.privacy.desc": "Zéro connexion réseau. Vos données de presse-papiers ne quittent jamais votre Mac. Pas de compte, pas de cloud, pas de tracking.",
-    "features.lang.title": "7 langues",
-    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — changez à tout moment.",
+    "features.lang.title": "11 langues",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — changez à tout moment.",
     "features.native.title": "Léger & Natif",
     "features.native.desc": "Construit avec SwiftUI. Vit dans la barre de menus, jamais dans le Dock. Utilisation minimale du CPU et de la mémoire.",
     "shortcut.title": "Accessible partout, instantanément.",
@@ -948,6 +958,7 @@ const i18n = {
     "nav.features": "Funktionen",
     "nav.download": "Download",
     "nav.feedback": "Feedback",
+    "nav.help": "Hilfe",
     "hero.title": 'Deine Zwischenablage,<br><span class="highlight">aufgeladen.</span>',
     "hero.desc": "Ein leichtgewichtiger, nativer macOS-Zwischenablage-Manager in deiner Menüleiste. Erfasse alles, was du kopierst, finde es sofort, füge es überall ein.",
     "hero.download": "Für macOS herunterladen",
@@ -969,8 +980,8 @@ const i18n = {
     "features.hotkey.desc": "Drücke überall ⌘⇧V für Schnell-Einfügen. Suchen, auswählen, einfügen — ganz ohne Maus.",
     "features.privacy.title": "Komplett offline",
     "features.privacy.desc": "Null Netzwerkverbindungen. Deine Zwischenablage-Daten verlassen nie deinen Mac. Kein Konto, keine Cloud, kein Tracking.",
-    "features.lang.title": "7 Sprachen",
-    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — jederzeit wechseln.",
+    "features.lang.title": "11 Sprachen",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — jederzeit wechseln.",
     "features.native.title": "Leicht & Nativ",
     "features.native.desc": "Mit SwiftUI gebaut. Lebt in der Menüleiste, nie im Dock. Minimaler CPU- und Speicherverbrauch.",
     "shortcut.title": "Überall erreichbar, sofort.",
@@ -984,6 +995,7 @@ const i18n = {
     "nav.features": "Funciones",
     "nav.download": "Descargar",
     "nav.feedback": "Comentarios",
+    "nav.help": "Ayuda",
     "hero.title": 'Tu portapapeles,<br><span class="highlight">potenciado.</span>',
     "hero.desc": "Un gestor de portapapeles nativo y ligero para macOS que vive en tu barra de menús. Captura todo lo que copias, encuéntralo al instante, pégalo en cualquier lugar.",
     "hero.download": "Descargar para macOS",
@@ -1005,8 +1017,8 @@ const i18n = {
     "features.hotkey.desc": "Pulsa ⌘⇧V desde cualquier lugar para abrir el pegado rápido. Busca, selecciona, pega — sin tocar el ratón.",
     "features.privacy.title": "Totalmente offline",
     "features.privacy.desc": "Cero conexiones de red. Tus datos del portapapeles nunca salen de tu Mac. Sin cuenta, sin nube, sin rastreo.",
-    "features.lang.title": "7 idiomas",
-    "features.lang.desc": "English, 中文, 日本語, 한국어, Deutsch, Français, Español — cambia en cualquier momento.",
+    "features.lang.title": "11 idiomas",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — cambia en cualquier momento.",
     "features.native.title": "Ligero y Nativo",
     "features.native.desc": "Construido con SwiftUI. Vive en la barra de menús, nunca en el Dock. Uso mínimo de CPU y memoria.",
     "shortcut.title": "Accede desde cualquier lugar, al instante.",
@@ -1015,25 +1027,179 @@ const i18n = {
     "footer.releases": "Versiones",
     "footer.issues": "Problemas",
   },
+  "zh-Hant": {
+    "hero.beta": "測試中",
+    "nav.features": "功能",
+    "nav.download": "下載",
+    "nav.feedback": "回饋",
+    "nav.help": "說明",
+    "hero.title": '你的剪貼簿，<br><span class="highlight">超級強化。</span>',
+    "hero.desc": "一款輕量級原生 macOS 剪貼簿管理工具，常駐選單列。自動記錄你複製的一切，即搜即用，隨處貼上。",
+    "hero.download": "下載 macOS 版",
+    "screenshot.placeholder": "應用程式截圖即將上線",
+    "features.title": "恰到好處，不多不少。",
+    "features.filefy.title": "複製即檔案",
+    "features.filefy.desc": "文字一鍵貼上為 <strong>.txt 檔案</strong>，截圖直接貼上為<strong>圖片檔案</strong>。可拖入 Finder、檔案對話框或任何支援檔案的應用程式。",
+    "features.ai.title": "AI 終端機就緒",
+    "features.ai.desc": "無縫貼上<strong>圖片和檔案</strong>到 AI 終端機。為<strong>命令列</strong>和 AI 工作流程而生的開發者利器。",
+    "features.smart.title": "智慧辨識",
+    "features.smart.desc": "自動偵測內容類型——<strong>連結</strong>自動擷取圖示、<strong>程式碼片段</strong>、色彩值、電話號碼、檔案路徑——並進行<strong>智慧預覽</strong>。",
+    "features.reuse.title": "不只複製貼上",
+    "features.reuse.desc": "貼上<strong>路徑</strong>、貼上<strong>檔案名稱</strong>、儲存到資料夾、<strong>貼上後自動換行</strong>。每條記錄都是一把瑞士軍刀。",
+    "features.pin.title": "置頂",
+    "features.pin.desc": "常用內容一鍵置頂，始終在列表最上方，隨時一點即用。",
+    "features.appfilter.title": "依應用程式篩選",
+    "features.appfilter.desc": "清楚看到每條記錄來自哪個應用程式。依來源篩選——Chrome、VS Code、Figma，一目瞭然。",
+    "features.hotkey.title": "全域快速鍵",
+    "features.hotkey.desc": "在任何應用程式中按下 ⌘⇧V 開啟快速貼上。搜尋、選擇、貼上，全程不碰滑鼠。",
+    "features.privacy.title": "完全離線",
+    "features.privacy.desc": "零網路連線，剪貼簿資料絕不離開你的 Mac。無需帳號、無需雲端、無任何追蹤。",
+    "features.lang.title": "11 種語言",
+    "features.lang.desc": "English、简体中文、繁體中文、日本語、한국어、Français、Deutsch、Español、Italiano、Русский、Bahasa Indonesia——隨時切換。",
+    "features.native.title": "輕量原生",
+    "features.native.desc": "SwiftUI 原生打造，僅駐留選單列，不佔用 Dock，CPU 和記憶體佔用極低。",
+    "shortcut.title": "隨時隨地，即刻存取。",
+    "shortcut.desc": "在任意應用程式中按下快速鍵，開啟快速貼上面板。搜尋、點擊、完成。",
+    "hero.download_trouble": "下載遇到問題？",
+    "footer.releases": "版本發佈",
+    "footer.issues": "問題回饋",
+  },
+  it: {
+    "hero.beta": "Beta",
+    "nav.features": "Funzionalità",
+    "nav.download": "Scarica",
+    "nav.feedback": "Feedback",
+    "nav.help": "Aiuto",
+    "hero.title": 'I tuoi appunti,<br><span class="highlight">potenziati.</span>',
+    "hero.desc": "Un gestore di appunti nativo e leggero per macOS che vive nella barra dei menu. Cattura tutto ciò che copi, trovalo all'istante, incollalo ovunque.",
+    "hero.download": "Scarica per macOS",
+    "screenshot.placeholder": "Screenshot dell'app in arrivo",
+    "features.title": "Tutto ciò che serve, niente di superfluo.",
+    "features.filefy.title": "Copia → File, all'istante",
+    "features.filefy.desc": "Incolla il testo copiato come <strong>file .txt</strong>, gli screenshot come <strong>file immagine</strong>. Trascina direttamente nel Finder, nei dialoghi file o in qualsiasi app.",
+    "features.ai.title": "Pronto per terminali AI",
+    "features.ai.desc": "Incolla <strong>immagini e file</strong> nei terminali AI senza problemi. Progettato per sviluppatori che vivono nella <strong>riga di comando</strong> e nei flussi di lavoro AI.",
+    "features.smart.title": "Riconoscimento intelligente",
+    "features.smart.desc": "Rileva automaticamente il tipo di contenuto — <strong>link</strong> con favicon, <strong>frammenti di codice</strong>, colori, numeri di telefono, file — con <strong>anteprima intelligente</strong>.",
+    "features.reuse.title": "Oltre il copia e incolla",
+    "features.reuse.desc": "Incolla <strong>percorsi file</strong>, <strong>nomi file</strong>, salva in cartelle, o <strong>incolla-e-invio</strong> per comandi del terminale. Ogni clip diventa uno strumento multiuso.",
+    "features.pin.title": "Fissa in alto",
+    "features.pin.desc": "Fissa i clip usati di frequente. Restano sempre in cima, a un clic di distanza.",
+    "features.appfilter.title": "Filtra per app",
+    "features.appfilter.desc": "Vedi da quale app proviene ogni copia. Filtra per origine — Chrome, VS Code, Figma o qualsiasi app.",
+    "features.hotkey.title": "Scorciatoia globale",
+    "features.hotkey.desc": "Premi ⌘⇧V da qualsiasi punto per aprire Incolla Rapido. Cerca, seleziona, incolla — tutto senza toccare il mouse.",
+    "features.privacy.title": "Completamente offline",
+    "features.privacy.desc": "Zero connessioni di rete. I dati degli appunti non lasciano mai il tuo Mac. Nessun account, nessun cloud, nessun tracciamento.",
+    "features.lang.title": "11 lingue",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — cambia in qualsiasi momento.",
+    "features.native.title": "Leggero e Nativo",
+    "features.native.desc": "Costruito con SwiftUI. Vive nella barra dei menu, mai nel Dock. Utilizzo minimo di CPU e memoria.",
+    "shortcut.title": "Accessibile ovunque, all'istante.",
+    "shortcut.desc": "Premi la scorciatoia per aprire il pannello Incolla Rapido da qualsiasi app. Cerca, clicca, fatto.",
+    "hero.download_trouble": "Problemi con il download?",
+    "footer.releases": "Versioni",
+    "footer.issues": "Problemi",
+  },
+  ru: {
+    "hero.beta": "Бета",
+    "nav.features": "Возможности",
+    "nav.download": "Скачать",
+    "nav.feedback": "Отзыв",
+    "nav.help": "Справка",
+    "hero.title": 'Ваш буфер обмена,<br><span class="highlight">на максимум.</span>',
+    "hero.desc": "Лёгкий нативный менеджер буфера обмена для macOS, живущий в строке меню. Сохраняйте всё, что копируете, находите мгновенно, вставляйте куда угодно.",
+    "hero.download": "Скачать для macOS",
+    "screenshot.placeholder": "Скриншоты приложения скоро появятся",
+    "features.title": "Всё, что нужно. Ничего лишнего.",
+    "features.filefy.title": "Копировать → Файл, мгновенно",
+    "features.filefy.desc": "Вставляйте скопированный текст как <strong>файл .txt</strong>, скриншоты как <strong>файлы изображений</strong>. Перетаскивайте прямо в Finder, диалоги файлов или любое приложение.",
+    "features.ai.title": "Готов для AI-терминалов",
+    "features.ai.desc": "Бесшовная вставка <strong>изображений и файлов</strong> в AI-терминалы. Создан для разработчиков, живущих в <strong>командной строке</strong> и AI-процессах.",
+    "features.smart.title": "Умное распознавание",
+    "features.smart.desc": "Автоматически определяет тип контента — <strong>ссылки</strong> с фавиконами, <strong>фрагменты кода</strong>, цвета, номера телефонов, файлы — с <strong>умным предпросмотром</strong>.",
+    "features.reuse.title": "Больше, чем копировать и вставить",
+    "features.reuse.desc": "Вставляйте <strong>пути к файлам</strong>, <strong>имена файлов</strong>, сохраняйте в папки или <strong>вставка+Enter</strong> для команд терминала. Каждая запись — универсальный инструмент.",
+    "features.pin.title": "Закрепить сверху",
+    "features.pin.desc": "Закрепляйте часто используемые записи. Они всегда вверху списка, в одном клике.",
+    "features.appfilter.title": "Фильтр по приложению",
+    "features.appfilter.desc": "Видите, из какого приложения сделана копия. Фильтруйте по источнику — Chrome, VS Code, Figma или любое приложение.",
+    "features.hotkey.title": "Глобальная горячая клавиша",
+    "features.hotkey.desc": "Нажмите ⌘⇧V из любого места, чтобы открыть Быструю вставку. Ищите, выбирайте, вставляйте — без мыши.",
+    "features.privacy.title": "Полностью офлайн",
+    "features.privacy.desc": "Ноль сетевых подключений. Данные буфера обмена никогда не покидают ваш Mac. Без аккаунта, без облака, без слежки.",
+    "features.lang.title": "11 языков",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — переключайтесь в любое время.",
+    "features.native.title": "Лёгкий и нативный",
+    "features.native.desc": "Создан на SwiftUI. Живёт в строке меню, а не в Dock. Минимальное использование CPU и памяти.",
+    "shortcut.title": "Доступ отовсюду, мгновенно.",
+    "shortcut.desc": "Нажмите горячую клавишу, чтобы открыть панель Быстрой вставки из любого приложения. Ищите, нажимайте, готово.",
+    "hero.download_trouble": "Проблемы со скачиванием?",
+    "footer.releases": "Релизы",
+    "footer.issues": "Проблемы",
+  },
+  id: {
+    "hero.beta": "Beta",
+    "nav.features": "Fitur",
+    "nav.download": "Unduh",
+    "nav.feedback": "Umpan Balik",
+    "nav.help": "Bantuan",
+    "hero.title": 'Clipboard Anda,<br><span class="highlight">lebih bertenaga.</span>',
+    "hero.desc": "Pengelola clipboard macOS yang ringan dan native, tinggal di menu bar Anda. Tangkap semua yang Anda salin, temukan seketika, tempel di mana saja.",
+    "hero.download": "Unduh untuk macOS",
+    "screenshot.placeholder": "Tangkapan layar aplikasi segera hadir",
+    "features.title": "Semua yang Anda butuhkan, tanpa yang tidak perlu.",
+    "features.filefy.title": "Salin → File, Seketika",
+    "features.filefy.desc": "Tempel teks yang disalin sebagai <strong>file .txt</strong>, tangkapan layar sebagai <strong>file gambar</strong>. Seret langsung ke Finder, dialog file, atau aplikasi apa pun.",
+    "features.ai.title": "Siap Terminal AI",
+    "features.ai.desc": "Tempel <strong>gambar dan file</strong> ke terminal AI dengan mulus. Dibuat untuk developer yang hidup di <strong>command line</strong> dan alur kerja AI.",
+    "features.smart.title": "Pengenalan Cerdas",
+    "features.smart.desc": "Mendeteksi tipe konten secara otomatis — <strong>tautan</strong> dengan favicon, <strong>potongan kode</strong>, warna, nomor telepon, file — dengan <strong>pratinjau cerdas</strong>.",
+    "features.reuse.title": "Lebih dari Salin-Tempel",
+    "features.reuse.desc": "Tempel <strong>jalur file</strong>, <strong>nama file</strong>, simpan ke folder, atau <strong>tempel-dan-enter</strong> untuk perintah terminal. Setiap klip menjadi alat serbaguna.",
+    "features.pin.title": "Sematkan di Atas",
+    "features.pin.desc": "Sematkan klip yang sering digunakan. Selalu di bagian atas, cukup satu klik.",
+    "features.appfilter.title": "Filter per Aplikasi",
+    "features.appfilter.desc": "Lihat dari aplikasi mana setiap salinan berasal. Filter berdasarkan sumber — Chrome, VS Code, Figma, atau aplikasi apa pun.",
+    "features.hotkey.title": "Hotkey Global",
+    "features.hotkey.desc": "Tekan ⌘⇧V dari mana saja untuk membuka Tempel Cepat. Cari, pilih, tempel — semua tanpa menyentuh mouse.",
+    "features.privacy.title": "Sepenuhnya Offline",
+    "features.privacy.desc": "Nol koneksi jaringan. Data clipboard Anda tidak pernah meninggalkan Mac Anda. Tanpa akun, tanpa cloud, tanpa pelacakan.",
+    "features.lang.title": "11 Bahasa",
+    "features.lang.desc": "English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — ganti kapan saja.",
+    "features.native.title": "Ringan & Native",
+    "features.native.desc": "Dibangun dengan SwiftUI. Tinggal di menu bar, tidak di Dock. Penggunaan CPU dan memori minimal.",
+    "shortcut.title": "Akses dari mana saja, seketika.",
+    "shortcut.desc": "Tekan pintasan untuk membuka panel Tempel Cepat dari aplikasi apa pun. Cari, klik, selesai.",
+    "hero.download_trouble": "Masalah mengunduh?",
+    "footer.releases": "Rilis",
+    "footer.issues": "Masalah",
+  },
 };
 
 function detectLanguage() {
   const langs = navigator.languages || [navigator.language];
   for (const lang of langs) {
     const lower = lang.toLowerCase();
-    if (lower.startsWith("zh")) return "zh-Hans";
+    if (lower.startsWith("zh")) {
+      if (lower.includes("hant") || lower.includes("tw") || lower.includes("hk") || lower.includes("mo")) return "zh-Hant";
+      return "zh-Hans";
+    }
     if (lower.startsWith("ja")) return "ja";
     if (lower.startsWith("ko")) return "ko";
     if (lower.startsWith("fr")) return "fr";
     if (lower.startsWith("de")) return "de";
     if (lower.startsWith("es")) return "es";
+    if (lower.startsWith("it")) return "it";
+    if (lower.startsWith("ru")) return "ru";
+    if (lower.startsWith("id") || lower.startsWith("ms")) return "id";
   }
   return "en";
 }
 
 function applyLanguage(lang) {
   const strings = i18n[lang] || i18n.en;
-  document.documentElement.lang = lang === "zh-Hans" ? "zh-CN" : lang;
+  document.documentElement.lang = lang === "zh-Hans" ? "zh-CN" : lang === "zh-Hant" ? "zh-TW" : lang;
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
