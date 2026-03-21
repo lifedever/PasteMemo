@@ -1,10 +1,10 @@
 {
-  "version": "0.2.3",
-  "notes_zh": "- **修复** 快捷面板与主窗口上下箭头键冲突\n- **修复** 快捷面板重新打开时「粘贴到」显示旧应用\n- **修复** 快捷面板分类左右箭头无法循环切换",
-  "notes_en": "- **Fix** Arrow key conflict between quick panel and main window\n- **Fix** Paste-to app name not updating when quick panel reopened\n- **Fix** Type filter left/right arrow not cycling at boundaries",
+  "version": "0.2.4",
+  "notes_zh": "- **优化** 快捷面板窗口阴影效果\n- **修复** 上下箭头选择条目时顺序跳跃\n- **修复** 文件夹条目选中时界面卡顿\n- **修复** 「在访达中显示」触发系统权限提示\n- **优化** 文件夹显示一级目录项目数",
+  "notes_en": "- **Improve** Quick panel window shadow\n- **Fix** Arrow key selection jumping to wrong items\n- **Fix** UI freeze when selecting folder items\n- **Fix** \"Show in Finder\" triggering system permission prompt\n- **Improve** Folder item count shows immediate children",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.4-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.4-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
