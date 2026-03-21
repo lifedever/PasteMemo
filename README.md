@@ -27,6 +27,16 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-15.50.58@2x.png" width="720" alt="PasteMemo Main Window">
+</p>
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-15.49.56@2x.png" width="720" alt="PasteMemo Quick Paste">
+</p>
+
 ## Highlights
 
 - **Copy → File, Instantly** — Paste copied text as a `.txt` file, paste screenshots as image files. Drag directly into Finder or any file dialog.
