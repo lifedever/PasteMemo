@@ -1,10 +1,10 @@
 {
-  "version": "0.2.4",
-  "notes_zh": "- **优化** 快捷面板窗口阴影效果\n- **修复** 上下箭头选择条目时顺序跳跃\n- **修复** 文件夹条目选中时界面卡顿\n- **修复** 「在访达中显示」触发系统权限提示\n- **优化** 文件夹显示一级目录项目数",
-  "notes_en": "- **Improve** Quick panel window shadow\n- **Fix** Arrow key selection jumping to wrong items\n- **Fix** UI freeze when selecting folder items\n- **Fix** \"Show in Finder\" triggering system permission prompt\n- **Improve** Folder item count shows immediate children",
+  "version": "0.3.0",
+  "notes_zh": "- **新增** 敏感内容自动检测与保护\n- **新增** 忽略特定应用功能（Pro）\n- **新增** 数据导入导出（支持加密）\n- **新增** 富文本粘贴支持\n- **新增** 文本编辑功能\n- **新增** 多选操作（合并、批量粘贴、范围选择）\n- **新增** 复制粘贴音效\n- **优化** 链接识别增强、历史软过期、多文件粘贴兼容性",
+  "notes_en": "- **New** Sensitive content auto-detection & protection\n- **New** Ignore specific apps (Pro)\n- **New** Data import/export with encryption\n- **New** Rich text paste support\n- **New** Text editing in detail view\n- **New** Multi-select operations (merge, batch paste, range selection)\n- **New** Copy/paste sound effects\n- **Improve** URL detection, soft history retention, multi-file paste compatibility",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.2.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.0-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
