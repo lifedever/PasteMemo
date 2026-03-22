@@ -551,6 +551,50 @@
       margin-bottom: 12px;
     }
 
+    .beta-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .beta-modal-overlay.active { display: flex; }
+    .beta-modal {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .beta-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .beta-modal-close:hover { color: var(--text); }
+    .beta-modal img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 8px;
+    }
+    .beta-modal p {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
     /* Download dropdown */
     .download-dropdown {
       position: relative;
@@ -825,9 +869,18 @@
     <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="footer.releases">Releases</a>
     <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="footer.issues">Issues</a>
     <a href="https://github.com/lifedever/PasteMemo">GitHub</a>
+    <a href="#" onclick="document.getElementById('betaModal').classList.add('active');return false" data-i18n="footer.beta">Join Beta</a>
   </div>
   <p>&copy; 2026 lifedever. All rights reserved.</p>
 </footer>
+
+<div id="betaModal" class="beta-modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="beta-modal">
+    <button class="beta-modal-close" onclick="document.getElementById('betaModal').classList.remove('active')">&times;</button>
+    <img src="beta-group-qr.jpg" alt="Beta Group QR Code">
+    <p data-i18n="beta.hint">Scan to join the beta testing WeChat group</p>
+  </div>
+</div>
 
 <script>
 const i18n = {
@@ -867,6 +920,8 @@ const i18n = {
     "hero.download_trouble": "Download issues?",
     "footer.releases": "Releases",
     "footer.issues": "Issues",
+    "footer.beta": "Join Beta",
+    "beta.hint": "Scan to join the beta testing WeChat group",
   },
   "zh-Hans": {
     "hero.beta": "内测中",
@@ -904,6 +959,8 @@ const i18n = {
     "hero.download_trouble": "下载遇到问题？",
     "footer.releases": "版本发布",
     "footer.issues": "问题反馈",
+    "footer.beta": "加入内测群",
+    "beta.hint": "扫码加入微信内测反馈群",
   },
   ja: {
     "hero.beta": "ベータ版",
@@ -941,6 +998,8 @@ const i18n = {
     "hero.download_trouble": "ダウンロードに問題がありますか？",
     "footer.releases": "リリース",
     "footer.issues": "課題",
+    "footer.beta": "ベータに参加",
+    "beta.hint": "WeChat ベータグループに参加するにはスキャンしてください",
   },
   ko: {
     "hero.beta": "베타",
@@ -978,6 +1037,8 @@ const i18n = {
     "hero.download_trouble": "다운로드에 문제가 있나요?",
     "footer.releases": "릴리스",
     "footer.issues": "이슈",
+    "footer.beta": "베타 참여",
+    "beta.hint": "WeChat 베타 그룹에 참여하려면 스캔하세요",
   },
   fr: {
     "hero.beta": "Bêta",
@@ -1015,6 +1076,8 @@ const i18n = {
     "hero.download_trouble": "Problème de téléchargement ?",
     "footer.releases": "Versions",
     "footer.issues": "Problèmes",
+    "footer.beta": "Rejoindre la bêta",
+    "beta.hint": "Scannez pour rejoindre le groupe bêta WeChat",
   },
   de: {
     "hero.beta": "Beta",
@@ -1052,6 +1115,8 @@ const i18n = {
     "hero.download_trouble": "Probleme beim Download?",
     "footer.releases": "Versionen",
     "footer.issues": "Probleme",
+    "footer.beta": "Beta beitreten",
+    "beta.hint": "Scannen Sie, um der WeChat-Beta-Gruppe beizutreten",
   },
   es: {
     "hero.beta": "Beta",
@@ -1089,6 +1154,8 @@ const i18n = {
     "hero.download_trouble": "¿Problemas con la descarga?",
     "footer.releases": "Versiones",
     "footer.issues": "Problemas",
+    "footer.beta": "Unirse a la beta",
+    "beta.hint": "Escanea para unirte al grupo beta de WeChat",
   },
   "zh-Hant": {
     "hero.beta": "測試中",
@@ -1126,6 +1193,8 @@ const i18n = {
     "hero.download_trouble": "下載遇到問題？",
     "footer.releases": "版本發佈",
     "footer.issues": "問題回饋",
+    "footer.beta": "加入內測群",
+    "beta.hint": "掃碼加入微信內測回饋群",
   },
   it: {
     "hero.beta": "Beta",
@@ -1163,6 +1232,8 @@ const i18n = {
     "hero.download_trouble": "Problemi con il download?",
     "footer.releases": "Versioni",
     "footer.issues": "Problemi",
+    "footer.beta": "Unisciti alla beta",
+    "beta.hint": "Scansiona per unirti al gruppo beta WeChat",
   },
   ru: {
     "hero.beta": "Бета",
@@ -1200,6 +1271,8 @@ const i18n = {
     "hero.download_trouble": "Проблемы со скачиванием?",
     "footer.releases": "Релизы",
     "footer.issues": "Проблемы",
+    "footer.beta": "Присоединиться к бете",
+    "beta.hint": "Отсканируйте, чтобы присоединиться к группе бета-тестирования в WeChat",
   },
   id: {
     "hero.beta": "Beta",
@@ -1237,6 +1310,8 @@ const i18n = {
     "hero.download_trouble": "Masalah mengunduh?",
     "footer.releases": "Rilis",
     "footer.issues": "Masalah",
+    "footer.beta": "Gabung Beta",
+    "beta.hint": "Pindai untuk bergabung dengan grup beta WeChat",
   },
 };
 
