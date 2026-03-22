@@ -126,7 +126,11 @@
 
     .theme-toggle:hover { color: var(--text-heading); }
 
-    .lang-select {
+    .lang-dropdown {
+      position: relative;
+    }
+
+    .lang-btn {
       background: var(--btn-secondary-bg);
       border: 1px solid var(--kbd-border);
       border-radius: 8px;
@@ -134,16 +138,67 @@
       font-size: 13px;
       color: var(--text-secondary);
       cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 8px center;
-      padding-right: 26px;
       font-family: -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+      height: 34px;
     }
 
-    .lang-select:focus { outline: none; border-color: var(--orange-500); }
+    .lang-btn:hover { color: var(--text-heading); border-color: var(--text-muted); }
+    .lang-btn.active { border-color: var(--orange-500); color: var(--text-heading); }
+
+    .lang-btn svg { width: 10px; height: 6px; flex-shrink: 0; transition: transform 0.2s; }
+    .lang-btn.active svg { transform: rotate(180deg); }
+
+    .lang-btn .globe-icon { width: 14px; height: 14px; opacity: 0.6; }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      min-width: 160px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.15s ease;
+      z-index: 200;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .lang-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-menu-item {
+      display: flex;
+      align-items: center;
+      padding: 7px 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .lang-menu-item:hover { background: var(--orange-50); color: var(--text-heading); }
+    .lang-menu-item.selected { color: var(--orange-500); font-weight: 500; }
+    .lang-menu-item.selected::after { content: '✓'; margin-left: auto; padding-left: 12px; font-size: 12px; }
+
+    .lang-menu::-webkit-scrollbar { width: 4px; }
+    .lang-menu::-webkit-scrollbar-track { background: transparent; }
+    .lang-menu::-webkit-scrollbar-thumb { background: var(--kbd-border); border-radius: 2px; }
 
     /* Force dark/light via class */
     html.theme-dark {
@@ -566,7 +621,8 @@
       .nav-links { gap: 12px; }
       .nav-links a { font-size: 13px; }
       .nav-controls { gap: 6px; margin-left: 4px; }
-      .lang-select { font-size: 12px; padding: 4px 22px 4px 8px; }
+      .lang-btn { font-size: 12px; padding: 4px 8px; height: 30px; }
+      .lang-btn .globe-icon { width: 12px; height: 12px; }
       .theme-toggle { width: 30px; height: 30px; }
 
       .hero { padding: 40px 16px 32px; }
@@ -618,19 +674,26 @@
     <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
     <a href="help/" data-i18n="nav.help">Help</a>
     <div class="nav-controls">
-      <select class="lang-select" id="langSelect">
-        <option value="zh-Hans">简体中文</option>
-        <option value="zh-Hant">繁體中文</option>
-        <option value="en">English</option>
-        <option value="ja">日本語</option>
-        <option value="ko">한국어</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
-        <option value="es">Español</option>
-        <option value="it">Italiano</option>
-        <option value="ru">Русский</option>
-        <option value="id">Bahasa Indonesia</option>
-      </select>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-btn" id="langBtn" type="button">
+          <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="langLabel">English</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <div class="lang-menu-item" data-lang="zh-Hans">简体中文</div>
+          <div class="lang-menu-item" data-lang="zh-Hant">繁體中文</div>
+          <div class="lang-menu-item" data-lang="en">English</div>
+          <div class="lang-menu-item" data-lang="ja">日本語</div>
+          <div class="lang-menu-item" data-lang="ko">한국어</div>
+          <div class="lang-menu-item" data-lang="fr">Français</div>
+          <div class="lang-menu-item" data-lang="de">Deutsch</div>
+          <div class="lang-menu-item" data-lang="es">Español</div>
+          <div class="lang-menu-item" data-lang="it">Italiano</div>
+          <div class="lang-menu-item" data-lang="ru">Русский</div>
+          <div class="lang-menu-item" data-lang="id">Bahasa Indonesia</div>
+        </div>
+      </div>
       <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
     </div>
   </nav>
@@ -1214,16 +1277,49 @@ function applyLanguage(lang) {
 
 // --- Init ---
 let currentLang = localStorage.getItem("lang") || detectLanguage();
-const langSelect = document.getElementById("langSelect");
+const langBtn = document.getElementById("langBtn");
+const langLabel = document.getElementById("langLabel");
+const langMenu = document.getElementById("langMenu");
+const langItems = langMenu.querySelectorAll(".lang-menu-item");
 const themeToggle = document.getElementById("themeToggle");
 
-langSelect.value = currentLang;
+function updateLangUI(lang) {
+  langItems.forEach(item => {
+    item.classList.toggle("selected", item.dataset.lang === lang);
+    if (item.dataset.lang === lang) langLabel.textContent = item.textContent;
+  });
+}
+
+updateLangUI(currentLang);
 applyLanguage(currentLang);
 
-langSelect.addEventListener("change", e => {
-  currentLang = e.target.value;
-  localStorage.setItem("lang", currentLang);
-  applyLanguage(currentLang);
+langBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  const isOpen = langMenu.classList.contains("show");
+  langMenu.classList.toggle("show");
+  langBtn.classList.toggle("active");
+  if (!isOpen) {
+    const selected = langMenu.querySelector(".selected");
+    if (selected) selected.scrollIntoView({ block: "nearest" });
+  }
+});
+
+langItems.forEach(item => {
+  item.addEventListener("click", () => {
+    currentLang = item.dataset.lang;
+    localStorage.setItem("lang", currentLang);
+    updateLangUI(currentLang);
+    applyLanguage(currentLang);
+    langMenu.classList.remove("show");
+    langBtn.classList.remove("active");
+  });
+});
+
+document.addEventListener("click", e => {
+  if (!e.target.closest("#langDropdown")) {
+    langMenu.classList.remove("show");
+    langBtn.classList.remove("active");
+  }
 });
 
 // Theme toggle — light/dark only, auto-follows system changes
