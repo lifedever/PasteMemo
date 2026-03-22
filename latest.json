@@ -1,10 +1,10 @@
 {
-  "version": "0.3.5",
-  "notes_zh": "- **新增** 快捷窗口 Cmd+1~9 快速粘贴\n- **新增** 剪贴板暂停/恢复监听",
-  "notes_en": "- **New** Quick paste with Cmd+1~9 in quick panel\n- **New** Pause/resume clipboard monitoring",
+  "version": "0.3.6",
+  "notes_zh": "- **新增** 自动备份（本机 + WebDAV）\n- **优化** 深色模式富文本颜色自适应\n- **修复** IP 地址被误识别为手机号",
+  "notes_en": "- **New** Auto backup (local + WebDAV)\n- **Improve** Rich text color adaptation for dark mode\n- **Fix** IP addresses incorrectly detected as phone numbers",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.5-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.5-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.6-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.6-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }

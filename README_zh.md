@@ -63,6 +63,19 @@
 
 ## 安装
 
+### Homebrew（推荐）
+
+```bash
+brew tap lifedever/tap
+brew install --cask pastememo
+```
+
+更新到最新版本：
+
+```bash
+brew upgrade --cask pastememo
+```
+
 ### 下载
 
 从 [Releases](https://github.com/lifedever/PasteMemo/releases) 下载最新 `.dmg`：
