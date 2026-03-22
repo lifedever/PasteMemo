@@ -1,10 +1,10 @@
 {
-  "version": "0.3.4",
-  "notes_zh": "- **修复** Setapp、Homebrew Cask 等非标准路径安装的应用图标无法识别",
-  "notes_en": "- **Fix** App icons not resolved for Setapp, Homebrew Cask and non-standard install locations",
+  "version": "0.3.5",
+  "notes_zh": "- **新增** 快捷窗口 Cmd+1~9 快速粘贴\n- **新增** 剪贴板暂停/恢复监听",
+  "notes_en": "- **New** Quick paste with Cmd+1~9 in quick panel\n- **New** Pause/resume clipboard monitoring",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.5-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.5-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
