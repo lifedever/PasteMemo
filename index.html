@@ -704,6 +704,8 @@
       .features h2 { font-size: 20px; }
     }
   </style>
+  <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+  <script>LA.init({id:"3PObWgvBwMcOfbgJ",ck:"3PObWgvBwMcOfbgJ"})</script>
 </head>
 <body>
 
@@ -757,13 +759,13 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases">
+        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_click',{arch:'arm64'})">
           <span>
             <strong>Apple Silicon</strong>
             <small>M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases">
+        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_click',{arch:'x86_64'})">
           <span>
             <strong>Intel</strong>
             <small>x86_64</small>
