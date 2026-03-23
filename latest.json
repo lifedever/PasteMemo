@@ -1,10 +1,10 @@
 {
-  "version": "0.4.1",
-  "notes_zh": "- **新增** 链接显示原始网址开关：可选择在列表中显示网址或页面标题\n- **新增** 网页预览开关：关闭后显示静态卡片，支持一键在浏览器中打开\n- **优化** 网页预览默认静音，禁止自动播放媒体\n- **修复** 关闭预览窗口后媒体仍然播放的问题\n- **优化** 重新组织设置页面结构",
-  "notes_en": "- **New** Link display toggle: choose to show raw URL or page title in history list\n- **New** Web preview toggle: when off, shows a static card with one-click browser open\n- **Improve** Web preview now mutes all media by default, prevents autoplay\n- **Fix** Media continues playing after closing preview window\n- **Improve** Reorganized settings layout",
+  "version": "0.4.2",
+  "notes_zh": "- **新增** 支持 F1-F12 功能键作为全局快捷键\n- **修复** 设置无修饰键快捷键时被错误回退为默认快捷键的问题",
+  "notes_en": "- **New** Support F1-F12 function keys as global hotkey\n- **Fix** Setting hotkey without modifiers incorrectly fell back to default shortcut",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.2-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
