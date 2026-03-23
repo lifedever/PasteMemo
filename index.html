@@ -753,19 +753,19 @@
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
   <div id="download" class="hero-actions">
     <div class="download-dropdown">
-      <button class="btn btn-primary" id="downloadBtn" onclick="toggleDropdown()">
+      <button class="btn btn-primary" id="downloadBtn" onclick="toggleDropdown();LA.track('download')">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         <span data-i18n="hero.download">Download for macOS</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_click',{arch:'arm64'})">
+        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_arm')">
           <span>
             <strong>Apple Silicon</strong>
             <small>M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_click',{arch:'x86_64'})">
+        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_x86')">
           <span>
             <strong>Intel</strong>
             <small>x86_64</small>
