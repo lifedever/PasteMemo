@@ -1,10 +1,10 @@
 {
-  "version": "0.3.6",
-  "notes_zh": "- **新增** 自动备份（本机 + WebDAV）\n- **优化** 深色模式富文本颜色自适应\n- **修复** IP 地址被误识别为手机号",
-  "notes_en": "- **New** Auto backup (local + WebDAV)\n- **Improve** Rich text color adaptation for dark mode\n- **Fix** IP addresses incorrectly detected as phone numbers",
+  "version": "0.4.0",
+  "notes_zh": "- **新增** 接力模式：连续复制多条内容，按顺序逐条粘贴，适合批量录入场景\n- **新增** 快捷操作面板（⌘K）：在快捷粘贴中快速执行粘贴、复制、置顶等操作\n- **新增** 文本拆分入队：按分隔符拆分文本，快速创建接力队列\n- **优化** 引导页增加接力模式介绍\n- **优化** 帮助文档跳转至在线页面\n- **修复** 编辑后的截图未更新的问题\n- **修复** 密码管理器识别范围扩展",
+  "notes_en": "- **New** Relay Mode: copy multiple items and paste them one by one in order, ideal for batch data entry\n- **New** Quick Actions (⌘K): quickly access paste, copy, pin and more from the Quick Paste panel\n- **New** Text splitting: split text by delimiter to quickly build a relay queue\n- **Improve** Onboarding now introduces Relay Mode\n- **Improve** Help now opens online documentation\n- **Fix** Edited screenshots not updating in history\n- **Fix** Expanded password manager detection",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.6-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.3.6-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.0-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
