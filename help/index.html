@@ -29,6 +29,14 @@
       --sidebar-w: 260px;
     }
 
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+      box-shadow: none;
+    }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --orange-50: rgba(249, 115, 22, 0.1);
@@ -613,6 +621,7 @@
       <li><a href="#data" data-i18n="sidebar.data">Data Management</a></li>
       <li><a href="#rich-text" data-i18n="sidebar.richtext">Rich Text & Plain Text</a></li>
       <li><a href="#sound" data-i18n="sidebar.sound">Sound Effects</a></li>
+      <li><a href="#relay" data-i18n="sidebar.relay">Relay Mode</a></li>
       <li><a href="#shortcuts" data-i18n="sidebar.shortcuts">Keyboard Shortcuts</a></li>
       <li><a href="#settings" data-i18n="sidebar.settings">Settings</a></li>
       <li><a href="#pro" data-i18n="sidebar.pro">Pro Features</a></li>
@@ -682,6 +691,22 @@ brew install --cask pastememo</code></pre>
 
       <h3 data-i18n="s2.batch.title">Batch Paste</h3>
       <p data-i18n="s2.batch.desc">When multiple items are selected, pressing Enter pastes them all. Items of the same type are merged (e.g., multiple text clips become one block), while different types are pasted sequentially.</p>
+
+      <h3 data-i18n="s2.cmdk.title">Quick Actions (⌘K)</h3>
+      <p data-i18n-html="s2.cmdk.desc">Press <kbd>&#8984;</kbd>+<kbd>K</kbd> to open the command palette for quick access to all actions. Navigate with arrow keys, press a shortcut letter, or click to execute.</p>
+      <div class="img-placeholder" data-i18n="s2.cmdk.img">Quick Actions command palette screenshot</div>
+      <p data-i18n="s2.cmdk.actions">Available actions and their shortcut keys:</p>
+      <ul>
+        <li data-i18n-html="s2.cmdk.v"><kbd>V</kbd> &mdash; Paste</li>
+        <li data-i18n-html="s2.cmdk.p"><kbd>P</kbd> &mdash; Paste as plain text / Paste path / Open link (adapts to content type)</li>
+        <li data-i18n-html="s2.cmdk.c"><kbd>C</kbd> &mdash; Copy</li>
+        <li data-i18n-html="s2.cmdk.r"><kbd>R</kbd> &mdash; Add to Relay Queue</li>
+        <li data-i18n-html="s2.cmdk.s"><kbd>S</kbd> &mdash; Split & Relay</li>
+        <li data-i18n-html="s2.cmdk.t"><kbd>T</kbd> &mdash; Pin / Unpin</li>
+        <li data-i18n-html="s2.cmdk.e"><kbd>E</kbd> &mdash; Toggle Sensitive</li>
+        <li data-i18n-html="s2.cmdk.d"><kbd>D</kbd> &mdash; Delete</li>
+      </ul>
+      <p data-i18n-html="s2.cmdk.option">Hold <kbd>Option</kbd> to add a new line after paste actions.</p>
 
       <h3 data-i18n="s2.other.title">Other Actions</h3>
       <ul>
@@ -840,6 +865,49 @@ brew install --cask pastememo</code></pre>
       <p data-i18n="s8.options">14 built-in system sounds are available. The sound previews when you select it in Settings. Each sound type can be independently enabled or disabled.</p>
     </section>
 
+    <!-- Relay Mode -->
+    <section id="relay">
+      <hr class="section-divider">
+      <h2><span data-i18n="s12.title">Relay Mode</span> <span class="pro-badge">PRO</span></h2>
+
+      <h3 data-i18n="s12.what.title">What is Relay Mode?</h3>
+      <p data-i18n="s12.what.desc">Relay Mode lets you copy multiple items into a queue, then paste them one by one in FIFO order. Perfect for batch data entry — like copying a list of names from a webpage and pasting them row by row into a spreadsheet.</p>
+
+      <h3 data-i18n="s12.enter.title">Entering Relay Mode</h3>
+      <p data-i18n="s12.enter.desc">There are three ways to start Relay Mode:</p>
+      <ul>
+        <li data-i18n="s12.enter.batch">Select multiple items → right-click → "Add to Relay Queue"</li>
+        <li data-i18n="s12.enter.split">Select a text item → right-click → "Split & Relay" → choose a delimiter</li>
+        <li data-i18n="s12.enter.empty">Click the Relay button in the toolbar or menu bar to start with an empty queue, then copy items to add them</li>
+      </ul>
+
+      <h3 data-i18n="s12.window.title">Queue Window</h3>
+      <p data-i18n="s12.window.desc">A floating panel shows the current queue with progress. You can drag to reorder, hover to delete or split, and use the controls at the bottom.</p>
+
+      <h3 data-i18n="s12.paste.title">Pasting</h3>
+      <p data-i18n-html="s12.paste.desc">Press <kbd>Ctrl</kbd>+<kbd>V</kbd> (customizable in Settings → Relay) to paste the next item in the queue. The pointer advances automatically.</p>
+
+      <h3 data-i18n="s12.controls.title">Controls</h3>
+      <ul>
+        <li data-i18n="s12.controls.skip">Skip — skips the current item</li>
+        <li data-i18n="s12.controls.prev">Previous — goes back one item</li>
+        <li data-i18n="s12.controls.pause">Pause — temporarily restores normal PasteMemo operation while keeping the queue</li>
+        <li data-i18n="s12.controls.exit">Exit — closes Relay Mode and clears the queue</li>
+        <li data-i18n="s12.controls.autoexit">Auto exit — when enabled, Relay Mode exits automatically when the queue is empty</li>
+      </ul>
+
+      <h3 data-i18n="s12.split.title">Split</h3>
+      <p data-i18n="s12.split.desc">Split a text item into multiple queue entries by delimiter (newline, comma, Chinese comma, or custom). The split preview updates in real-time as you change the delimiter.</p>
+
+      <h3 data-i18n="s12.notes.title">Notes</h3>
+      <ul>
+        <li data-i18n="s12.notes.pause">Quick Paste is paused during Relay Mode</li>
+        <li data-i18n="s12.notes.copy">New copies are automatically added to the queue</li>
+        <li data-i18n="s12.notes.dup">Consecutive duplicate copies are filtered out</li>
+        <li data-i18n="s12.notes.blank">Blank/whitespace-only content is filtered out</li>
+      </ul>
+    </section>
+
     <!-- 9. Keyboard Shortcuts -->
     <section id="shortcuts">
       <hr class="section-divider">
@@ -867,6 +935,7 @@ brew install --cask pastememo</code></pre>
           <tr><td><kbd>Option</kbd> <span data-i18n="s9.hold">(hold)</span></td><td data-i18n="s9.p.option">Peek sensitive content</td></tr>
           <tr><td><kbd>&#8984;</kbd>+<kbd>O</kbd></td><td data-i18n="s9.p.preview">Preview / Open link</td></tr>
           <tr><td><kbd>&#8984;</kbd>+<kbd>Delete</kbd></td><td data-i18n="s9.p.delete">Delete item</td></tr>
+          <tr><td><kbd>&#8984;</kbd>+<kbd>K</kbd></td><td data-i18n="s9.p.cmdk">Open Quick Actions</td></tr>
           <tr><td><kbd>Esc</kbd></td><td data-i18n="s9.p.esc">Close panel</td></tr>
         </tbody>
       </table>
@@ -926,6 +995,7 @@ brew install --cask pastememo</code></pre>
         <li data-i18n-html="s11.grouping"><strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.</li>
         <li data-i18n-html="s11.ignore"><strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.</li>
         <li data-i18n-html="s11.icloud"><strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.</li>
+        <li data-i18n-html="s11.relay"><strong>Relay Mode</strong> &mdash; Queue multiple items and paste them one by one in order. Great for batch data entry.</li>
       </ul>
     </section>
 
@@ -1114,6 +1184,48 @@ const i18n = {
     "s11.grouping": "<strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.",
     "s11.ignore": "<strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.",
     "s11.icloud": "<strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.",
+    "s11.relay": "<strong>Relay Mode</strong> &mdash; Queue multiple items and paste them one by one in order. Great for batch data entry.",
+    "sidebar.relay": "Relay Mode",
+    "nav.relay": "Relay Mode",
+    "s2.cmdk.title": "Quick Actions (⌘K)",
+    "s2.cmdk.desc": "Press <kbd>&#8984;</kbd>+<kbd>K</kbd> to open the command palette for quick access to all actions. Navigate with arrow keys, press a shortcut letter, or click to execute.",
+    "s2.cmdk.img": "Quick Actions command palette screenshot",
+    "s2.cmdk.actions": "Available actions and their shortcut keys:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Paste",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Paste as plain text / Paste path / Open link (adapts to content type)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Copy",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Add to Relay Queue",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Split & Relay",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Pin / Unpin",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Toggle Sensitive",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Delete",
+    "s2.cmdk.option": "Hold <kbd>Option</kbd> to add a new line after paste actions.",
+    "s9.p.cmdk": "Open Quick Actions",
+    "s12.title": "Relay Mode",
+    "s12.what.title": "What is Relay Mode?",
+    "s12.what.desc": "Relay Mode lets you copy multiple items into a queue, then paste them one by one in FIFO order. Perfect for batch data entry — like copying a list of names from a webpage and pasting them row by row into a spreadsheet.",
+    "s12.enter.title": "Entering Relay Mode",
+    "s12.enter.desc": "There are three ways to start Relay Mode:",
+    "s12.enter.batch": "Select multiple items → right-click → \"Add to Relay Queue\"",
+    "s12.enter.split": "Select a text item → right-click → \"Split & Relay\" → choose a delimiter",
+    "s12.enter.empty": "Click the Relay button in the toolbar or menu bar to start with an empty queue, then copy items to add them",
+    "s12.window.title": "Queue Window",
+    "s12.window.desc": "A floating panel shows the current queue with progress. You can drag to reorder, hover to delete or split, and use the controls at the bottom.",
+    "s12.paste.title": "Pasting",
+    "s12.paste.desc": "Press <kbd>Ctrl</kbd>+<kbd>V</kbd> (customizable in Settings → Relay) to paste the next item in the queue. The pointer advances automatically.",
+    "s12.controls.title": "Controls",
+    "s12.controls.skip": "Skip — skips the current item",
+    "s12.controls.prev": "Previous — goes back one item",
+    "s12.controls.pause": "Pause — temporarily restores normal PasteMemo operation while keeping the queue",
+    "s12.controls.exit": "Exit — closes Relay Mode and clears the queue",
+    "s12.controls.autoexit": "Auto exit — when enabled, Relay Mode exits automatically when the queue is empty",
+    "s12.split.title": "Split",
+    "s12.split.desc": "Split a text item into multiple queue entries by delimiter (newline, comma, Chinese comma, or custom). The split preview updates in real-time as you change the delimiter.",
+    "s12.notes.title": "Notes",
+    "s12.notes.pause": "Quick Paste is paused during Relay Mode",
+    "s12.notes.copy": "New copies are automatically added to the queue",
+    "s12.notes.dup": "Consecutive duplicate copies are filtered out",
+    "s12.notes.blank": "Blank/whitespace-only content is filtered out",
   },
   "zh-Hans": {
     "nav.features": "功能",
@@ -1285,6 +1397,48 @@ const i18n = {
     "s11.grouping": "<strong>智能分组</strong> —— 自动将相关的剪贴板条目分组。",
     "s11.ignore": "<strong>忽略特定应用</strong> —— 排除指定应用的剪贴板监控。",
     "s11.icloud": "<strong>iCloud 自动备份</strong> —— 即将推出，安全地跨设备同步剪贴板历史。",
+    "s11.relay": "<strong>接力模式</strong> —— 将多条内容排入队列，按顺序逐条粘贴，适合批量数据录入。",
+    "sidebar.relay": "接力模式",
+    "nav.relay": "接力模式",
+    "s2.cmdk.title": "快捷操作（⌘K）",
+    "s2.cmdk.desc": "按 <kbd>&#8984;</kbd>+<kbd>K</kbd> 打开命令面板，快速访问所有操作。使用方向键导航，按快捷字母，或点击执行。",
+    "s2.cmdk.img": "快捷操作命令面板截图",
+    "s2.cmdk.actions": "可用操作及其快捷键：",
+    "s2.cmdk.v": "<kbd>V</kbd> —— 粘贴",
+    "s2.cmdk.p": "<kbd>P</kbd> —— 纯文本粘贴 / 粘贴路径 / 打开链接（根据内容类型自适应）",
+    "s2.cmdk.c": "<kbd>C</kbd> —— 复制",
+    "s2.cmdk.r": "<kbd>R</kbd> —— 添加到接力队列",
+    "s2.cmdk.s": "<kbd>S</kbd> —— 拆分并接力",
+    "s2.cmdk.t": "<kbd>T</kbd> —— 置顶 / 取消置顶",
+    "s2.cmdk.e": "<kbd>E</kbd> —— 切换敏感标记",
+    "s2.cmdk.d": "<kbd>D</kbd> —— 删除",
+    "s2.cmdk.option": "按住 <kbd>Option</kbd> 可在粘贴后自动换行。",
+    "s9.p.cmdk": "打开快捷操作",
+    "s12.title": "接力模式",
+    "s12.what.title": "什么是接力模式？",
+    "s12.what.desc": "接力模式允许你将多条内容加入队列，然后按先进先出的顺序逐条粘贴。适合批量数据录入，例如从网页复制一批用户名，再逐行粘贴到电子表格中。",
+    "s12.enter.title": "进入接力模式",
+    "s12.enter.desc": "有三种方式启动接力模式：",
+    "s12.enter.batch": "选择多个条目 → 右键 → \"添加到接力队列\"",
+    "s12.enter.split": "选择一个文本条目 → 右键 → \"拆分并接力\" → 选择分隔符",
+    "s12.enter.empty": "点击工具栏或菜单栏中的接力按钮，以空队列启动，然后复制内容自动添加",
+    "s12.window.title": "队列窗口",
+    "s12.window.desc": "浮动面板显示当前队列和进度。可以拖拽排序，悬停查看删除或拆分选项，底部有控制按钮。",
+    "s12.paste.title": "粘贴",
+    "s12.paste.desc": "按 <kbd>Ctrl</kbd>+<kbd>V</kbd>（可在设置 → 接力中自定义）粘贴队列中的下一条内容。指针自动前进。",
+    "s12.controls.title": "控制",
+    "s12.controls.skip": "跳过 —— 跳过当前条目",
+    "s12.controls.prev": "上一条 —— 回到上一个条目",
+    "s12.controls.pause": "暂停 —— 临时恢复正常的 PasteMemo 操作，同时保留队列",
+    "s12.controls.exit": "退出 —— 关闭接力模式并清空队列",
+    "s12.controls.autoexit": "自动退出 —— 开启后，队列清空时自动退出接力模式",
+    "s12.split.title": "拆分",
+    "s12.split.desc": "按分隔符（换行、逗号、中文逗号或自定义）将文本条目拆分为多个队列项。更改分隔符时，拆分预览会实时更新。",
+    "s12.notes.title": "注意事项",
+    "s12.notes.pause": "接力模式期间，快捷粘贴暂停",
+    "s12.notes.copy": "新复制的内容会自动添加到队列",
+    "s12.notes.dup": "连续重复复制的内容会被过滤",
+    "s12.notes.blank": "空白内容会被过滤",
   },
   "zh-Hant": {
     "nav.features": "功能",
@@ -1456,6 +1610,48 @@ const i18n = {
     "s11.grouping": "<strong>智慧分組</strong> —— 自動將相關的剪貼簿項目分組。",
     "s11.ignore": "<strong>忽略特定應用程式</strong> —— 排除指定應用程式的剪貼簿監控。",
     "s11.icloud": "<strong>iCloud 自動備份</strong> —— 即將推出，安全地跨裝置同步剪貼簿歷史。",
+    "s11.relay": "<strong>接力模式</strong> —— 將多筆內容排入佇列，按順序逐條貼上，適合批次資料輸入。",
+    "sidebar.relay": "接力模式",
+    "nav.relay": "接力模式",
+    "s2.cmdk.title": "快捷操作（⌘K）",
+    "s2.cmdk.desc": "按 <kbd>&#8984;</kbd>+<kbd>K</kbd> 開啟命令面板，快速存取所有操作。使用方向鍵導覽，按快捷字母，或點擊執行。",
+    "s2.cmdk.img": "快捷操作命令面板截圖",
+    "s2.cmdk.actions": "可用操作及其快速鍵：",
+    "s2.cmdk.v": "<kbd>V</kbd> —— 貼上",
+    "s2.cmdk.p": "<kbd>P</kbd> —— 純文字貼上 / 貼上路徑 / 開啟連結（依內容類型自適應）",
+    "s2.cmdk.c": "<kbd>C</kbd> —— 複製",
+    "s2.cmdk.r": "<kbd>R</kbd> —— 加入接力佇列",
+    "s2.cmdk.s": "<kbd>S</kbd> —— 拆分並接力",
+    "s2.cmdk.t": "<kbd>T</kbd> —— 置頂 / 取消置頂",
+    "s2.cmdk.e": "<kbd>E</kbd> —— 切換敏感標記",
+    "s2.cmdk.d": "<kbd>D</kbd> —— 刪除",
+    "s2.cmdk.option": "按住 <kbd>Option</kbd> 可在貼上後自動換行。",
+    "s9.p.cmdk": "開啟快捷操作",
+    "s12.title": "接力模式",
+    "s12.what.title": "什麼是接力模式？",
+    "s12.what.desc": "接力模式允許你將多筆內容加入佇列，然後按先進先出的順序逐條貼上。適合批次資料輸入，例如從網頁複製一批使用者名稱，再逐行貼上到試算表中。",
+    "s12.enter.title": "進入接力模式",
+    "s12.enter.desc": "有三種方式啟動接力模式：",
+    "s12.enter.batch": "選取多個項目 → 右鍵 → \"加入接力佇列\"",
+    "s12.enter.split": "選取一個文字項目 → 右鍵 → \"拆分並接力\" → 選擇分隔符號",
+    "s12.enter.empty": "點擊工具列或選單列中的接力按鈕，以空佇列啟動，然後複製內容自動加入",
+    "s12.window.title": "佇列視窗",
+    "s12.window.desc": "浮動面板顯示目前佇列和進度。可以拖曳排序，懸停查看刪除或拆分選項，底部有控制按鈕。",
+    "s12.paste.title": "貼上",
+    "s12.paste.desc": "按 <kbd>Ctrl</kbd>+<kbd>V</kbd>（可在設定 → 接力中自訂）貼上佇列中的下一筆內容。指標自動前進。",
+    "s12.controls.title": "控制",
+    "s12.controls.skip": "跳過 —— 跳過目前項目",
+    "s12.controls.prev": "上一筆 —— 回到上一個項目",
+    "s12.controls.pause": "暫停 —— 暫時恢復正常的 PasteMemo 操作，同時保留佇列",
+    "s12.controls.exit": "結束 —— 關閉接力模式並清空佇列",
+    "s12.controls.autoexit": "自動結束 —— 啟用後，佇列清空時自動結束接力模式",
+    "s12.split.title": "拆分",
+    "s12.split.desc": "按分隔符號（換行、逗號、中文逗號或自訂）將文字項目拆分為多個佇列項。變更分隔符號時，拆分預覽會即時更新。",
+    "s12.notes.title": "注意事項",
+    "s12.notes.pause": "接力模式期間，快捷貼上暫停",
+    "s12.notes.copy": "新複製的內容會自動加入佇列",
+    "s12.notes.dup": "連續重複複製的內容會被過濾",
+    "s12.notes.blank": "空白內容會被過濾",
   },
   ja: {
     "nav.features": "機能",
@@ -1627,6 +1823,48 @@ const i18n = {
     "s11.grouping": "<strong>スマートグルーピング</strong> &mdash; 関連するクリップボードアイテムを自動的にグループ化。",
     "s11.ignore": "<strong>特定アプリの除外</strong> &mdash; 特定のアプリケーションをクリップボード監視から除外。",
     "s11.icloud": "<strong>iCloud 自動バックアップ</strong> &mdash; 近日公開。デバイス間でクリップボード履歴を安全に同期。",
+    "s11.relay": "<strong>リレーモード</strong> &mdash; 複数のアイテムをキューに入れ、順番に1つずつペースト。一括データ入力に最適。",
+    "sidebar.relay": "リレーモード",
+    "nav.relay": "リレーモード",
+    "s2.cmdk.title": "クイックアクション（⌘K）",
+    "s2.cmdk.desc": "<kbd>&#8984;</kbd>+<kbd>K</kbd> でコマンドパレットを開き、すべてのアクションにすばやくアクセス。矢印キーで移動、ショートカットキーを押すか、クリックで実行。",
+    "s2.cmdk.img": "クイックアクションコマンドパレットのスクリーンショット",
+    "s2.cmdk.actions": "利用可能なアクションとショートカットキー：",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; ペースト",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; プレーンテキストでペースト / パスをペースト / リンクを開く（コンテンツタイプに応じて変化）",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; コピー",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; リレーキューに追加",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; 分割してリレー",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; ピン留め / ピン解除",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; 機密切り替え",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; 削除",
+    "s2.cmdk.option": "<kbd>Option</kbd> を押し続けると、ペースト後に改行を追加。",
+    "s9.p.cmdk": "クイックアクションを開く",
+    "s12.title": "リレーモード",
+    "s12.what.title": "リレーモードとは？",
+    "s12.what.desc": "リレーモードでは、複数のアイテムをキューにコピーし、FIFO順に1つずつペーストできます。一括データ入力に最適です。例えば、Webページから名前のリストをコピーし、スプレッドシートに1行ずつペーストする場合などに便利です。",
+    "s12.enter.title": "リレーモードに入る",
+    "s12.enter.desc": "リレーモードを開始する方法は3つあります：",
+    "s12.enter.batch": "複数のアイテムを選択 → 右クリック → \"リレーキューに追加\"",
+    "s12.enter.split": "テキストアイテムを選択 → 右クリック → \"分割してリレー\" → 区切り文字を選択",
+    "s12.enter.empty": "ツールバーまたはメニューバーのリレーボタンをクリックして空のキューで開始し、コピーしてアイテムを追加",
+    "s12.window.title": "キューウィンドウ",
+    "s12.window.desc": "フローティングパネルに現在のキューと進捗が表示されます。ドラッグで並び替え、ホバーで削除や分割、下部のコントロールを使用できます。",
+    "s12.paste.title": "ペースト",
+    "s12.paste.desc": "<kbd>Ctrl</kbd>+<kbd>V</kbd>（設定 → リレーでカスタマイズ可能）を押して、キューの次のアイテムをペースト。ポインターは自動的に進みます。",
+    "s12.controls.title": "コントロール",
+    "s12.controls.skip": "スキップ — 現在のアイテムをスキップ",
+    "s12.controls.prev": "前へ — 1つ前のアイテムに戻る",
+    "s12.controls.pause": "一時停止 — キューを保持したまま通常のPasteMemo操作を一時的に復元",
+    "s12.controls.exit": "終了 — リレーモードを閉じてキューをクリア",
+    "s12.controls.autoexit": "自動終了 — 有効にすると、キューが空になったときにリレーモードが自動的に終了",
+    "s12.split.title": "分割",
+    "s12.split.desc": "区切り文字（改行、カンマ、中国語カンマ、またはカスタム）でテキストアイテムを複数のキューエントリに分割。区切り文字を変更すると、分割プレビューがリアルタイムで更新されます。",
+    "s12.notes.title": "注意事項",
+    "s12.notes.pause": "リレーモード中はクイックペーストが一時停止",
+    "s12.notes.copy": "新しいコピーは自動的にキューに追加",
+    "s12.notes.dup": "連続する重複コピーはフィルタリング",
+    "s12.notes.blank": "空白のみのコンテンツはフィルタリング",
   },
   ko: {
     "nav.features": "기능",
@@ -1798,6 +2036,48 @@ const i18n = {
     "s11.grouping": "<strong>스마트 그룹핑</strong> &mdash; 관련 클립보드 항목을 자동으로 그룹화합니다.",
     "s11.ignore": "<strong>특정 앱 제외</strong> &mdash; 특정 앱의 클립보드 모니터링을 제외합니다.",
     "s11.icloud": "<strong>iCloud 자동 백업</strong> &mdash; 곧 출시. 기기 간 클립보드 기록을 안전하게 동기화합니다.",
+    "s11.relay": "<strong>릴레이 모드</strong> &mdash; 여러 항목을 대기열에 넣고 순서대로 하나씩 붙여넣기. 대량 데이터 입력에 적합합니다.",
+    "sidebar.relay": "릴레이 모드",
+    "nav.relay": "릴레이 모드",
+    "s2.cmdk.title": "빠른 동작 (⌘K)",
+    "s2.cmdk.desc": "<kbd>&#8984;</kbd>+<kbd>K</kbd>를 눌러 명령 팔레트를 열고 모든 동작에 빠르게 접근하세요. 화살표 키로 탐색하고, 단축 문자를 누르거나 클릭하여 실행합니다.",
+    "s2.cmdk.img": "빠른 동작 명령 팔레트 스크린샷",
+    "s2.cmdk.actions": "사용 가능한 동작 및 단축키:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; 붙여넣기",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; 일반 텍스트로 붙여넣기 / 경로 붙여넣기 / 링크 열기 (콘텐츠 유형에 따라 변경)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; 복사",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; 릴레이 대기열에 추가",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; 분할 후 릴레이",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; 고정 / 고정 해제",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; 민감 표시 전환",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; 삭제",
+    "s2.cmdk.option": "<kbd>Option</kbd>을 누르고 있으면 붙여넣기 후 줄바꿈을 추가합니다.",
+    "s9.p.cmdk": "빠른 동작 열기",
+    "s12.title": "릴레이 모드",
+    "s12.what.title": "릴레이 모드란?",
+    "s12.what.desc": "릴레이 모드를 사용하면 여러 항목을 대기열에 복사한 다음 FIFO 순서로 하나씩 붙여넣을 수 있습니다. 대량 데이터 입력에 적합합니다. 예를 들어, 웹페이지에서 이름 목록을 복사하여 스프레드시트에 행별로 붙여넣을 때 유용합니다.",
+    "s12.enter.title": "릴레이 모드 시작",
+    "s12.enter.desc": "릴레이 모드를 시작하는 방법은 세 가지입니다:",
+    "s12.enter.batch": "여러 항목 선택 → 오른쪽 클릭 → \"릴레이 대기열에 추가\"",
+    "s12.enter.split": "텍스트 항목 선택 → 오른쪽 클릭 → \"분할 후 릴레이\" → 구분자 선택",
+    "s12.enter.empty": "도구 모음 또는 메뉴 막대의 릴레이 버튼을 클릭하여 빈 대기열로 시작한 다음 복사하여 항목 추가",
+    "s12.window.title": "대기열 창",
+    "s12.window.desc": "플로팅 패널에 현재 대기열과 진행 상황이 표시됩니다. 드래그하여 재정렬하고, 마우스를 올려 삭제 또는 분할하고, 하단의 컨트롤을 사용합니다.",
+    "s12.paste.title": "붙여넣기",
+    "s12.paste.desc": "<kbd>Ctrl</kbd>+<kbd>V</kbd>(설정 → 릴레이에서 사용자 지정 가능)를 눌러 대기열의 다음 항목을 붙여넣습니다. 포인터가 자동으로 이동합니다.",
+    "s12.controls.title": "컨트롤",
+    "s12.controls.skip": "건너뛰기 — 현재 항목을 건너뜁니다",
+    "s12.controls.prev": "이전 — 이전 항목으로 돌아갑니다",
+    "s12.controls.pause": "일시 중지 — 대기열을 유지하면서 일시적으로 정상 PasteMemo 작동을 복원합니다",
+    "s12.controls.exit": "종료 — 릴레이 모드를 닫고 대기열을 지웁니다",
+    "s12.controls.autoexit": "자동 종료 — 활성화 시 대기열이 비면 릴레이 모드가 자동으로 종료됩니다",
+    "s12.split.title": "분할",
+    "s12.split.desc": "구분자(줄바꿈, 쉼표, 중국어 쉼표 또는 사용자 지정)로 텍스트 항목을 여러 대기열 항목으로 분할합니다. 구분자를 변경하면 분할 미리보기가 실시간으로 업데이트됩니다.",
+    "s12.notes.title": "참고 사항",
+    "s12.notes.pause": "릴레이 모드 중에는 빠른 붙여넣기가 일시 중지됩니다",
+    "s12.notes.copy": "새로운 복사가 자동으로 대기열에 추가됩니다",
+    "s12.notes.dup": "연속 중복 복사는 필터링됩니다",
+    "s12.notes.blank": "공백/빈 콘텐츠는 필터링됩니다",
   },
   fr: {
     "nav.features": "Fonctionnalités",
@@ -1969,6 +2249,48 @@ const i18n = {
     "s11.grouping": "<strong>Regroupement intelligent</strong> &mdash; Regroupez automatiquement les éléments du presse-papiers associés.",
     "s11.ignore": "<strong>Ignorer des apps spécifiques</strong> &mdash; Exclure certaines applications de la surveillance du presse-papiers.",
     "s11.icloud": "<strong>Sauvegarde automatique iCloud</strong> &mdash; Bientôt disponible. Synchronisez votre historique du presse-papiers en toute sécurité entre vos appareils.",
+    "s11.relay": "<strong>Mode Relais</strong> &mdash; Mettez plusieurs éléments en file d'attente et collez-les un par un dans l'ordre. Idéal pour la saisie de données en masse.",
+    "sidebar.relay": "Mode Relais",
+    "nav.relay": "Mode Relais",
+    "s2.cmdk.title": "Actions rapides (⌘K)",
+    "s2.cmdk.desc": "Appuyez sur <kbd>&#8984;</kbd>+<kbd>K</kbd> pour ouvrir la palette de commandes et accéder rapidement à toutes les actions. Naviguez avec les touches fléchées, appuyez sur une lettre de raccourci ou cliquez pour exécuter.",
+    "s2.cmdk.img": "Capture d'écran de la palette de commandes Actions rapides",
+    "s2.cmdk.actions": "Actions disponibles et leurs touches de raccourci :",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Coller",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Coller en texte brut / Coller le chemin / Ouvrir le lien (s'adapte au type de contenu)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Copier",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Ajouter à la file de relais",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Diviser et relayer",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Épingler / Désépingler",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Basculer sensible",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Supprimer",
+    "s2.cmdk.option": "Maintenez <kbd>Option</kbd> pour ajouter un retour à la ligne après le collage.",
+    "s9.p.cmdk": "Ouvrir les actions rapides",
+    "s12.title": "Mode Relais",
+    "s12.what.title": "Qu'est-ce que le mode Relais ?",
+    "s12.what.desc": "Le mode Relais vous permet de copier plusieurs éléments dans une file d'attente, puis de les coller un par un dans l'ordre FIFO. Parfait pour la saisie de données en masse — comme copier une liste de noms depuis une page web et les coller ligne par ligne dans un tableur.",
+    "s12.enter.title": "Entrer en mode Relais",
+    "s12.enter.desc": "Il y a trois façons de démarrer le mode Relais :",
+    "s12.enter.batch": "Sélectionnez plusieurs éléments → clic droit → \"Ajouter à la file de relais\"",
+    "s12.enter.split": "Sélectionnez un élément texte → clic droit → \"Diviser et relayer\" → choisissez un délimiteur",
+    "s12.enter.empty": "Cliquez sur le bouton Relais dans la barre d'outils ou la barre de menus pour commencer avec une file vide, puis copiez des éléments pour les ajouter",
+    "s12.window.title": "Fenêtre de file d'attente",
+    "s12.window.desc": "Un panneau flottant affiche la file actuelle avec la progression. Vous pouvez faire glisser pour réorganiser, survoler pour supprimer ou diviser, et utiliser les contrôles en bas.",
+    "s12.paste.title": "Collage",
+    "s12.paste.desc": "Appuyez sur <kbd>Ctrl</kbd>+<kbd>V</kbd> (personnalisable dans Réglages → Relais) pour coller le prochain élément de la file. Le pointeur avance automatiquement.",
+    "s12.controls.title": "Contrôles",
+    "s12.controls.skip": "Passer — passe l'élément actuel",
+    "s12.controls.prev": "Précédent — revient à l'élément précédent",
+    "s12.controls.pause": "Pause — restaure temporairement le fonctionnement normal de PasteMemo tout en conservant la file",
+    "s12.controls.exit": "Quitter — ferme le mode Relais et vide la file",
+    "s12.controls.autoexit": "Sortie auto — lorsqu'activé, le mode Relais se termine automatiquement quand la file est vide",
+    "s12.split.title": "Diviser",
+    "s12.split.desc": "Divisez un élément texte en plusieurs entrées de file par délimiteur (retour à la ligne, virgule, virgule chinoise ou personnalisé). L'aperçu de division se met à jour en temps réel lorsque vous changez le délimiteur.",
+    "s12.notes.title": "Notes",
+    "s12.notes.pause": "Le collage rapide est mis en pause pendant le mode Relais",
+    "s12.notes.copy": "Les nouvelles copies sont automatiquement ajoutées à la file",
+    "s12.notes.dup": "Les copies en double consécutives sont filtrées",
+    "s12.notes.blank": "Le contenu vide ou composé uniquement d'espaces est filtré",
   },
   de: {
     "nav.features": "Funktionen",
@@ -2140,6 +2462,48 @@ const i18n = {
     "s11.grouping": "<strong>Intelligente Gruppierung</strong> &mdash; Verwandte Zwischenablage-Elemente automatisch gruppieren.",
     "s11.ignore": "<strong>Bestimmte Apps ignorieren</strong> &mdash; Bestimmte Anwendungen von der Zwischenablage-Überwachung ausschließen.",
     "s11.icloud": "<strong>Automatisches iCloud-Backup</strong> &mdash; Demnächst verfügbar. Synchronisiere deine Zwischenablage-Historie sicher zwischen deinen Geräten.",
+    "s11.relay": "<strong>Relay-Modus</strong> &mdash; Mehrere Elemente in eine Warteschlange stellen und nacheinander einfügen. Ideal für die Massendateneingabe.",
+    "sidebar.relay": "Relay-Modus",
+    "nav.relay": "Relay-Modus",
+    "s2.cmdk.title": "Schnellaktionen (⌘K)",
+    "s2.cmdk.desc": "Drücke <kbd>&#8984;</kbd>+<kbd>K</kbd>, um die Befehlspalette zu öffnen und schnell auf alle Aktionen zuzugreifen. Navigiere mit den Pfeiltasten, drücke einen Schnellbuchstaben oder klicke zum Ausführen.",
+    "s2.cmdk.img": "Screenshot der Schnellaktionen-Befehlspalette",
+    "s2.cmdk.actions": "Verfügbare Aktionen und ihre Tastenkürzel:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Einfügen",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Als Klartext einfügen / Pfad einfügen / Link öffnen (passt sich dem Inhaltstyp an)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Kopieren",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Zur Relay-Warteschlange hinzufügen",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Teilen und Relay",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Anheften / Lösen",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Sensibel umschalten",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Löschen",
+    "s2.cmdk.option": "Halte <kbd>Option</kbd>, um nach dem Einfügen eine neue Zeile hinzuzufügen.",
+    "s9.p.cmdk": "Schnellaktionen öffnen",
+    "s12.title": "Relay-Modus",
+    "s12.what.title": "Was ist der Relay-Modus?",
+    "s12.what.desc": "Der Relay-Modus ermöglicht es dir, mehrere Elemente in eine Warteschlange zu kopieren und sie dann einzeln in FIFO-Reihenfolge einzufügen. Perfekt für die Massendateneingabe — z.B. eine Liste von Namen von einer Webseite kopieren und zeilenweise in eine Tabelle einfügen.",
+    "s12.enter.title": "Relay-Modus starten",
+    "s12.enter.desc": "Es gibt drei Möglichkeiten, den Relay-Modus zu starten:",
+    "s12.enter.batch": "Mehrere Elemente auswählen → Rechtsklick → \"Zur Relay-Warteschlange hinzufügen\"",
+    "s12.enter.split": "Ein Textelement auswählen → Rechtsklick → \"Teilen und Relay\" → Trennzeichen wählen",
+    "s12.enter.empty": "Klicke auf die Relay-Schaltfläche in der Symbolleiste oder Menüleiste, um mit einer leeren Warteschlange zu starten, und kopiere dann Elemente zum Hinzufügen",
+    "s12.window.title": "Warteschlangen-Fenster",
+    "s12.window.desc": "Ein schwebendes Panel zeigt die aktuelle Warteschlange mit Fortschritt. Du kannst per Drag & Drop umsortieren, beim Hovern löschen oder teilen und die Steuerelemente unten verwenden.",
+    "s12.paste.title": "Einfügen",
+    "s12.paste.desc": "Drücke <kbd>Ctrl</kbd>+<kbd>V</kbd> (anpassbar in Einstellungen → Relay), um das nächste Element in der Warteschlange einzufügen. Der Zeiger rückt automatisch vor.",
+    "s12.controls.title": "Steuerung",
+    "s12.controls.skip": "Überspringen — überspringt das aktuelle Element",
+    "s12.controls.prev": "Zurück — geht ein Element zurück",
+    "s12.controls.pause": "Pause — stellt vorübergehend den normalen PasteMemo-Betrieb wieder her, behält aber die Warteschlange bei",
+    "s12.controls.exit": "Beenden — schließt den Relay-Modus und leert die Warteschlange",
+    "s12.controls.autoexit": "Automatisch beenden — wenn aktiviert, wird der Relay-Modus automatisch beendet, wenn die Warteschlange leer ist",
+    "s12.split.title": "Teilen",
+    "s12.split.desc": "Teile ein Textelement durch Trennzeichen (Zeilenumbruch, Komma, chinesisches Komma oder benutzerdefiniert) in mehrere Warteschlangeneinträge. Die Teilungsvorschau wird in Echtzeit aktualisiert, wenn du das Trennzeichen änderst.",
+    "s12.notes.title": "Hinweise",
+    "s12.notes.pause": "Schnell-Einfügen ist während des Relay-Modus pausiert",
+    "s12.notes.copy": "Neue Kopien werden automatisch zur Warteschlange hinzugefügt",
+    "s12.notes.dup": "Aufeinanderfolgende doppelte Kopien werden herausgefiltert",
+    "s12.notes.blank": "Leere/nur aus Leerzeichen bestehende Inhalte werden herausgefiltert",
   },
   es: {
     "nav.features": "Funciones",
@@ -2311,6 +2675,48 @@ const i18n = {
     "s11.grouping": "<strong>Agrupación inteligente</strong> &mdash; Agrupa automáticamente los elementos del portapapeles relacionados.",
     "s11.ignore": "<strong>Ignorar apps específicas</strong> &mdash; Excluye ciertas aplicaciones de la monitorización del portapapeles.",
     "s11.icloud": "<strong>Copia de seguridad automática en iCloud</strong> &mdash; Próximamente. Sincroniza tu historial del portapapeles de forma segura entre dispositivos.",
+    "s11.relay": "<strong>Modo Relevo</strong> &mdash; Pon varios elementos en cola y pégalos uno por uno en orden. Ideal para la entrada masiva de datos.",
+    "sidebar.relay": "Modo Relevo",
+    "nav.relay": "Modo Relevo",
+    "s2.cmdk.title": "Acciones rápidas (⌘K)",
+    "s2.cmdk.desc": "Pulsa <kbd>&#8984;</kbd>+<kbd>K</kbd> para abrir la paleta de comandos y acceder rápidamente a todas las acciones. Navega con las teclas de flecha, pulsa una letra de atajo o haz clic para ejecutar.",
+    "s2.cmdk.img": "Captura de pantalla de la paleta de comandos de Acciones rápidas",
+    "s2.cmdk.actions": "Acciones disponibles y sus teclas de atajo:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Pegar",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Pegar como texto plano / Pegar ruta / Abrir enlace (se adapta al tipo de contenido)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Copiar",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Añadir a la cola de relevo",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Dividir y relevar",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Fijar / Desfijar",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Alternar sensible",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Eliminar",
+    "s2.cmdk.option": "Mantén <kbd>Option</kbd> para añadir una nueva línea después de pegar.",
+    "s9.p.cmdk": "Abrir acciones rápidas",
+    "s12.title": "Modo Relevo",
+    "s12.what.title": "¿Qué es el Modo Relevo?",
+    "s12.what.desc": "El Modo Relevo te permite copiar varios elementos en una cola y pegarlos uno por uno en orden FIFO. Perfecto para la entrada masiva de datos — como copiar una lista de nombres desde una página web y pegarlos fila por fila en una hoja de cálculo.",
+    "s12.enter.title": "Iniciar el Modo Relevo",
+    "s12.enter.desc": "Hay tres formas de iniciar el Modo Relevo:",
+    "s12.enter.batch": "Selecciona varios elementos → clic derecho → \"Añadir a la cola de relevo\"",
+    "s12.enter.split": "Selecciona un elemento de texto → clic derecho → \"Dividir y relevar\" → elige un delimitador",
+    "s12.enter.empty": "Haz clic en el botón Relevo en la barra de herramientas o la barra de menús para comenzar con una cola vacía, luego copia elementos para añadirlos",
+    "s12.window.title": "Ventana de cola",
+    "s12.window.desc": "Un panel flotante muestra la cola actual con el progreso. Puedes arrastrar para reordenar, pasar el cursor para eliminar o dividir, y usar los controles en la parte inferior.",
+    "s12.paste.title": "Pegado",
+    "s12.paste.desc": "Pulsa <kbd>Ctrl</kbd>+<kbd>V</kbd> (personalizable en Ajustes → Relevo) para pegar el siguiente elemento de la cola. El puntero avanza automáticamente.",
+    "s12.controls.title": "Controles",
+    "s12.controls.skip": "Saltar — salta el elemento actual",
+    "s12.controls.prev": "Anterior — vuelve al elemento anterior",
+    "s12.controls.pause": "Pausa — restaura temporalmente la operación normal de PasteMemo manteniendo la cola",
+    "s12.controls.exit": "Salir — cierra el Modo Relevo y vacía la cola",
+    "s12.controls.autoexit": "Salida automática — cuando está activado, el Modo Relevo se cierra automáticamente cuando la cola está vacía",
+    "s12.split.title": "Dividir",
+    "s12.split.desc": "Divide un elemento de texto en múltiples entradas de cola por delimitador (salto de línea, coma, coma china o personalizado). La vista previa de división se actualiza en tiempo real al cambiar el delimitador.",
+    "s12.notes.title": "Notas",
+    "s12.notes.pause": "El pegado rápido se pausa durante el Modo Relevo",
+    "s12.notes.copy": "Las nuevas copias se añaden automáticamente a la cola",
+    "s12.notes.dup": "Las copias duplicadas consecutivas se filtran",
+    "s12.notes.blank": "El contenido vacío o solo con espacios se filtra",
   },
   it: {
     "nav.features": "Funzionalità",
@@ -2482,6 +2888,48 @@ const i18n = {
     "s11.grouping": "<strong>Raggruppamento intelligente</strong> &mdash; Raggruppa automaticamente gli elementi degli appunti correlati.",
     "s11.ignore": "<strong>Ignora app specifiche</strong> &mdash; Escludi determinate applicazioni dal monitoraggio degli appunti.",
     "s11.icloud": "<strong>Backup automatico iCloud</strong> &mdash; In arrivo. Sincronizza la cronologia degli appunti in modo sicuro tra i dispositivi.",
+    "s11.relay": "<strong>Modalità Staffetta</strong> &mdash; Metti più elementi in coda e incollali uno per uno in ordine. Ideale per l'inserimento dati in blocco.",
+    "sidebar.relay": "Modalità Staffetta",
+    "nav.relay": "Modalità Staffetta",
+    "s2.cmdk.title": "Azioni rapide (⌘K)",
+    "s2.cmdk.desc": "Premi <kbd>&#8984;</kbd>+<kbd>K</kbd> per aprire la tavolozza dei comandi e accedere rapidamente a tutte le azioni. Naviga con i tasti freccia, premi un tasto di scelta rapida o fai clic per eseguire.",
+    "s2.cmdk.img": "Screenshot della tavolozza dei comandi Azioni rapide",
+    "s2.cmdk.actions": "Azioni disponibili e i loro tasti di scelta rapida:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Incolla",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Incolla come testo semplice / Incolla percorso / Apri link (si adatta al tipo di contenuto)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Copia",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Aggiungi alla coda staffetta",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Dividi e staffetta",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Fissa / Sblocca",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Alterna sensibile",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Elimina",
+    "s2.cmdk.option": "Tieni premuto <kbd>Option</kbd> per aggiungere una nuova riga dopo l'incollaggio.",
+    "s9.p.cmdk": "Apri azioni rapide",
+    "s12.title": "Modalità Staffetta",
+    "s12.what.title": "Cos'è la Modalità Staffetta?",
+    "s12.what.desc": "La Modalità Staffetta ti permette di copiare più elementi in una coda e poi incollarli uno per uno in ordine FIFO. Perfetto per l'inserimento dati in blocco — come copiare un elenco di nomi da una pagina web e incollarli riga per riga in un foglio di calcolo.",
+    "s12.enter.title": "Entrare in Modalità Staffetta",
+    "s12.enter.desc": "Ci sono tre modi per avviare la Modalità Staffetta:",
+    "s12.enter.batch": "Seleziona più elementi → clic destro → \"Aggiungi alla coda staffetta\"",
+    "s12.enter.split": "Seleziona un elemento di testo → clic destro → \"Dividi e staffetta\" → scegli un delimitatore",
+    "s12.enter.empty": "Fai clic sul pulsante Staffetta nella barra degli strumenti o nella barra dei menu per iniziare con una coda vuota, poi copia gli elementi per aggiungerli",
+    "s12.window.title": "Finestra della coda",
+    "s12.window.desc": "Un pannello flottante mostra la coda corrente con il progresso. Puoi trascinare per riordinare, passare il mouse per eliminare o dividere e usare i controlli in basso.",
+    "s12.paste.title": "Incollaggio",
+    "s12.paste.desc": "Premi <kbd>Ctrl</kbd>+<kbd>V</kbd> (personalizzabile in Impostazioni → Staffetta) per incollare il prossimo elemento nella coda. Il puntatore avanza automaticamente.",
+    "s12.controls.title": "Controlli",
+    "s12.controls.skip": "Salta — salta l'elemento corrente",
+    "s12.controls.prev": "Precedente — torna all'elemento precedente",
+    "s12.controls.pause": "Pausa — ripristina temporaneamente il funzionamento normale di PasteMemo mantenendo la coda",
+    "s12.controls.exit": "Esci — chiude la Modalità Staffetta e svuota la coda",
+    "s12.controls.autoexit": "Uscita automatica — quando abilitata, la Modalità Staffetta si chiude automaticamente quando la coda è vuota",
+    "s12.split.title": "Dividi",
+    "s12.split.desc": "Dividi un elemento di testo in più voci della coda per delimitatore (a capo, virgola, virgola cinese o personalizzato). L'anteprima della divisione si aggiorna in tempo reale quando cambi il delimitatore.",
+    "s12.notes.title": "Note",
+    "s12.notes.pause": "L'incollaggio rapido è in pausa durante la Modalità Staffetta",
+    "s12.notes.copy": "Le nuove copie vengono aggiunte automaticamente alla coda",
+    "s12.notes.dup": "Le copie duplicate consecutive vengono filtrate",
+    "s12.notes.blank": "I contenuti vuoti o composti solo da spazi vengono filtrati",
   },
   ru: {
     "nav.features": "Возможности",
@@ -2653,6 +3101,48 @@ const i18n = {
     "s11.grouping": "<strong>Умная группировка</strong> &mdash; Автоматическая группировка связанных элементов буфера обмена.",
     "s11.ignore": "<strong>Исключение приложений</strong> &mdash; Исключите определённые приложения из мониторинга буфера обмена.",
     "s11.icloud": "<strong>Автоматическое резервное копирование в iCloud</strong> &mdash; Скоро. Безопасная синхронизация истории буфера обмена между устройствами.",
+    "s11.relay": "<strong>Режим Эстафеты</strong> &mdash; Поставьте несколько элементов в очередь и вставляйте их по одному. Отлично подходит для массового ввода данных.",
+    "sidebar.relay": "Режим Эстафеты",
+    "nav.relay": "Режим Эстафеты",
+    "s2.cmdk.title": "Быстрые действия (⌘K)",
+    "s2.cmdk.desc": "Нажмите <kbd>&#8984;</kbd>+<kbd>K</kbd>, чтобы открыть палитру команд для быстрого доступа ко всем действиям. Перемещайтесь стрелками, нажмите клавишу быстрого доступа или кликните для выполнения.",
+    "s2.cmdk.img": "Снимок экрана палитры команд Быстрые действия",
+    "s2.cmdk.actions": "Доступные действия и их клавиши:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Вставить",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Вставить как текст / Вставить путь / Открыть ссылку (адаптируется к типу контента)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Копировать",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Добавить в очередь эстафеты",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Разделить и передать",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Закрепить / Открепить",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Переключить конфиденциальность",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Удалить",
+    "s2.cmdk.option": "Удерживайте <kbd>Option</kbd>, чтобы добавить новую строку после вставки.",
+    "s9.p.cmdk": "Открыть быстрые действия",
+    "s12.title": "Режим Эстафеты",
+    "s12.what.title": "Что такое Режим Эстафеты?",
+    "s12.what.desc": "Режим Эстафеты позволяет скопировать несколько элементов в очередь, а затем вставлять их по одному в порядке FIFO. Идеально подходит для массового ввода данных — например, скопировать список имён с веб-страницы и вставить их построчно в таблицу.",
+    "s12.enter.title": "Вход в Режим Эстафеты",
+    "s12.enter.desc": "Есть три способа запустить Режим Эстафеты:",
+    "s12.enter.batch": "Выберите несколько элементов → правый клик → \"Добавить в очередь эстафеты\"",
+    "s12.enter.split": "Выберите текстовый элемент → правый клик → \"Разделить и передать\" → выберите разделитель",
+    "s12.enter.empty": "Нажмите кнопку Эстафета на панели инструментов или в строке меню, чтобы начать с пустой очередью, затем копируйте элементы для добавления",
+    "s12.window.title": "Окно очереди",
+    "s12.window.desc": "Плавающая панель показывает текущую очередь с прогрессом. Вы можете перетаскивать для изменения порядка, наводить для удаления или разделения и использовать элементы управления внизу.",
+    "s12.paste.title": "Вставка",
+    "s12.paste.desc": "Нажмите <kbd>Ctrl</kbd>+<kbd>V</kbd> (настраивается в Настройки → Эстафета), чтобы вставить следующий элемент в очереди. Указатель перемещается автоматически.",
+    "s12.controls.title": "Управление",
+    "s12.controls.skip": "Пропустить — пропускает текущий элемент",
+    "s12.controls.prev": "Назад — возвращает к предыдущему элементу",
+    "s12.controls.pause": "Пауза — временно восстанавливает нормальную работу PasteMemo, сохраняя очередь",
+    "s12.controls.exit": "Выход — закрывает Режим Эстафеты и очищает очередь",
+    "s12.controls.autoexit": "Автовыход — при включении Режим Эстафеты автоматически завершается, когда очередь пуста",
+    "s12.split.title": "Разделение",
+    "s12.split.desc": "Разделите текстовый элемент на несколько записей очереди по разделителю (перенос строки, запятая, китайская запятая или пользовательский). Предпросмотр разделения обновляется в реальном времени при изменении разделителя.",
+    "s12.notes.title": "Примечания",
+    "s12.notes.pause": "Быстрая вставка приостановлена во время Режима Эстафеты",
+    "s12.notes.copy": "Новые копии автоматически добавляются в очередь",
+    "s12.notes.dup": "Последовательные дубликаты фильтруются",
+    "s12.notes.blank": "Пустой контент или контент из одних пробелов фильтруется",
   },
   id: {
     "nav.features": "Fitur",
@@ -2824,6 +3314,48 @@ const i18n = {
     "s11.grouping": "<strong>Pengelompokan cerdas</strong> &mdash; Otomatis mengelompokkan item clipboard yang terkait.",
     "s11.ignore": "<strong>Abaikan aplikasi tertentu</strong> &mdash; Kecualikan aplikasi tertentu dari pemantauan clipboard.",
     "s11.icloud": "<strong>Pencadangan otomatis iCloud</strong> &mdash; Segera hadir. Sinkronkan riwayat clipboard Anda dengan aman antar perangkat.",
+    "s11.relay": "<strong>Mode Relay</strong> &mdash; Antrekan beberapa item dan tempelkan satu per satu secara berurutan. Cocok untuk entri data massal.",
+    "sidebar.relay": "Mode Relay",
+    "nav.relay": "Mode Relay",
+    "s2.cmdk.title": "Tindakan Cepat (⌘K)",
+    "s2.cmdk.desc": "Tekan <kbd>&#8984;</kbd>+<kbd>K</kbd> untuk membuka palet perintah dan mengakses semua tindakan dengan cepat. Navigasi dengan tombol panah, tekan huruf pintasan, atau klik untuk menjalankan.",
+    "s2.cmdk.img": "Tangkapan layar palet perintah Tindakan Cepat",
+    "s2.cmdk.actions": "Tindakan yang tersedia dan tombol pintasannya:",
+    "s2.cmdk.v": "<kbd>V</kbd> &mdash; Tempel",
+    "s2.cmdk.p": "<kbd>P</kbd> &mdash; Tempel sebagai teks biasa / Tempel jalur / Buka tautan (menyesuaikan dengan jenis konten)",
+    "s2.cmdk.c": "<kbd>C</kbd> &mdash; Salin",
+    "s2.cmdk.r": "<kbd>R</kbd> &mdash; Tambahkan ke Antrean Relay",
+    "s2.cmdk.s": "<kbd>S</kbd> &mdash; Pisahkan & Relay",
+    "s2.cmdk.t": "<kbd>T</kbd> &mdash; Sematkan / Lepas Sematan",
+    "s2.cmdk.e": "<kbd>E</kbd> &mdash; Alihkan Sensitif",
+    "s2.cmdk.d": "<kbd>D</kbd> &mdash; Hapus",
+    "s2.cmdk.option": "Tahan <kbd>Option</kbd> untuk menambahkan baris baru setelah tindakan tempel.",
+    "s9.p.cmdk": "Buka Tindakan Cepat",
+    "s12.title": "Mode Relay",
+    "s12.what.title": "Apa itu Mode Relay?",
+    "s12.what.desc": "Mode Relay memungkinkan Anda menyalin beberapa item ke dalam antrean, lalu menempelkannya satu per satu dalam urutan FIFO. Sempurna untuk entri data massal — seperti menyalin daftar nama dari halaman web dan menempelkannya baris demi baris ke dalam spreadsheet.",
+    "s12.enter.title": "Memasuki Mode Relay",
+    "s12.enter.desc": "Ada tiga cara untuk memulai Mode Relay:",
+    "s12.enter.batch": "Pilih beberapa item → klik kanan → \"Tambahkan ke Antrean Relay\"",
+    "s12.enter.split": "Pilih item teks → klik kanan → \"Pisahkan & Relay\" → pilih pemisah",
+    "s12.enter.empty": "Klik tombol Relay di toolbar atau menu bar untuk memulai dengan antrean kosong, lalu salin item untuk menambahkannya",
+    "s12.window.title": "Jendela Antrean",
+    "s12.window.desc": "Panel mengambang menampilkan antrean saat ini dengan progres. Anda dapat menyeret untuk mengurutkan ulang, arahkan kursor untuk menghapus atau memisahkan, dan gunakan kontrol di bagian bawah.",
+    "s12.paste.title": "Menempel",
+    "s12.paste.desc": "Tekan <kbd>Ctrl</kbd>+<kbd>V</kbd> (dapat disesuaikan di Pengaturan → Relay) untuk menempelkan item berikutnya dalam antrean. Penunjuk bergerak maju secara otomatis.",
+    "s12.controls.title": "Kontrol",
+    "s12.controls.skip": "Lewati — melewati item saat ini",
+    "s12.controls.prev": "Sebelumnya — kembali satu item",
+    "s12.controls.pause": "Jeda — sementara memulihkan operasi normal PasteMemo sambil mempertahankan antrean",
+    "s12.controls.exit": "Keluar — menutup Mode Relay dan mengosongkan antrean",
+    "s12.controls.autoexit": "Keluar otomatis — saat diaktifkan, Mode Relay keluar secara otomatis saat antrean kosong",
+    "s12.split.title": "Pisahkan",
+    "s12.split.desc": "Pisahkan item teks menjadi beberapa entri antrean berdasarkan pemisah (baris baru, koma, koma Cina, atau kustom). Pratinjau pemisahan diperbarui secara real-time saat Anda mengubah pemisah.",
+    "s12.notes.title": "Catatan",
+    "s12.notes.pause": "Tempel Cepat dijeda selama Mode Relay",
+    "s12.notes.copy": "Salinan baru secara otomatis ditambahkan ke antrean",
+    "s12.notes.dup": "Salinan duplikat berturut-turut disaring",
+    "s12.notes.blank": "Konten kosong/hanya spasi disaring",
   }
 };
 
