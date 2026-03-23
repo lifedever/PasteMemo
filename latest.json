@@ -1,7 +1,7 @@
 {
   "version": "0.4.2",
-  "notes_zh": "- **新增** 支持 F1-F12 功能键作为全局快捷键\n- **修复** 设置无修饰键快捷键时被错误回退为默认快捷键的问题",
-  "notes_en": "- **New** Support F1-F12 function keys as global hotkey\n- **Fix** Setting hotkey without modifiers incorrectly fell back to default shortcut",
+  "notes_zh": "- **新增** 支持 F1-F12 功能键作为全局快捷键\n- **修复** 设置无修饰键快捷键时被错误回退为默认快捷键的问题\n- **修复** 快捷操作中按 P 打开链接无反应的问题",
+  "notes_en": "- **New** Support F1-F12 function keys as global hotkey\n- **Fix** Setting hotkey without modifiers incorrectly fell back to default shortcut\n- **Fix** Command palette 'Open Link' (P) did nothing for link items",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.2-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.2-x86_64.dmg"
