@@ -37,6 +37,14 @@
   <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-15.49.56@2x.png" width="720" alt="PasteMemo 快捷粘贴">
 </p>
 
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/it/2026/03/quick-actions.png" width="720" alt="PasteMemo 快捷操作">
+</p>
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/it/2026/03/relay-mode.png" width="720" alt="PasteMemo 接力模式">
+</p>
+
 ## 亮点功能
 
 - **复制即文件** — 文本一键粘贴为 `.txt` 文件，截图直接粘贴为图片文件。可拖入访达或任何文件对话框。
