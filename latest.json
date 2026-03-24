@@ -1,10 +1,10 @@
 {
-  "version": "0.4.3",
-  "notes_zh": "- **新增** 快捷面板中按 ⌘, 直接打开设置\n- **新增** 统一命令面板，主窗口和快捷面板均可使用 ⌘K 呼出\n- **新增** 快捷面板记忆位置，跟随鼠标所在屏幕打开，支持多屏幕\n- **新增** 快捷面板拖拽吸附（居中/推荐位置），带触觉反馈\n- **新增** 主窗口搜索支持匹配链接标题\n- **优化** 全新状态栏图标，与应用图标风格统一\n- **优化** 粘贴速度大幅提升\n- **优化** 接力模式图标和交互体验\n- **修复** 剪贴板历史被意外删除的问题（永久保存现在正确生效）\n- **修复** 快捷面板键盘导航时列表不跟随滚动\n- **修复** 快捷面板拖拽后吸附线未消失\n- **修复** 文件路径误检测问题\n- **修复** 磁力链接被误判为敏感内容\n- **修复** 备份时间显示为具体日期\n- **修复** 接力模式弹窗可能无法显示在前台",
-  "notes_en": "- **New** Press ⌘, in quick panel to open settings\n- **New** Unified command palette for both main window and quick panel (⌘K)\n- **New** Quick panel remembers position per screen, follows mouse, multi-monitor support\n- **New** Quick panel drag snapping (center/recommended) with haptic feedback\n- **New** Main window search matches link titles\n- **Improve** Redesigned menu bar icon matching app icon style\n- **Improve** Much faster paste speed\n- **Improve** Relay mode icons and UX\n- **Fix** Clipboard history being unexpectedly deleted (permanent retention now works)\n- **Fix** Quick panel list not scrolling to selected item on keyboard navigation\n- **Fix** Snap guide lines not disappearing after drag\n- **Fix** File path detection false positives\n- **Fix** Magnet links falsely detected as sensitive content\n- **Fix** Backup schedule shows date+time instead of relative text\n- **Fix** Relay mode alert may not appear in foreground",
+  "version": "0.4.4",
+  "notes_zh": "- **新增** 快捷面板固定窗口功能（图钉按钮），方便对比内容\n- **新增** 文件类条目支持「在 Finder 中显示」\n- **新增** 颜色格式转换（HEX / RGB / RGBA / HSL），预览面板可切换格式\n- **新增** 主窗口颜色编辑器，点击颜色圆圈直接修改\n- **新增** 接力队列支持编辑条目内容和颠倒顺序\n- **新增** 清理数据支持按时间范围\n- **新增** 导入和删除操作显示进度条\n- **优化** 快捷面板 Cmd+Delete 可清空搜索框\n- **优化** 主窗口空状态页面\n- **修复** 访问已删除条目导致的崩溃\n- **修复** 编辑保存后预览区未刷新\n- **修复** 主窗口设置按钮无响应\n- **修复** 拖拽吸附线在普通点击时误显示",
+  "notes_en": "- **New** Pin quick panel to stay on top (pin button)\n- **New** Show in Finder for file-type items\n- **New** Color format converter (HEX/RGB/RGBA/HSL) with preview switching\n- **New** Color picker in main window detail view\n- **New** Edit relay queue items and reverse order\n- **New** Clear data by time range\n- **New** Progress bar for import and delete operations\n- **Improve** Cmd+Delete clears search text in quick panel\n- **Improve** Main window empty state design\n- **Fix** Crash when accessing deleted clipboard items\n- **Fix** Preview not refreshing after edit save\n- **Fix** Settings button not working in main window\n- **Fix** Snap guide lines appearing on normal clicks",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.4-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.4-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
