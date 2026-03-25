@@ -1,10 +1,10 @@
 {
-  "version": "0.4.4",
-  "notes_zh": "- **新增** 快捷面板固定窗口功能（图钉按钮），方便对比内容\n- **新增** 文件类条目支持「在 Finder 中显示」\n- **新增** 颜色格式转换（HEX / RGB / RGBA / HSL），预览面板可切换格式\n- **新增** 主窗口颜色编辑器，点击颜色圆圈直接修改\n- **新增** 接力队列支持编辑条目内容和颠倒顺序\n- **新增** 清理数据支持按时间范围\n- **新增** 导入和删除操作显示进度条\n- **优化** 快捷面板 Cmd+Delete 可清空搜索框\n- **优化** 主窗口空状态页面\n- **修复** 访问已删除条目导致的崩溃\n- **修复** 编辑保存后预览区未刷新\n- **修复** 主窗口设置按钮无响应\n- **修复** 拖拽吸附线在普通点击时误显示",
-  "notes_en": "- **New** Pin quick panel to stay on top (pin button)\n- **New** Show in Finder for file-type items\n- **New** Color format converter (HEX/RGB/RGBA/HSL) with preview switching\n- **New** Color picker in main window detail view\n- **New** Edit relay queue items and reverse order\n- **New** Clear data by time range\n- **New** Progress bar for import and delete operations\n- **Improve** Cmd+Delete clears search text in quick panel\n- **Improve** Main window empty state design\n- **Fix** Crash when accessing deleted clipboard items\n- **Fix** Preview not refreshing after edit save\n- **Fix** Settings button not working in main window\n- **Fix** Snap guide lines appearing on normal clicks",
+  "version": "0.4.5",
+  "notes_zh": "- **优化** 改进代码语言检测准确率\n- **优化** 代码预览区滚动条优化\n- **修复** 链接条目标题获取后搜索无法立即命中\n- **修复** 快捷窗口删除条目后出现空白行",
+  "notes_en": "- **Improve** Better code language detection accuracy\n- **Improve** Code preview scrollbar refinement\n- **Fix** Link title not searchable until window reopen\n- **Fix** Blank rows after deleting items in quick panel",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-x86_64.dmg"
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
