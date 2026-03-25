@@ -705,7 +705,7 @@
     }
   </style>
   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js" async></script>
-  <script>LA.init({id:"3PObWgvBwMcOfbgJ",ck:"3PObWgvBwMcOfbgJ"})</script>
+  <script>window.LA=window.LA||{init(){},track(){}};LA.init({id:"3PObWgvBwMcOfbgJ",ck:"3PObWgvBwMcOfbgJ"})</script>
 </head>
 <body>
 
@@ -759,18 +759,24 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_arm')">
+        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="return verifiedDownload(event,'arm64')">
           <span>
             <strong>Apple Silicon</strong>
-            <small>M1 / M2 / M3 / M4 / M5</small>
+            <small id="downloadArm64Size">M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="LA.track('download_x86')">
+        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="return verifiedDownload(event,'x86_64')">
           <span>
             <strong>Intel</strong>
-            <small>x86_64</small>
+            <small id="downloadX86Size">x86_64</small>
           </span>
         </a>
+      </div>
+      <div id="downloadStatus" style="display:none;margin-top:12px;text-align:center;">
+        <div style="background:var(--kbd-bg);border-radius:8px;height:6px;width:240px;margin:0 auto 8px;overflow:hidden;">
+          <div id="downloadProgress" style="height:100%;width:0%;background:var(--orange-500);border-radius:8px;transition:width 0.2s;"></div>
+        </div>
+        <small id="downloadStatusText" style="font-size:12px;color:var(--text-muted);"></small>
       </div>
     </div>
   </div>
@@ -1497,6 +1503,123 @@ if (window.location.hash === "#download") {
   downloadMenu.classList.add("show");
 }
 
+// --- Download data store ---
+const downloadData = {};
+
+function formatSize(bytes) {
+  return (bytes / 1048576).toFixed(1) + " MB";
+}
+
+async function sha256Hex(buffer) {
+  const hash = await crypto.subtle.digest("SHA-256", buffer);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+let downloading = false;
+const MAX_RETRIES = 2;
+
+async function verifiedDownload(e, arch) {
+  e.preventDefault();
+  const info = downloadData[arch];
+  if (!info || !info.url) {
+    // fallback: no verified download info, open releases page
+    window.open("https://github.com/lifedever/PasteMemo/releases", "_blank");
+    return false;
+  }
+  if (!info.sha256 || !window.crypto?.subtle) {
+    // browser doesn't support SubtleCrypto or no hash available, direct download
+    window.location.href = info.url;
+    return false;
+  }
+  if (downloading) return false;
+  downloading = true;
+
+  LA.track("download_" + (arch === "arm64" ? "arm" : "x86"));
+  downloadMenu.classList.remove("show");
+
+  const statusEl = document.getElementById("downloadStatus");
+  const progressEl = document.getElementById("downloadProgress");
+  const textEl = document.getElementById("downloadStatusText");
+  statusEl.style.display = "block";
+
+  const lang = document.documentElement.lang || "en";
+  const isCN = lang.startsWith("zh");
+  const texts = {
+    downloading: isCN ? "下载中..." : "Downloading...",
+    verifying: isCN ? "校验文件完整性..." : "Verifying integrity...",
+    retry: isCN ? "文件不完整，正在重试..." : "File incomplete, retrying...",
+    failed: isCN ? "下载失败，请重试或从其他渠道下载" : "Download failed. Please retry or use alternative links below.",
+    done: isCN ? "下载完成" : "Download complete",
+  };
+
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      textEl.textContent = attempt > 0 ? texts.retry : texts.downloading;
+      progressEl.style.width = "0%";
+
+      const resp = await fetch(info.url);
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+
+      const contentLength = parseInt(resp.headers.get("content-length") || "0", 10);
+      const reader = resp.body.getReader();
+      const chunks = [];
+      let received = 0;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        received += value.length;
+        if (contentLength > 0) {
+          progressEl.style.width = Math.min(100, (received / contentLength * 100)).toFixed(1) + "%";
+        }
+      }
+
+      // Size check
+      if (info.size && received !== info.size) {
+        if (attempt < MAX_RETRIES) continue;
+        throw new Error("size mismatch: " + received + " vs " + info.size);
+      }
+
+      // SHA256 check
+      textEl.textContent = texts.verifying;
+      progressEl.style.width = "100%";
+      const buffer = new Uint8Array(received);
+      let offset = 0;
+      for (const chunk of chunks) { buffer.set(chunk, offset); offset += chunk.length; }
+
+      const hash = await sha256Hex(buffer.buffer);
+      if (hash !== info.sha256) {
+        if (attempt < MAX_RETRIES) continue;
+        throw new Error("sha256 mismatch");
+      }
+
+      // Save file
+      textEl.textContent = texts.done;
+      const blob = new Blob([buffer], { type: "application/octet-stream" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = info.url.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+      setTimeout(() => { statusEl.style.display = "none"; }, 3000);
+      downloading = false;
+      return false;
+    } catch (err) {
+      if (attempt >= MAX_RETRIES) {
+        textEl.textContent = texts.failed;
+        progressEl.style.width = "0%";
+        setTimeout(() => { statusEl.style.display = "none"; }, 5000);
+        downloading = false;
+        return false;
+      }
+    }
+  }
+  downloading = false;
+  return false;
+}
+
 // --- Fetch latest.json for download links & version ---
 fetch("latest.json")
   .then(r => r.json())
@@ -1505,12 +1628,23 @@ fetch("latest.json")
       document.getElementById("versionNumber").textContent = "· v" + data.version;
     }
     if (data.downloads) {
-      if (data.downloads.arm64) {
-        document.getElementById("downloadArm64").href = data.downloads.arm64;
-      }
-      if (data.downloads.x86_64) {
-        document.getElementById("downloadX86").href = data.downloads.x86_64;
-      }
+      ["arm64", "x86_64"].forEach(arch => {
+        const entry = data.downloads[arch];
+        if (!entry) return;
+        // Support both old format (string) and new format (object)
+        if (typeof entry === "string") {
+          downloadData[arch] = { url: entry };
+          document.getElementById(arch === "arm64" ? "downloadArm64" : "downloadX86").href = entry;
+        } else {
+          downloadData[arch] = { url: entry.url, size: entry.size, sha256: entry.sha256 };
+          document.getElementById(arch === "arm64" ? "downloadArm64" : "downloadX86").href = entry.url;
+          if (entry.size) {
+            const sizeEl = document.getElementById(arch === "arm64" ? "downloadArm64Size" : "downloadX86Size");
+            const label = arch === "arm64" ? "M1 / M2 / M3 / M4 / M5" : "x86_64";
+            sizeEl.textContent = label + " · " + formatSize(entry.size);
+          }
+        }
+      });
     }
     document.getElementById("downloadFallback").style.display = "block";
   })

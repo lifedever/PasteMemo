@@ -3,8 +3,16 @@
   "notes_zh": "- **优化** 改进代码语言检测准确率\n- **优化** 代码预览区滚动条优化\n- **修复** 链接条目标题获取后搜索无法立即命中\n- **修复** 快捷窗口删除条目后出现空白行",
   "notes_en": "- **Improve** Better code language detection accuracy\n- **Improve** Code preview scrollbar refinement\n- **Fix** Link title not searchable until window reopen\n- **Fix** Blank rows after deleting items in quick panel",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-x86_64.dmg"
+    "arm64": {
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-arm64.dmg",
+      "size": 3013005,
+      "sha256": "fa754ba898851739fd0b3f43b25feaf03b2d581fba3e02d02de038a7f2c9daaf"
+    },
+    "x86_64": {
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.5-x86_64.dmg",
+      "size": 3132296,
+      "sha256": "c20b4a56e768dbad7c58c84133fc4cb3501d7678cf9fcfd67a0ac9fb3b2c8546"
+    }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
 }
