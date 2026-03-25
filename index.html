@@ -1631,18 +1631,19 @@ fetch("latest.json")
       ["arm64", "x86_64"].forEach(arch => {
         const entry = data.downloads[arch];
         if (!entry) return;
-        // Support both old format (string) and new format (object)
-        if (typeof entry === "string") {
-          downloadData[arch] = { url: entry };
-          document.getElementById(arch === "arm64" ? "downloadArm64" : "downloadX86").href = entry;
-        } else {
-          downloadData[arch] = { url: entry.url, size: entry.size, sha256: entry.sha256 };
-          document.getElementById(arch === "arm64" ? "downloadArm64" : "downloadX86").href = entry.url;
-          if (entry.size) {
-            const sizeEl = document.getElementById(arch === "arm64" ? "downloadArm64Size" : "downloadX86Size");
-            const label = arch === "arm64" ? "M1 / M2 / M3 / M4 / M5" : "x86_64";
-            sizeEl.textContent = label + " · " + formatSize(entry.size);
-          }
+        const url = typeof entry === "string" ? entry : entry.url;
+        const checksum = data.checksums && data.checksums[arch];
+        downloadData[arch] = {
+          url: url,
+          size: checksum ? checksum.size : null,
+          sha256: checksum ? checksum.sha256 : null,
+        };
+        const el = document.getElementById(arch === "arm64" ? "downloadArm64" : "downloadX86");
+        el.href = url;
+        if (checksum && checksum.size) {
+          const sizeEl = document.getElementById(arch === "arm64" ? "downloadArm64Size" : "downloadX86Size");
+          const label = arch === "arm64" ? "M1 / M2 / M3 / M4 / M5" : "x86_64";
+          sizeEl.textContent = label + " · " + formatSize(checksum.size);
         }
       });
     }

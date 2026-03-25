@@ -3,6 +3,10 @@
   "notes_zh": "- **优化** 搜索性能，改进中文搜索体验\n- **优化** 置顶/敏感标记即时响应\n- **修复** 历史记录保留天数被重置为永久的问题\n- **修复** 缩略图显示错误\n- **修复** 输入法回车键冲突",
   "notes_en": "- **Improve** Search performance with better CJK support\n- **Improve** Instant UI refresh for pin/sensitive toggles\n- **Fix** History retention reset to Forever on every launch\n- **Fix** Thumbnail display mismatch\n- **Fix** IME enter key conflict in quick panel",
   "downloads": {
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.6-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.6-x86_64.dmg"
+  },
+  "checksums": {
     "arm64": {
       "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.6-arm64.dmg",
       "size": 3057970,
