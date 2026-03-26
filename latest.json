@@ -1,21 +1,21 @@
 {
-  "version": "0.4.7",
-  "notes_zh": "- **新增** 双击修饰键唤起快捷粘贴窗口（支持 Cmd/Shift/Ctrl/Option）\n- **优化** 代码语法识别，支持 40+ 种编程语言（新增 C/C++/C# 等）\n- **优化** 语法高亮性能\n- **修复** C/C++ 代码被误识别为 SQL\n- **修复** Python 代码被识别为纯文本\n- **修复** JSON 被误识别为其他语言",
-  "notes_en": "- **New** Double-tap modifier key to invoke Quick Paste panel (Cmd/Shift/Ctrl/Option)\n- **Improve** Code language detection, supporting 40+ languages (C/C++/C# and more)\n- **Improve** Syntax highlighting performance\n- **Fix** C/C++ code misdetected as SQL\n- **Fix** Python code detected as plain text\n- **Fix** JSON misdetected as other languages",
+  "version": "0.4.8",
+  "notes_zh": "- **修复** 列表导航顺序异常\n- **修复** 隐私应用检测（新增密码.app、钥匙串访问）\n- **修复** 管理器窗口分栏调整控件失效\n- **优化** 多语言翻译",
+  "notes_en": "- **Fix** List navigation order issue\n- **Fix** Privacy app detection (added Passwords.app, Keychain Access)\n- **Fix** Manager window split view divider not working\n- **Improve** Multilingual translations",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-arm64.dmg",
-      "size": 3126853,
-      "sha256": "bdcd600150e7690b95dd9b3d80c654d783a49e5610aa77448175495b7ed0c5fe"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-arm64.dmg",
+      "size": 3147590,
+      "sha256": "fe22cbd20738bfe683359b89b72d1e69cc2fab7f0b58f8fa67a378d6dea32b4d"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-x86_64.dmg",
-      "size": 3252161,
-      "sha256": "818c8e78ea725516c62ec3a0e2c9e37057a20aac60da98363d8ab09709d7b357"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-x86_64.dmg",
+      "size": 3269538,
+      "sha256": "470c9fbd832b18dc4aa63735e17cf9de0a4fbc8588e4004ec176ea01cb7a6aec"
     }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
