@@ -1,7 +1,7 @@
 {
   "version": "0.4.7",
-  "notes_zh": "- **优化** 语法识别：使用 highlight.js 引擎，支持 40+ 种编程语言（新增 C/C++/C# 等）\n- **优化** 语法高亮性能：JSContext 复用 + LRU 缓存\n- **新增** 双击修饰键唤起快捷粘贴窗口（支持 Cmd/Shift/Ctrl/Option）\n- **修复** C/C++ 代码被误识别为 SQL\n- **修复** Python 代码被识别为纯文本\n- **修复** JSON（含 URL）被误识别为 Perl",
-  "notes_en": "- **Improve** Language detection: highlight.js engine with 40+ languages (C/C++/C# and more)\n- **Improve** Syntax highlighting performance: JSContext reuse + LRU cache\n- **New** Double-tap modifier key to invoke Quick Paste panel (Cmd/Shift/Ctrl/Option)\n- **Fix** C/C++ code misdetected as SQL\n- **Fix** Python code detected as plain text\n- **Fix** JSON with URLs misdetected as Perl",
+  "notes_zh": "- **新增** 双击修饰键唤起快捷粘贴窗口（支持 Cmd/Shift/Ctrl/Option）\n- **优化** 代码语法识别，支持 40+ 种编程语言（新增 C/C++/C# 等）\n- **优化** 语法高亮性能\n- **修复** C/C++ 代码被误识别为 SQL\n- **修复** Python 代码被识别为纯文本\n- **修复** JSON 被误识别为其他语言",
+  "notes_en": "- **New** Double-tap modifier key to invoke Quick Paste panel (Cmd/Shift/Ctrl/Option)\n- **Improve** Code language detection, supporting 40+ languages (C/C++/C# and more)\n- **Improve** Syntax highlighting performance\n- **Fix** C/C++ code misdetected as SQL\n- **Fix** Python code detected as plain text\n- **Fix** JSON misdetected as other languages",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.7-x86_64.dmg"
