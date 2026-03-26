@@ -1,21 +1,21 @@
 {
-  "version": "0.4.8",
-  "notes_zh": "- **修复** 列表导航顺序异常\n- **修复** 隐私应用检测（新增密码.app、钥匙串访问）\n- **修复** 管理器窗口分栏调整控件失效\n- **优化** 多语言翻译",
-  "notes_en": "- **Fix** List navigation order issue\n- **Fix** Privacy app detection (added Passwords.app, Keychain Access)\n- **Fix** Manager window split view divider not working\n- **Improve** Multilingual translations",
+  "version": "0.4.9",
+  "notes_zh": "- **优化** 导出数据自动压缩（文件体积减少 70-80%）\n- **优化** 导出过程后台执行，显示进度\n- **修复** 重复 itemID 导致列表导航卡顿和置顶条目丢失",
+  "notes_en": "- **Improve** Export data auto-compressed with gzip (70-80% smaller files)\n- **Improve** Export runs in background with progress display\n- **Fix** Duplicate itemID causing list navigation loop and missing pinned items",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-arm64.dmg",
-      "size": 3147590,
-      "sha256": "fe22cbd20738bfe683359b89b72d1e69cc2fab7f0b58f8fa67a378d6dea32b4d"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-arm64.dmg",
+      "size": 3153300,
+      "sha256": "41280949e57739726643af3343d338fe19b7f7a5580cef6298bfb34f957fbd12"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.8-x86_64.dmg",
-      "size": 3269538,
-      "sha256": "470c9fbd832b18dc4aa63735e17cf9de0a4fbc8588e4004ec176ea01cb7a6aec"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-x86_64.dmg",
+      "size": 3276835,
+      "sha256": "16acb9f7d754df5efca3dc523561a7f8c9a8735c37d15fc8fdf8152a53437f9b"
     }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
