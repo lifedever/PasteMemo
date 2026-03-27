@@ -1,21 +1,21 @@
 {
-  "version": "0.4.9",
-  "notes_zh": "- **优化** 导出数据自动压缩（文件体积减少 70-80%）\n- **优化** 导出过程后台执行，显示进度\n- **修复** 重复 itemID 导致列表导航卡顿和置顶条目丢失",
-  "notes_en": "- **Improve** Export data auto-compressed with gzip (70-80% smaller files)\n- **Improve** Export runs in background with progress display\n- **Fix** Duplicate itemID causing list navigation loop and missing pinned items",
+  "version": "0.4.10",
+  "notes_zh": "- **修复** 敏感识别误判：URL 路径、连字符命名等常见内容不再被误标记\n- **新增** 打开管理器全局快捷键（设置 → 快捷键中配置）",
+  "notes_en": "- **Fix** Sensitive detection false positives: URL paths, hyphenated names, etc. no longer flagged\n- **New** Global shortcut for opening manager window (configure in Settings → Shortcuts)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-arm64.dmg",
-      "size": 3153300,
-      "sha256": "41280949e57739726643af3343d338fe19b7f7a5580cef6298bfb34f957fbd12"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-arm64.dmg",
+      "size": 3156531,
+      "sha256": "688581221d86bfbe5b641d93118898b7d787410c572f25895341487caf85fb37"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.9-x86_64.dmg",
-      "size": 3276835,
-      "sha256": "16acb9f7d754df5efca3dc523561a7f8c9a8735c37d15fc8fdf8152a53437f9b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-x86_64.dmg",
+      "size": 3279814,
+      "sha256": "d3bde6f56262d5238b90db1b41f36f54d34bd9523d7f26a48450c93ef2c5f297"
     }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
