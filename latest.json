@@ -1,21 +1,21 @@
 {
-  "version": "0.4.10",
-  "notes_zh": "- **修复** 敏感识别误判：URL 路径、连字符命名等常见内容不再被误标记\n- **新增** 打开管理器全局快捷键（设置 → 快捷键中配置）",
-  "notes_en": "- **Fix** Sensitive detection false positives: URL paths, hyphenated names, etc. no longer flagged\n- **New** Global shortcut for opening manager window (configure in Settings → Shortcuts)",
+  "version": "0.5.0",
+  "notes_zh": "- **新增** 剪贴板自动化引擎：自定义规则自动执行标记敏感、置顶、分组等动作\n- **新增** 自定义分组管理\n- **新增** 多选操作重设计：类型统计芯片 + 操作列表\n- **优化** 来源应用识别准确性\n- **优化** 应用图标显示：修复本地化名称应用图标不显示的问题\n- **优化** 代码预览性能：高亮结果缓存，箭头键切换不再卡顿\n- **修复** 多项自动化、分组、列表导航相关 bug",
+  "notes_en": "- **New** Clipboard automation engine: custom rules with auto-actions (mark sensitive, pin, assign group)\n- **New** Custom group management\n- **New** Redesigned multi-select preview with type chips and action list\n- **Improve** Source app detection accuracy\n- **Improve** App icon display: fix icons not showing for localized app names\n- **Improve** Code preview performance: cached highlighting, smooth arrow-key navigation\n- **Fix** Various automation, group, and list navigation bugs",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-arm64.dmg",
-      "size": 3156531,
-      "sha256": "688581221d86bfbe5b641d93118898b7d787410c572f25895341487caf85fb37"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.0-arm64.dmg",
+      "size": 3508529,
+      "sha256": "d5f3558cd4444ee9a686b6963a636a560ccc1e691a43192cd6ab7dff93735f53"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.4.10-x86_64.dmg",
-      "size": 3279814,
-      "sha256": "d3bde6f56262d5238b90db1b41f36f54d34bd9523d7f26a48450c93ef2c5f297"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.0-x86_64.dmg",
+      "size": 3604635,
+      "sha256": "5c1a049a0be74861cfd3f9e1187307493201bfc97454d3ce1f2e56b14ad82422"
     }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
