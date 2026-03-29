@@ -798,6 +798,7 @@
       <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-15.50.58@2x.png" alt="PasteMemo Main Window">
       <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uPic/2026/03/CS2026-03-20-15.49.56@2x.png" alt="PasteMemo Quick Paste">
       <img src="help/images/quick-actions.png" alt="PasteMemo Quick Actions">
+      <img src="help/images/quick-panel-filter.png" alt="PasteMemo Quick Panel Filter">
     </div>
   </div>
   <div class="carousel-dots" id="carouselDots"></div>
@@ -834,9 +835,14 @@
     <!-- Essentials: 3-col small cards -->
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="17" x2="12" y2="3"/><line x1="5" y1="10" x2="12" y2="3"/><line x1="19" y1="10" x2="12" y2="3"/><line x1="5" y1="21" x2="19" y2="21"/></svg></div>
-        <h3 data-i18n="features.pin.title">Pin to Top</h3>
-        <p data-i18n="features.pin.desc">Pin frequently used clips. They stay at the top, always one click away.</p>
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3 data-i18n="features.automation.title">Clipboard Automation</h3>
+        <p data-i18n="features.automation.desc">Custom rules auto-process your clipboard: clean URLs, assign groups, mark sensitive — all without lifting a finger.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+        <h3 data-i18n="features.groups.title">Custom Groups</h3>
+        <p data-i18n="features.groups.desc">Organize clips into custom groups manually or via automation rules. Your own folder system for clipboard history.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
@@ -857,11 +863,6 @@
         <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div>
         <h3 data-i18n="features.native.title">Lightweight & Native</h3>
         <p data-i18n="features.native.desc">Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg width="20" height="20" fill="none" stroke="var(--orange-500)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3 data-i18n="features.lang.title">11 Languages</h3>
-        <p data-i18n="features.lang.desc">English, 简体中文, 繁體中文, 日本語, 한국어, Français, Deutsch, Español, Italiano, Русский, Bahasa Indonesia — switch anytime.</p>
       </div>
     </div>
   </div>
@@ -917,8 +918,10 @@ const i18n = {
     "features.smart.desc": "Automatically detects content type — <strong>links</strong> with favicons, <strong>code snippets</strong>, colors, phone numbers, files — and shows <strong>intelligent previews</strong>.",
     "features.reuse.title": "Beyond Copy-Paste",
     "features.reuse.desc": "Paste <strong>file paths</strong>, <strong>filenames</strong>, save to folders, or <strong>paste-and-enter</strong> for terminal commands. Every clip becomes a multi-tool.",
-    "features.pin.title": "Pin to Top",
-    "features.pin.desc": "Pin frequently used clips. They stay at the top, always one click away.",
+    "features.automation.title": "Clipboard Automation",
+    "features.automation.desc": "Custom rules auto-process your clipboard: clean URLs, assign groups, mark sensitive — all without lifting a finger.",
+    "features.groups.title": "Custom Groups",
+    "features.groups.desc": "Organize clips into custom groups manually or via automation rules. Your own folder system for clipboard history.",
     "features.appfilter.title": "Filter by App",
     "features.appfilter.desc": "See what you copied from which app. Filter clips by source — Chrome, VS Code, Figma, or any app.",
     "features.hotkey.title": "Global Hotkey",
@@ -958,8 +961,10 @@ const i18n = {
     "features.smart.desc": "自动检测内容类型——<strong>链接</strong>自动抓取图标、<strong>代码片段</strong>、颜色值、电话号码、文件路径——并进行<strong>智能预览</strong>。",
     "features.reuse.title": "不止复制粘贴",
     "features.reuse.desc": "粘贴<strong>路径</strong>、粘贴<strong>文件名</strong>、保存到文件夹、<strong>粘贴后自动回车</strong>。每条记录都是一把瑞士军刀。",
-    "features.pin.title": "置顶",
-    "features.pin.desc": "常用内容一键置顶，始终在列表最上方，随时一点即用。",
+    "features.automation.title": "剪贴板自动化",
+    "features.automation.desc": "自定义规则自动处理剪贴板：清理链接追踪、自动分组、标记敏感——全程无需手动操作。",
+    "features.groups.title": "自定义分组",
+    "features.groups.desc": "手动或通过自动化规则将剪贴板内容归入自定义分组，打造你自己的剪贴板文件夹体系。",
     "features.appfilter.title": "按应用筛选",
     "features.appfilter.desc": "清楚看到每条记录来自哪个应用。按来源筛选——Chrome、VS Code、Figma，一目了然。",
     "features.hotkey.title": "全局快捷键",

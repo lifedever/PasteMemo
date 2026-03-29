@@ -624,6 +624,7 @@
       <li><a href="#rich-text" data-i18n="sidebar.richtext">Rich Text & Plain Text</a></li>
       <li><a href="#sound" data-i18n="sidebar.sound">Sound Effects</a></li>
       <li><a href="#relay" data-i18n="sidebar.relay">Relay Mode</a></li>
+      <li><a href="#automation" data-i18n="sidebar.automation">Automation</a></li>
       <li><a href="#shortcuts" data-i18n="sidebar.shortcuts">Keyboard Shortcuts</a></li>
       <li><a href="#settings" data-i18n="sidebar.settings">Settings</a></li>
       <li><a href="#pro" data-i18n="sidebar.pro">Pro Features</a></li>
@@ -911,6 +912,53 @@ brew install --cask pastememo</code></pre>
       </ul>
     </section>
 
+    <!-- Automation -->
+    <section id="automation">
+      <hr class="section-divider">
+      <h2><span data-i18n="s13.title">Automation</span> <span class="pro-badge">PRO</span></h2>
+      <img src="images/settings-automation.png" alt="Automation Settings" class="doc-img">
+
+      <p data-i18n="s13.desc">Create custom rules to automatically process clipboard content. Rules are executed in order when new content is captured.</p>
+
+      <h3 data-i18n="s13.builtin.title">Built-in Rules</h3>
+      <p data-i18n="s13.builtin.desc">PasteMemo includes 3 built-in rules you can enable:</p>
+      <ul>
+        <li data-i18n-html="s13.builtin.tracking"><strong>Clean tracking parameters</strong> &mdash; Remove UTM and tracking parameters from URLs.</li>
+        <li data-i18n-html="s13.builtin.email"><strong>Auto-lowercase email</strong> &mdash; Convert email addresses to lowercase.</li>
+        <li data-i18n-html="s13.builtin.blank"><strong>Remove extra blank lines</strong> &mdash; Collapse multiple consecutive blank lines into one.</li>
+      </ul>
+
+      <h3 data-i18n="s13.custom.title">Custom Rules</h3>
+      <img src="images/automation-rules.png" alt="Automation Rule Editor" class="doc-img">
+      <p data-i18n="s13.custom.desc">Create your own rules with flexible conditions and actions:</p>
+
+      <h4 data-i18n="s13.conditions.title">Conditions</h4>
+      <ul>
+        <li data-i18n-html="s13.conditions.regex"><strong>Content matches regex</strong> &mdash; Match content against a regular expression.</li>
+        <li data-i18n-html="s13.conditions.type"><strong>Content type is</strong> &mdash; Match by content type (text, code, link, image, color, etc.).</li>
+        <li data-i18n-html="s13.conditions.app"><strong>Source app is</strong> &mdash; Match by the app where the content was copied from.</li>
+      </ul>
+      <p data-i18n="s13.conditions.logic">Conditions can be combined with "All" (AND) or "Any" (OR) logic.</p>
+
+      <h4 data-i18n="s13.actions.title">Actions</h4>
+      <ul>
+        <li data-i18n-html="s13.actions.replace"><strong>Find &amp; Replace</strong> &mdash; Replace text using regex patterns.</li>
+        <li data-i18n-html="s13.actions.strip"><strong>Strip rich text</strong> &mdash; Convert to plain text.</li>
+        <li data-i18n-html="s13.actions.group"><strong>Assign to group</strong> &mdash; Automatically organize into a custom group.</li>
+        <li data-i18n-html="s13.actions.sensitive"><strong>Mark sensitive</strong> &mdash; Automatically flag as sensitive content.</li>
+        <li data-i18n-html="s13.actions.pin"><strong>Pin</strong> &mdash; Automatically pin the item.</li>
+        <li data-i18n-html="s13.actions.skip"><strong>Skip capture</strong> &mdash; Do not save this content to history.</li>
+      </ul>
+
+      <h3 data-i18n="s13.settings.title">Rule Settings</h3>
+      <ul>
+        <li data-i18n-html="s13.settings.trigger"><strong>Trigger mode</strong> &mdash; Automatic (triggered on clipboard capture) or Manual (triggered from context menu).</li>
+        <li data-i18n-html="s13.settings.notify"><strong>Notify on trigger</strong> &mdash; Show a notification when a rule is triggered.</li>
+        <li data-i18n-html="s13.settings.confirm"><strong>Confirm before apply</strong> &mdash; Show a confirmation dialog before applying changes.</li>
+      </ul>
+      <p data-i18n="s13.order">All matching rules are executed in order. Drag rules in the list to adjust priority.</p>
+    </section>
+
     <!-- 9. Keyboard Shortcuts -->
     <section id="shortcuts">
       <hr class="section-divider">
@@ -976,12 +1024,14 @@ brew install --cask pastememo</code></pre>
       <h2 data-i18n="s10.title">Settings</h2>
       <img src="images/settings-features.png" alt="Settings" class="doc-img">
 
-      <p data-i18n="s10.desc">The Settings window has 6 tabs:</p>
+      <p data-i18n="s10.desc">The Settings window has 8 tabs:</p>
       <ul>
         <li data-i18n-html="s10.general"><strong>General</strong> &mdash; Launch at login, global shortcut, language, appearance, menu bar icon style.</li>
         <li data-i18n-html="s10.features"><strong>Features</strong> &mdash; Sound effects, sensitive content detection, smart recognition toggles.</li>
-        <li data-i18n-html="s10.rules"><strong>Rules</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.</li>
-        <li data-i18n-html="s10.data"><strong>Data</strong> &mdash; History retention period, clear data, export/import.</li>
+        <li data-i18n-html="s10.relay"><strong>Relay</strong> &mdash; Relay Mode shortcut and behavior settings.</li>
+        <li data-i18n-html="s10.privacy"><strong>Privacy</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.</li>
+        <li data-i18n-html="s10.automation"><strong>Automation</strong> &mdash; Enable/disable automation, manage rules with quick toggles.</li>
+        <li data-i18n-html="s10.data"><strong>Data</strong> &mdash; History retention period, clear data, export/import, backup.</li>
         <li data-i18n-html="s10.pro"><strong>Pro</strong> &mdash; Manage your Pro subscription, view feature comparison.</li>
         <li data-i18n-html="s10.about"><strong>About</strong> &mdash; Version info, acknowledgements, links.</li>
       </ul>
@@ -1031,6 +1081,7 @@ const i18n = {
     "sidebar.data": "Data Management",
     "sidebar.richtext": "Rich Text & Plain Text",
     "sidebar.sound": "Sound Effects",
+    "sidebar.automation": "Automation",
     "sidebar.shortcuts": "Keyboard Shortcuts",
     "sidebar.settings": "Settings",
     "sidebar.pro": "Pro Features",
@@ -1229,6 +1280,35 @@ const i18n = {
     "s12.notes.copy": "New copies are automatically added to the queue",
     "s12.notes.dup": "Consecutive duplicate copies are filtered out",
     "s12.notes.blank": "Blank/whitespace-only content is filtered out",
+    "s13.title": "Automation",
+    "s13.desc": "Create custom rules to automatically process clipboard content. Rules are executed in order when new content is captured.",
+    "s13.builtin.title": "Built-in Rules",
+    "s13.builtin.desc": "PasteMemo includes 3 built-in rules you can enable:",
+    "s13.builtin.tracking": "<strong>Clean tracking parameters</strong> &mdash; Remove UTM and tracking parameters from URLs.",
+    "s13.builtin.email": "<strong>Auto-lowercase email</strong> &mdash; Convert email addresses to lowercase.",
+    "s13.builtin.blank": "<strong>Remove extra blank lines</strong> &mdash; Collapse multiple consecutive blank lines into one.",
+    "s13.custom.title": "Custom Rules",
+    "s13.custom.desc": "Create your own rules with flexible conditions and actions:",
+    "s13.conditions.title": "Conditions",
+    "s13.conditions.regex": "<strong>Content matches regex</strong> &mdash; Match content against a regular expression.",
+    "s13.conditions.type": "<strong>Content type is</strong> &mdash; Match by content type (text, code, link, image, color, etc.).",
+    "s13.conditions.app": "<strong>Source app is</strong> &mdash; Match by the app where the content was copied from.",
+    "s13.conditions.logic": "Conditions can be combined with \"All\" (AND) or \"Any\" (OR) logic.",
+    "s13.actions.title": "Actions",
+    "s13.actions.replace": "<strong>Find &amp; Replace</strong> &mdash; Replace text using regex patterns.",
+    "s13.actions.strip": "<strong>Strip rich text</strong> &mdash; Convert to plain text.",
+    "s13.actions.group": "<strong>Assign to group</strong> &mdash; Automatically organize into a custom group.",
+    "s13.actions.sensitive": "<strong>Mark sensitive</strong> &mdash; Automatically flag as sensitive content.",
+    "s13.actions.pin": "<strong>Pin</strong> &mdash; Automatically pin the item.",
+    "s13.actions.skip": "<strong>Skip capture</strong> &mdash; Do not save this content to history.",
+    "s13.settings.title": "Rule Settings",
+    "s13.settings.trigger": "<strong>Trigger mode</strong> &mdash; Automatic (triggered on clipboard capture) or Manual (triggered from context menu).",
+    "s13.settings.notify": "<strong>Notify on trigger</strong> &mdash; Show a notification when a rule is triggered.",
+    "s13.settings.confirm": "<strong>Confirm before apply</strong> &mdash; Show a confirmation dialog before applying changes.",
+    "s13.order": "All matching rules are executed in order. Drag rules in the list to adjust priority.",
+    "s10.relay": "<strong>Relay</strong> &mdash; Relay Mode shortcut and behavior settings.",
+    "s10.privacy": "<strong>Privacy</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.",
+    "s10.automation": "<strong>Automation</strong> &mdash; Enable/disable automation, manage rules with quick toggles.",
   },
   "zh-Hans": {
     "nav.features": "功能",
@@ -1244,6 +1324,7 @@ const i18n = {
     "sidebar.data": "数据管理",
     "sidebar.richtext": "富文本与纯文本",
     "sidebar.sound": "音效",
+    "sidebar.automation": "自动化",
     "sidebar.shortcuts": "快捷键",
     "sidebar.settings": "设置",
     "sidebar.pro": "Pro 功能",
@@ -1442,6 +1523,35 @@ const i18n = {
     "s12.notes.copy": "新复制的内容会自动添加到队列",
     "s12.notes.dup": "连续重复复制的内容会被过滤",
     "s12.notes.blank": "空白内容会被过滤",
+    "s13.title": "自动化",
+    "s13.desc": "创建自定义规则，自动处理剪贴板内容。捕获新内容时，所有匹配的规则按顺序执行。",
+    "s13.builtin.title": "内置规则",
+    "s13.builtin.desc": "PasteMemo 内置了 3 条可启用的规则：",
+    "s13.builtin.tracking": "<strong>清理链接追踪参数</strong> —— 移除 URL 中的 UTM 等追踪参数。",
+    "s13.builtin.email": "<strong>邮箱自动转小写</strong> —— 将邮箱地址自动转为小写。",
+    "s13.builtin.blank": "<strong>去除多余空行</strong> —— 将连续多个空行合并为一个。",
+    "s13.custom.title": "自定义规则",
+    "s13.custom.desc": "使用灵活的条件和动作创建自己的规则：",
+    "s13.conditions.title": "条件",
+    "s13.conditions.regex": "<strong>内容匹配正则</strong> —— 使用正则表达式匹配内容。",
+    "s13.conditions.type": "<strong>内容类型是</strong> —— 按内容类型匹配（文本、代码、链接、图片、颜色等）。",
+    "s13.conditions.app": "<strong>来源应用是</strong> —— 按内容复制来源的应用匹配。",
+    "s13.conditions.logic": "条件可通过「全部」（AND）或「任一」（OR）逻辑组合。",
+    "s13.actions.title": "动作",
+    "s13.actions.replace": "<strong>查找替换</strong> —— 使用正则表达式替换文本。",
+    "s13.actions.strip": "<strong>转纯文本</strong> —— 去除富文本格式。",
+    "s13.actions.group": "<strong>分配到分组</strong> —— 自动归入指定的自定义分组。",
+    "s13.actions.sensitive": "<strong>标记敏感</strong> —— 自动标记为敏感内容。",
+    "s13.actions.pin": "<strong>置顶</strong> —— 自动置顶该条目。",
+    "s13.actions.skip": "<strong>跳过捕获</strong> —— 不保存此内容到历史记录。",
+    "s13.settings.title": "规则设置",
+    "s13.settings.trigger": "<strong>触发模式</strong> —— 自动触发（剪贴板捕获时触发）或手动触发（右键菜单触发）。",
+    "s13.settings.notify": "<strong>触发时发送通知</strong> —— 规则触发时显示系统通知。",
+    "s13.settings.confirm": "<strong>触发时弹窗确认</strong> —— 应用修改前显示确认对话框。",
+    "s13.order": "所有匹配的规则将按顺序执行，可拖拽调整优先级。",
+    "s10.relay": "<strong>接力</strong> —— 接力模式快捷键和行为设置。",
+    "s10.privacy": "<strong>隐私</strong> —— 忽略应用列表、富文本自动降级规则。",
+    "s10.automation": "<strong>自动化</strong> —— 启用/禁用自动化，快速管理规则开关。",
   },
   "zh-Hant": {
     "nav.features": "功能",
