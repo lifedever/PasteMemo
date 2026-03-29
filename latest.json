@@ -1,21 +1,21 @@
 {
-  "version": "0.5.1",
-  "notes_zh": "- **优化** 优化了一些问题",
-  "notes_en": "- **Improve** Minor improvements and fixes",
+  "version": "0.5.2",
+  "notes_zh": "- **修复** 修复快捷窗口方向键导航导致的崩溃闪退\n- **修复** 切换语言后快捷窗口标签未更新\n- **修复** 加载更多数据后选中项跳回顶部\n- **优化** 快捷窗口性能优化（分组缓存、批量查询）\n- **优化** 重新打开快捷窗口时智能保持/重置状态\n- **优化** 切换分类后滚动条自动回到顶部\n- **新增** 切换语言后提示重启应用\n- **新增** 主窗口拖拽排序类型后快捷窗口同步更新",
+  "notes_en": "- **Fix** Fix crash when navigating with arrow keys in Quick Panel\n- **Fix** Tab labels not updating after language switch\n- **Fix** Selection jumping to top after loading more items\n- **Improve** Quick Panel performance (cached grouping, batch queries)\n- **Improve** Smart state preservation when reopening Quick Panel\n- **Improve** Auto scroll to top when switching content type filter\n- **New** Prompt to restart app after language change\n- **New** Sync type order between main window and Quick Panel",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.1-arm64.dmg",
-      "size": 3511119,
-      "sha256": "57382d81455a381b6eb965e61d17a8496dcaf36c38188cdb4de2faa79c0046ad"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-arm64.dmg",
+      "size": 3532636,
+      "sha256": "dca7bad0d75319e2199babb901d501ba7f366cd608bebcb844266ea618f9c632"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.1-x86_64.dmg",
-      "size": 3608616,
-      "sha256": "525e09b994003e7cebd5c98cf23baba9042ec5ed7870145947cc37c847a3ca03"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-x86_64.dmg",
+      "size": 3629474,
+      "sha256": "4e177daed37236a6ac42e120bb352e541ab69a2ac035403f0a73ef9e1ee6e711"
     }
   },
   "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
