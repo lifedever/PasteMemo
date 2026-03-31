@@ -1,0 +1,86 @@
+name: "🐛 Bug 报告 / Bug Report"
+description: "报告一个问题 / Report a bug"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提交 Bug 报告！请尽量详细地填写以下信息，以便我们快速定位和修复问题。
+        Thanks for reporting a bug! Please fill in as much detail as possible so we can locate and fix the issue quickly.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 / Description
+      description: 清晰描述你遇到的问题 / Describe the issue clearly
+      placeholder: |
+        例如：复制某段文字后，Quick Paste 面板中未显示该条记录
+        e.g., After copying some text, the clip doesn't appear in the Quick Paste panel
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 / Steps to Reproduce
+      description: 请列出复现问题的步骤 / List the steps to reproduce
+      placeholder: |
+        1. 打开 PasteMemo / Open PasteMemo
+        2. 复制一段文字 / Copy some text
+        3. 按 ⌘⇧V 打开面板 / Press ⌘⇧V to open the panel
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为 / Expected Behavior
+      description: 你期望发生什么 / What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为 / Actual Behavior
+      description: 实际发生了什么 / What actually happened?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS 版本 / macOS Version
+      options:
+        - macOS 15 Sequoia
+        - macOS 14 Sonoma
+    validations:
+      required: true
+
+  - type: dropdown
+    id: chip
+    attributes:
+      label: 芯片类型 / Chip
+      options:
+        - Apple Silicon (M1/M2/M3/M4)
+        - Intel
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: PasteMemo 版本 / PasteMemo Version
+      description: "在菜单栏点击 PasteMemo → 关于 PasteMemo 查看 / Click PasteMemo → About PasteMemo in the menu bar"
+      placeholder: "e.g., 1.5.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图或录屏 / Screenshots or Screen Recording
+      description: 如有，请粘贴截图或拖入录屏文件 / Paste screenshots or drag in screen recordings if available
+    validations:
+      required: false

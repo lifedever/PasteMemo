@@ -1,0 +1,80 @@
+name: "💥 崩溃报告 / Crash Report"
+description: "报告应用崩溃 / Report an app crash"
+labels: ["crash"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提交崩溃报告！请尽量提供详细信息，崩溃日志对定位问题非常有帮助。
+        Thanks for reporting a crash! Please provide as much detail as possible — crash logs are extremely helpful.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 崩溃描述 / Crash Description
+      description: 崩溃前你在做什么 / What were you doing when the crash happened?
+      placeholder: |
+        例如：打开设置页面后，切换主题时 App 闪退
+        e.g., The app crashed when switching themes in the Settings page
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: 复现频率 / Frequency
+      options:
+        - 每次 / Every time
+        - 经常 / Often
+        - 偶尔 / Sometimes
+        - 只发生过一次 / Only once
+    validations:
+      required: true
+
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS 版本 / macOS Version
+      options:
+        - macOS 15 Sequoia
+        - macOS 14 Sonoma
+    validations:
+      required: true
+
+  - type: dropdown
+    id: chip
+    attributes:
+      label: 芯片类型 / Chip
+      options:
+        - Apple Silicon (M1/M2/M3/M4)
+        - Intel
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: PasteMemo 版本 / PasteMemo Version
+      description: "在菜单栏点击 PasteMemo → 关于 PasteMemo 查看 / Click PasteMemo → About PasteMemo in the menu bar"
+      placeholder: "e.g., 1.5.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: crash-log
+    attributes:
+      label: 崩溃日志 / Crash Log
+      description: |
+        打开 Console.app → 崩溃报告 → 搜索 PasteMemo，复制日志内容
+        Open Console.app → Crash Reports → Search for PasteMemo, copy the log
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 补充信息 / Additional Context
+      description: 其他有助于定位问题的信息 / Any other information that might help
+    validations:
+      required: false
