@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "notes_zh": "- **开源** PasteMemo 正式开源，基于 GPL-3.0 协议\n- **免费** 所有功能完全免费，移除 Pro 限制\n- **新增** 设置中新增「支持」标签页（捐助、GitHub Star、反馈）\n- **新增** 隐私设置中新增匿名使用统计开关\n- **新增** 首次使用引导新增统计选项步骤\n- **优化** 关于页面新增开源协议和源代码链接",
-  "notes_en": "- **Open Source** PasteMemo is now open source under GPL-3.0\n- **Free** All features are completely free, Pro restrictions removed\n- **New** Sponsor tab in Settings (donate, GitHub Star, feedback)\n- **New** Anonymous usage statistics toggle in Privacy settings\n- **New** Analytics opt-in step in onboarding flow\n- **Improve** About page now shows license and source code link",
+  "notes_zh": "PasteMemo v1.0.0 正式开源",
+  "notes_en": "PasteMemo v1.0.0 is now open source",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-x86_64.dmg"
