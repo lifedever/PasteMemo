@@ -560,6 +560,44 @@
       line-height: 1.6;
     }
 
+    .sponsor-section {
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .sponsor-card {
+      max-width: 560px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(220,252,231,0.4), rgba(220,252,231,0.1));
+      border: 1px solid rgba(220,252,231,0.6);
+      border-radius: 20px;
+      padding: 48px 40px;
+    }
+    .sponsor-emoji { font-size: 40px; margin-bottom: 16px; }
+    .sponsor-card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .sponsor-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .sponsor-btn {
+      display: inline-block;
+      padding: 14px 48px;
+      background: #d4726a;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .sponsor-btn:hover { opacity: 0.85; }
+
     .kbd-group {
       display: flex;
       gap: 8px;
@@ -959,6 +997,15 @@
   </div>
 </section>
 
+<section class="sponsor-section">
+  <div class="sponsor-card">
+    <div class="sponsor-emoji">💖</div>
+    <h2 data-i18n="sponsor.title">Like PasteMemo?</h2>
+    <p data-i18n="sponsor.desc">PasteMemo is free and open source, maintained by an indie developer. Your support keeps updates coming.</p>
+    <a href="https://www.lifedever.com" target="_blank" class="sponsor-btn" data-i18n="sponsor.btn">❤️ Sponsor</a>
+  </div>
+</section>
+
 <footer>
   <div class="footer-links">
     <a href="https://github.com/lifedever/PasteMemo-app/releases" data-i18n="footer.releases">Releases</a>
@@ -1018,6 +1065,9 @@ const i18n = {
     "features.native.desc": "Built with SwiftUI. Lives in your menu bar, never in the Dock. Minimal CPU and memory usage.",
     "shortcut.title": "Access anywhere, instantly.",
     "shortcut.desc": "Press the shortcut to open Quick Paste panel from any app. Search, click, done.",
+    "sponsor.title": "Like PasteMemo?",
+    "sponsor.desc": "PasteMemo is free and open source, maintained by an indie developer. Your support keeps updates coming.",
+    "sponsor.btn": "❤️ Sponsor",
     "hero.download_trouble": "Download issues?",
     "hero.brew_label": "Or install via Homebrew:",
     "footer.releases": "Releases",
@@ -1064,6 +1114,9 @@ const i18n = {
     "features.native.desc": "SwiftUI 原生构建，仅驻留菜单栏，不占用 Dock，CPU 和内存占用极低。",
     "shortcut.title": "随时随地，即刻访问。",
     "shortcut.desc": "在任意应用中按下快捷键，打开快速粘贴面板。搜索、点击、完成。",
+    "sponsor.title": "喜欢 PasteMemo?",
+    "sponsor.desc": "PasteMemo 免费开源，由独立开发者维护。你的支持是持续更新的最大动力。",
+    "sponsor.btn": "❤️ 捐赠支持",
     "hero.download_trouble": "下载遇到问题？",
     "hero.brew_label": "或通过 Homebrew 安装：",
     "footer.releases": "版本发布",
@@ -1110,6 +1163,9 @@ const i18n = {
     "features.native.desc": "SwiftUI で構築。メニューバーに常駐し、Dock には表示されません。CPU・メモリ使用量は最小限。",
     "shortcut.title": "どこからでも、すぐにアクセス。",
     "shortcut.desc": "どのアプリからでもショートカットを押すだけ。検索して、クリックして、完了。",
+    "sponsor.title": "PasteMemo を気に入りましたか？",
+    "sponsor.desc": "PasteMemo は無料のオープンソースで、個人開発者が開発しています。あなたのサポートが更新の原動力です。",
+    "sponsor.btn": "❤️ サポートする",
     "hero.download_trouble": "ダウンロードに問題がありますか？",
     "hero.brew_label": "Homebrew でインストール：",
     "footer.releases": "リリース",
@@ -1156,6 +1212,9 @@ const i18n = {
     "features.native.desc": "SwiftUI로 제작. 메뉴 바에만 상주하며, Dock에 표시되지 않습니다. 최소한의 CPU 및 메모리 사용.",
     "shortcut.title": "어디서든, 즉시 접근.",
     "shortcut.desc": "어떤 앱에서든 단축키를 눌러 빠른 붙여넣기 패널을 열 수 있습니다. 검색, 클릭, 완료.",
+    "sponsor.title": "PasteMemo가 마음에 드시나요?",
+    "sponsor.desc": "PasteMemo는 무료 오픈소스이며 개인 개발자가 유지합니다. 여러분의 후원이 업데이트의 원동력입니다.",
+    "sponsor.btn": "❤️ 후원하기",
     "hero.download_trouble": "다운로드에 문제가 있나요?",
     "hero.brew_label": "Homebrew로 설치:",
     "footer.releases": "릴리스",
@@ -1202,6 +1261,9 @@ const i18n = {
     "features.native.desc": "Construit avec SwiftUI. Vit dans la barre de menus, jamais dans le Dock. Utilisation minimale du CPU et de la mémoire.",
     "shortcut.title": "Accessible partout, instantanément.",
     "shortcut.desc": "Appuyez sur le raccourci pour ouvrir le panneau de collage rapide depuis n'importe quelle app. Cherchez, cliquez, c'est fait.",
+    "sponsor.title": "Vous aimez PasteMemo ?",
+    "sponsor.desc": "PasteMemo est gratuit et open source, maintenu par un développeur indépendant. Votre soutien permet de continuer les mises à jour.",
+    "sponsor.btn": "❤️ Soutenir",
     "hero.download_trouble": "Problème de téléchargement ?",
     "hero.brew_label": "Ou installer via Homebrew :",
     "footer.releases": "Versions",
@@ -1248,6 +1310,9 @@ const i18n = {
     "features.native.desc": "Mit SwiftUI gebaut. Lebt in der Menüleiste, nie im Dock. Minimaler CPU- und Speicherverbrauch.",
     "shortcut.title": "Überall erreichbar, sofort.",
     "shortcut.desc": "Drücke die Tastenkombination, um das Schnell-Einfügen-Panel aus jeder App zu öffnen. Suchen, klicken, fertig.",
+    "sponsor.title": "Gefällt dir PasteMemo?",
+    "sponsor.desc": "PasteMemo ist kostenlos und Open Source, entwickelt von einem Indie-Entwickler. Deine Unterstützung hält die Updates am Laufen.",
+    "sponsor.btn": "❤️ Unterstützen",
     "hero.download_trouble": "Probleme beim Download?",
     "hero.brew_label": "Oder via Homebrew installieren:",
     "footer.releases": "Versionen",
@@ -1294,6 +1359,9 @@ const i18n = {
     "features.native.desc": "Construido con SwiftUI. Vive en la barra de menús, nunca en el Dock. Uso mínimo de CPU y memoria.",
     "shortcut.title": "Accede desde cualquier lugar, al instante.",
     "shortcut.desc": "Pulsa el atajo para abrir el panel de pegado rápido desde cualquier app. Busca, haz clic, listo.",
+    "sponsor.title": "¿Te gusta PasteMemo?",
+    "sponsor.desc": "PasteMemo es gratuito y de código abierto, mantenido por un desarrollador independiente. Tu apoyo impulsa las actualizaciones.",
+    "sponsor.btn": "❤️ Apoyar",
     "hero.download_trouble": "¿Problemas con la descarga?",
     "hero.brew_label": "O instalar con Homebrew:",
     "footer.releases": "Versiones",
@@ -1340,6 +1408,9 @@ const i18n = {
     "features.native.desc": "SwiftUI 原生打造，僅駐留選單列，不佔用 Dock，CPU 和記憶體佔用極低。",
     "shortcut.title": "隨時隨地，即刻存取。",
     "shortcut.desc": "在任意應用程式中按下快速鍵，開啟快速貼上面板。搜尋、點擊、完成。",
+    "sponsor.title": "喜歡 PasteMemo?",
+    "sponsor.desc": "PasteMemo 免費開源，由獨立開發者維護。你的支持是持續更新的最大動力。",
+    "sponsor.btn": "❤️ 捐贈支持",
     "hero.download_trouble": "下載遇到問題？",
     "hero.brew_label": "或透過 Homebrew 安裝：",
     "footer.releases": "版本發佈",
@@ -1386,6 +1457,9 @@ const i18n = {
     "features.native.desc": "Costruito con SwiftUI. Vive nella barra dei menu, mai nel Dock. Utilizzo minimo di CPU e memoria.",
     "shortcut.title": "Accessibile ovunque, all'istante.",
     "shortcut.desc": "Premi la scorciatoia per aprire il pannello Incolla Rapido da qualsiasi app. Cerca, clicca, fatto.",
+    "sponsor.title": "Ti piace PasteMemo?",
+    "sponsor.desc": "PasteMemo è gratuito e open source, mantenuto da uno sviluppatore indipendente. Il tuo supporto aiuta a continuare gli aggiornamenti.",
+    "sponsor.btn": "❤️ Supporta",
     "hero.download_trouble": "Problemi con il download?",
     "hero.brew_label": "Oppure installa tramite Homebrew:",
     "footer.releases": "Versioni",
@@ -1432,6 +1506,9 @@ const i18n = {
     "features.native.desc": "Создан на SwiftUI. Живёт в строке меню, а не в Dock. Минимальное использование CPU и памяти.",
     "shortcut.title": "Доступ отовсюду, мгновенно.",
     "shortcut.desc": "Нажмите горячую клавишу, чтобы открыть панель Быстрой вставки из любого приложения. Ищите, нажимайте, готово.",
+    "sponsor.title": "Нравится PasteMemo?",
+    "sponsor.desc": "PasteMemo — бесплатное приложение с открытым кодом от независимого разработчика. Ваша поддержка помогает продолжать обновления.",
+    "sponsor.btn": "❤️ Поддержать",
     "hero.download_trouble": "Проблемы со скачиванием?",
     "hero.brew_label": "Или установить через Homebrew:",
     "footer.releases": "Релизы",
@@ -1478,6 +1555,9 @@ const i18n = {
     "features.native.desc": "Dibangun dengan SwiftUI. Tinggal di menu bar, tidak di Dock. Penggunaan CPU dan memori minimal.",
     "shortcut.title": "Akses dari mana saja, seketika.",
     "shortcut.desc": "Tekan pintasan untuk membuka panel Tempel Cepat dari aplikasi apa pun. Cari, klik, selesai.",
+    "sponsor.title": "Suka PasteMemo?",
+    "sponsor.desc": "PasteMemo gratis dan open source, dikembangkan oleh pengembang independen. Dukungan Anda membantu pembaruan terus berlanjut.",
+    "sponsor.btn": "❤️ Dukung",
     "hero.download_trouble": "Masalah mengunduh?",
     "hero.brew_label": "Atau instal melalui Homebrew:",
     "footer.releases": "Rilis",
