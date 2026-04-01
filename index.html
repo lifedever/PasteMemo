@@ -778,7 +778,7 @@
   <nav class="nav-links">
     <a href="#features" data-i18n="nav.features">Features</a>
     <a href="#download" data-i18n="nav.download">Download</a>
-    <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="nav.feedback">Feedback</a>
+    <a href="https://github.com/lifedever/PasteMemo-app/issues" data-i18n="nav.feedback">Feedback</a>
     <a href="help/" data-i18n="nav.help">Help</a>
     <div class="nav-controls">
       <div class="lang-dropdown" id="langDropdown">
@@ -820,13 +820,13 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="download-menu" id="downloadMenu">
-        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo/releases" onclick="return verifiedDownload(event,'arm64')">
+        <a class="download-item" id="downloadArm64" href="https://github.com/lifedever/PasteMemo-app/releases" onclick="return verifiedDownload(event,'arm64')">
           <span>
             <strong>Apple Silicon</strong>
             <small id="downloadArm64Size">M1 / M2 / M3 / M4 / M5</small>
           </span>
         </a>
-        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo/releases" onclick="return verifiedDownload(event,'x86_64')">
+        <a class="download-item" id="downloadX86" href="https://github.com/lifedever/PasteMemo-app/releases" onclick="return verifiedDownload(event,'x86_64')">
           <span>
             <strong>Intel</strong>
             <small id="downloadX86Size">x86_64</small>
@@ -843,7 +843,7 @@
   </div>
   <p id="downloadFallback" style="display:none;margin-top:14px;font-size:13px;color:var(--text-muted);">
     <span data-i18n="hero.download_trouble">Download issues?</span>
-    <a href="https://github.com/lifedever/PasteMemo/releases" style="color:var(--orange-500);text-decoration:none;">GitHub</a>
+    <a href="https://github.com/lifedever/PasteMemo-app/releases" style="color:var(--orange-500);text-decoration:none;">GitHub</a>
     /
     <a href="https://gitee.com/lifedever/pastememo/releases" style="color:var(--orange-500);text-decoration:none;">Gitee</a>
   </p>
@@ -960,9 +960,9 @@
 
 <footer>
   <div class="footer-links">
-    <a href="https://github.com/lifedever/PasteMemo/releases" data-i18n="footer.releases">Releases</a>
-    <a href="https://github.com/lifedever/PasteMemo/issues" data-i18n="footer.issues">Issues</a>
-    <a href="https://github.com/lifedever/PasteMemo">GitHub</a>
+    <a href="https://github.com/lifedever/PasteMemo-app/releases" data-i18n="footer.releases">Releases</a>
+    <a href="https://github.com/lifedever/PasteMemo-app/issues" data-i18n="footer.issues">Issues</a>
+    <a href="https://github.com/lifedever/PasteMemo-app">GitHub</a>
     <a href="javascript:void(0)" onclick="document.getElementById('betaModal').classList.add('active');LA.track('wechat_qun')" data-i18n="footer.beta">Join Beta</a>
     <a href="https://www.lifedever.com/" target="_blank" data-i18n="footer.author">About Author</a>
   </div>
@@ -1648,7 +1648,7 @@ async function verifiedDownload(e, arch) {
   const info = downloadData[arch];
   if (!info || !info.url) {
     // fallback: no verified download info, open releases page
-    window.open("https://github.com/lifedever/PasteMemo/releases", "_blank");
+    window.open("https://github.com/lifedever/PasteMemo-app/releases", "_blank");
     return false;
   }
   if (!info.sha256 || !window.crypto?.subtle) {

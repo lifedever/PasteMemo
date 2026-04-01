@@ -12,13 +12,13 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/lifedever/PasteMemo/releases/latest"><img src="https://img.shields.io/github/v/release/lifedever/PasteMemo?style=flat-square&color=F97316&label=Latest" alt="Latest Release"></a>
-  <a href="https://github.com/lifedever/PasteMemo/releases"><img src="https://img.shields.io/github/downloads/lifedever/PasteMemo/total?style=flat-square&color=7C3AED&label=Downloads" alt="Downloads"></a>
+  <a href="https://github.com/lifedever/PasteMemo-app/releases/latest"><img src="https://img.shields.io/github/v/release/lifedever/PasteMemo-app?style=flat-square&color=F97316&label=Latest" alt="Latest Release"></a>
+  <a href="https://github.com/lifedever/PasteMemo-app/releases"><img src="https://img.shields.io/github/downloads/lifedever/PasteMemo-app/total?style=flat-square&color=7C3AED&label=Downloads" alt="Downloads"></a>
   <img src="https://img.shields.io/badge/platform-macOS%2014%2B-blue?style=flat-square" alt="Platform">
 </p>
 
 <p align="center">
-  <a href="https://github.com/lifedever/PasteMemo/releases/latest">⬇️ <strong>Download Latest</strong></a> ｜ <a href="https://www.lifedever.com/PasteMemo/">🌐 <strong>Website</strong></a>
+  <a href="https://github.com/lifedever/PasteMemo-app/releases/latest">⬇️ <strong>Download Latest</strong></a> ｜ <a href="https://www.lifedever.com/PasteMemo/">🌐 <strong>Website</strong></a>
 </p>
 
 <p align="center">
@@ -138,7 +138,7 @@ brew upgrade --cask pastememo
 
 ### Download
 
-Grab the latest `.dmg` from [Releases](https://github.com/lifedever/PasteMemo/releases):
+Grab the latest `.dmg` from [Releases](https://github.com/lifedever/PasteMemo-app/releases):
 
 | File | Architecture |
 |------|-------------|
@@ -151,7 +151,7 @@ Grab the latest `.dmg` from [Releases](https://github.com/lifedever/PasteMemo/re
 
 ## Feedback
 
-Found a bug or have a suggestion? [Open an issue](https://github.com/lifedever/PasteMemo/issues).
+Found a bug or have a suggestion? [Open an issue](https://github.com/lifedever/PasteMemo-app/issues).
 
 ## License
 
