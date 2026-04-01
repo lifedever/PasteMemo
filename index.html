@@ -563,40 +563,40 @@
     .sponsor-section {
       padding: 80px 24px;
       text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
     .sponsor-card {
-      max-width: 560px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(220,252,231,0.4), rgba(220,252,231,0.1));
-      border: 1px solid rgba(220,252,231,0.6);
-      border-radius: 20px;
-      padding: 48px 40px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 56px 48px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
-    .sponsor-emoji { font-size: 40px; margin-bottom: 16px; }
+    .sponsor-emoji { font-size: 44px; margin-bottom: 20px; }
     .sponsor-card h2 {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 12px;
-      color: var(--text);
+      color: var(--text-heading);
     }
     .sponsor-card p {
       font-size: 15px;
       color: var(--text-secondary);
-      line-height: 1.7;
+      line-height: 1.8;
       margin-bottom: 28px;
     }
     .sponsor-btn {
       display: inline-block;
-      padding: 14px 48px;
-      background: #d4726a;
+      padding: 12px 40px;
+      background: var(--orange-500);
       color: #fff;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      border-radius: 30px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: opacity 0.2s;
+      transition: background 0.2s;
     }
-    .sponsor-btn:hover { opacity: 0.85; }
+    .sponsor-btn:hover { background: var(--orange-600); }
 
     .kbd-group {
       display: flex;
