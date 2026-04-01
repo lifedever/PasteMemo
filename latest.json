@@ -1,22 +1,21 @@
 {
-  "version": "0.5.2",
-  "notes_zh": "- **修复** 修复快捷窗口方向键导航导致的崩溃闪退\n- **修复** 切换语言后快捷窗口标签未更新\n- **修复** 加载更多数据后选中项跳回顶部\n- **优化** 快捷窗口性能优化（分组缓存、批量查询）\n- **优化** 重新打开快捷窗口时智能保持/重置状态\n- **优化** 切换分类后滚动条自动回到顶部\n- **新增** 切换语言后提示重启应用\n- **新增** 主窗口拖拽排序类型后快捷窗口同步更新",
-  "notes_en": "- **Fix** Fix crash when navigating with arrow keys in Quick Panel\n- **Fix** Tab labels not updating after language switch\n- **Fix** Selection jumping to top after loading more items\n- **Improve** Quick Panel performance (cached grouping, batch queries)\n- **Improve** Smart state preservation when reopening Quick Panel\n- **Improve** Auto scroll to top when switching content type filter\n- **New** Prompt to restart app after language change\n- **New** Sync type order between main window and Quick Panel",
+  "version": "1.0.0",
+  "notes_zh": "- **开源** PasteMemo 正式开源，基于 GPL-3.0 协议\n- **免费** 所有功能完全免费，移除 Pro 限制\n- **新增** 设置中新增「支持」标签页（捐助、GitHub Star、反馈）\n- **新增** 隐私设置中新增匿名使用统计开关\n- **新增** 首次使用引导新增统计选项步骤\n- **优化** 关于页面新增开源协议和源代码链接",
+  "notes_en": "- **Open Source** PasteMemo is now open source under GPL-3.0\n- **Free** All features are completely free, Pro restrictions removed\n- **New** Sponsor tab in Settings (donate, GitHub Star, feedback)\n- **New** Anonymous usage statistics toggle in Privacy settings\n- **New** Analytics opt-in step in onboarding flow\n- **Improve** About page now shows license and source code link",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-arm64.dmg",
-      "size": 3531443,
-      "sha256": "e5f4fb6a58b56cce839e0ef3eeb1144c2c11dc5f724d6c2958734e51e8215ebd"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-arm64.dmg",
+      "size": 3528976,
+      "sha256": "ab35b68f4b049c0e79c27172c32f875987fc7194580a38440e57ccf758745972"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-0.5.2-x86_64.dmg",
-      "size": 3628018,
-      "sha256": "5e320d70910415f2128bca338840e63742d0d4928d660e3a0c9d55a0fcf66641"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-x86_64.dmg",
+      "size": 3629468,
+      "sha256": "f1381d8edb2ec951368198dd2204418e4213bb10a2afd65e60869a20b38c929b"
     }
-  },
-  "pro": "8+u4iAV9dCg1kO1OzfZFxjeGQA113SVm7ic7wwAGe0cSHMJzKYogzq7Wu+9/lmQBDogtt6FXi6iWOg=="
+  }
 }
