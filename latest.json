@@ -1,21 +1,21 @@
 {
-  "version": "1.0.0",
-  "notes_zh": "PasteMemo v1.0.0 正式开源",
-  "notes_en": "PasteMemo v1.0.0 is now open source",
+  "version": "1.1.0",
+  "notes_zh": "- **新增** 隐藏 Dock 图标选项，开启后仅通过状态栏访问\n- **新增** 状态栏图标样式切换（描边/填充）",
+  "notes_en": "- **New** Hide Dock icon option, access app via menu bar only\n- **New** Menu bar icon style switcher (outline/filled)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-arm64.dmg",
-      "size": 3528976,
-      "sha256": "ab35b68f4b049c0e79c27172c32f875987fc7194580a38440e57ccf758745972"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-arm64.dmg",
+      "size": 3540042,
+      "sha256": "56a679ba1748759521f721d9dbe9357b08bf4764449765cd41a9d1cc82bdea4e"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.0.0-x86_64.dmg",
-      "size": 3629468,
-      "sha256": "f1381d8edb2ec951368198dd2204418e4213bb10a2afd65e60869a20b38c929b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-x86_64.dmg",
+      "size": 3637973,
+      "sha256": "5f44a00c7ca45976cb2ecee97d008c253bf5e51986b0dc86ac03b0e994d7937a"
     }
   }
 }
