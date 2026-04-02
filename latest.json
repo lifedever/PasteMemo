@@ -1,21 +1,21 @@
 {
-  "version": "1.1.0",
-  "notes_zh": "- **新增** 隐藏 Dock 图标选项，开启后仅通过状态栏访问\n- **新增** 状态栏图标样式切换（描边/填充）",
-  "notes_en": "- **New** Hide Dock icon option, access app via menu bar only\n- **New** Menu bar icon style switcher (outline/filled)",
+  "version": "1.2.0",
+  "notes_zh": "- **新增** 图片 OCR 文字识别，支持搜索图片中的文字（感谢 @miniers 贡献）\n- **修复** 特定情况下点击删除导致闪退的问题\n- **优化** OCR 扫描已有图片支持进度显示\n- **优化** 关闭 OCR 时隐藏所有相关 UI\n- **优化** 设置中快捷键描述文案，减少误解",
+  "notes_en": "- **New** Image OCR text recognition, search text within images (thanks @miniers)\n- **Fix** Crash when deleting items under certain conditions\n- **Improve** OCR scan progress display for existing images\n- **Improve** Hide all OCR UI when feature is disabled\n- **Improve** Clarify shortcut label wording in settings",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-arm64.dmg",
-      "size": 3540042,
-      "sha256": "56a679ba1748759521f721d9dbe9357b08bf4764449765cd41a9d1cc82bdea4e"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-arm64.dmg",
+      "size": 3622855,
+      "sha256": "c0e4c3b271539e3c8af17e0a157c480c937d1f03b182ee8a41d8e5727e519dd3"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.1.0-x86_64.dmg",
-      "size": 3637973,
-      "sha256": "5f44a00c7ca45976cb2ecee97d008c253bf5e51986b0dc86ac03b0e994d7937a"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-x86_64.dmg",
+      "size": 3721732,
+      "sha256": "a5c1101f6857d0d50836e5c88a4364d2ec681188503d0239e5fb43a888cf7f03"
     }
   }
 }
