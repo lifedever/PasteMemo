@@ -1,7 +1,7 @@
 {
   "version": "1.2.0",
-  "notes_zh": "- **新增** 图片 OCR 文字识别，支持搜索图片中的文字（感谢 @miniers 贡献）\n- **修复** 特定情况下点击删除导致闪退的问题\n- **优化** OCR 扫描已有图片支持进度显示\n- **优化** 关闭 OCR 时隐藏所有相关 UI\n- **优化** 设置中快捷键描述文案，减少误解",
-  "notes_en": "- **New** Image OCR text recognition, search text within images (thanks @miniers)\n- **Fix** Crash when deleting items under certain conditions\n- **Improve** OCR scan progress display for existing images\n- **Improve** Hide all OCR UI when feature is disabled\n- **Improve** Clarify shortcut label wording in settings",
+  "notes_zh": "- **新增** 图片 OCR 文字识别，支持搜索图片中的文字（感谢 @miniers 贡献 #4）\n- **修复** 特定情况下点击删除导致闪退的问题 (#2)\n- **优化** OCR 扫描已有图片支持进度显示\n- **优化** 关闭 OCR 时隐藏所有相关 UI\n- **优化** 设置中快捷键描述文案，减少误解 (#3)",
+  "notes_en": "- **New** Image OCR text recognition, search text within images (thanks @miniers #4)\n- **Fix** Crash when deleting items under certain conditions (#2)\n- **Improve** OCR scan progress display for existing images\n- **Improve** Hide all OCR UI when feature is disabled\n- **Improve** Clarify shortcut label wording in settings (#3)",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-x86_64.dmg"
