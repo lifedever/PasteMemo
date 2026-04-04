@@ -1,21 +1,21 @@
 {
-  "version": "1.2.1",
-  "notes_zh": "- **修复** 删除剪贴板记录时可能导致应用崩溃的问题",
-  "notes_en": "- **Fix** Potential crash when deleting clipboard items",
+  "version": "1.2.2",
+  "notes_zh": "- **修复** 删除剪贴板记录时可能导致应用崩溃的问题\n- **优化** 右键菜单现在会自动选中对应记录",
+  "notes_en": "- **Fix** Potential crash when deleting clipboard items\n- **Improve** Right-click context menu now selects the target item",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-arm64.dmg",
-      "size": 3631826,
-      "sha256": "14f69c7fab45d4fe28ac03c2b1308e093e45e19f424a2fd43a02b17b652e0f91"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-arm64.dmg",
+      "size": 3642311,
+      "sha256": "5bd2d6a1ddca6e23092e9df966efe52454cf15069698a0cf842b8f1ee2440698"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-x86_64.dmg",
-      "size": 3734829,
-      "sha256": "ed7dad69f573c13a89418056521d115f94a26d9b640824e35a6b7e1c7169acf1"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-x86_64.dmg",
+      "size": 3744248,
+      "sha256": "86317c3bb3a0b4c9de0549c6ae8008da5ab3aeae54bce76aab11c72099f71ff8"
     }
   }
 }
