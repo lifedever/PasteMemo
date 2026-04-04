@@ -1,21 +1,21 @@
 {
-  "version": "1.2.3",
-  "notes_zh": "- **新增** 智能粘贴：在终端、编辑器等无法接收文件的应用中，自动将文件粘贴为路径或文件名，避免空粘贴\n- **修复** 快捷窗口粘贴后，再次打开时条目未移动到首位的问题\n- **修复** OCR 识别结果误触发敏感内容检测的问题",
-  "notes_en": "- **New** Smart paste: automatically paste file path or filename in terminals, editors, and other text-only apps to prevent empty paste\n- **Fix** Pasted item not moving to the top when reopening the quick panel\n- **Fix** OCR results incorrectly triggering sensitive content detection",
+  "version": "1.2.4",
+  "notes_zh": "- **修复** 删除剪贴项时应用崩溃的问题（SwiftData 对象生命周期）\n- **修复** 删除剪贴项时列表闪烁的问题\n- **优化** 缩短保留时长时增加确认提示，防止误删历史记录",
+  "notes_en": "- **Fix** App crash when deleting clipboard items (SwiftData object lifecycle)\n- **Fix** List flickering when deleting items\n- **Improve** Add confirmation dialog when shortening retention period to prevent accidental data loss",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-arm64.dmg",
-      "size": 3647198,
-      "sha256": "610bb16f85816a13758ef03fe8791e23ebc61a42b6b4f6a535dccdb0ddb95417"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-arm64.dmg",
+      "size": 3661264,
+      "sha256": "ff2e18009bd0e4302be17f300e8275b228c44329f193d6278efcd7e4a3b2db3c"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-x86_64.dmg",
-      "size": 3747400,
-      "sha256": "b91b37b9d3de75a1ad3b5b8b0c575d89b1890fe536e6880c437f64ef52ea8048"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-x86_64.dmg",
+      "size": 3761201,
+      "sha256": "d92b841af3e3ad76f4bb707691d392aed21d1858379b0877c2e8e5fdfcb75616"
     }
   }
 }
