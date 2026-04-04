@@ -9,13 +9,13 @@
   "checksums": {
     "arm64": {
       "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-arm64.dmg",
-      "size": 3647169,
-      "sha256": "7446f0fb05b7eb47d2e8f4fbf635ac609b18aa892fecf48854a2c3d243af83f9"
+      "size": 3647198,
+      "sha256": "610bb16f85816a13758ef03fe8791e23ebc61a42b6b4f6a535dccdb0ddb95417"
     },
     "x86_64": {
       "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-x86_64.dmg",
-      "size": 3747208,
-      "sha256": "023f67025063c634fab5ce569d5bfeb172d362a0965bbcdc76152d90662f21dc"
+      "size": 3747400,
+      "sha256": "b91b37b9d3de75a1ad3b5b8b0c575d89b1890fe536e6880c437f64ef52ea8048"
     }
   }
 }
