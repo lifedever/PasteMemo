@@ -1,21 +1,21 @@
 {
-  "version": "1.2.2",
-  "notes_zh": "- **修复** 删除剪贴板记录时可能导致应用崩溃的问题\n- **优化** 右键菜单现在会自动选中对应记录",
-  "notes_en": "- **Fix** Potential crash when deleting clipboard items\n- **Improve** Right-click context menu now selects the target item",
+  "version": "1.2.3",
+  "notes_zh": "- **新增** 智能粘贴：在终端、编辑器等无法接收文件的应用中，自动将文件粘贴为路径或文件名，避免空粘贴\n- **修复** 快捷窗口粘贴后，再次打开时条目未移动到首位的问题\n- **修复** OCR 识别结果误触发敏感内容检测的问题",
+  "notes_en": "- **New** Smart paste: automatically paste file path or filename in terminals, editors, and other text-only apps to prevent empty paste\n- **Fix** Pasted item not moving to the top when reopening the quick panel\n- **Fix** OCR results incorrectly triggering sensitive content detection",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-arm64.dmg",
-      "size": 3642311,
-      "sha256": "5bd2d6a1ddca6e23092e9df966efe52454cf15069698a0cf842b8f1ee2440698"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-arm64.dmg",
+      "size": 3647169,
+      "sha256": "7446f0fb05b7eb47d2e8f4fbf635ac609b18aa892fecf48854a2c3d243af83f9"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.2-x86_64.dmg",
-      "size": 3744248,
-      "sha256": "86317c3bb3a0b4c9de0549c6ae8008da5ab3aeae54bce76aab11c72099f71ff8"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.3-x86_64.dmg",
+      "size": 3747208,
+      "sha256": "023f67025063c634fab5ce569d5bfeb172d362a0965bbcdc76152d90662f21dc"
     }
   }
 }
