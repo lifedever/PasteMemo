@@ -1,21 +1,21 @@
 {
-  "version": "1.2.0",
-  "notes_zh": "- **新增** 图片 OCR 文字识别，支持搜索图片中的文字（感谢 @miniers 贡献 #4）\n- **修复** 特定情况下点击删除导致闪退的问题 (#2)\n- **优化** OCR 扫描已有图片支持进度显示\n- **优化** 关闭 OCR 时隐藏所有相关 UI\n- **优化** 设置中快捷键描述文案，减少误解 (#3)",
-  "notes_en": "- **New** Image OCR text recognition, search text within images (thanks @miniers #4)\n- **Fix** Crash when deleting items under certain conditions (#2)\n- **Improve** OCR scan progress display for existing images\n- **Improve** Hide all OCR UI when feature is disabled\n- **Improve** Clarify shortcut label wording in settings (#3)",
+  "version": "1.2.1",
+  "notes_zh": "- **修复** 删除剪贴板记录时可能导致应用崩溃的问题",
+  "notes_en": "- **Fix** Potential crash when deleting clipboard items",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-arm64.dmg",
-      "size": 3622855,
-      "sha256": "c0e4c3b271539e3c8af17e0a157c480c937d1f03b182ee8a41d8e5727e519dd3"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-arm64.dmg",
+      "size": 3631826,
+      "sha256": "14f69c7fab45d4fe28ac03c2b1308e093e45e19f424a2fd43a02b17b652e0f91"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.0-x86_64.dmg",
-      "size": 3721732,
-      "sha256": "a5c1101f6857d0d50836e5c88a4364d2ec681188503d0239e5fb43a888cf7f03"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.1-x86_64.dmg",
+      "size": 3734829,
+      "sha256": "ed7dad69f573c13a89418056521d115f94a26d9b640824e35a6b7e1c7169acf1"
     }
   }
 }
