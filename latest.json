@@ -1,21 +1,21 @@
 {
-  "version": "1.2.4",
-  "notes_zh": "- **修复** 删除剪贴项时应用崩溃的问题（SwiftData 对象生命周期）\n- **修复** 删除剪贴项时列表闪烁的问题\n- **优化** 缩短保留时长时增加确认提示，防止误删历史记录",
-  "notes_en": "- **Fix** App crash when deleting clipboard items (SwiftData object lifecycle)\n- **Fix** List flickering when deleting items\n- **Improve** Add confirmation dialog when shortening retention period to prevent accidental data loss",
+  "version": "1.2.5",
+  "notes_zh": "- **修复** 多选粘贴时顺序错乱的问题\n- **新增** 接力模式支持文件和图片粘贴\n- **新增** 接力模式增加"粘贴为文本"选项",
+  "notes_en": "- **Fix** Multi-select paste order was randomized\n- **New** Relay Mode now supports file and image pasting\n- **New** Added \"Paste as text\" option in Relay Mode",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.5-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.5-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-arm64.dmg",
-      "size": 3661264,
-      "sha256": "ff2e18009bd0e4302be17f300e8275b228c44329f193d6278efcd7e4a3b2db3c"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.5-arm64.dmg",
+      "size": 3675527,
+      "sha256": "7001f5199c0f267ef29d29fe54207192ed3df33e8c09df1d965d41cd10180a71"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.4-x86_64.dmg",
-      "size": 3761201,
-      "sha256": "d92b841af3e3ad76f4bb707691d392aed21d1858379b0877c2e8e5fdfcb75616"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.5-x86_64.dmg",
+      "size": 3775838,
+      "sha256": "9e68d4876750e006193e5d7f38b0b8407812e41446a7f5741ab07b8d62c16f0a"
     }
   }
 }
