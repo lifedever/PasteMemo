@@ -1,7 +1,7 @@
 {
   "version": "1.2.6",
-  "notes_zh": "- **修复** 快捷面板类型筛选 tab 缺失（链接、文档等不显示）\n- **修复** 重复复制的内容未排到列表顶部\n- **新增** 图片链接预览：图片 URL 和 data:image 在列表和详情中直接显示图片\n- **新增** Finder 粘贴链接：普通链接保存为 .webloc，图片链接保存为 PNG\n- **优化** 快捷面板每次打开始终选中第一条",
-  "notes_en": "- **Fix** Type filter tabs missing in quick panel (link, document, etc.)\n- **Fix** Re-copied items not moving to top of list\n- **New** Image link preview: image URLs and data:image URIs show inline image\n- **New** Finder paste for links: regular links save as .webloc, image links save as PNG\n- **Improve** Quick panel always selects first item on open",
+  "notes_zh": "- **新增** 图片链接预览：图片 URL 和 data:image 在列表和详情中直接显示图片\n- **新增** Finder 粘贴链接：普通链接保存为 .webloc，图片链接保存为 PNG\n- **优化** 快捷面板每次打开始终选中第一条\n- **修复** 快捷面板类型筛选 tab 缺失（链接、文档等不显示）\n- **修复** 重复复制的内容未排到列表顶部",
+  "notes_en": "- **New** Image link preview: image URLs and data:image URIs show inline image\n- **New** Finder paste for links: regular links save as .webloc, image links save as PNG\n- **Improve** Quick panel always selects first item on open\n- **Fix** Type filter tabs missing in quick panel (link, document, etc.)\n- **Fix** Re-copied items not moving to top of list",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.6-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.6-x86_64.dmg"
