@@ -1,7 +1,7 @@
 {
   "version": "1.2.7",
-  "notes_zh": "- **修复** 关闭接力模式时根据先前状态决定是否恢复监听\n- **新增** 窗口菜单「始终保持在最前」(⇧⌘T)\n- **优化** 接力面板加宽，操作按钮显示文字标签\n- **新增** 接力面板「清空所有」按钮",
-  "notes_en": "- **Fix** Exiting relay mode now restores previous monitoring state\n- **New** Window > Always on Top menu item (⇧⌘T)\n- **Improve** Relay panel widened with text-labeled toolbar buttons\n- **New** Clear All button in relay panel",
+  "notes_zh": "- **新增** 窗口菜单「始终保持在最前」(⇧⌘T)\n- **新增** 接力面板「清空所有」按钮\n- **优化** 接力面板加宽，操作按钮显示文字标签\n- **修复** 关闭接力模式时根据先前状态决定是否恢复监听",
+  "notes_en": "- **New** Window > Always on Top menu item (⇧⌘T)\n- **New** Clear All button in relay panel\n- **Improve** Relay panel widened with text-labeled toolbar buttons\n- **Fix** Exiting relay mode now restores previous monitoring state",
   "downloads": {
     "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.7-arm64.dmg",
     "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.7-x86_64.dmg"
