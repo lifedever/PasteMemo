@@ -1,21 +1,21 @@
 {
-  "version": "1.2.8",
-  "notes_zh": "- **新增** 快捷面板 Ctrl+P / Ctrl+N 导航历史记录\n- **新增** 「回车直接粘贴到应用」开关，关闭后回车仅复制到剪贴板\n- **新增** 自动检查更新开关及检查频率设置\n- **新增** 快捷面板右下角设置入口\n- **优化** 复制操作关闭快捷面板并统一显示全局 Toast 提示\n- **优化** 辅助功能操作",
-  "notes_en": "- **New** Ctrl+P / Ctrl+N to navigate history in Quick Paste panel\n- **New** \"Paste to App on Enter\" toggle — when off, Enter copies to clipboard only\n- **New** Auto update check toggle and check interval setting\n- **New** Settings shortcut in Quick Paste panel footer\n- **Improve** Copy now dismisses Quick Paste panel with unified global toast feedback\n- **Improve** Accessibility workflow",
+  "version": "1.2.9",
+  "notes_zh": "- **新增** 快捷面板位置配置：光标、菜单栏图标、活动窗口中心、活动屏幕居中、记住上次位置\n- **新增** 多屏幕支持，可指定面板显示在哪个屏幕\n- **新增** 自动跳过含敏感标记的剪贴板内容（nspasteboard.org 协议）\n- **优化** 输入 `/` 筛选时自动选中第一项，Esc 支持分级取消\n- **修复** 多屏场景下菜单栏图标、活动窗口中心定位偏移等问题",
+  "notes_en": "- **New** Configurable Quick Panel position: cursor, menu bar icon, active window center, active screen center, remembered\n- **New** Multi-display support with per-display targeting\n- **New** Auto-skip clipboard items tagged as sensitive (nspasteboard.org protocol)\n- **Improve** Slash filter now auto-selects first suggestion; Esc progressively cancels\n- **Fix** Quick Panel position glitches on multi-display setups (menu bar anchor, window center offset)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.8-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.8-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.9-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.9-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.8-arm64.dmg",
-      "size": 3714940,
-      "sha256": "94e5e02adb66dcaecd1a3e668762e827288efbf159702ef0972a7b8c37ad2d8f"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.9-arm64.dmg",
+      "size": 3744271,
+      "sha256": "337a76613d4dbcecb3d734fa8119d5fe9d077c3dfc69a1ab842041c1889ff593"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.8-x86_64.dmg",
-      "size": 3814618,
-      "sha256": "fac3e2ddf7c514bc5113479f11729cdb0af640323071d7a767bca3af30b5271c"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.9-x86_64.dmg",
+      "size": 3852778,
+      "sha256": "844a02c039bfefb2810e0a44fbe8ff9d141af431a3f560b339f5967f32c9f5cd"
     }
   }
 }
