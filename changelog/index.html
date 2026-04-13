@@ -69,11 +69,16 @@
     }
     .back-link:hover { color: var(--text-heading); border-color: var(--text-muted); }
 
-    main {
-      max-width: 780px;
+    .layout {
+      max-width: 1100px;
       margin: 0 auto;
       padding: 56px 24px 80px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
     }
+    main { min-width: 0; }
     h1.page-title {
       font-size: 36px;
       font-weight: 700;
@@ -82,6 +87,46 @@
       margin-bottom: 12px;
     }
     .page-sub { color: var(--text-secondary); font-size: 15px; margin-bottom: 40px; }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    .sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      padding: 0 10px 10px;
+    }
+    .sidebar-list { display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      border-left: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .sidebar-item:hover { background: var(--bg-alt); color: var(--text-heading); }
+    .sidebar-item.active {
+      color: var(--orange-500);
+      background: var(--orange-50);
+      border-left-color: var(--orange-500);
+      font-weight: 500;
+    }
+    .sidebar-item .v { font-variant-numeric: tabular-nums; }
+    .sidebar-item .d { font-size: 11px; color: var(--text-muted); }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
     .release { padding: 28px 0; border-bottom: 1px solid var(--border); }
     .release:last-child { border-bottom: none; }
@@ -111,9 +156,14 @@
     .loading, .error { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
     .error a { color: var(--orange-500); }
 
+    .release { scroll-margin-top: 24px; }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 16px 60px; }
+      .sidebar { display: none; }
+    }
     @media (max-width: 640px) {
       header { padding: 14px 16px; }
-      main { padding: 32px 16px 60px; }
       h1.page-title { font-size: 28px; }
       .release-date { margin-left: 0; width: 100%; }
     }
@@ -130,11 +180,14 @@
       <span data-i18n="back">Home</span>
     </a>
   </header>
-  <main>
-    <h1 class="page-title" data-i18n="title">Changelog</h1>
-    <p class="page-sub" data-i18n="subtitle">Every release of PasteMemo, pulled live from GitHub.</p>
-    <div id="list" class="loading" data-i18n="loading">Loading…</div>
-  </main>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Versions"></aside>
+    <main>
+      <h1 class="page-title" data-i18n="title">Changelog</h1>
+      <p class="page-sub" data-i18n="subtitle">Every release of PasteMemo, pulled live from GitHub.</p>
+      <div id="list" class="loading" data-i18n="loading">Loading…</div>
+    </main>
+  </div>
 
   <script>
     const REPO = "lifedever/PasteMemo-app";
@@ -269,13 +322,15 @@
         }
         listEl.className = "";
         const html = releases.map((r, idx) => {
-          const version = escapeHTML(r.tag_name || r.name || "—");
+          const versionRaw = r.tag_name || r.name || "—";
+          const version = escapeHTML(versionRaw);
+          const slug = versionRaw.replace(/[^\w.-]/g, "-");
           const date = r.published_at || r.created_at;
           const body = r.body ? renderMarkdown(r.body) : `<p style="color:var(--text-muted)">—</p>`;
           const badges = [];
           if (idx === 0 && !r.prerelease) badges.push(`<span class="release-badge">${escapeHTML(t.latest)}</span>`);
           if (r.prerelease) badges.push(`<span class="release-badge pre">pre</span>`);
-          return `<article class="release">
+          return `<article class="release" id="${slug}">
             <div class="release-head">
               <a class="release-version" href="${r.html_url}" target="_blank" rel="noopener">${version}</a>
               ${badges.join("")}
@@ -285,6 +340,35 @@
           </article>`;
         }).join("");
         setFragment(listEl, html);
+
+        // Build sidebar nav
+        const sidebar = document.getElementById("sidebar");
+        const sideHtml = `<div class="sidebar-title">${escapeHTML(t.title)}</div><nav class="sidebar-list">` +
+          releases.map(r => {
+            const versionRaw = r.tag_name || r.name || "—";
+            const slug = versionRaw.replace(/[^\w.-]/g, "-");
+            const d = new Date(r.published_at || r.created_at);
+            const dateShort = isNaN(d) ? "" : `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+            return `<a class="sidebar-item" href="#${slug}" data-slug="${slug}"><span class="v">${escapeHTML(versionRaw)}</span><span class="d">${dateShort}</span></a>`;
+          }).join("") + `</nav>`;
+        setFragment(sidebar, sideHtml);
+
+        // Scroll-spy
+        const items = Array.from(sidebar.querySelectorAll(".sidebar-item"));
+        const byId = Object.fromEntries(items.map(a => [a.dataset.slug, a]));
+        const setActive = slug => {
+          items.forEach(a => a.classList.toggle("active", a.dataset.slug === slug));
+        };
+        if (items[0]) setActive(items[0].dataset.slug);
+        const io = new IntersectionObserver(entries => {
+          const visible = entries.filter(e => e.isIntersecting)
+            .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)[0];
+          if (visible) {
+            const a = byId[visible.target.id];
+            if (a) setActive(a.dataset.slug);
+          }
+        }, { rootMargin: "-10% 0px -70% 0px", threshold: 0 });
+        document.querySelectorAll(".release").forEach(el => io.observe(el));
       } catch (err) {
         listEl.className = "error";
         listEl.textContent = t.errorPrefix;
