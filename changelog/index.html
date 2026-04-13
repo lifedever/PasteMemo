@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.title">Changelog — PasteMemo</title>
+  <link rel="icon" type="image/svg+xml" href="../logo-2.svg">
+  <style>
+    :root {
+      --orange-50: #FFF7ED;
+      --orange-500: #F97316;
+      --orange-600: #EA580C;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #F3F4F6;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --code-bg: #F3F4F6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --orange-50: rgba(249, 115, 22, 0.12);
+        --bg: #0F0F0F;
+        --bg-alt: #1A1A1A;
+        --card-bg: #1E1E1E;
+        --border: #2A2A2A;
+        --text: #E5E5E5;
+        --text-heading: #F5F5F5;
+        --text-secondary: #A3A3A3;
+        --text-muted: #737373;
+        --code-bg: #262626;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-group { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-group img { width: 36px; height: 36px; border-radius: 8px; }
+    .logo-group span { font-size: 20px; font-weight: 600; color: var(--text-heading); }
+    .back-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .back-link:hover { color: var(--text-heading); border-color: var(--text-muted); }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    h1.page-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .page-sub { color: var(--text-secondary); font-size: 15px; margin-bottom: 40px; }
+
+    .release { padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .release:last-child { border-bottom: none; }
+    .release-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+    .release-version { font-size: 22px; font-weight: 700; color: var(--text-heading); text-decoration: none; letter-spacing: -0.3px; }
+    .release-version:hover { color: var(--orange-500); }
+    .release-badge { font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); padding: 3px 10px; border-radius: 10px; letter-spacing: 0.3px; }
+    .release-badge.pre { background: #6B7280; }
+    .release-date { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+
+    .release-body { color: var(--text); font-size: 15px; }
+    .release-body h1, .release-body h2, .release-body h3, .release-body h4 { color: var(--text-heading); margin: 18px 0 10px; font-weight: 600; }
+    .release-body h2 { font-size: 17px; }
+    .release-body h3 { font-size: 16px; }
+    .release-body h4 { font-size: 15px; color: var(--text-secondary); }
+    .release-body p { margin: 8px 0; }
+    .release-body ul { padding-left: 22px; margin: 8px 0; }
+    .release-body li { margin: 4px 0; }
+    .release-body a { color: var(--orange-500); text-decoration: none; }
+    .release-body a:hover { text-decoration: underline; }
+    .release-body strong { color: var(--text-heading); }
+    .release-body code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; font-family: "SF Mono", Menlo, Consolas, monospace; }
+    .release-body table { border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+    .release-body th, .release-body td { border: 1px solid var(--border); padding: 6px 12px; text-align: left; }
+    .release-body th { background: var(--bg-alt); }
+
+    .loading, .error { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
+    .error a { color: var(--orange-500); }
+
+    @media (max-width: 640px) {
+      header { padding: 14px 16px; }
+      main { padding: 32px 16px 60px; }
+      h1.page-title { font-size: 28px; }
+      .release-date { margin-left: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-group" href="../">
+      <img src="../logo-2.svg" alt="PasteMemo">
+      <span>PasteMemo</span>
+    </a>
+    <a class="back-link" href="../">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L6 8l4-4"/></svg>
+      <span data-i18n="back">Home</span>
+    </a>
+  </header>
+  <main>
+    <h1 class="page-title" data-i18n="title">Changelog</h1>
+    <p class="page-sub" data-i18n="subtitle">Every release of PasteMemo, pulled live from GitHub.</p>
+    <div id="list" class="loading" data-i18n="loading">Loading…</div>
+  </main>
+
+  <script>
+    const REPO = "lifedever/PasteMemo-app";
+    const i18n = {
+      en:       { "page.title":"Changelog — PasteMemo", title:"Changelog", subtitle:"Every release of PasteMemo, pulled live from GitHub.", loading:"Loading…", back:"Home", empty:"No releases yet.", errorPrefix:"Failed to load releases. View on ", errorLink:"GitHub Releases", latest:"Latest" },
+      "zh-Hans":{ "page.title":"更新日志 — PasteMemo", title:"更新日志", subtitle:"PasteMemo 的每次发布，从 GitHub 实时获取。", loading:"加载中…", back:"首页", empty:"暂无发布。", errorPrefix:"加载失败，可前往 ", errorLink:"GitHub Releases", latest:"最新" },
+      "zh-Hant":{ "page.title":"更新日誌 — PasteMemo", title:"更新日誌", subtitle:"PasteMemo 的每次發佈，從 GitHub 即時取得。", loading:"載入中…", back:"首頁", empty:"尚無發佈。", errorPrefix:"載入失敗，可前往 ", errorLink:"GitHub Releases", latest:"最新" },
+      ja:       { "page.title":"更新履歴 — PasteMemo", title:"更新履歴", subtitle:"PasteMemo のリリース履歴（GitHub から取得）。", loading:"読み込み中…", back:"ホーム", empty:"リリースはまだありません。", errorPrefix:"読み込みに失敗しました。", errorLink:"GitHub Releases", latest:"最新" },
+      ko:       { "page.title":"업데이트 내역 — PasteMemo", title:"업데이트 내역", subtitle:"PasteMemo의 모든 릴리스를 GitHub에서 실시간으로 가져옵니다.", loading:"불러오는 중…", back:"홈", empty:"릴리스가 없습니다.", errorPrefix:"불러오기 실패. ", errorLink:"GitHub Releases", latest:"최신" },
+      fr:       { "page.title":"Journal — PasteMemo", title:"Journal des versions", subtitle:"Toutes les versions de PasteMemo, en direct depuis GitHub.", loading:"Chargement…", back:"Accueil", empty:"Aucune version.", errorPrefix:"Échec du chargement. Voir sur ", errorLink:"GitHub Releases", latest:"Dernière" },
+      de:       { "page.title":"Änderungen — PasteMemo", title:"Änderungsprotokoll", subtitle:"Jede PasteMemo-Version, direkt von GitHub.", loading:"Laden…", back:"Start", empty:"Keine Versionen.", errorPrefix:"Laden fehlgeschlagen. Siehe auf ", errorLink:"GitHub Releases", latest:"Neueste" },
+      es:       { "page.title":"Novedades — PasteMemo", title:"Novedades", subtitle:"Todas las versiones de PasteMemo, en vivo desde GitHub.", loading:"Cargando…", back:"Inicio", empty:"No hay versiones.", errorPrefix:"Error al cargar. Ver en ", errorLink:"GitHub Releases", latest:"Más reciente" },
+      it:       { "page.title":"Aggiornamenti — PasteMemo", title:"Registro modifiche", subtitle:"Ogni versione di PasteMemo, direttamente da GitHub.", loading:"Caricamento…", back:"Home", empty:"Nessuna versione.", errorPrefix:"Caricamento fallito. Vedi su ", errorLink:"GitHub Releases", latest:"Ultima" },
+      ru:       { "page.title":"История — PasteMemo", title:"История изменений", subtitle:"Каждый выпуск PasteMemo, загружается из GitHub.", loading:"Загрузка…", back:"Главная", empty:"Нет релизов.", errorPrefix:"Не удалось загрузить. Открыть на ", errorLink:"GitHub Releases", latest:"Последняя" },
+      id:       { "page.title":"Pembaruan — PasteMemo", title:"Riwayat Pembaruan", subtitle:"Setiap rilis PasteMemo, diambil langsung dari GitHub.", loading:"Memuat…", back:"Beranda", empty:"Belum ada rilis.", errorPrefix:"Gagal memuat. Lihat di ", errorLink:"GitHub Releases", latest:"Terbaru" },
+    };
+    function detectLang() {
+      const stored = localStorage.getItem("lang");
+      if (stored && i18n[stored]) return stored;
+      const b = (navigator.language || "en").toLowerCase();
+      if (b.startsWith("zh")) return b.includes("tw") || b.includes("hk") ? "zh-Hant" : "zh-Hans";
+      const short = b.split("-")[0];
+      return i18n[short] ? short : "en";
+    }
+    const lang = detectLang();
+    const t = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (t[k]) el.textContent = t[k];
+    });
+
+    function escapeHTML(s) {
+      return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+    }
+    // Minimal markdown → HTML for GitHub release notes.
+    // All user text is escaped BEFORE pattern substitution, so the output
+    // is safe to parse back into DOM via Range.createContextualFragment.
+    function renderMarkdown(src) {
+      const lines = src.replace(/\r\n/g, "\n").split("\n");
+      const out = [];
+      let inList = false;
+      let inTable = false;
+      let tableHead = null;
+
+      const flushList = () => { if (inList) { out.push("</ul>"); inList = false; } };
+      const flushTable = () => { if (inTable) { out.push("</tbody></table>"); inTable = false; tableHead = null; } };
+
+      const inline = text => {
+        let s = escapeHTML(text);
+        s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, url) => `<img src="${url}" alt="${alt}">`);
+        s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, txt, url) => `<a href="${url}" target="_blank" rel="noopener">${txt}</a>`);
+        s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+        s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        s = s.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+        s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+        s = s.replace(/(^|[\s(])((?:https?:\/\/)[^\s<)]+)/g, (m, pre, url) => `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+        s = s.replace(/(^|[\s(>])@([A-Za-z0-9][A-Za-z0-9-]{0,38})\b/g,
+          (m, pre, user) => `${pre}<a href="https://github.com/${user}" target="_blank" rel="noopener">@${user}</a>`);
+        s = s.replace(/(^|[\s(>])#(\d+)\b/g,
+          (m, pre, num) => `${pre}<a href="https://github.com/${REPO}/issues/${num}" target="_blank" rel="noopener">#${num}</a>`);
+        return s;
+      };
+
+      for (let raw of lines) {
+        const line = raw.replace(/\s+$/, "");
+        if (!line.trim()) { flushList(); flushTable(); continue; }
+
+        if (/^\|.*\|$/.test(line.trim())) {
+          if (!inTable && !tableHead) { tableHead = line; continue; }
+          if (inTable) {
+            const cells = line.trim().slice(1, -1).split("|").map(c => inline(c.trim()));
+            out.push("<tr>" + cells.map(c => `<td>${c}</td>`).join("") + "</tr>");
+            continue;
+          }
+        }
+        if (tableHead && /^\|?[\s:|-]+\|?$/.test(line.trim())) {
+          flushList();
+          const headers = tableHead.trim().slice(1, -1).split("|").map(c => inline(c.trim()));
+          out.push("<table><thead><tr>" + headers.map(h => `<th>${h}</th>`).join("") + "</tr></thead><tbody>");
+          inTable = true;
+          tableHead = null;
+          continue;
+        }
+        if (tableHead) { flushList(); out.push(`<p>${inline(tableHead)}</p>`); tableHead = null; }
+        if (inTable && !/^\|.*\|$/.test(line.trim())) flushTable();
+
+        let m;
+        if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
+          flushList();
+          const lvl = Math.min(m[1].length + 1, 6);
+          out.push(`<h${lvl}>${inline(m[2])}</h${lvl}>`);
+        } else if ((m = line.match(/^[-*]\s+(.*)$/))) {
+          if (!inList) { out.push("<ul>"); inList = true; }
+          out.push(`<li>${inline(m[1])}</li>`);
+        } else {
+          flushList();
+          out.push(`<p>${inline(line)}</p>`);
+        }
+      }
+      flushList();
+      flushTable();
+      return out.join("\n");
+    }
+
+    function formatDate(iso) {
+      try {
+        const locale = lang === "zh-Hans" ? "zh-CN" : lang === "zh-Hant" ? "zh-TW" : lang;
+        return new Date(iso).toLocaleDateString(locale, { year:"numeric", month:"short", day:"numeric" });
+      } catch { return iso.slice(0, 10); }
+    }
+
+    function setFragment(el, html) {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      range.deleteContents();
+      el.appendChild(range.createContextualFragment(html));
+    }
+
+    async function load() {
+      const listEl = document.getElementById("list");
+      try {
+        const res = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=50`, {
+          headers: { "Accept": "application/vnd.github+json" }
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const releases = (await res.json()).filter(r => !r.draft);
+        if (!releases.length) {
+          listEl.className = "loading";
+          listEl.textContent = t.empty;
+          return;
+        }
+        listEl.className = "";
+        const html = releases.map((r, idx) => {
+          const version = escapeHTML(r.tag_name || r.name || "—");
+          const date = r.published_at || r.created_at;
+          const body = r.body ? renderMarkdown(r.body) : `<p style="color:var(--text-muted)">—</p>`;
+          const badges = [];
+          if (idx === 0 && !r.prerelease) badges.push(`<span class="release-badge">${escapeHTML(t.latest)}</span>`);
+          if (r.prerelease) badges.push(`<span class="release-badge pre">pre</span>`);
+          return `<article class="release">
+            <div class="release-head">
+              <a class="release-version" href="${r.html_url}" target="_blank" rel="noopener">${version}</a>
+              ${badges.join("")}
+              <span class="release-date">${formatDate(date)}</span>
+            </div>
+            <div class="release-body">${body}</div>
+          </article>`;
+        }).join("");
+        setFragment(listEl, html);
+      } catch (err) {
+        listEl.className = "error";
+        listEl.textContent = t.errorPrefix;
+        const a = document.createElement("a");
+        a.href = `https://github.com/${REPO}/releases`;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = t.errorLink;
+        listEl.appendChild(a);
+      }
+    }
+    load();
+  </script>
+</body>
+</html>
