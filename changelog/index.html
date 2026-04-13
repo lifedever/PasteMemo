@@ -324,7 +324,8 @@
           const version = escapeHTML(versionRaw);
           const slug = versionRaw.replace(/[^\w.-]/g, "-");
           const date = r.published_at || r.created_at;
-          const body = r.body ? renderMarkdown(r.body) : `<p style="color:var(--text-muted)">—</p>`;
+          const rawBody = (r.body || "").split(/^#{2,3}\s+Download\s*$/mi)[0].trimEnd();
+          const body = rawBody ? renderMarkdown(rawBody) : `<p style="color:var(--text-muted)">—</p>`;
           const badges = [];
           if (idx === 0 && !r.prerelease) badges.push(`<span class="release-badge">${escapeHTML(t.latest)}</span>`);
           if (r.prerelease) badges.push(`<span class="release-badge pre">pre</span>`);
