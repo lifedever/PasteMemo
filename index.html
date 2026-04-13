@@ -682,10 +682,13 @@
 
     .footer-links {
       display: flex;
-      gap: 24px;
+      flex-wrap: wrap;
+      gap: 12px 24px;
       justify-content: center;
       margin-bottom: 12px;
     }
+
+    .footer-links a { white-space: nowrap; }
 
     .beta-modal-overlay {
       display: none;
@@ -864,7 +867,7 @@
       kbd { padding: 6px 12px; font-size: 16px; }
 
       footer { padding: 28px 16px; }
-      .footer-links { gap: 16px; }
+      .footer-links { gap: 10px 16px; font-size: 14px; }
     }
 
     @media (max-width: 420px) {
