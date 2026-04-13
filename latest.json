@@ -1,21 +1,21 @@
 {
-  "version": "1.2.10",
-  "notes_zh": "- **新增** 辅助功能未授权时，状态栏菜单顶部直接显示「授权辅助功能权限」快捷入口\n- **新增** 查看链接时若标题未抓到，后台自动补抓（旧数据也能逐步补全标题）\n- **优化** 链接预览：加载中展示静态卡片（favicon + URL + 标题 + 按钮），加载完才切到网页\n- **优化** 静态链接卡片：标题放大突出、URL 蓝色链接样式、加入 domain / 协议 badge 和复制按钮\n- **优化** 富文本预览：剥离源端黑/灰底色，深色模式下中灰字自动调整为可读色\n- **优化** 大文本场景（10MB+）选中时后台计算字符/行/词数，不再卡死界面\n- **优化** 网页预览使用真实 Safari UA，百度等站能正常渲染\n- **优化** 剪贴板预览在代码/链接条目下 Header 更简洁，信息不再与属性区重复\n- **优化** 部分性能优化，感谢 @miniers 贡献\n- **修复** 文件名（如 xxx.conf、yyy.log）被误识别为链接\n- **修复** 同一 URL 从不同应用复制产生重复记录\n- **修复** 快捷面板切换链接预览时残留上一条网页画面\n- **修复** 查看已删除条目时可能出现的 SwiftData 僵尸对象崩溃\n- **修复** 搜索框过滤时可能重复触发两次查询",
-  "notes_en": "- **New** When accessibility permission is missing, surface a quick 'Grant Accessibility Permission' entry at the top of the status-bar menu\n- **New** Auto-retry link title fetch when viewing a link whose title is empty (backfills legacy entries over time)\n- **Improve** Link preview: static card (favicon + URL + title + buttons) stays visible until the web page finishes loading, no more flashes of the previous page\n- **Improve** Static link card: larger prominent title, accent-colored URL, domain / scheme badges and Copy action\n- **Improve** Rich-text preview: strip source opaque black/grey backgrounds and adapt low-contrast foregrounds for dark mode\n- **Improve** Selecting huge clips (10 MB+) no longer freezes the UI; line / word / char counts and code summaries are computed off the main thread\n- **Improve** Web preview uses a real Safari UA, so sites like baidu.com render correctly\n- **Improve** Code and link preview headers trimmed — no duplicate metadata with the properties row\n- **Improve** Various performance improvements, thanks to @miniers\n- **Fix** Filenames like foo.conf / bar.log were misclassified as links\n- **Fix** The same URL copied from different apps produced duplicate entries\n- **Fix** Switching link previews in the quick panel sometimes left the previous page's content visible\n- **Fix** SwiftData zombie-object crash when viewing a just-deleted item\n- **Fix** Search debounce could trigger the query twice per keystroke",
+  "version": "1.2.11",
+  "notes_zh": "- **修复** 从状态栏菜单打开快捷面板时，面板内的方向键、回车等快捷键不响应（感谢 @lclrc 贡献）",
+  "notes_en": "- **Fix** Hotkeys (arrow keys, enter, etc.) not responding inside the quick panel when opened from the status-bar menu (thanks to @lclrc)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.10-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.10-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.10-arm64.dmg",
-      "size": 3834748,
-      "sha256": "36e9e596875beb3efff83696877b052860a56bece06ad7749257b373256422bf"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-arm64.dmg",
+      "size": 3834735,
+      "sha256": "0d9144aab0ce470807fc91811df3e42ed54cf1f988104f6e270a561c5e14d217"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.10-x86_64.dmg",
-      "size": 3941722,
-      "sha256": "1beada6af573810a2b1d83771a73441be3638cbadc2a095cfff29085544c2a58"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-x86_64.dmg",
+      "size": 3941676,
+      "sha256": "d0c5c124b2ceb1f00de2f61bda5ddb647aa8421863332bcebab8b678cd267dcd"
     }
   }
 }
