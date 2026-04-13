@@ -8,200 +8,592 @@
   <style>
     :root {
       --orange-50: #FFF7ED;
+      --orange-100: #FFEDD5;
+      --orange-400: #FB923C;
       --orange-500: #F97316;
       --orange-600: #EA580C;
       --bg: #FFFFFF;
       --bg-alt: #F9FAFB;
+      --bg-subtle: #FAFAFA;
       --card-bg: #FFFFFF;
       --border: #F3F4F6;
+      --border-strong: #E5E7EB;
+      --rule: rgba(17, 24, 39, 0.06);
       --text: #1F2937;
       --text-heading: #111827;
       --text-secondary: #6B7280;
       --text-muted: #9CA3AF;
       --code-bg: #F3F4F6;
+      --btn-secondary-bg: #F3F4F6;
+      --glow: rgba(249, 115, 22, 0.18);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --orange-50: rgba(249, 115, 22, 0.12);
+        --orange-50: rgba(249, 115, 22, 0.1);
         --bg: #0F0F0F;
         --bg-alt: #1A1A1A;
+        --bg-subtle: #141414;
         --card-bg: #1E1E1E;
         --border: #2A2A2A;
+        --border-strong: #3A3A3A;
+        --rule: rgba(255, 255, 255, 0.06);
         --text: #E5E5E5;
         --text-heading: #F5F5F5;
         --text-secondary: #A3A3A3;
         --text-muted: #737373;
         --code-bg: #262626;
+        --btn-secondary-bg: #262626;
+        --glow: rgba(249, 115, 22, 0.25);
       }
     }
+    html.theme-dark {
+      --orange-50: rgba(249, 115, 22, 0.1);
+      --bg: #0F0F0F; --bg-alt: #1A1A1A; --bg-subtle: #141414; --card-bg: #1E1E1E;
+      --border: #2A2A2A; --border-strong: #3A3A3A; --rule: rgba(255,255,255,0.06);
+      --text: #E5E5E5; --text-heading: #F5F5F5; --text-secondary: #A3A3A3; --text-muted: #737373;
+      --code-bg: #262626; --btn-secondary-bg: #262626; --glow: rgba(249,115,22,0.25);
+    }
+    html.theme-light {
+      --orange-50: #FFF7ED;
+      --bg: #FFFFFF; --bg-alt: #F9FAFB; --bg-subtle: #FAFAFA; --card-bg: #FFFFFF;
+      --border: #F3F4F6; --border-strong: #E5E7EB; --rule: rgba(17,24,39,0.06);
+      --text: #1F2937; --text-heading: #111827; --text-secondary: #6B7280; --text-muted: #9CA3AF;
+      --code-bg: #F3F4F6; --btn-secondary-bg: #F3F4F6; --glow: rgba(249,115,22,0.18);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+      color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
     }
-    header {
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
+
+    /* Header (mirror main site) */
+    header.site-header {
+      position: sticky; top: 0; z-index: 200;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .site-header-inner {
+      padding: 18px 40px; display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto;
     }
     .logo-group { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-group img { width: 36px; height: 36px; border-radius: 8px; }
-    .logo-group span { font-size: 20px; font-weight: 600; color: var(--text-heading); }
-    .back-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: all 0.15s;
-    }
-    .back-link:hover { color: var(--text-heading); border-color: var(--text-muted); }
+    .logo-group span { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; color: var(--text-heading); }
 
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none; font-size: 14.5px;
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a:hover { color: var(--text-heading); }
+    .nav-links a.active { color: var(--text-heading); font-weight: 500; }
+    .nav-links a.active::after {
+      content: ""; position: absolute; left: 50%; bottom: -10px;
+      transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      box-shadow: 0 0 12px var(--glow);
+    }
+
+    .nav-controls { display: flex; gap: 8px; align-items: center; margin-left: 8px; }
+    .theme-toggle {
+      background: var(--btn-secondary-bg); border: 1px solid var(--border-strong); border-radius: 10px;
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 16px; transition: all 0.2s; color: var(--text-secondary);
+    }
+    .theme-toggle:hover { color: var(--text-heading); border-color: var(--text-muted); }
+    .lang-dropdown { position: relative; }
+    .lang-btn {
+      background: var(--btn-secondary-bg); border: 1px solid var(--border-strong); border-radius: 10px;
+      padding: 6px 12px; font-size: 13px; color: var(--text-secondary); cursor: pointer;
+      font-family: inherit; display: flex; align-items: center; gap: 7px;
+      transition: all 0.2s; white-space: nowrap; height: 36px;
+    }
+    .lang-btn:hover { color: var(--text-heading); border-color: var(--text-muted); }
+    .lang-btn.active { border-color: var(--orange-500); color: var(--text-heading); }
+    .lang-btn svg.caret { width: 10px; height: 6px; transition: transform 0.2s; }
+    .lang-btn.active svg.caret { transform: rotate(180deg); }
+    .lang-btn .globe { width: 14px; height: 14px; opacity: 0.7; }
+
+    .lang-menu {
+      position: absolute; top: calc(100% + 8px); right: 0;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+      padding: 6px; min-width: 170px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all 0.15s ease; z-index: 210;
+      max-height: 320px; overflow-y: auto;
+    }
+    .lang-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-menu-item {
+      display: flex; align-items: center; padding: 8px 12px; font-size: 13px;
+      color: var(--text-secondary); cursor: pointer; border-radius: 7px;
+      transition: all 0.15s; white-space: nowrap;
+    }
+    .lang-menu-item:hover { background: var(--orange-50); color: var(--text-heading); }
+    .lang-menu-item.selected { color: var(--orange-500); font-weight: 500; }
+    .lang-menu-item.selected::after { content: '✓'; margin-left: auto; padding-left: 12px; font-size: 12px; }
+
+    .menu-toggle {
+      display: none; background: transparent; border: none; cursor: pointer;
+      padding: 8px; width: 40px; height: 40px;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px; z-index: 310;
+    }
+    .menu-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 290;
+    }
+    .nav-backdrop.show { opacity: 1; visibility: visible; }
+    @media (min-width: 769px) { .nav-backdrop, .nav-backdrop.show { display: none; } }
+
+    /* Hero */
+    .hero {
+      position: relative; padding: 96px 24px 64px; max-width: 1200px; margin: 0 auto;
+      text-align: center; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; left: 50%; top: -160px;
+      width: 900px; height: 600px; transform: translateX(-50%);
+      background: radial-gradient(closest-side, var(--glow), transparent 70%);
+      pointer-events: none; filter: blur(8px); z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 14px 7px 10px; border-radius: 999px;
+      background: var(--bg-alt); border: 1px solid var(--rule);
+      font-size: 11.5px; font-weight: 600; letter-spacing: 1.4px;
+      text-transform: uppercase; color: var(--text-secondary); margin-bottom: 28px;
+    }
+    .eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      box-shadow: 0 0 0 3px var(--orange-50), 0 0 10px var(--glow);
+    }
+    .hero h1 {
+      font-size: clamp(44px, 7.2vw, 82px); font-weight: 800;
+      line-height: 1.02; letter-spacing: -2.4px;
+      color: var(--text-heading); margin: 0 auto 20px; max-width: 12ch;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p.sub {
+      max-width: 560px; margin: 0 auto; font-size: 17px; line-height: 1.6; color: var(--text-secondary);
+    }
+    .hero .rule {
+      display: block; margin: 42px auto 0; width: 44px; height: 2px; border-radius: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange-500), transparent);
+      opacity: 0.85;
+    }
+
+    /* Layout */
     .layout {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 56px 24px 80px;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 56px;
-      align-items: start;
+      max-width: 1200px; margin: 0 auto;
+      padding: 20px 40px 120px;
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 80px; align-items: start;
     }
-    main { min-width: 0; }
-    h1.page-title {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--text-heading);
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
+    main.stream { min-width: 0; position: relative; }
+    main.stream::before {
+      content: ""; position: absolute; left: 7px; top: 14px; bottom: 20px;
+      width: 1px; background: linear-gradient(to bottom, var(--rule), var(--rule) 80%, transparent);
     }
-    .page-sub { color: var(--text-secondary); font-size: 15px; margin-bottom: 40px; }
 
+    /* Sidebar */
     .sidebar {
-      position: sticky;
-      top: 24px;
-      max-height: calc(100vh - 48px);
-      overflow-y: auto;
-      font-size: 14px;
+      position: sticky; top: 96px; max-height: calc(100vh - 120px);
+      overflow-y: auto; padding: 4px 4px 24px;
     }
-    .sidebar-title {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      padding: 0 10px 10px;
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
+    .side-eyebrow {
+      font-size: 10.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--text-muted); padding: 0 12px 14px;
+      display: flex; align-items: center; gap: 10px;
     }
+    .side-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
     .sidebar-list { display: flex; flex-direction: column; gap: 2px; }
     .sidebar-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 6px;
-      text-decoration: none;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: baseline; gap: 12px;
+      padding: 9px 12px; border-radius: 8px; text-decoration: none;
       color: var(--text-secondary);
-      transition: all 0.15s;
+      transition: background 0.15s, color 0.15s;
+      font-variant-numeric: tabular-nums;
     }
     .sidebar-item:hover { background: var(--bg-alt); color: var(--text-heading); }
-    .sidebar-item.active {
-      color: var(--orange-500);
-      background: var(--orange-50);
-      font-weight: 500;
-    }
-    .sidebar-item .v { font-variant-numeric: tabular-nums; }
+    .sidebar-item.active { background: var(--orange-50); color: var(--orange-600); font-weight: 600; }
+    .sidebar-item .v { font-size: 13.5px; letter-spacing: -0.1px; }
     .sidebar-item .d { font-size: 11px; color: var(--text-muted); }
-    .sidebar::-webkit-scrollbar { width: 4px; }
-    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .sidebar-item.active .d { color: var(--orange-500); opacity: 0.8; }
 
-    .release { padding: 28px 0; border-bottom: 1px solid var(--border); }
-    .release:last-child { border-bottom: none; }
-    .release-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
-    .release-version { font-size: 22px; font-weight: 700; color: var(--text-heading); text-decoration: none; letter-spacing: -0.3px; }
+    /* Timeline release */
+    .release { position: relative; padding: 4px 0 48px 44px; scroll-margin-top: 96px; }
+    .release:last-child { padding-bottom: 0; }
+    .release::before {
+      content: ""; position: absolute; left: 0; top: 14px;
+      width: 15px; height: 15px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--border-strong);
+      transition: all 0.2s;
+    }
+    .release.is-latest::before {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-color: transparent;
+      box-shadow: 0 0 0 4px var(--orange-50), 0 0 16px var(--glow);
+    }
+    .release.is-active::before {
+      background: linear-gradient(135deg, var(--orange-400), var(--orange-600));
+      border-color: transparent; box-shadow: 0 0 0 4px var(--orange-50);
+    }
+
+    .release-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .release-date {
+      font-size: 12.5px; color: var(--text-muted); letter-spacing: 0.3px;
+      font-variant-numeric: tabular-nums;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .release-date::before {
+      content: ""; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--text-muted); opacity: 0.6;
+    }
+    .release-badge {
+      font-size: 10.5px; font-weight: 700; color: #fff;
+      padding: 3px 10px; border-radius: 999px;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      box-shadow: 0 2px 10px var(--glow);
+    }
+    .release-badge.pre {
+      background: linear-gradient(135deg, #6B7280, #4B5563);
+      box-shadow: 0 2px 10px rgba(107,114,128,0.25);
+    }
+
+    .release-version {
+      display: inline-flex; align-items: baseline; gap: 14px;
+      margin-bottom: 22px;
+      font-size: 36px; font-weight: 700; letter-spacing: -1.2px;
+      color: var(--text-heading); font-variant-numeric: tabular-nums;
+      text-decoration: none; transition: color 0.2s;
+    }
     .release-version:hover { color: var(--orange-500); }
-    .release-badge { font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); padding: 3px 10px; border-radius: 10px; letter-spacing: 0.3px; }
-    .release-badge.pre { background: #6B7280; }
-    .release-date { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+    .release-version .ext {
+      font-size: 13px; font-weight: 500; color: var(--text-muted);
+      opacity: 0; transform: translateX(-4px); transition: all 0.2s;
+    }
+    .release-version:hover .ext { opacity: 1; transform: translateX(0); }
 
-    .release-body { color: var(--text); font-size: 15px; }
-    .release-body h1, .release-body h2, .release-body h3, .release-body h4 { color: var(--text-heading); margin: 18px 0 10px; font-weight: 600; }
+    .release-body { color: var(--text); font-size: 15.5px; line-height: 1.75; }
+    .release-body h1, .release-body h2, .release-body h3, .release-body h4 {
+      color: var(--text-heading); margin: 26px 0 10px; font-weight: 600; letter-spacing: -0.2px;
+    }
     .release-body h2 { font-size: 17px; }
-    .release-body h3 { font-size: 16px; }
-    .release-body h4 { font-size: 15px; color: var(--text-secondary); }
-    .release-body p { margin: 8px 0; }
-    .release-body ul { padding-left: 22px; margin: 8px 0; }
-    .release-body li { margin: 4px 0; }
-    .release-body a { color: var(--orange-500); text-decoration: none; }
-    .release-body a:hover { text-decoration: underline; }
-    .release-body strong { color: var(--text-heading); }
-    .release-body code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; font-family: "SF Mono", Menlo, Consolas, monospace; }
-    .release-body table { border-collapse: collapse; margin: 10px 0; font-size: 14px; }
-    .release-body th, .release-body td { border: 1px solid var(--border); padding: 6px 12px; text-align: left; }
-    .release-body th { background: var(--bg-alt); }
+    .release-body h3 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 1.6px;
+      color: var(--text-secondary); font-weight: 700; margin-top: 28px;
+    }
+    .release-body h4 { font-size: 14px; color: var(--text-secondary); }
+    .release-body p { margin: 10px 0; }
+    .release-body ul { list-style: none; padding-left: 0; margin: 8px 0; }
+    .release-body li { position: relative; padding: 4px 0 4px 22px; margin: 2px 0; }
+    .release-body li::before {
+      content: ""; position: absolute; left: 4px; top: 16px;
+      width: 6px; height: 1px; background: var(--text-muted); opacity: 0.55;
+    }
+    .release-body strong { color: var(--text-heading); font-weight: 600; }
+    .release-body a {
+      color: var(--orange-600); text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--orange-500) 35%, transparent);
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .release-body a:hover { color: var(--orange-500); border-bottom-color: var(--orange-500); }
+    .release-body code {
+      background: var(--code-bg); padding: 2px 7px; border-radius: 5px; font-size: 0.88em;
+      font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      color: var(--text-heading); border: 1px solid var(--rule);
+    }
+    .release-body table {
+      border-collapse: collapse; margin: 14px 0; font-size: 14px; width: 100%;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    }
+    .release-body th, .release-body td {
+      padding: 9px 14px; text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .release-body th { background: var(--bg-alt); font-weight: 600; color: var(--text-heading); }
+    .release-body tr:last-child td { border-bottom: none; }
+    .release-body img { max-width: 100%; border-radius: 8px; }
 
-    .loading, .error { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
-    .error a { color: var(--orange-500); }
+    .loading, .error {
+      text-align: center; padding: 80px 20px; color: var(--text-secondary); font-size: 14px;
+    }
+    .loading::before {
+      content: ""; display: block; width: 24px; height: 24px; border-radius: 50%;
+      border: 2px solid var(--border-strong); border-top-color: var(--orange-500);
+      margin: 0 auto 14px; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error a { color: var(--orange-500); border-bottom: 1px solid var(--orange-500); }
 
-    .release { scroll-margin-top: 24px; }
+    .sidebar-skeleton { padding: 0 12px; }
+    .sidebar-skeleton .row {
+      height: 28px; margin-bottom: 6px; border-radius: 6px;
+      background: linear-gradient(90deg, var(--bg-alt), var(--border), var(--bg-alt));
+      background-size: 200% 100%; animation: shimmer 1.4s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
     @media (max-width: 900px) {
-      .layout { grid-template-columns: 1fr; gap: 0; padding: 32px 16px 60px; }
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 8px 20px 80px; }
       .sidebar { display: none; }
+      .hero { padding: 56px 20px 36px; }
+      main.stream::before { left: 5px; }
+      .release { padding-left: 32px; padding-bottom: 40px; }
+      .release::before { width: 11px; height: 11px; top: 16px; }
+      .release-version { font-size: 28px; }
     }
-    @media (max-width: 640px) {
-      header { padding: 14px 16px; }
-      h1.page-title { font-size: 28px; }
-      .release-date { margin-left: 0; width: 100%; }
+    @media (max-width: 768px) {
+      .site-header-inner { padding: 14px 16px; }
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: 0; height: 100vh; width: 82%; max-width: 320px;
+        background: var(--card-bg); border-left: 1px solid var(--border);
+        flex-direction: column; align-items: stretch; gap: 4px;
+        padding: 76px 20px 24px; transform: translateX(100%);
+        transition: transform 0.25s ease; z-index: 300;
+        overflow-y: auto; box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 15px; padding: 12px 10px; border-radius: 8px; }
+      .nav-links a:hover { background: var(--bg-alt); }
+      .nav-links a.active::after { display: none; }
+      .nav-links a.active { color: var(--orange-500); background: var(--orange-50); }
+      .nav-controls { flex-direction: row; margin: 12px 0 0; padding-top: 16px; border-top: 1px solid var(--border); gap: 8px; }
+      .lang-dropdown { flex: 1; }
+      .lang-btn { width: 100%; justify-content: space-between; }
+      .lang-menu { left: 0; right: 0; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { letter-spacing: -1.4px; }
+      .release-version { font-size: 24px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a class="logo-group" href="../">
-      <img src="../logo-2.svg" alt="PasteMemo">
-      <span>PasteMemo</span>
-    </a>
-    <a class="back-link" href="../">
-      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L6 8l4-4"/></svg>
-      <span data-i18n="back">Home</span>
-    </a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-group" href="../">
+        <img src="../logo-2.svg" alt="PasteMemo">
+        <span>PasteMemo</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../#features" data-i18n="nav.features">Features</a>
+        <a href="../#download" data-i18n="nav.download">Download</a>
+        <a href="https://www.lifedever.com" data-i18n="nav.sponsor">Sponsor</a>
+        <a href="https://github.com/lifedever/PasteMemo-app/issues" data-i18n="nav.feedback">Feedback</a>
+        <a href="../help/" data-i18n="nav.help">Help</a>
+        <a href="./" class="active" data-i18n="nav.changelog">Changelog</a>
+        <a href="https://github.com/lifedever/PasteMemo-app" data-i18n="nav.github" target="_blank" rel="noopener">GitHub</a>
+        <div class="nav-controls">
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" id="langBtn" type="button">
+              <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span id="langLabel">English</span>
+              <svg class="caret" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lang-menu" id="langMenu">
+              <div class="lang-menu-item" data-lang="zh-Hans">简体中文</div>
+              <div class="lang-menu-item" data-lang="zh-Hant">繁體中文</div>
+              <div class="lang-menu-item" data-lang="en">English</div>
+              <div class="lang-menu-item" data-lang="ja">日本語</div>
+              <div class="lang-menu-item" data-lang="ko">한국어</div>
+              <div class="lang-menu-item" data-lang="fr">Français</div>
+              <div class="lang-menu-item" data-lang="de">Deutsch</div>
+              <div class="lang-menu-item" data-lang="es">Español</div>
+              <div class="lang-menu-item" data-lang="it">Italiano</div>
+              <div class="lang-menu-item" data-lang="ru">Русский</div>
+              <div class="lang-menu-item" data-lang="id">Bahasa Indonesia</div>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
+        </div>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-backdrop" id="navBackdrop"></div>
+    </div>
   </header>
+
+  <section class="hero">
+    <h1 data-i18n-html="title">Change<span class="grad">log</span></h1>
+    <p class="sub" data-i18n="subtitle">Every release of PasteMemo, pulled live from GitHub.</p>
+    <span class="rule"></span>
+  </section>
+
   <div class="layout">
-    <aside class="sidebar" id="sidebar" aria-label="Versions"></aside>
-    <main>
-      <h1 class="page-title" data-i18n="title">Changelog</h1>
-      <p class="page-sub" data-i18n="subtitle">Every release of PasteMemo, pulled live from GitHub.</p>
+    <aside class="sidebar" id="sidebar" aria-label="Versions">
+      <div class="side-eyebrow" data-i18n="sideLabel">Versions</div>
+      <div class="sidebar-skeleton" id="sidebarSkel">
+        <div class="row"></div><div class="row"></div><div class="row"></div>
+        <div class="row"></div><div class="row"></div>
+      </div>
+    </aside>
+    <main class="stream">
       <div id="list" class="loading" data-i18n="loading">Loading…</div>
     </main>
   </div>
 
   <script>
     const REPO = "lifedever/PasteMemo-app";
+
     const i18n = {
-      en:       { "page.title":"Changelog — PasteMemo", title:"Changelog", subtitle:"Every release of PasteMemo, pulled live from GitHub.", loading:"Loading…", back:"Home", empty:"No releases yet.", errorPrefix:"Failed to load releases. View on ", errorLink:"GitHub Releases", latest:"Latest" },
-      "zh-Hans":{ "page.title":"更新日志 — PasteMemo", title:"更新日志", subtitle:"PasteMemo 的每次发布，从 GitHub 实时获取。", loading:"加载中…", back:"首页", empty:"暂无发布。", errorPrefix:"加载失败，可前往 ", errorLink:"GitHub Releases", latest:"最新" },
-      "zh-Hant":{ "page.title":"更新日誌 — PasteMemo", title:"更新日誌", subtitle:"PasteMemo 的每次發佈，從 GitHub 即時取得。", loading:"載入中…", back:"首頁", empty:"尚無發佈。", errorPrefix:"載入失敗，可前往 ", errorLink:"GitHub Releases", latest:"最新" },
-      ja:       { "page.title":"更新履歴 — PasteMemo", title:"更新履歴", subtitle:"PasteMemo のリリース履歴（GitHub から取得）。", loading:"読み込み中…", back:"ホーム", empty:"リリースはまだありません。", errorPrefix:"読み込みに失敗しました。", errorLink:"GitHub Releases", latest:"最新" },
-      ko:       { "page.title":"업데이트 내역 — PasteMemo", title:"업데이트 내역", subtitle:"PasteMemo의 모든 릴리스를 GitHub에서 실시간으로 가져옵니다.", loading:"불러오는 중…", back:"홈", empty:"릴리스가 없습니다.", errorPrefix:"불러오기 실패. ", errorLink:"GitHub Releases", latest:"최신" },
-      fr:       { "page.title":"Journal — PasteMemo", title:"Journal des versions", subtitle:"Toutes les versions de PasteMemo, en direct depuis GitHub.", loading:"Chargement…", back:"Accueil", empty:"Aucune version.", errorPrefix:"Échec du chargement. Voir sur ", errorLink:"GitHub Releases", latest:"Dernière" },
-      de:       { "page.title":"Änderungen — PasteMemo", title:"Änderungsprotokoll", subtitle:"Jede PasteMemo-Version, direkt von GitHub.", loading:"Laden…", back:"Start", empty:"Keine Versionen.", errorPrefix:"Laden fehlgeschlagen. Siehe auf ", errorLink:"GitHub Releases", latest:"Neueste" },
-      es:       { "page.title":"Novedades — PasteMemo", title:"Novedades", subtitle:"Todas las versiones de PasteMemo, en vivo desde GitHub.", loading:"Cargando…", back:"Inicio", empty:"No hay versiones.", errorPrefix:"Error al cargar. Ver en ", errorLink:"GitHub Releases", latest:"Más reciente" },
-      it:       { "page.title":"Aggiornamenti — PasteMemo", title:"Registro modifiche", subtitle:"Ogni versione di PasteMemo, direttamente da GitHub.", loading:"Caricamento…", back:"Home", empty:"Nessuna versione.", errorPrefix:"Caricamento fallito. Vedi su ", errorLink:"GitHub Releases", latest:"Ultima" },
-      ru:       { "page.title":"История — PasteMemo", title:"История изменений", subtitle:"Каждый выпуск PasteMemo, загружается из GitHub.", loading:"Загрузка…", back:"Главная", empty:"Нет релизов.", errorPrefix:"Не удалось загрузить. Открыть на ", errorLink:"GitHub Releases", latest:"Последняя" },
-      id:       { "page.title":"Pembaruan — PasteMemo", title:"Riwayat Pembaruan", subtitle:"Setiap rilis PasteMemo, diambil langsung dari GitHub.", loading:"Memuat…", back:"Beranda", empty:"Belum ada rilis.", errorPrefix:"Gagal memuat. Lihat di ", errorLink:"GitHub Releases", latest:"Terbaru" },
+      en: {
+        "nav.features":"Features","nav.download":"Download","nav.sponsor":"Sponsor",
+        "nav.feedback":"Feedback","nav.help":"Help","nav.changelog":"Changelog","nav.github":"GitHub",
+        "page.title":"Changelog — PasteMemo",
+        eyebrow:"Release Notes",
+        title:'Change<span class="grad">log</span>',
+        subtitle:"Every release of PasteMemo, at a glance.",
+        sideLabel:"Versions",
+        loading:"Loading releases…", empty:"No releases yet.",
+        errorPrefix:"Failed to load releases. View on ", errorLink:"GitHub Releases",
+        latest:"Latest"
+      },
+      "zh-Hans": {
+        "nav.features":"功能","nav.download":"下载","nav.sponsor":"捐助",
+        "nav.feedback":"反馈","nav.help":"帮助","nav.changelog":"更新日志","nav.github":"GitHub",
+        "page.title":"更新日志 — PasteMemo",
+        eyebrow:"版本发布",
+        title:'更新<span class="grad">日志</span>',
+        subtitle:"记录 PasteMemo 的每一次成长。",
+        sideLabel:"历史版本",
+        loading:"加载中…", empty:"暂无发布。",
+        errorPrefix:"加载失败，可前往 ", errorLink:"GitHub Releases",
+        latest:"最新"
+      },
+      "zh-Hant": {
+        "nav.features":"功能","nav.download":"下載","nav.sponsor":"捐助",
+        "nav.feedback":"回饋","nav.help":"說明","nav.changelog":"更新日誌","nav.github":"GitHub",
+        "page.title":"更新日誌 — PasteMemo",
+        eyebrow:"版本發佈",
+        title:'更新<span class="grad">日誌</span>',
+        subtitle:"記錄 PasteMemo 的每一次成長。",
+        sideLabel:"歷史版本",
+        loading:"載入中…", empty:"尚無發佈。",
+        errorPrefix:"載入失敗，可前往 ", errorLink:"GitHub Releases",
+        latest:"最新"
+      },
+      ja: {
+        "nav.features":"機能","nav.download":"ダウンロード","nav.sponsor":"サポート",
+        "nav.feedback":"フィードバック","nav.help":"ヘルプ","nav.changelog":"更新履歴","nav.github":"GitHub",
+        "page.title":"更新履歴 — PasteMemo",
+        eyebrow:"リリースノート",
+        title:'更新<span class="grad">履歴</span>',
+        subtitle:"PasteMemo の進化の記録。",
+        sideLabel:"バージョン",
+        loading:"読み込み中…", empty:"リリースはまだありません。",
+        errorPrefix:"読み込みに失敗しました。", errorLink:"GitHub Releases",
+        latest:"最新"
+      },
+      ko: {
+        "nav.features":"기능","nav.download":"다운로드","nav.sponsor":"후원",
+        "nav.feedback":"피드백","nav.help":"도움말","nav.changelog":"업데이트 내역","nav.github":"GitHub",
+        "page.title":"업데이트 내역 — PasteMemo",
+        eyebrow:"릴리스 노트",
+        title:'업데이트 <span class="grad">내역</span>',
+        subtitle:"PasteMemo의 모든 릴리스를 한눈에.",
+        sideLabel:"버전 목록",
+        loading:"불러오는 중…", empty:"릴리스가 없습니다.",
+        errorPrefix:"불러오기 실패. ", errorLink:"GitHub Releases",
+        latest:"최신"
+      },
+      fr: {
+        "nav.features":"Fonctionnalités","nav.download":"Télécharger","nav.sponsor":"Soutenir",
+        "nav.feedback":"Retour","nav.help":"Aide","nav.changelog":"Journal","nav.github":"GitHub",
+        "page.title":"Journal — PasteMemo",
+        eyebrow:"Notes de version",
+        title:'Journal des <span class="grad">versions</span>',
+        subtitle:"Toutes les versions de PasteMemo, en un coup d'œil.",
+        sideLabel:"Versions",
+        loading:"Chargement…", empty:"Aucune version.",
+        errorPrefix:"Échec du chargement. Voir sur ", errorLink:"GitHub Releases",
+        latest:"Dernière"
+      },
+      de: {
+        "nav.features":"Funktionen","nav.download":"Download","nav.sponsor":"Unterstützen",
+        "nav.feedback":"Feedback","nav.help":"Hilfe","nav.changelog":"Änderungen","nav.github":"GitHub",
+        "page.title":"Änderungen — PasteMemo",
+        eyebrow:"Versionshinweise",
+        title:'Änderungs<span class="grad">protokoll</span>',
+        subtitle:"Jede PasteMemo-Version auf einen Blick.",
+        sideLabel:"Versionen",
+        loading:"Laden…", empty:"Keine Versionen.",
+        errorPrefix:"Laden fehlgeschlagen. Siehe auf ", errorLink:"GitHub Releases",
+        latest:"Neueste"
+      },
+      es: {
+        "nav.features":"Funciones","nav.download":"Descargar","nav.sponsor":"Apoyar",
+        "nav.feedback":"Comentarios","nav.help":"Ayuda","nav.changelog":"Novedades","nav.github":"GitHub",
+        "page.title":"Novedades — PasteMemo",
+        eyebrow:"Notas de versión",
+        title:'Nove<span class="grad">dades</span>',
+        subtitle:"Todas las versiones de PasteMemo, de un vistazo.",
+        sideLabel:"Versiones",
+        loading:"Cargando…", empty:"No hay versiones.",
+        errorPrefix:"Error al cargar. Ver en ", errorLink:"GitHub Releases",
+        latest:"Más reciente"
+      },
+      it: {
+        "nav.features":"Funzioni","nav.download":"Download","nav.sponsor":"Supporta",
+        "nav.feedback":"Feedback","nav.help":"Aiuto","nav.changelog":"Aggiornamenti","nav.github":"GitHub",
+        "page.title":"Aggiornamenti — PasteMemo",
+        eyebrow:"Note di rilascio",
+        title:'Registro <span class="grad">modifiche</span>',
+        subtitle:"Ogni versione di PasteMemo, a colpo d'occhio.",
+        sideLabel:"Versioni",
+        loading:"Caricamento…", empty:"Nessuna versione.",
+        errorPrefix:"Caricamento fallito. Vedi su ", errorLink:"GitHub Releases",
+        latest:"Ultima"
+      },
+      ru: {
+        "nav.features":"Возможности","nav.download":"Скачать","nav.sponsor":"Поддержать",
+        "nav.feedback":"Отзыв","nav.help":"Справка","nav.changelog":"История","nav.github":"GitHub",
+        "page.title":"История — PasteMemo",
+        eyebrow:"Заметки о выпуске",
+        title:'История <span class="grad">изменений</span>',
+        subtitle:"Каждый выпуск PasteMemo — как на ладони.",
+        sideLabel:"Выпуски",
+        loading:"Загрузка…", empty:"Нет релизов.",
+        errorPrefix:"Не удалось загрузить. Открыть на ", errorLink:"GitHub Releases",
+        latest:"Последняя"
+      },
+      id: {
+        "nav.features":"Fitur","nav.download":"Unduh","nav.sponsor":"Dukung",
+        "nav.feedback":"Umpan Balik","nav.help":"Bantuan","nav.changelog":"Pembaruan","nav.github":"GitHub",
+        "page.title":"Pembaruan — PasteMemo",
+        eyebrow:"Catatan Rilis",
+        title:'Riwayat <span class="grad">Pembaruan</span>',
+        subtitle:"Setiap rilis PasteMemo dalam satu pandangan.",
+        sideLabel:"Versi",
+        loading:"Memuat…", empty:"Belum ada rilis.",
+        errorPrefix:"Gagal memuat. Lihat di ", errorLink:"GitHub Releases",
+        latest:"Terbaru"
+      }
     };
+
     function detectLang() {
       const stored = localStorage.getItem("lang");
       if (stored && i18n[stored]) return stored;
@@ -210,30 +602,115 @@
       const short = b.split("-")[0];
       return i18n[short] ? short : "en";
     }
-    const lang = detectLang();
-    const t = i18n[lang] || i18n.en;
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const k = el.getAttribute("data-i18n");
-      if (t[k]) el.textContent = t[k];
+
+    let currentLang = detectLang();
+    let t = i18n[currentLang] || i18n.en;
+
+    function setFragment(el, html) {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      range.deleteContents();
+      el.appendChild(range.createContextualFragment(html));
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      t = i18n[lang] || i18n.en;
+      document.documentElement.lang = lang;
+      document.title = t["page.title"];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (t[k] != null) el.textContent = t[k];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const k = el.getAttribute("data-i18n-html");
+        if (t[k] != null) setFragment(el, t[k]);
+      });
+      const sideEyebrow = document.querySelector(".side-eyebrow");
+      if (sideEyebrow) sideEyebrow.textContent = t.sideLabel;
+    }
+
+    const langBtn = document.getElementById("langBtn");
+    const langLabel = document.getElementById("langLabel");
+    const langMenu = document.getElementById("langMenu");
+    const langItems = langMenu.querySelectorAll(".lang-menu-item");
+
+    function updateLangUI(lang) {
+      langItems.forEach(item => {
+        item.classList.toggle("selected", item.dataset.lang === lang);
+        if (item.dataset.lang === lang) langLabel.textContent = item.textContent;
+      });
+    }
+    updateLangUI(currentLang);
+    applyLanguage(currentLang);
+
+    langBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      langMenu.classList.toggle("show");
+      langBtn.classList.toggle("active");
+    });
+    document.addEventListener("click", () => {
+      langMenu.classList.remove("show");
+      langBtn.classList.remove("active");
+    });
+    langItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const lang = item.dataset.lang;
+        localStorage.setItem("lang", lang);
+        updateLangUI(lang);
+        applyLanguage(lang);
+        langMenu.classList.remove("show");
+        langBtn.classList.remove("active");
+        if (window.__releasesCache) renderAll(window.__releasesCache);
+      });
+    });
+
+    const themeToggle = document.getElementById("themeToggle");
+    const sunIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+    const moonIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    function applyTheme(mode) {
+      document.documentElement.classList.remove("theme-dark", "theme-light");
+      if (mode === "dark") document.documentElement.classList.add("theme-dark");
+      else if (mode === "light") document.documentElement.classList.add("theme-light");
+      const effectiveDark = mode === "dark" || (mode === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+      setFragment(themeToggle, effectiveDark ? sunIcon : moonIcon);
+    }
+    const storedTheme = localStorage.getItem("theme") || "auto";
+    applyTheme(storedTheme);
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("theme-dark") ||
+        (!document.documentElement.classList.contains("theme-light") && matchMedia("(prefers-color-scheme: dark)").matches);
+      const next = isDark ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navBackdrop = document.getElementById("navBackdrop");
+    function setMenuOpen(open) {
+      menuToggle.classList.toggle("open", open);
+      navLinks.classList.toggle("open", open);
+      navBackdrop.classList.toggle("show", open);
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+    menuToggle.addEventListener("click", () => setMenuOpen(!navLinks.classList.contains("open")));
+    navBackdrop.addEventListener("click", () => setMenuOpen(false));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenuOpen(false)));
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768 && navLinks.classList.contains("open")) setMenuOpen(false);
     });
 
     function escapeHTML(s) {
       return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
     }
-    // Minimal markdown → HTML for GitHub release notes.
-    // All user text is escaped BEFORE pattern substitution, so the output
-    // is safe to parse back into DOM via Range.createContextualFragment.
     function renderMarkdown(src) {
       const lines = src.replace(/\r\n/g, "\n").split("\n");
       const out = [];
-      let inList = false;
-      let inTable = false;
-      let tableHead = null;
-
+      let inList = false, inTable = false, tableHead = null;
       const flushList = () => { if (inList) { out.push("</ul>"); inList = false; } };
       const flushTable = () => { if (inTable) { out.push("</tbody></table>"); inTable = false; tableHead = null; } };
-
       const inline = text => {
         let s = escapeHTML(text);
         s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, url) => `<img src="${url}" alt="${alt}">`);
@@ -249,11 +726,9 @@
           (m, pre, num) => `${pre}<a href="https://github.com/${REPO}/issues/${num}" target="_blank" rel="noopener">#${num}</a>`);
         return s;
       };
-
       for (let raw of lines) {
         const line = raw.replace(/\s+$/, "");
         if (!line.trim()) { flushList(); flushTable(); continue; }
-
         if (/^\|.*\|$/.test(line.trim())) {
           if (!inTable && !tableHead) { tableHead = line; continue; }
           if (inTable) {
@@ -266,13 +741,11 @@
           flushList();
           const headers = tableHead.trim().slice(1, -1).split("|").map(c => inline(c.trim()));
           out.push("<table><thead><tr>" + headers.map(h => `<th>${h}</th>`).join("") + "</tr></thead><tbody>");
-          inTable = true;
-          tableHead = null;
+          inTable = true; tableHead = null;
           continue;
         }
         if (tableHead) { flushList(); out.push(`<p>${inline(tableHead)}</p>`); tableHead = null; }
         if (inTable && !/^\|.*\|$/.test(line.trim())) flushTable();
-
         let m;
         if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
           flushList();
@@ -286,23 +759,86 @@
           out.push(`<p>${inline(line)}</p>`);
         }
       }
-      flushList();
-      flushTable();
+      flushList(); flushTable();
       return out.join("\n");
     }
 
     function formatDate(iso) {
       try {
-        const locale = lang === "zh-Hans" ? "zh-CN" : lang === "zh-Hant" ? "zh-TW" : lang;
+        const locale = currentLang === "zh-Hans" ? "zh-CN"
+          : currentLang === "zh-Hant" ? "zh-TW"
+          : currentLang;
         return new Date(iso).toLocaleDateString(locale, { year:"numeric", month:"short", day:"numeric" });
       } catch { return iso.slice(0, 10); }
     }
+    function shortDate(iso) {
+      const d = new Date(iso);
+      if (isNaN(d)) return "";
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    }
 
-    function setFragment(el, html) {
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      range.deleteContents();
-      el.appendChild(range.createContextualFragment(html));
+    function renderAll(releases) {
+      const listEl = document.getElementById("list");
+      if (!releases.length) {
+        listEl.className = "loading";
+        listEl.textContent = t.empty;
+        return;
+      }
+      listEl.className = "";
+      const html = releases.map((r, idx) => {
+        const versionRaw = r.tag_name || r.name || "—";
+        const version = escapeHTML(versionRaw);
+        const slug = versionRaw.replace(/[^\w.-]/g, "-");
+        const date = r.published_at || r.created_at;
+        const rawBody = (r.body || "").split(/^#{2,3}\s+Download\s*$/mi)[0].trimEnd();
+        const body = rawBody ? renderMarkdown(rawBody) : `<p style="color:var(--text-muted)">—</p>`;
+        const badges = [];
+        const isLatest = idx === 0 && !r.prerelease;
+        if (isLatest) badges.push(`<span class="release-badge">${escapeHTML(t.latest)}</span>`);
+        if (r.prerelease) badges.push(`<span class="release-badge pre">pre</span>`);
+        return `<article class="release${isLatest ? ' is-latest' : ''}" id="${slug}" data-slug="${slug}">
+          <div class="release-meta">
+            <time class="release-date" datetime="${date}">${formatDate(date)}</time>
+            ${badges.join("")}
+          </div>
+          <a class="release-version" href="${r.html_url}" target="_blank" rel="noopener">
+            <span>${version}</span>
+            <span class="ext">↗</span>
+          </a>
+          <div class="release-body">${body}</div>
+        </article>`;
+      }).join("");
+      setFragment(listEl, html);
+
+      const sidebar = document.getElementById("sidebar");
+      const sideHtml = `<div class="side-eyebrow">${escapeHTML(t.sideLabel)}</div><nav class="sidebar-list">` +
+        releases.map(r => {
+          const versionRaw = r.tag_name || r.name || "—";
+          const slug = versionRaw.replace(/[^\w.-]/g, "-");
+          return `<a class="sidebar-item" href="#${slug}" data-slug="${slug}">
+            <span class="v">${escapeHTML(versionRaw)}</span>
+            <span class="d">${shortDate(r.published_at || r.created_at)}</span>
+          </a>`;
+        }).join("") + `</nav>`;
+      setFragment(sidebar, sideHtml);
+
+      const items = Array.from(sidebar.querySelectorAll(".sidebar-item"));
+      const releaseEls = Array.from(document.querySelectorAll(".release"));
+      const byId = Object.fromEntries(items.map(a => [a.dataset.slug, a]));
+      const setActive = slug => {
+        items.forEach(a => a.classList.toggle("active", a.dataset.slug === slug));
+        releaseEls.forEach(el => el.classList.toggle("is-active", el.dataset.slug === slug));
+      };
+      if (items[0]) setActive(items[0].dataset.slug);
+      const io = new IntersectionObserver(entries => {
+        const visible = entries.filter(e => e.isIntersecting)
+          .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)[0];
+        if (visible) {
+          const a = byId[visible.target.id];
+          if (a) setActive(a.dataset.slug);
+        }
+      }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+      releaseEls.forEach(el => io.observe(el));
     }
 
     async function load() {
@@ -313,68 +849,15 @@
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const releases = (await res.json()).filter(r => !r.draft);
-        if (!releases.length) {
-          listEl.className = "loading";
-          listEl.textContent = t.empty;
-          return;
-        }
-        listEl.className = "";
-        const html = releases.map((r, idx) => {
-          const versionRaw = r.tag_name || r.name || "—";
-          const version = escapeHTML(versionRaw);
-          const slug = versionRaw.replace(/[^\w.-]/g, "-");
-          const date = r.published_at || r.created_at;
-          const rawBody = (r.body || "").split(/^#{2,3}\s+Download\s*$/mi)[0].trimEnd();
-          const body = rawBody ? renderMarkdown(rawBody) : `<p style="color:var(--text-muted)">—</p>`;
-          const badges = [];
-          if (idx === 0 && !r.prerelease) badges.push(`<span class="release-badge">${escapeHTML(t.latest)}</span>`);
-          if (r.prerelease) badges.push(`<span class="release-badge pre">pre</span>`);
-          return `<article class="release" id="${slug}">
-            <div class="release-head">
-              <a class="release-version" href="${r.html_url}" target="_blank" rel="noopener">${version}</a>
-              ${badges.join("")}
-              <span class="release-date">${formatDate(date)}</span>
-            </div>
-            <div class="release-body">${body}</div>
-          </article>`;
-        }).join("");
-        setFragment(listEl, html);
-
-        // Build sidebar nav
-        const sidebar = document.getElementById("sidebar");
-        const sideHtml = `<div class="sidebar-title">${escapeHTML(t.title)}</div><nav class="sidebar-list">` +
-          releases.map(r => {
-            const versionRaw = r.tag_name || r.name || "—";
-            const slug = versionRaw.replace(/[^\w.-]/g, "-");
-            const d = new Date(r.published_at || r.created_at);
-            const dateShort = isNaN(d) ? "" : `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-            return `<a class="sidebar-item" href="#${slug}" data-slug="${slug}"><span class="v">${escapeHTML(versionRaw)}</span><span class="d">${dateShort}</span></a>`;
-          }).join("") + `</nav>`;
-        setFragment(sidebar, sideHtml);
-
-        // Scroll-spy
-        const items = Array.from(sidebar.querySelectorAll(".sidebar-item"));
-        const byId = Object.fromEntries(items.map(a => [a.dataset.slug, a]));
-        const setActive = slug => {
-          items.forEach(a => a.classList.toggle("active", a.dataset.slug === slug));
-        };
-        if (items[0]) setActive(items[0].dataset.slug);
-        const io = new IntersectionObserver(entries => {
-          const visible = entries.filter(e => e.isIntersecting)
-            .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)[0];
-          if (visible) {
-            const a = byId[visible.target.id];
-            if (a) setActive(a.dataset.slug);
-          }
-        }, { rootMargin: "-10% 0px -70% 0px", threshold: 0 });
-        document.querySelectorAll(".release").forEach(el => io.observe(el));
+        window.__releasesCache = releases;
+        renderAll(releases);
       } catch (err) {
         listEl.className = "error";
+        setFragment(listEl, "");
         listEl.textContent = t.errorPrefix;
         const a = document.createElement("a");
         a.href = `https://github.com/${REPO}/releases`;
-        a.target = "_blank";
-        a.rel = "noopener";
+        a.target = "_blank"; a.rel = "noopener";
         a.textContent = t.errorLink;
         listEl.appendChild(a);
       }
