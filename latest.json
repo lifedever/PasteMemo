@@ -1,21 +1,21 @@
 {
-  "version": "1.2.11",
-  "notes_zh": "- **修复** 从状态栏菜单打开快捷面板时，面板内的方向键、回车等快捷键不响应（感谢 @lclrc 贡献）",
-  "notes_en": "- **Fix** Hotkeys (arrow keys, enter, etc.) not responding inside the quick panel when opened from the status-bar menu (thanks to @lclrc)",
+  "version": "1.2.12",
+  "notes_zh": "- **新增** 全局快捷键直接打开接力面板（感谢 @BonjourL 反馈）\n- **修复** 快捷面板上下切换时搜索框和预览区跳动错位\n- **优化** 窗口最小尺寸强制约束为 800×555，避免窗口过小时内容被挤出\n- **优化** 链接预览加载：加载中只显示居中大卡，加载完成后标题、按钮和网页一起淡入\n- **优化** 快捷面板打开动画改为平滑缩放淡入（150ms），更不抖不跳",
+  "notes_en": "- **New** Global shortcut to open the relay panel directly (thanks to @BonjourL)\n- **Fix** Search bar and preview jitter when navigating items in the quick panel\n- **Improve** Enforced minimum window size to 800×555 to prevent content overflow when window is too small\n- **Improve** Link preview loading: show centered card first, then fade in title, buttons and webview together\n- **Improve** Quick panel open animation replaced with smooth scale + fade (150ms)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-arm64.dmg",
-      "size": 3834735,
-      "sha256": "0d9144aab0ce470807fc91811df3e42ed54cf1f988104f6e270a561c5e14d217"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-arm64.dmg",
+      "size": 3844890,
+      "sha256": "2d1de18f0c2ea36a533f6b2b0ac5fe05b26e7132f4c21b2174e4e454262c4b26"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.11-x86_64.dmg",
-      "size": 3941676,
-      "sha256": "d0c5c124b2ceb1f00de2f61bda5ddb647aa8421863332bcebab8b678cd267dcd"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-x86_64.dmg",
+      "size": 3942745,
+      "sha256": "1cdaa6e0543f441639344d481a8eda924923232e8761ef000f1c396315cf4aec"
     }
   }
 }
