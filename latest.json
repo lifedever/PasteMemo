@@ -1,21 +1,21 @@
 {
-  "version": "1.2.12",
-  "notes_zh": "- **新增** 全局快捷键直接打开接力面板（感谢 @BonjourL 反馈）\n- **修复** 快捷面板上下切换时搜索框和预览区跳动错位\n- **优化** 窗口最小尺寸强制约束为 800×555，避免窗口过小时内容被挤出\n- **优化** 链接预览加载：加载中只显示居中大卡，加载完成后标题、按钮和网页一起淡入\n- **优化** 快捷面板打开动画改为平滑缩放淡入（150ms），更不抖不跳",
-  "notes_en": "- **New** Global shortcut to open the relay panel directly (thanks to @BonjourL)\n- **Fix** Search bar and preview jitter when navigating items in the quick panel\n- **Improve** Enforced minimum window size to 800×555 to prevent content overflow when window is too small\n- **Improve** Link preview loading: show centered card first, then fade in title, buttons and webview together\n- **Improve** Quick panel open animation replaced with smooth scale + fade (150ms)",
+  "version": "1.3.0",
+  "notes_zh": "- **新增** 接力模式大升级：齿轮设置弹层、粘贴后自动按键（Return/Tab/Space/↑↓←→）、绑定自动化规则、预览开关、面板宽度可拖拽\n- **新增** 接力队列持久化：退出接力自动保留（含已粘贴/跳过状态），下次自动恢复\n- **新增** 剪贴板监听开关持久化，菜单栏和设置双向同步\n- **优化** 菜单栏文案统一为「暂停/恢复剪贴板监听」\n- **优化** 接力面板底部按钮重组：暂停接力 / 退出 / 清空并退出\n- **修复** 接力激活时 Cmd+Shift+V 等组合热键无法打开快捷面板\n- **修复** 粘贴后按键（方向键）在 Excel 里被误判为 Ctrl+↑ 跳到顶部\n- **修复** 接力编辑面板文字不可见（感谢 @lclrc 的 PR）\n- **修复** WebDAV 明文 HTTP 连接失败\n- **修复** 授权辅助功能后菜单栏提示不自动消失",
+  "notes_en": "- **New** Major Relay mode overhaul: gear settings popover, post-paste auto-key (Return/Tab/Space/↑↓←→), bind automation rule, preview toggle, drag-resizable panel width\n- **New** Relay queue persistence: exiting preserves queue (including done/skipped state), auto-restored next time\n- **New** Clipboard monitoring toggle persists, menu bar and settings stay in sync\n- **Improve** Menu item renamed to \"Pause/Resume Clipboard Monitoring\" for clarity\n- **Improve** Relay footer reorganised: Pause / Exit / Clear & Exit\n- **Fix** Cmd+Shift+V and similar combos could not open quick panel while relay was active\n- **Fix** Post-paste arrow keys in Excel were interpreted as Ctrl+Arrow (jumping to top)\n- **Fix** Text was invisible in the relay edit panel (thanks @lclrc for the PR)\n- **Fix** WebDAV connections to plain-HTTP endpoints\n- **Fix** Grant Accessibility hint lingering after permission is granted",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-arm64.dmg",
-      "size": 3844890,
-      "sha256": "2d1de18f0c2ea36a533f6b2b0ac5fe05b26e7132f4c21b2174e4e454262c4b26"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-arm64.dmg",
+      "size": 3917261,
+      "sha256": "f9fdb3639147c6514786aa3da662097cf9a35130ad54c055df9d23fae69acd37"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.2.12-x86_64.dmg",
-      "size": 3942745,
-      "sha256": "1cdaa6e0543f441639344d481a8eda924923232e8761ef000f1c396315cf4aec"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-x86_64.dmg",
+      "size": 4027609,
+      "sha256": "30092e7407e54328be88be36c7128ab0568bc59b370a4e447feb626fdeae2c26"
     }
   }
 }
