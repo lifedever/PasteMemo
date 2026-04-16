@@ -1,21 +1,21 @@
 {
-  "version": "1.3.0",
-  "notes_zh": "- **新增** 接力模式大升级：齿轮设置弹层、粘贴后自动按键（Return/Tab/Space/↑↓←→）、绑定自动化规则、预览开关、面板宽度可拖拽\n- **新增** 接力队列持久化：退出接力自动保留（含已粘贴/跳过状态），下次自动恢复\n- **新增** 剪贴板监听开关持久化，菜单栏和设置双向同步\n- **优化** 菜单栏文案统一为「暂停/恢复剪贴板监听」\n- **优化** 接力面板底部按钮重组：暂停接力 / 退出 / 清空并退出\n- **修复** 接力激活时 Cmd+Shift+V 等组合热键无法打开快捷面板\n- **修复** 粘贴后按键（方向键）在 Excel 里被误判为 Ctrl+↑ 跳到顶部\n- **修复** 接力编辑面板文字不可见（感谢 @lclrc 的 PR）\n- **修复** WebDAV 明文 HTTP 连接失败\n- **修复** 授权辅助功能后菜单栏提示不自动消失",
-  "notes_en": "- **New** Major Relay mode overhaul: gear settings popover, post-paste auto-key (Return/Tab/Space/↑↓←→), bind automation rule, preview toggle, drag-resizable panel width\n- **New** Relay queue persistence: exiting preserves queue (including done/skipped state), auto-restored next time\n- **New** Clipboard monitoring toggle persists, menu bar and settings stay in sync\n- **Improve** Menu item renamed to \"Pause/Resume Clipboard Monitoring\" for clarity\n- **Improve** Relay footer reorganised: Pause / Exit / Clear & Exit\n- **Fix** Cmd+Shift+V and similar combos could not open quick panel while relay was active\n- **Fix** Post-paste arrow keys in Excel were interpreted as Ctrl+Arrow (jumping to top)\n- **Fix** Text was invisible in the relay edit panel (thanks @lclrc for the PR)\n- **Fix** WebDAV connections to plain-HTTP endpoints\n- **Fix** Grant Accessibility hint lingering after permission is granted",
+  "version": "1.3.1",
+  "notes_zh": "- **新增** 快捷面板搜索框下方可选显示「类型」或「分组」（设置 → 偏好 → 显示）\n- **新增** 快捷面板启动动画开关（设置 → 偏好 → 行为）\n- **优化** 快捷面板打开动画更轻，启动延迟缩短\n- **修复** 中文输入法下按 `/` 键也能触发分组/类型建议（之前会被输入法吞成「、」）\n- **修复** 快捷面板关闭后重新打开时，左上角建议卡片偶现闪现",
+  "notes_en": "- **New** Setting for what to show below the Quick Panel search: Types (default) or Groups (Settings → Preferences → Display)\n- **New** Toggle for Quick Panel launch animation (Settings → Preferences → Behavior)\n- **Improve** Lighter panel open animation and reduced launch latency\n- **Fix** `/` key now triggers group/type suggestions even when Chinese IME is active (was swallowed into `、`)\n- **Fix** Suggestion card no longer flashes in the top-left when reopening the panel",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-arm64.dmg",
-      "size": 3917261,
-      "sha256": "f9fdb3639147c6514786aa3da662097cf9a35130ad54c055df9d23fae69acd37"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-arm64.dmg",
+      "size": 3951447,
+      "sha256": "200567ebd71b09571dda4f28b0fa78597ce70be0147f706f1741a93bea5a6541"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.0-x86_64.dmg",
-      "size": 4027609,
-      "sha256": "30092e7407e54328be88be36c7128ab0568bc59b370a4e447feb626fdeae2c26"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-x86_64.dmg",
+      "size": 4066975,
+      "sha256": "475b8149a1b292a9c4870320acc8a9561f16c2c9b0e693ad8b44113a6b4e335c"
     }
   }
 }
