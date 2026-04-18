@@ -1,21 +1,21 @@
 {
-  "version": "1.3.1",
-  "notes_zh": "- **新增** 快捷面板搜索框下方可选显示「类型」或「分组」（设置 → 偏好 → 显示）\n- **新增** 快捷面板启动动画开关（设置 → 偏好 → 行为）\n- **优化** 快捷面板打开动画更轻，启动延迟缩短\n- **修复** 中文输入法下按 `/` 键也能触发分组/类型建议（之前会被输入法吞成「、」）\n- **修复** 快捷面板关闭后重新打开时，左上角建议卡片偶现闪现",
-  "notes_en": "- **New** Setting for what to show below the Quick Panel search: Types (default) or Groups (Settings → Preferences → Display)\n- **New** Toggle for Quick Panel launch animation (Settings → Preferences → Behavior)\n- **Improve** Lighter panel open animation and reduced launch latency\n- **Fix** `/` key now triggers group/type suggestions even when Chinese IME is active (was swallowed into `、`)\n- **Fix** Suggestion card no longer flashes in the top-left when reopening the panel",
+  "version": "1.3.2",
+  "notes_zh": "- **新增** 接力模式循环接力开关（设置齿轮左侧）\n- **新增** 自动备份支持 2 小时间隔\n- **优化** 快捷面板界面细节\n- **修复** 接力结束后再次打开仍显示全部已完成的问题\n- **修复** 快捷面板置顶后影响其他应用输入\n- **修复** 冷启动时快捷面板偶现建议浮层闪现\n- **修复** 图片复制后无法粘贴到 IDE（IntelliJ IDEA、VSCode 等）的项目树",
+  "notes_en": "- **New** Loop toggle for Relay mode (next to the settings gear)\n- **New** 2-hour interval option for automatic backup\n- **Improve** Quick Panel UI polish\n- **Fix** Relay no longer shows all items as completed when reopened after finishing\n- **Fix** Pinning the Quick Panel no longer blocks typing in other apps\n- **Fix** Occasional suggestion overlay flash on cold-start Quick Panel\n- **Fix** Pasting a copied image into IDE project trees (IntelliJ IDEA, VSCode, etc.) now works",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-arm64.dmg",
-      "size": 3951447,
-      "sha256": "200567ebd71b09571dda4f28b0fa78597ce70be0147f706f1741a93bea5a6541"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.2-arm64.dmg",
+      "size": 3965641,
+      "sha256": "eb63a1ab913c32b49b82cbb005ed1fabcd2ece050549cd8d7b51c13c3d09d1cc"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.1-x86_64.dmg",
-      "size": 4066975,
-      "sha256": "475b8149a1b292a9c4870320acc8a9561f16c2c9b0e693ad8b44113a6b4e335c"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.3.2-x86_64.dmg",
+      "size": 4084426,
+      "sha256": "fc133b4eca49ea8e5ede4da5518b3ead4f26910065822b8a099b0ac9317e8084"
     }
   }
 }
