@@ -1,21 +1,21 @@
 {
-  "version": "1.4.0",
-  "notes_zh": "- **新增** 备份/导入现在同时覆盖分组和自动化规则（此前仅备份剪贴板条目）\n- **新增** 接力：循环粘贴开关，重新打开时不再残留队列状态\n- **新增** 接力：「允许重复复制」开关，连续相邻重复不再被过滤\n- **新增** 接力：可配置完成提示音（默认 Pop，可静音）\n- **新增** 接力：横幅可点击清除规则，右键切换规则\n- **新增** 接力：队列 imageData/快照持久化，退出重开不丢失\n- **新增** 富文本直通：复制内容在 Word / 邮件 / 浏览器里都保留原生排版\n- **修复** 接力：接受 `.file` 及所有文件类条目入队\n- **修复** Finder 复制的图片文件作为内嵌图片粘贴\n- **修复** 富文本条目隐藏编辑按钮，防止静默丢失格式\n- **修复** 侧边栏类型列表不再显示 `.mixed`\n- **优化** 「立即备份」不再卡顿 UI，大数据量下显示清晰进度条",
-  "notes_en": "- **New** Backup & import now include groups and automation rules (previously only clipboard items)\n- **New** Relay: loop toggle; no more stale queue state on reopen\n- **New** Relay: \"allow duplicate copies\" toggle\n- **New** Relay: configurable completion sound (default Pop, with mute option)\n- **New** Relay: banner is clickable to clear the rule; right-click to switch\n- **New** Relay: queue persists imageData/snapshots across app restarts\n- **New** Native-fidelity rich-text passthrough — copied content keeps full formatting in Word, Mail, browsers\n- **Fix** Relay accepts `.file` and other file-based clips into the queue\n- **Fix** Finder-copied image files paste as embedded images\n- **Fix** Rich-text items hide the edit button to prevent silent format loss\n- **Fix** Sidebar type list no longer shows `.mixed`\n- **Improve** Backup Now no longer freezes the UI on large libraries; shows a clear progress indicator",
+  "version": "1.5.0",
+  "notes_zh": "### 接力面板重构（重点）\n\n- **新增** 全新 Hero + 抽屉布局：顶部常驻显示当前条目、进度、控制按钮；队列折叠进抽屉，可手动展开/收起，也会随队列长度自动跟随，状态持久化\n- **新增** 删除回收：从接力队列删除的条目不再直接丢失，而是进入剪贴板历史，窗口内提供 6 秒撤销提示\n- **新增** 完成提示音可从 14 种 macOS 系统音效中挑选（原先只有默认 Pop）\n- **新增** 自动化规则 pill 交互：单击弹菜单切换规则，点 ✕ 关闭自动化，右键也能切换\n- **优化** 所有区块水平/垂直内边距统一，左右两侧边缘严格对齐\n- **优化** 状态标记：完成从绿对勾改为绿点、跳过改用斜线圆圈、进度条跳过段颜色加深与\"未到\"拉开对比\n- **优化** 退出按钮图标改为语义更清晰的\"退出门\"\n- **优化** 循环开关从复选框改为蓝色 pill，视觉和旁边的按钮统一\n- **优化** 面板字体整体加大 1pt 提升可读性\n- **优化** 预览 diff 文字改灰色与主内容拉开对比；拆分条目继承源 App\n- **修复** 粘贴时严格按自动化规则条件匹配（含源 App），避免某些规则在不符合场景下被误触发\n- **修复** 删除队列最后一条时 Hero 面板轻微抖动\n- **修复** 抽屉展开/折叠与窗口大小变化的动画闪烁\n- **修复** 巨量文本（如整段终端缓冲）粘贴时 UI 卡顿\n- **修复** 图片/文件条目删除后正确回收、拆分条目正确继承源 App\n\n### 自动化\n\n- **新增** 新动作「**运行捷径**」：将剪贴板内容送入指定的 macOS 捷径执行，适合接自定义工作流\n- **新增** 新条件「**任意文本**」：规则不再需要绑定到特定类型或关键词\n- **优化** 规则编辑器 UX 打磨\n\n### 主窗口 / 快捷粘贴\n\n- **新增** 分组持久化：分组编辑里勾选「永久保存此分组中的内容」，该分组的条目不会被「保留时长」自动清理或「清理数据」删除，可作为轻量 snippet 工具使用（感谢 @miniers）\n- **新增** 快捷粘贴右键菜单新增「移入分组 / 移出分组」，无需打开主窗口即可整理（感谢 @miniers）\n- **新增** 快捷粘贴面板内可直接按设置里的「打开管理器」快捷键呼出主窗口（感谢 @miniers）\n- **修复** 主窗口「清空全部」会误删持久化分组的内容\n- **修复** 极端情况下 SwiftData 升级未补 ZPRESERVESITEMS 列导致侧边栏分组空白",
+  "notes_en": "### Relay Panel Redesign (Highlights)\n\n- **New** Hero + drawer layout — current clip, progress and controls sit permanently up top; the queue lives in a collapsible drawer that can be toggled manually or auto-follow queue size; state persists across restarts\n- **New** Delete-to-recirculation — items deleted from the queue return to clipboard history with a 6-second undo toast right inside the panel\n- **New** Pick from 14 macOS system sounds for the relay-complete cue (previously Pop only)\n- **New** Automation pill interaction — click the top pill to open a rule switcher, click ✕ to clear, right-click also switches\n- **Improve** Unified horizontal and vertical padding across every section; crisp edge alignment on both sides\n- **Improve** State glyphs — green dot replaces the checkmark for done items, circle-slash for skipped, stronger progress-bar contrast between skipped and pending\n- **Improve** Exit pill uses a clearer exit-door icon\n- **Improve** Loop toggle is now a tinted pill, visually aligned with neighboring controls\n- **Improve** All font sizes bumped +1pt across the panel for readability\n- **Improve** Preview-diff text is muted gray; split clips inherit the source app\n- **Fix** Paste path honors rule conditions strictly (including source app); rules no longer fire in contexts they weren't supposed to\n- **Fix** Hero no longer jitters when you delete the last queue item\n- **Fix** Drawer expand/collapse and window-size animations are smooth — no flicker\n- **Fix** Massive paste (e.g. a whole terminal buffer) no longer freezes the UI\n- **Fix** Image/file items recirculate correctly; split clips inherit the source app\n\n### Automation\n\n- **New** \"Run Shortcut\" action — pipe the clipboard into a macOS Shortcut for your own workflows\n- **New** \"Any text\" condition — rules no longer have to hinge on type or keyword\n- **Improve** Rule editor UX polish\n\n### Main Window / Quick Paste\n\n- **New** Preserved groups — flip \"Preserve items\" in a group's editor and its contents are excluded from retention cleanup and manual Clear Data; a lightweight snippets alternative (thanks @miniers)\n- **New** Quick Paste right-click menu adds Add-to-Group / Remove-from-Group (thanks @miniers)\n- **New** Quick Paste: trigger the configured \"Open Manager\" shortcut right from inside the panel (thanks @miniers)\n- **Fix** Main-window \"Clear All\" no longer deletes items in preserved groups\n- **Fix** Edge case where a SwiftData upgrade missing ZPRESERVESITEMS left sidebar groups empty",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.4.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.4.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.5.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.5.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.4.0-arm64.dmg",
-      "size": 4045748,
-      "sha256": "3173b2f7e63e99697341d3c48a61e89593aafed36825f64b465a947543213044"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.5.0-arm64.dmg",
+      "size": 4195454,
+      "sha256": "6d23c2c9602d129c2a6e8a85224c9866475f0bb7b55ab1f79b28a065afd85962"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.4.0-x86_64.dmg",
-      "size": 4163304,
-      "sha256": "ce82a37026eebeff29c9da5aade0d57c901a74a01e1ccb5d918cd48ab33166df"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.5.0-x86_64.dmg",
+      "size": 4319186,
+      "sha256": "5b6f8b5977bfe28dafee4137e249fc48ae033438ff113c66f101ae00a26c8043"
     }
   }
 }
