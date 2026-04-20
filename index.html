@@ -883,6 +883,11 @@
     .changelog-modal .changelog-version{font-size:14px;color:var(--orange-500);font-weight:600;margin-bottom:20px;display:block}
     .changelog-modal .changelog-content{font-size:15px;line-height:1.8;color:var(--text-secondary)}
     .changelog-modal .changelog-content strong{color:var(--text);font-weight:600}
+    .changelog-modal .changelog-content h4{margin:20px 0 8px;font-size:16px;color:var(--text);font-weight:600}
+    .changelog-modal .changelog-content h4:first-child{margin-top:0}
+    .changelog-modal .changelog-content ul{margin:0 0 14px;padding-left:22px}
+    .changelog-modal .changelog-content li{margin:4px 0}
+    .changelog-modal .changelog-content p{margin:0 0 10px}
     .changelog-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-secondary);line-height:1;padding:4px}
     .changelog-close:hover{color:var(--text)}
   </style>
@@ -1974,14 +1979,31 @@ changelogOverlay.addEventListener("click", e => { if (e.target === changelogOver
 changelogOverlay.querySelector(".changelog-close").addEventListener("click", () => changelogOverlay.classList.remove("show"));
 document.addEventListener("keydown", e => { if (e.key === "Escape") changelogOverlay.classList.remove("show"); });
 
+function renderChangelogMarkdown(md) {
+  const inline = s => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const lines = md.split("\n");
+  let html = "", inList = false;
+  const closeList = () => { if (inList) { html += "</ul>"; inList = false; } };
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    const h = line.match(/^#{1,6}\s+(.+)$/);
+    if (h) { closeList(); html += `<h4>${inline(h[1])}</h4>`; continue; }
+    const li = line.match(/^[-*]\s+(.+)$/);
+    if (li) { if (!inList) { html += "<ul>"; inList = true; } html += `<li>${inline(li[1])}</li>`; continue; }
+    if (line === "") { closeList(); continue; }
+    closeList();
+    html += `<p>${inline(line)}</p>`;
+  }
+  closeList();
+  return html;
+}
+
 function showChangelog() {
   const isZh = currentLang.startsWith("zh");
   const notes = isZh ? changelogData.notes_zh : changelogData.notes_en;
   if (!notes) return;
   document.getElementById("changelogVersion").textContent = "v" + changelogData.version;
-  const html = notes.split("\n").map(line => {
-    return line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  }).join("<br>");
+  const html = renderChangelogMarkdown(notes);
   document.getElementById("changelogContent").innerHTML = html;
   const title = changelogOverlay.querySelector("[data-i18n='changelog.title']");
   if (title) title.textContent = isZh ? "更新内容" : "What's New";
