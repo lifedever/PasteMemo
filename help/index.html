@@ -149,6 +149,47 @@
     .nav-links a:hover { color: var(--text-heading); }
     .nav-links a.active { color: var(--orange-500); font-weight: 500; }
 
+    /* Hamburger menu (mobile) */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      z-index: 310;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 290;
+    }
+    .nav-backdrop.show { opacity: 1; visibility: visible; }
+    @media (min-width: 769px) {
+      .nav-backdrop, .nav-backdrop.show { display: none; }
+    }
+
     .nav-controls {
       display: flex;
       gap: 8px;
@@ -517,21 +558,60 @@
     }
 
     /* ---- Responsive ---- */
-    @media (max-width: 900px) {
-      .header-inner { padding: 14px 16px; }
-      .logo-group span { font-size: 17px; }
-      .nav-links { gap: 12px; }
-      .nav-links a { font-size: 13px; }
-      .nav-controls { gap: 6px; margin-left: 4px; }
-      .lang-btn { font-size: 12px; padding: 4px 8px; height: 30px; }
-      .lang-btn .globe-icon { width: 12px; height: 12px; }
-      .theme-toggle { width: 30px; height: 30px; }
+    @media (max-width: 960px) {
+      .header-inner { padding: 14px 20px; }
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 14px; }
       .doc-content { padding: 24px 20px 60px; }
       .doc-content h1 { font-size: 26px; }
       .doc-content h2 { font-size: 20px; }
     }
 
     @media (max-width: 768px) {
+      .header-inner { padding: 14px 16px; position: relative; }
+      .logo-group span { font-size: 17px; }
+
+      .menu-toggle { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        height: 100vh;
+        width: 82%;
+        max-width: 320px;
+        background: var(--card-bg);
+        border-left: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 72px 20px 24px;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        z-index: 300;
+        overflow-y: auto;
+        box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a {
+        font-size: 15px;
+        padding: 12px 10px;
+        border-radius: 8px;
+      }
+      .nav-links a:hover { background: var(--bg-alt); }
+      .nav-links a.active { background: var(--orange-50); }
+      .nav-controls {
+        flex-direction: row;
+        margin: 12px 0 0;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        gap: 8px;
+      }
+      .lang-dropdown { flex: 1; }
+      .lang-btn { width: 100%; justify-content: space-between; font-size: 13px; height: 36px; }
+      .lang-btn .globe-icon { width: 14px; height: 14px; }
+      .theme-toggle { width: 36px; height: 36px; }
+      .lang-menu { left: 0; right: 0; }
+
       .sidebar {
         position: fixed;
         top: 0;
@@ -547,26 +627,25 @@
         box-shadow: 4px 0 20px rgba(0,0,0,0.1);
       }
 
-      .sidebar.open {
-        transform: translateX(0);
-      }
+      .sidebar.open { transform: translateX(0); }
+      .sidebar-overlay.show { display: block; }
+      .sidebar-toggle { display: flex; }
 
-      .sidebar-overlay.show {
-        display: block;
-      }
+      .doc-content { padding: 24px 16px 80px; }
+      .doc-content h1 { font-size: 24px; }
+      .doc-content h2 { font-size: 19px; }
+      .doc-content h3 { font-size: 16px; }
+      .doc-content p, .doc-content li { font-size: 14px; }
+      .shortcut-table { font-size: 13px; }
+      .shortcut-table th, .shortcut-table td { padding: 8px 10px; }
+      .doc-img { margin: 12px 0 18px; }
 
-      .sidebar-toggle {
-        display: flex;
-      }
-
-      .doc-content {
-        padding: 24px 16px 80px;
-      }
+      footer { padding: 28px 16px; }
+      .footer-links { gap: 10px 16px; font-size: 14px; flex-wrap: wrap; }
     }
 
     @media (max-width: 420px) {
-      .header-inner { flex-wrap: wrap; gap: 8px; justify-content: center; }
-      .nav-links { width: 100%; justify-content: center; }
+      .doc-content h1 { font-size: 22px; }
     }
   </style>
   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js" async></script>
@@ -580,10 +659,14 @@
       <img src="../logo-2.svg" alt="PasteMemo">
       <span>PasteMemo</span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="../#features" data-i18n="nav.features">Features</a>
-      <a href="./" class="active" data-i18n="nav.help">Help</a>
+      <a href="../#download" data-i18n="nav.download">Download</a>
+      <a href="https://www.lifedever.com" data-i18n="nav.sponsor">Sponsor</a>
       <a href="https://github.com/lifedever/PasteMemo-app/issues" data-i18n="nav.feedback">Feedback</a>
+      <a href="./" class="active" data-i18n="nav.help">Help</a>
+      <a href="../changelog/" data-i18n="nav.changelog">Changelog</a>
+      <a href="https://github.com/lifedever/PasteMemo-app" data-i18n="nav.github" target="_blank">GitHub</a>
       <div class="nav-controls">
         <div class="lang-dropdown" id="langDropdown">
           <button class="lang-btn" id="langBtn" type="button">
@@ -608,6 +691,10 @@
         <button class="theme-toggle" id="themeToggle" title="Toggle theme"></button>
       </div>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-backdrop" id="navBackdrop"></div>
   </div>
 </header>
 
@@ -627,7 +714,6 @@
       <li><a href="#automation" data-i18n="sidebar.automation">Automation</a></li>
       <li><a href="#shortcuts" data-i18n="sidebar.shortcuts">Keyboard Shortcuts</a></li>
       <li><a href="#settings" data-i18n="sidebar.settings">Settings</a></li>
-      <li><a href="#pro" data-i18n="sidebar.pro">Pro Features</a></li>
     </ul>
   </aside>
 
@@ -791,7 +877,7 @@ brew install --cask pastememo</code></pre>
     <!-- 5. Ignored Apps -->
     <section id="ignored-apps">
       <hr class="section-divider">
-      <h2><span data-i18n="s5.title">Ignored Apps</span> <span class="pro-badge">PRO</span></h2>
+      <h2 data-i18n="s5.title">Ignored Apps</h2>
 
       <p data-i18n="s5.desc">Prevent specific applications from being recorded in your clipboard history. Any content copied from an ignored app will be silently skipped.</p>
 
@@ -822,7 +908,7 @@ brew install --cask pastememo</code></pre>
       <h3 data-i18n="s6.retention.title">History Retention</h3>
       <p data-i18n="s6.retention.desc">The retention period is a soft filter. Changing it to a longer period will recover previously hidden items &mdash; no data is actually deleted until you explicitly clear it.</p>
 
-      <h3 data-i18n="s6.backup.title">Auto Backup (Pro)</h3>
+      <h3 data-i18n="s6.backup.title">Auto Backup</h3>
       <img src="images/settings-backup.png" alt="Backup Settings" class="doc-img">
       <p data-i18n="s6.backup.desc">Automatically back up your clipboard history on a schedule. Supports two backup methods:</p>
       <ul>
@@ -871,7 +957,7 @@ brew install --cask pastememo</code></pre>
     <!-- Relay Mode -->
     <section id="relay">
       <hr class="section-divider">
-      <h2><span data-i18n="s12.title">Relay Mode</span> <span class="pro-badge">PRO</span></h2>
+      <h2 data-i18n="s12.title">Relay Mode</h2>
 
       <h3 data-i18n="s12.what.title">What is Relay Mode?</h3>
       <p data-i18n="s12.what.desc">Relay Mode lets you copy multiple items into a queue, then paste them one by one in FIFO order. Perfect for batch data entry — like copying a list of names from a webpage and pasting them row by row into a spreadsheet.</p>
@@ -915,7 +1001,7 @@ brew install --cask pastememo</code></pre>
     <!-- Automation -->
     <section id="automation">
       <hr class="section-divider">
-      <h2><span data-i18n="s13.title">Automation</span> <span class="pro-badge">PRO</span></h2>
+      <h2 data-i18n="s13.title">Automation</h2>
       <img src="images/settings-automation.png" alt="Automation Settings" class="doc-img">
 
       <p data-i18n="s13.desc">Create custom rules to automatically process clipboard content. Rules are executed in order when new content is captured.</p>
@@ -1024,31 +1110,17 @@ brew install --cask pastememo</code></pre>
       <h2 data-i18n="s10.title">Settings</h2>
       <img src="images/settings-features.png" alt="Settings" class="doc-img">
 
-      <p data-i18n="s10.desc">The Settings window has 8 tabs:</p>
+      <p data-i18n="s10.desc">The Settings window has 9 tabs:</p>
       <ul>
-        <li data-i18n-html="s10.general"><strong>General</strong> &mdash; Launch at login, global shortcut, language, appearance, menu bar icon style.</li>
-        <li data-i18n-html="s10.features"><strong>Features</strong> &mdash; Sound effects, sensitive content detection, smart recognition toggles.</li>
-        <li data-i18n-html="s10.relay"><strong>Relay</strong> &mdash; Relay Mode shortcut and behavior settings.</li>
-        <li data-i18n-html="s10.privacy"><strong>Privacy</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.</li>
-        <li data-i18n-html="s10.automation"><strong>Automation</strong> &mdash; Enable/disable automation, manage rules with quick toggles.</li>
-        <li data-i18n-html="s10.data"><strong>Data</strong> &mdash; History retention period, clear data, export/import, backup.</li>
-        <li data-i18n-html="s10.pro"><strong>Pro</strong> &mdash; Manage your Pro subscription, view feature comparison.</li>
-        <li data-i18n-html="s10.about"><strong>About</strong> &mdash; Version info, acknowledgements, links.</li>
-      </ul>
-    </section>
-
-    <!-- 11. Pro Features -->
-    <section id="pro">
-      <hr class="section-divider">
-      <h2><span data-i18n="s11.title">Pro Features</span> <span class="pro-badge">PRO</span></h2>
-
-      <p data-i18n="s11.desc">PasteMemo Pro unlocks advanced capabilities:</p>
-      <ul>
-        <li data-i18n-html="s11.history"><strong>Unlimited history</strong> &mdash; Free version keeps the most recent items; Pro removes the limit.</li>
-        <li data-i18n-html="s11.grouping"><strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.</li>
-        <li data-i18n-html="s11.ignore"><strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.</li>
-        <li data-i18n-html="s11.icloud"><strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.</li>
-        <li data-i18n-html="s11.relay"><strong>Relay Mode</strong> &mdash; Queue multiple items and paste them one by one in order. Great for batch data entry.</li>
+        <li data-i18n-html="s10.general"><strong>General</strong> &mdash; Launch at login, hide Dock icon, appearance, menu bar icon style, interface language, copy/paste sound effects.</li>
+        <li data-i18n-html="s10.preferences"><strong>Preferences</strong> &mdash; Quick Paste panel layout and position, clipboard monitoring, auto-paste, link / image link previews, OCR, history retention period.</li>
+        <li data-i18n-html="s10.shortcuts"><strong>Shortcuts</strong> &mdash; Global shortcuts for Quick Paste panel, Main Window, and Relay Mode; double-tap modifier shortcut.</li>
+        <li data-i18n-html="s10.relay"><strong>Relay</strong> &mdash; Relay paste shortcut and behavior.</li>
+        <li data-i18n-html="s10.privacy"><strong>Privacy</strong> &mdash; Sensitive content auto-detection, ignored apps list, anonymous usage analytics toggle.</li>
+        <li data-i18n-html="s10.automation"><strong>Automation</strong> &mdash; Enable/disable automation, manage built-in and custom rules.</li>
+        <li data-i18n-html="s10.data"><strong>Data</strong> &mdash; Scheduled backup (local / WebDAV), restore from backup, export / import.</li>
+        <li data-i18n-html="s10.sponsor"><strong>Sponsor</strong> &mdash; Support development: donate, star on GitHub, send feedback.</li>
+        <li data-i18n-html="s10.about"><strong>About</strong> &mdash; Version info, update check, acknowledgements, links.</li>
       </ul>
     </section>
 
@@ -1069,8 +1141,12 @@ brew install --cask pastememo</code></pre>
 const i18n = {
   en: {
     "nav.features": "Features",
+    "nav.download": "Download",
+    "nav.sponsor": "Sponsor",
     "nav.help": "Help",
     "nav.feedback": "Feedback",
+    "nav.changelog": "Changelog",
+    "nav.github": "GitHub",
     "footer.releases": "Releases",
     "footer.issues": "Issues",
     "sidebar.quickstart": "Quick Start",
@@ -1084,7 +1160,6 @@ const i18n = {
     "sidebar.automation": "Automation",
     "sidebar.shortcuts": "Keyboard Shortcuts",
     "sidebar.settings": "Settings",
-    "sidebar.pro": "Pro Features",
     "doc.title": "PasteMemo Help",
     "doc.subtitle": "Everything you need to know about PasteMemo, the smart clipboard manager for macOS.",
     "s1.title": "Quick Start",
@@ -1172,7 +1247,7 @@ const i18n = {
     "s1.install.desc": "Install PasteMemo via <strong>Homebrew</strong> (recommended):",
     "s1.install.update": "Update to the latest version: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Or download the <code>.dmg</code> from <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Auto Backup (Pro)",
+    "s6.backup.title": "Auto Backup",
     "s6.backup.desc": "Automatically back up your clipboard history on a schedule. Supports two backup methods:",
     "s6.backup.local": "<strong>Local</strong> &mdash; Back up to a folder on your Mac. You can choose any directory, including iCloud Drive, Dropbox, or other sync services for cloud backup.",
     "s6.backup.webdav": "<strong>WebDAV</strong> &mdash; Back up to a WebDAV server (Nextcloud, alist, Synology, etc.). Configure server URL, username, and password in Settings.",
@@ -1225,20 +1300,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Settings",
-    "s10.desc": "The Settings window has 6 tabs:",
-    "s10.general": "<strong>General</strong> &mdash; Launch at login, global shortcut, language, appearance, menu bar icon style.",
-    "s10.features": "<strong>Features</strong> &mdash; Sound effects, sensitive content detection, smart recognition toggles.",
-    "s10.rules": "<strong>Rules</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.",
-    "s10.data": "<strong>Data</strong> &mdash; History retention period, clear data, export/import.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Manage your Pro subscription, view feature comparison.",
-    "s10.about": "<strong>About</strong> &mdash; Version info, acknowledgements, links.",
-    "s11.title": "Pro Features",
-    "s11.desc": "PasteMemo Pro unlocks advanced capabilities:",
-    "s11.history": "<strong>Unlimited history</strong> &mdash; Free version keeps the most recent items; Pro removes the limit.",
-    "s11.grouping": "<strong>Smart grouping</strong> &mdash; Automatically group related clipboard items.",
-    "s11.ignore": "<strong>Ignore specific apps</strong> &mdash; Exclude certain applications from clipboard monitoring.",
-    "s11.icloud": "<strong>iCloud auto backup</strong> &mdash; Coming soon. Sync your clipboard history securely across devices.",
-    "s11.relay": "<strong>Relay Mode</strong> &mdash; Queue multiple items and paste them one by one in order. Great for batch data entry.",
+    "s10.desc": "The Settings window has 9 tabs:",
+    "s10.general": "<strong>General</strong> &mdash; Launch at login, hide Dock icon, appearance, menu bar icon style, interface language, copy/paste sound effects.",
+    "s10.preferences": "<strong>Preferences</strong> &mdash; Quick Paste panel layout and position, clipboard monitoring, auto-paste, link / image link previews, OCR, history retention period.",
+    "s10.shortcuts": "<strong>Shortcuts</strong> &mdash; Global shortcuts for Quick Paste panel, Main Window, and Relay Mode; double-tap modifier shortcut.",
+    "s10.relay": "<strong>Relay</strong> &mdash; Relay paste shortcut and behavior.",
+    "s10.privacy": "<strong>Privacy</strong> &mdash; Sensitive content auto-detection, ignored apps list, anonymous usage analytics toggle.",
+    "s10.automation": "<strong>Automation</strong> &mdash; Enable/disable automation, manage built-in and custom rules.",
+    "s10.data": "<strong>Data</strong> &mdash; Scheduled backup (local / WebDAV), restore from backup, export / import.",
+    "s10.sponsor": "<strong>Sponsor</strong> &mdash; Support development: donate, star on GitHub, send feedback.",
+    "s10.about": "<strong>About</strong> &mdash; Version info, update check, acknowledgements, links.",
     "sidebar.relay": "Relay Mode",
     "nav.relay": "Relay Mode",
     "s2.cmdk.title": "Quick Actions (⌘K)",
@@ -1306,14 +1377,15 @@ const i18n = {
     "s13.settings.notify": "<strong>Notify on trigger</strong> &mdash; Show a notification when a rule is triggered.",
     "s13.settings.confirm": "<strong>Confirm before apply</strong> &mdash; Show a confirmation dialog before applying changes.",
     "s13.order": "All matching rules are executed in order. Drag rules in the list to adjust priority.",
-    "s10.relay": "<strong>Relay</strong> &mdash; Relay Mode shortcut and behavior settings.",
-    "s10.privacy": "<strong>Privacy</strong> &mdash; Ignored apps list, auto-downgrade rules for rich text.",
-    "s10.automation": "<strong>Automation</strong> &mdash; Enable/disable automation, manage rules with quick toggles.",
   },
   "zh-Hans": {
     "nav.features": "功能",
+    "nav.download": "下载",
+    "nav.sponsor": "捐助",
     "nav.help": "帮助",
     "nav.feedback": "反馈",
+    "nav.changelog": "更新日志",
+    "nav.github": "GitHub",
     "footer.releases": "版本发布",
     "footer.issues": "问题反馈",
     "sidebar.quickstart": "快速开始",
@@ -1327,7 +1399,6 @@ const i18n = {
     "sidebar.automation": "自动化",
     "sidebar.shortcuts": "快捷键",
     "sidebar.settings": "设置",
-    "sidebar.pro": "Pro 功能",
     "doc.title": "PasteMemo 帮助",
     "doc.subtitle": "关于 PasteMemo（macOS 智能剪贴板管理器）你需要知道的一切。",
     "s1.title": "快速开始",
@@ -1415,7 +1486,7 @@ const i18n = {
     "s1.install.desc": "通过 <strong>Homebrew</strong> 安装 PasteMemo（推荐）：",
     "s1.install.update": "更新到最新版本：<code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "或从 <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a> 下载 <code>.dmg</code> 安装。",
-    "s6.backup.title": "自动备份（Pro）",
+    "s6.backup.title": "自动备份",
     "s6.backup.desc": "按计划自动备份剪贴板历史。支持两种备份方式：",
     "s6.backup.local": "<strong>本机</strong> — 备份到 Mac 上的文件夹。可选择任意目录，包括 iCloud 云盘、Dropbox 等同步盘实现云备份。",
     "s6.backup.webdav": "<strong>WebDAV</strong> — 备份到 WebDAV 服务器（Nextcloud、alist、群晖等）。在设置中配置服务器地址、用户名和密码。",
@@ -1468,20 +1539,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> —— Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> —— Control",
     "s10.title": "设置",
-    "s10.desc": "设置窗口包含 6 个标签页：",
-    "s10.general": "<strong>通用</strong> —— 开机启动、全局快捷键、语言、外观、菜单栏图标样式。",
-    "s10.features": "<strong>功能</strong> —— 音效、敏感内容检测、智能识别开关。",
-    "s10.rules": "<strong>规则</strong> —— 忽略应用列表、富文本自动降级规则。",
-    "s10.data": "<strong>数据</strong> —— 历史保留期、清除数据、导入/导出。",
-    "s10.pro": "<strong>Pro</strong> —— 管理 Pro 订阅、查看功能对比。",
-    "s10.about": "<strong>关于</strong> —— 版本信息、致谢、相关链接。",
-    "s11.title": "Pro 功能",
-    "s11.desc": "PasteMemo Pro 解锁高级功能：",
-    "s11.history": "<strong>无限历史</strong> —— 免费版仅保留最近条目，Pro 移除数量限制。",
-    "s11.grouping": "<strong>智能分组</strong> —— 自动将相关的剪贴板条目分组。",
-    "s11.ignore": "<strong>忽略特定应用</strong> —— 排除指定应用的剪贴板监控。",
-    "s11.icloud": "<strong>iCloud 自动备份</strong> —— 即将推出，安全地跨设备同步剪贴板历史。",
-    "s11.relay": "<strong>接力模式</strong> —— 将多条内容排入队列，按顺序逐条粘贴，适合批量数据录入。",
+    "s10.desc": "设置窗口包含 9 个标签页：",
+    "s10.general": "<strong>通用</strong> —— 开机启动、隐藏 Dock 图标、外观、菜单栏图标样式、界面语言、复制/粘贴音效。",
+    "s10.preferences": "<strong>偏好</strong> —— 快捷粘贴面板布局与位置、剪贴板监控、自动粘贴、链接与图链预览、OCR、历史保留周期。",
+    "s10.shortcuts": "<strong>快捷键</strong> —— 快捷粘贴面板、主窗口、接力模式的全局快捷键，以及双击修饰键触发。",
+    "s10.relay": "<strong>接力</strong> —— 接力模式粘贴快捷键和行为设置。",
+    "s10.privacy": "<strong>隐私</strong> —— 敏感内容自动识别、忽略应用列表、匿名使用统计开关。",
+    "s10.automation": "<strong>自动化</strong> —— 启用/禁用自动化，管理内置和自定义规则。",
+    "s10.data": "<strong>数据</strong> —— 定时备份（本地 / WebDAV）、从备份恢复、导入/导出。",
+    "s10.sponsor": "<strong>支持</strong> —— 支持开发：捐助、在 GitHub 上点 star、提交反馈。",
+    "s10.about": "<strong>关于</strong> —— 版本信息、检查更新、致谢、相关链接。",
     "sidebar.relay": "接力模式",
     "nav.relay": "接力模式",
     "s2.cmdk.title": "快捷操作（⌘K）",
@@ -1549,14 +1616,15 @@ const i18n = {
     "s13.settings.notify": "<strong>触发时发送通知</strong> —— 规则触发时显示系统通知。",
     "s13.settings.confirm": "<strong>触发时弹窗确认</strong> —— 应用修改前显示确认对话框。",
     "s13.order": "所有匹配的规则将按顺序执行，可拖拽调整优先级。",
-    "s10.relay": "<strong>接力</strong> —— 接力模式快捷键和行为设置。",
-    "s10.privacy": "<strong>隐私</strong> —— 忽略应用列表、富文本自动降级规则。",
-    "s10.automation": "<strong>自动化</strong> —— 启用/禁用自动化，快速管理规则开关。",
   },
   "zh-Hant": {
     "nav.features": "功能",
+    "nav.download": "下載",
+    "nav.sponsor": "贊助",
     "nav.help": "說明",
     "nav.feedback": "回饋",
+    "nav.changelog": "更新日誌",
+    "nav.github": "GitHub",
     "footer.releases": "版本發佈",
     "footer.issues": "問題回饋",
     "sidebar.quickstart": "快速開始",
@@ -1570,7 +1638,6 @@ const i18n = {
     "sidebar.automation": "自動化",
     "sidebar.shortcuts": "快速鍵",
     "sidebar.settings": "設定",
-    "sidebar.pro": "Pro 功能",
     "doc.title": "PasteMemo 說明",
     "doc.subtitle": "關於 PasteMemo（macOS 智慧剪貼簿管理工具）你需要知道的一切。",
     "s1.title": "快速開始",
@@ -1658,7 +1725,7 @@ const i18n = {
     "s1.install.desc": "透過 <strong>Homebrew</strong> 安裝 PasteMemo（推薦）：",
     "s1.install.update": "更新到最新版本：<code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "或從 <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a> 下載 <code>.dmg</code> 安裝。",
-    "s6.backup.title": "自動備份（Pro）",
+    "s6.backup.title": "自動備份",
     "s6.backup.desc": "按計劃自動備份剪貼簿歷史。支援兩種備份方式：",
     "s6.backup.local": "<strong>本機</strong> — 備份到 Mac 上的資料夾。可選擇任意目錄，包括 iCloud 雲碟、Dropbox 等同步服務實現雲端備份。",
     "s6.backup.webdav": "<strong>WebDAV</strong> — 備份到 WebDAV 伺服器（Nextcloud、alist、Synology 等）。在設定中配置伺服器位址、使用者名稱和密碼。",
@@ -1711,20 +1778,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> —— Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> —— Control",
     "s10.title": "設定",
-    "s10.desc": "設定視窗包含 6 個標籤頁：",
-    "s10.general": "<strong>一般</strong> —— 開機啟動、全域快速鍵、語言、外觀、選單列圖示樣式。",
-    "s10.features": "<strong>功能</strong> —— 音效、敏感內容偵測、智慧辨識開關。",
-    "s10.rules": "<strong>規則</strong> —— 忽略應用程式列表、富文本自動降級規則。",
-    "s10.data": "<strong>資料</strong> —— 歷史保留期、清除資料、匯入/匯出。",
-    "s10.pro": "<strong>Pro</strong> —— 管理 Pro 訂閱、檢視功能比較。",
-    "s10.about": "<strong>關於</strong> —— 版本資訊、致謝、相關連結。",
-    "s11.title": "Pro 功能",
-    "s11.desc": "PasteMemo Pro 解鎖進階功能：",
-    "s11.history": "<strong>無限歷史</strong> —— 免費版僅保留最近項目，Pro 移除數量限制。",
-    "s11.grouping": "<strong>智慧分組</strong> —— 自動將相關的剪貼簿項目分組。",
-    "s11.ignore": "<strong>忽略特定應用程式</strong> —— 排除指定應用程式的剪貼簿監控。",
-    "s11.icloud": "<strong>iCloud 自動備份</strong> —— 即將推出，安全地跨裝置同步剪貼簿歷史。",
-    "s11.relay": "<strong>接力模式</strong> —— 將多筆內容排入佇列，按順序逐條貼上，適合批次資料輸入。",
+    "s10.desc": "設定視窗包含 9 個標籤頁：",
+    "s10.general": "<strong>一般</strong> —— 開機啟動、隱藏 Dock 圖示、外觀、選單列圖示樣式、介面語言、複製/貼上音效。",
+    "s10.preferences": "<strong>偏好</strong> —— 快捷貼上面板版面與位置、剪貼簿監控、自動貼上、連結與圖片連結預覽、OCR、歷史保留週期。",
+    "s10.shortcuts": "<strong>快速鍵</strong> —— 快捷貼上面板、主視窗、接力模式的全域快速鍵，以及雙擊修飾鍵觸發。",
+    "s10.relay": "<strong>接力</strong> —— 接力模式貼上快速鍵與行為設定。",
+    "s10.privacy": "<strong>隱私</strong> —— 敏感內容自動偵測、忽略應用程式清單、匿名使用統計開關。",
+    "s10.automation": "<strong>自動化</strong> —— 啟用/停用自動化，管理內建與自訂規則。",
+    "s10.data": "<strong>資料</strong> —— 定時備份（本地 / WebDAV）、從備份還原、匯入/匯出。",
+    "s10.sponsor": "<strong>贊助</strong> —— 支持開發：贊助、在 GitHub 上 star、提交回饋。",
+    "s10.about": "<strong>關於</strong> —— 版本資訊、檢查更新、致謝、相關連結。",
     "sidebar.relay": "接力模式",
     "nav.relay": "接力模式",
     "s2.cmdk.title": "快捷操作（⌘K）",
@@ -1769,8 +1832,12 @@ const i18n = {
   },
   ja: {
     "nav.features": "機能",
+    "nav.download": "ダウンロード",
+    "nav.sponsor": "サポート",
     "nav.help": "ヘルプ",
     "nav.feedback": "フィードバック",
+    "nav.changelog": "更新履歴",
+    "nav.github": "GitHub",
     "footer.releases": "リリース",
     "footer.issues": "課題",
     "sidebar.quickstart": "クイックスタート",
@@ -1784,7 +1851,6 @@ const i18n = {
     "sidebar.automation": "オートメーション",
     "sidebar.shortcuts": "キーボードショートカット",
     "sidebar.settings": "設定",
-    "sidebar.pro": "Pro 機能",
     "doc.title": "PasteMemo ヘルプ",
     "doc.subtitle": "macOS スマートクリップボードマネージャー PasteMemo について知っておくべきすべて。",
     "s1.title": "クイックスタート",
@@ -1872,7 +1938,7 @@ const i18n = {
     "s1.install.desc": "<strong>Homebrew</strong> で PasteMemo をインストール（推奨）：",
     "s1.install.update": "最新バージョンに更新：<code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "または <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a> から <code>.dmg</code> をダウンロード。",
-    "s6.backup.title": "自動バックアップ（Pro）",
+    "s6.backup.title": "自動バックアップ",
     "s6.backup.desc": "クリップボード履歴を定期的に自動バックアップします。2つのバックアップ方法をサポート：",
     "s6.backup.local": "<strong>ローカル</strong> — Mac 上のフォルダにバックアップ。iCloud Drive、Dropbox などの同期サービスのディレクトリを選択してクラウドバックアップも可能。",
     "s6.backup.webdav": "<strong>WebDAV</strong> — WebDAV サーバー（Nextcloud、alist、Synology など）にバックアップ。設定でサーバー URL、ユーザー名、パスワードを設定。",
@@ -1925,20 +1991,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "設定",
-    "s10.desc": "設定ウィンドウには 6 つのタブがあります：",
-    "s10.general": "<strong>一般</strong> &mdash; ログイン時に起動、グローバルショートカット、言語、外観、メニューバーアイコンスタイル。",
-    "s10.features": "<strong>機能</strong> &mdash; サウンドエフェクト、機密コンテンツ検出、スマート認識のトグル。",
-    "s10.rules": "<strong>ルール</strong> &mdash; 除外アプリリスト、リッチテキストの自動ダウングレードルール。",
-    "s10.data": "<strong>データ</strong> &mdash; 履歴保持期間、データ消去、エクスポート/インポート。",
-    "s10.pro": "<strong>Pro</strong> &mdash; Pro サブスクリプションの管理、機能比較の表示。",
-    "s10.about": "<strong>バージョン情報</strong> &mdash; バージョン情報、謝辞、リンク。",
-    "s11.title": "Pro 機能",
-    "s11.desc": "PasteMemo Pro で高度な機能をアンロック：",
-    "s11.history": "<strong>無制限の履歴</strong> &mdash; 無料版は最近のアイテムのみ保持、Pro は制限を解除。",
-    "s11.grouping": "<strong>スマートグルーピング</strong> &mdash; 関連するクリップボードアイテムを自動的にグループ化。",
-    "s11.ignore": "<strong>特定アプリの除外</strong> &mdash; 特定のアプリケーションをクリップボード監視から除外。",
-    "s11.icloud": "<strong>iCloud 自動バックアップ</strong> &mdash; 近日公開。デバイス間でクリップボード履歴を安全に同期。",
-    "s11.relay": "<strong>リレーモード</strong> &mdash; 複数のアイテムをキューに入れ、順番に1つずつペースト。一括データ入力に最適。",
+    "s10.desc": "設定ウィンドウには 9 つのタブがあります：",
+    "s10.general": "<strong>一般</strong> &mdash; ログイン時に起動、Dock アイコンを隠す、外観、メニューバーアイコンスタイル、インターフェース言語、コピー/ペースト効果音。",
+    "s10.preferences": "<strong>環境設定</strong> &mdash; クイックペーストパネルのレイアウトと位置、クリップボード監視、自動ペースト、リンク/画像リンクプレビュー、OCR、履歴保持期間。",
+    "s10.shortcuts": "<strong>ショートカット</strong> &mdash; クイックペーストパネル、メインウィンドウ、リレーモードのグローバルショートカット、およびダブルタップ修飾キー。",
+    "s10.relay": "<strong>リレー</strong> &mdash; リレーペーストショートカットと動作設定。",
+    "s10.privacy": "<strong>プライバシー</strong> &mdash; 機密コンテンツの自動検出、除外アプリリスト、匿名使用統計スイッチ。",
+    "s10.automation": "<strong>自動化</strong> &mdash; 自動化の有効/無効、組み込みルールとカスタムルールの管理。",
+    "s10.data": "<strong>データ</strong> &mdash; 定期バックアップ（ローカル / WebDAV）、バックアップからの復元、エクスポート/インポート。",
+    "s10.sponsor": "<strong>サポート</strong> &mdash; 開発支援：寄付、GitHub でスター、フィードバック送信。",
+    "s10.about": "<strong>バージョン情報</strong> &mdash; バージョン情報、アップデート確認、謝辞、リンク。",
     "sidebar.relay": "リレーモード",
     "nav.relay": "リレーモード",
     "s2.cmdk.title": "クイックアクション（⌘K）",
@@ -1983,8 +2045,12 @@ const i18n = {
   },
   ko: {
     "nav.features": "기능",
+    "nav.download": "다운로드",
+    "nav.sponsor": "후원",
     "nav.help": "도움말",
     "nav.feedback": "피드백",
+    "nav.changelog": "업데이트 내역",
+    "nav.github": "GitHub",
     "footer.releases": "릴리스",
     "footer.issues": "이슈",
     "sidebar.quickstart": "빠른 시작",
@@ -1998,7 +2064,6 @@ const i18n = {
     "sidebar.automation": "자동화",
     "sidebar.shortcuts": "키보드 단축키",
     "sidebar.settings": "설정",
-    "sidebar.pro": "Pro 기능",
     "doc.title": "PasteMemo 도움말",
     "doc.subtitle": "macOS 스마트 클립보드 관리자 PasteMemo에 대해 알아야 할 모든 것.",
     "s1.title": "빠른 시작",
@@ -2086,7 +2151,7 @@ const i18n = {
     "s1.install.desc": "<strong>Homebrew</strong>로 PasteMemo 설치 (권장):",
     "s1.install.update": "최신 버전으로 업데이트: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "또는 <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>에서 <code>.dmg</code>를 다운로드하세요.",
-    "s6.backup.title": "자동 백업 (Pro)",
+    "s6.backup.title": "자동 백업",
     "s6.backup.desc": "클립보드 기록을 일정에 따라 자동으로 백업합니다. 두 가지 백업 방식을 지원합니다:",
     "s6.backup.local": "<strong>로컬</strong> — Mac의 폴더에 백업. iCloud Drive, Dropbox 등 동기화 서비스 디렉터리를 선택하여 클라우드 백업도 가능.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — WebDAV 서버(Nextcloud, alist, Synology 등)에 백업. 설정에서 서버 URL, 사용자 이름, 비밀번호를 구성.",
@@ -2139,20 +2204,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "설정",
-    "s10.desc": "설정 창에는 6개의 탭이 있습니다:",
-    "s10.general": "<strong>일반</strong> &mdash; 로그인 시 실행, 글로벌 단축키, 언어, 외관, 메뉴 바 아이콘 스타일.",
-    "s10.features": "<strong>기능</strong> &mdash; 효과음, 민감한 콘텐츠 감지, 스마트 인식 토글.",
-    "s10.rules": "<strong>규칙</strong> &mdash; 제외 앱 목록, 서식 있는 텍스트 자동 다운그레이드 규칙.",
-    "s10.data": "<strong>데이터</strong> &mdash; 기록 보존 기간, 데이터 삭제, 내보내기/가져오기.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Pro 구독 관리, 기능 비교 보기.",
-    "s10.about": "<strong>정보</strong> &mdash; 버전 정보, 감사의 말, 링크.",
-    "s11.title": "Pro 기능",
-    "s11.desc": "PasteMemo Pro로 고급 기능을 잠금 해제하세요:",
-    "s11.history": "<strong>무제한 기록</strong> &mdash; 무료 버전은 최근 항목만 유지하며, Pro는 제한을 해제합니다.",
-    "s11.grouping": "<strong>스마트 그룹핑</strong> &mdash; 관련 클립보드 항목을 자동으로 그룹화합니다.",
-    "s11.ignore": "<strong>특정 앱 제외</strong> &mdash; 특정 앱의 클립보드 모니터링을 제외합니다.",
-    "s11.icloud": "<strong>iCloud 자동 백업</strong> &mdash; 곧 출시. 기기 간 클립보드 기록을 안전하게 동기화합니다.",
-    "s11.relay": "<strong>릴레이 모드</strong> &mdash; 여러 항목을 대기열에 넣고 순서대로 하나씩 붙여넣기. 대량 데이터 입력에 적합합니다.",
+    "s10.desc": "설정 창에는 9개의 탭이 있습니다:",
+    "s10.general": "<strong>일반</strong> &mdash; 로그인 시 실행, Dock 아이콘 숨기기, 외관, 메뉴 바 아이콘 스타일, 인터페이스 언어, 복사/붙여넣기 효과음.",
+    "s10.preferences": "<strong>환경설정</strong> &mdash; 빠른 붙여넣기 패널 레이아웃과 위치, 클립보드 모니터링, 자동 붙여넣기, 링크/이미지 링크 미리보기, OCR, 기록 보존 기간.",
+    "s10.shortcuts": "<strong>단축키</strong> &mdash; 빠른 붙여넣기 패널, 메인 윈도우, 릴레이 모드의 글로벌 단축키 및 이중 탭 수정자 단축키.",
+    "s10.relay": "<strong>릴레이</strong> &mdash; 릴레이 붙여넣기 단축키 및 동작 설정.",
+    "s10.privacy": "<strong>개인정보 보호</strong> &mdash; 민감한 콘텐츠 자동 감지, 제외 앱 목록, 익명 사용 통계 토글.",
+    "s10.automation": "<strong>자동화</strong> &mdash; 자동화 활성/비활성, 내장 및 사용자 지정 규칙 관리.",
+    "s10.data": "<strong>데이터</strong> &mdash; 정기 백업(로컬/WebDAV), 백업에서 복원, 내보내기/가져오기.",
+    "s10.sponsor": "<strong>후원</strong> &mdash; 개발 지원: 기부, GitHub 별표, 피드백 보내기.",
+    "s10.about": "<strong>정보</strong> &mdash; 버전 정보, 업데이트 확인, 감사의 말, 링크.",
     "sidebar.relay": "릴레이 모드",
     "nav.relay": "릴레이 모드",
     "s2.cmdk.title": "빠른 동작 (⌘K)",
@@ -2197,8 +2258,12 @@ const i18n = {
   },
   fr: {
     "nav.features": "Fonctionnalités",
+    "nav.download": "Télécharger",
+    "nav.sponsor": "Soutenir",
     "nav.help": "Aide",
     "nav.feedback": "Retour",
+    "nav.changelog": "Journal",
+    "nav.github": "GitHub",
     "footer.releases": "Versions",
     "footer.issues": "Problèmes",
     "sidebar.quickstart": "Démarrage rapide",
@@ -2212,7 +2277,6 @@ const i18n = {
     "sidebar.automation": "Automatisation",
     "sidebar.shortcuts": "Raccourcis clavier",
     "sidebar.settings": "Réglages",
-    "sidebar.pro": "Fonctionnalités Pro",
     "doc.title": "Aide PasteMemo",
     "doc.subtitle": "Tout ce que vous devez savoir sur PasteMemo, le gestionnaire de presse-papiers intelligent pour macOS.",
     "s1.title": "Démarrage rapide",
@@ -2300,7 +2364,7 @@ const i18n = {
     "s1.install.desc": "Installer PasteMemo via <strong>Homebrew</strong> (recommandé) :",
     "s1.install.update": "Mettre à jour vers la dernière version : <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Ou télécharger le <code>.dmg</code> depuis <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Sauvegarde automatique (Pro)",
+    "s6.backup.title": "Sauvegarde automatique",
     "s6.backup.desc": "Sauvegardez automatiquement votre historique de presse-papiers selon un calendrier. Deux méthodes de sauvegarde :",
     "s6.backup.local": "<strong>Local</strong> — Sauvegardez dans un dossier sur votre Mac. Vous pouvez choisir n'importe quel répertoire, y compris iCloud Drive, Dropbox ou d'autres services de synchronisation.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Sauvegardez sur un serveur WebDAV (Nextcloud, alist, Synology, etc.). Configurez l'URL du serveur, le nom d'utilisateur et le mot de passe dans les réglages.",
@@ -2353,20 +2417,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Réglages",
-    "s10.desc": "La fenêtre des réglages comporte 6 onglets :",
-    "s10.general": "<strong>Général</strong> &mdash; Lancement au démarrage, raccourci global, langue, apparence, style de l'icône de la barre de menus.",
-    "s10.features": "<strong>Fonctionnalités</strong> &mdash; Effets sonores, détection de contenu sensible, bascules de reconnaissance intelligente.",
-    "s10.rules": "<strong>Règles</strong> &mdash; Liste des apps ignorées, règles de rétrogradation automatique du texte enrichi.",
-    "s10.data": "<strong>Données</strong> &mdash; Durée de conservation de l'historique, effacer les données, exporter/importer.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Gérer votre abonnement Pro, voir la comparaison des fonctionnalités.",
-    "s10.about": "<strong>À propos</strong> &mdash; Informations de version, remerciements, liens.",
-    "s11.title": "Fonctionnalités Pro",
-    "s11.desc": "PasteMemo Pro débloque des fonctionnalités avancées :",
-    "s11.history": "<strong>Historique illimité</strong> &mdash; La version gratuite conserve les éléments les plus récents ; Pro supprime la limite.",
-    "s11.grouping": "<strong>Regroupement intelligent</strong> &mdash; Regroupez automatiquement les éléments du presse-papiers associés.",
-    "s11.ignore": "<strong>Ignorer des apps spécifiques</strong> &mdash; Exclure certaines applications de la surveillance du presse-papiers.",
-    "s11.icloud": "<strong>Sauvegarde automatique iCloud</strong> &mdash; Bientôt disponible. Synchronisez votre historique du presse-papiers en toute sécurité entre vos appareils.",
-    "s11.relay": "<strong>Mode Relais</strong> &mdash; Mettez plusieurs éléments en file d'attente et collez-les un par un dans l'ordre. Idéal pour la saisie de données en masse.",
+    "s10.desc": "La fenêtre des réglages comporte 9 onglets :",
+    "s10.general": "<strong>Général</strong> &mdash; Lancement au démarrage, masquer l'icône du Dock, apparence, style d'icône de la barre de menus, langue de l'interface, effets sonores copier/coller.",
+    "s10.preferences": "<strong>Préférences</strong> &mdash; Mise en page et position du panneau de collage rapide, surveillance du presse-papiers, collage automatique, aperçus des liens et des images, OCR, durée de conservation de l'historique.",
+    "s10.shortcuts": "<strong>Raccourcis</strong> &mdash; Raccourcis globaux pour le panneau de collage rapide, la fenêtre principale et le mode Relais ; raccourci par double-tap avec modificateur.",
+    "s10.relay": "<strong>Relais</strong> &mdash; Raccourci de collage et comportement du mode Relais.",
+    "s10.privacy": "<strong>Confidentialité</strong> &mdash; Détection automatique de contenu sensible, liste des apps ignorées, activation/désactivation des statistiques d'utilisation anonymes.",
+    "s10.automation": "<strong>Automatisation</strong> &mdash; Activer/désactiver l'automatisation, gérer les règles intégrées et personnalisées.",
+    "s10.data": "<strong>Données</strong> &mdash; Sauvegarde planifiée (locale / WebDAV), restauration depuis une sauvegarde, exporter/importer.",
+    "s10.sponsor": "<strong>Soutenir</strong> &mdash; Soutenir le développement : faire un don, mettre en favori sur GitHub, envoyer un retour.",
+    "s10.about": "<strong>À propos</strong> &mdash; Informations de version, vérification des mises à jour, remerciements, liens.",
     "sidebar.relay": "Mode Relais",
     "nav.relay": "Mode Relais",
     "s2.cmdk.title": "Actions rapides (⌘K)",
@@ -2411,8 +2471,12 @@ const i18n = {
   },
   de: {
     "nav.features": "Funktionen",
+    "nav.download": "Download",
+    "nav.sponsor": "Unterstützen",
     "nav.help": "Hilfe",
     "nav.feedback": "Feedback",
+    "nav.changelog": "Änderungen",
+    "nav.github": "GitHub",
     "footer.releases": "Versionen",
     "footer.issues": "Probleme",
     "sidebar.quickstart": "Schnellstart",
@@ -2426,7 +2490,6 @@ const i18n = {
     "sidebar.automation": "Automatisierung",
     "sidebar.shortcuts": "Tastenkürzel",
     "sidebar.settings": "Einstellungen",
-    "sidebar.pro": "Pro-Funktionen",
     "doc.title": "PasteMemo Hilfe",
     "doc.subtitle": "Alles, was du über PasteMemo wissen musst, den smarten Zwischenablage-Manager für macOS.",
     "s1.title": "Schnellstart",
@@ -2514,7 +2577,7 @@ const i18n = {
     "s1.install.desc": "PasteMemo über <strong>Homebrew</strong> installieren (empfohlen):",
     "s1.install.update": "Auf die neueste Version aktualisieren: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Oder die <code>.dmg</code> von <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a> herunterladen.",
-    "s6.backup.title": "Automatisches Backup (Pro)",
+    "s6.backup.title": "Automatisches Backup",
     "s6.backup.desc": "Sichern Sie Ihren Zwischenablage-Verlauf automatisch nach Zeitplan. Zwei Backup-Methoden werden unterstützt:",
     "s6.backup.local": "<strong>Lokal</strong> — Sichern Sie in einen Ordner auf Ihrem Mac. Sie können jedes Verzeichnis wählen, einschließlich iCloud Drive, Dropbox oder andere Sync-Dienste.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Sichern Sie auf einen WebDAV-Server (Nextcloud, alist, Synology usw.). Konfigurieren Sie Server-URL, Benutzername und Passwort in den Einstellungen.",
@@ -2567,20 +2630,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Einstellungen",
-    "s10.desc": "Das Einstellungsfenster hat 6 Tabs:",
-    "s10.general": "<strong>Allgemein</strong> &mdash; Bei Anmeldung starten, globales Tastenkürzel, Sprache, Erscheinungsbild, Menüleisten-Icon-Stil.",
-    "s10.features": "<strong>Funktionen</strong> &mdash; Soundeffekte, Erkennung sensibler Inhalte, Schalter für intelligente Erkennung.",
-    "s10.rules": "<strong>Regeln</strong> &mdash; Liste ignorierter Apps, automatische Downgrade-Regeln für Rich Text.",
-    "s10.data": "<strong>Daten</strong> &mdash; Aufbewahrungsdauer der Historie, Daten löschen, Export/Import.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Pro-Abonnement verwalten, Funktionsvergleich anzeigen.",
-    "s10.about": "<strong>Über</strong> &mdash; Versionsinformationen, Danksagungen, Links.",
-    "s11.title": "Pro-Funktionen",
-    "s11.desc": "PasteMemo Pro schaltet erweiterte Funktionen frei:",
-    "s11.history": "<strong>Unbegrenzter Verlauf</strong> &mdash; Die kostenlose Version behält nur die neuesten Elemente; Pro entfernt das Limit.",
-    "s11.grouping": "<strong>Intelligente Gruppierung</strong> &mdash; Verwandte Zwischenablage-Elemente automatisch gruppieren.",
-    "s11.ignore": "<strong>Bestimmte Apps ignorieren</strong> &mdash; Bestimmte Anwendungen von der Zwischenablage-Überwachung ausschließen.",
-    "s11.icloud": "<strong>Automatisches iCloud-Backup</strong> &mdash; Demnächst verfügbar. Synchronisiere deine Zwischenablage-Historie sicher zwischen deinen Geräten.",
-    "s11.relay": "<strong>Relay-Modus</strong> &mdash; Mehrere Elemente in eine Warteschlange stellen und nacheinander einfügen. Ideal für die Massendateneingabe.",
+    "s10.desc": "Das Einstellungsfenster hat 9 Tabs:",
+    "s10.general": "<strong>Allgemein</strong> &mdash; Bei Anmeldung starten, Dock-Symbol ausblenden, Erscheinungsbild, Menüleisten-Icon-Stil, Oberflächensprache, Kopier-/Einfüge-Soundeffekte.",
+    "s10.preferences": "<strong>Präferenzen</strong> &mdash; Layout und Position des Schnell-Einfügen-Panels, Zwischenablage-Überwachung, Auto-Einfügen, Link- und Bildvorschauen, OCR, Aufbewahrungsdauer der Historie.",
+    "s10.shortcuts": "<strong>Tastenkürzel</strong> &mdash; Globale Tastenkürzel für Schnell-Einfügen-Panel, Hauptfenster und Relay-Modus; Doppeltipp-Modifizierer-Kürzel.",
+    "s10.relay": "<strong>Relay</strong> &mdash; Einfüge-Tastenkürzel und Verhalten des Relay-Modus.",
+    "s10.privacy": "<strong>Datenschutz</strong> &mdash; Automatische Erkennung sensibler Inhalte, Liste ignorierter Apps, Schalter für anonyme Nutzungsstatistiken.",
+    "s10.automation": "<strong>Automatisierung</strong> &mdash; Automatisierung aktivieren/deaktivieren, integrierte und benutzerdefinierte Regeln verwalten.",
+    "s10.data": "<strong>Daten</strong> &mdash; Geplantes Backup (lokal / WebDAV), aus Backup wiederherstellen, Export/Import.",
+    "s10.sponsor": "<strong>Unterstützen</strong> &mdash; Entwicklung unterstützen: spenden, auf GitHub mit Stern markieren, Feedback senden.",
+    "s10.about": "<strong>Über</strong> &mdash; Versionsinformationen, Update-Prüfung, Danksagungen, Links.",
     "sidebar.relay": "Relay-Modus",
     "nav.relay": "Relay-Modus",
     "s2.cmdk.title": "Schnellaktionen (⌘K)",
@@ -2625,8 +2684,12 @@ const i18n = {
   },
   es: {
     "nav.features": "Funciones",
+    "nav.download": "Descargar",
+    "nav.sponsor": "Apoyar",
     "nav.help": "Ayuda",
     "nav.feedback": "Comentarios",
+    "nav.changelog": "Novedades",
+    "nav.github": "GitHub",
     "footer.releases": "Versiones",
     "footer.issues": "Problemas",
     "sidebar.quickstart": "Inicio rápido",
@@ -2640,7 +2703,6 @@ const i18n = {
     "sidebar.automation": "Automatización",
     "sidebar.shortcuts": "Atajos de teclado",
     "sidebar.settings": "Ajustes",
-    "sidebar.pro": "Funciones Pro",
     "doc.title": "Ayuda de PasteMemo",
     "doc.subtitle": "Todo lo que necesitas saber sobre PasteMemo, el gestor de portapapeles inteligente para macOS.",
     "s1.title": "Inicio rápido",
@@ -2728,7 +2790,7 @@ const i18n = {
     "s1.install.desc": "Instalar PasteMemo con <strong>Homebrew</strong> (recomendado):",
     "s1.install.update": "Actualizar a la última versión: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "O descargar el <code>.dmg</code> desde <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Copia de seguridad automática (Pro)",
+    "s6.backup.title": "Copia de seguridad automática",
     "s6.backup.desc": "Haga copias de seguridad automáticas de su historial del portapapeles. Dos métodos de copia disponibles:",
     "s6.backup.local": "<strong>Local</strong> — Copia de seguridad en una carpeta de su Mac. Puede elegir cualquier directorio, incluyendo iCloud Drive, Dropbox u otros servicios de sincronización.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Copia de seguridad en un servidor WebDAV (Nextcloud, alist, Synology, etc.). Configure la URL del servidor, nombre de usuario y contraseña en Ajustes.",
@@ -2781,20 +2843,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Ajustes",
-    "s10.desc": "La ventana de ajustes tiene 6 pestañas:",
-    "s10.general": "<strong>General</strong> &mdash; Iniciar con el sistema, atajo global, idioma, apariencia, estilo del icono de la barra de menús.",
-    "s10.features": "<strong>Funciones</strong> &mdash; Efectos de sonido, detección de contenido sensible, interruptores de reconocimiento inteligente.",
-    "s10.rules": "<strong>Reglas</strong> &mdash; Lista de apps ignoradas, reglas de degradación automática de texto enriquecido.",
-    "s10.data": "<strong>Datos</strong> &mdash; Período de retención del historial, borrar datos, exportar/importar.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Gestionar tu suscripción Pro, ver comparación de funciones.",
-    "s10.about": "<strong>Acerca de</strong> &mdash; Información de versión, agradecimientos, enlaces.",
-    "s11.title": "Funciones Pro",
-    "s11.desc": "PasteMemo Pro desbloquea funciones avanzadas:",
-    "s11.history": "<strong>Historial ilimitado</strong> &mdash; La versión gratuita conserva solo los elementos más recientes; Pro elimina el límite.",
-    "s11.grouping": "<strong>Agrupación inteligente</strong> &mdash; Agrupa automáticamente los elementos del portapapeles relacionados.",
-    "s11.ignore": "<strong>Ignorar apps específicas</strong> &mdash; Excluye ciertas aplicaciones de la monitorización del portapapeles.",
-    "s11.icloud": "<strong>Copia de seguridad automática en iCloud</strong> &mdash; Próximamente. Sincroniza tu historial del portapapeles de forma segura entre dispositivos.",
-    "s11.relay": "<strong>Modo Relevo</strong> &mdash; Pon varios elementos en cola y pégalos uno por uno en orden. Ideal para la entrada masiva de datos.",
+    "s10.desc": "La ventana de ajustes tiene 9 pestañas:",
+    "s10.general": "<strong>General</strong> &mdash; Iniciar con el sistema, ocultar icono del Dock, apariencia, estilo del icono de la barra de menús, idioma de la interfaz, efectos de sonido al copiar/pegar.",
+    "s10.preferences": "<strong>Preferencias</strong> &mdash; Diseño y posición del panel de pegado rápido, monitorización del portapapeles, pegado automático, vistas previas de enlaces e imágenes, OCR, período de retención del historial.",
+    "s10.shortcuts": "<strong>Atajos</strong> &mdash; Atajos globales para el panel de pegado rápido, la ventana principal y el modo Relevo; atajo de doble toque con modificador.",
+    "s10.relay": "<strong>Relevo</strong> &mdash; Atajo de pegado y comportamiento del modo Relevo.",
+    "s10.privacy": "<strong>Privacidad</strong> &mdash; Detección automática de contenido sensible, lista de apps ignoradas, activar/desactivar estadísticas de uso anónimas.",
+    "s10.automation": "<strong>Automatización</strong> &mdash; Activar/desactivar la automatización, gestionar reglas integradas y personalizadas.",
+    "s10.data": "<strong>Datos</strong> &mdash; Copia de seguridad programada (local / WebDAV), restaurar desde copia de seguridad, exportar/importar.",
+    "s10.sponsor": "<strong>Apoyar</strong> &mdash; Apoya el desarrollo: donar, marcar con estrella en GitHub, enviar comentarios.",
+    "s10.about": "<strong>Acerca de</strong> &mdash; Información de versión, comprobar actualizaciones, agradecimientos, enlaces.",
     "sidebar.relay": "Modo Relevo",
     "nav.relay": "Modo Relevo",
     "s2.cmdk.title": "Acciones rápidas (⌘K)",
@@ -2839,8 +2897,12 @@ const i18n = {
   },
   it: {
     "nav.features": "Funzionalità",
+    "nav.download": "Scarica",
+    "nav.sponsor": "Supporta",
     "nav.help": "Aiuto",
     "nav.feedback": "Feedback",
+    "nav.changelog": "Aggiornamenti",
+    "nav.github": "GitHub",
     "footer.releases": "Versioni",
     "footer.issues": "Problemi",
     "sidebar.quickstart": "Guida rapida",
@@ -2854,7 +2916,6 @@ const i18n = {
     "sidebar.automation": "Automazione",
     "sidebar.shortcuts": "Scorciatoie da tastiera",
     "sidebar.settings": "Impostazioni",
-    "sidebar.pro": "Funzionalità Pro",
     "doc.title": "Aiuto PasteMemo",
     "doc.subtitle": "Tutto ciò che devi sapere su PasteMemo, il gestore intelligente degli appunti per macOS.",
     "s1.title": "Guida rapida",
@@ -2942,7 +3003,7 @@ const i18n = {
     "s1.install.desc": "Installa PasteMemo tramite <strong>Homebrew</strong> (consigliato):",
     "s1.install.update": "Aggiorna all'ultima versione: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Oppure scarica il <code>.dmg</code> da <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Backup automatico (Pro)",
+    "s6.backup.title": "Backup automatico",
     "s6.backup.desc": "Esegui automaticamente il backup della cronologia degli appunti. Due metodi supportati:",
     "s6.backup.local": "<strong>Locale</strong> — Backup in una cartella sul Mac. Puoi scegliere qualsiasi directory, incluso iCloud Drive, Dropbox o altri servizi di sincronizzazione.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Backup su server WebDAV (Nextcloud, alist, Synology, ecc.). Configura URL, nome utente e password nelle impostazioni.",
@@ -2995,20 +3056,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Impostazioni",
-    "s10.desc": "La finestra delle impostazioni ha 6 schede:",
-    "s10.general": "<strong>Generali</strong> &mdash; Avvia al login, scorciatoia globale, lingua, aspetto, stile icona barra dei menu.",
-    "s10.features": "<strong>Funzionalità</strong> &mdash; Effetti sonori, rilevamento contenuti sensibili, interruttori di riconoscimento intelligente.",
-    "s10.rules": "<strong>Regole</strong> &mdash; Elenco app ignorate, regole di downgrade automatico del testo formattato.",
-    "s10.data": "<strong>Dati</strong> &mdash; Periodo di conservazione della cronologia, cancella dati, esporta/importa.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Gestisci il tuo abbonamento Pro, visualizza il confronto delle funzionalità.",
-    "s10.about": "<strong>Informazioni</strong> &mdash; Informazioni sulla versione, ringraziamenti, link.",
-    "s11.title": "Funzionalità Pro",
-    "s11.desc": "PasteMemo Pro sblocca funzionalità avanzate:",
-    "s11.history": "<strong>Cronologia illimitata</strong> &mdash; La versione gratuita conserva solo gli elementi più recenti; Pro rimuove il limite.",
-    "s11.grouping": "<strong>Raggruppamento intelligente</strong> &mdash; Raggruppa automaticamente gli elementi degli appunti correlati.",
-    "s11.ignore": "<strong>Ignora app specifiche</strong> &mdash; Escludi determinate applicazioni dal monitoraggio degli appunti.",
-    "s11.icloud": "<strong>Backup automatico iCloud</strong> &mdash; In arrivo. Sincronizza la cronologia degli appunti in modo sicuro tra i dispositivi.",
-    "s11.relay": "<strong>Modalità Staffetta</strong> &mdash; Metti più elementi in coda e incollali uno per uno in ordine. Ideale per l'inserimento dati in blocco.",
+    "s10.desc": "La finestra delle impostazioni ha 9 schede:",
+    "s10.general": "<strong>Generali</strong> &mdash; Avvia al login, nascondi icona Dock, aspetto, stile icona barra dei menu, lingua dell'interfaccia, effetti sonori copia/incolla.",
+    "s10.preferences": "<strong>Preferenze</strong> &mdash; Layout e posizione del pannello Incolla Rapido, monitoraggio appunti, incolla automatico, anteprime di link e immagini, OCR, periodo di conservazione della cronologia.",
+    "s10.shortcuts": "<strong>Scorciatoie</strong> &mdash; Scorciatoie globali per il pannello Incolla Rapido, la finestra principale e la modalità Staffetta; scorciatoia doppio tap con modificatore.",
+    "s10.relay": "<strong>Staffetta</strong> &mdash; Scorciatoia di incollaggio e comportamento della modalità Staffetta.",
+    "s10.privacy": "<strong>Privacy</strong> &mdash; Rilevamento automatico di contenuti sensibili, elenco app ignorate, interruttore statistiche d'uso anonime.",
+    "s10.automation": "<strong>Automazione</strong> &mdash; Abilita/disabilita l'automazione, gestisci regole integrate e personalizzate.",
+    "s10.data": "<strong>Dati</strong> &mdash; Backup pianificato (locale / WebDAV), ripristino da backup, esporta/importa.",
+    "s10.sponsor": "<strong>Supporta</strong> &mdash; Supporta lo sviluppo: dona, lascia una stella su GitHub, invia feedback.",
+    "s10.about": "<strong>Informazioni</strong> &mdash; Informazioni sulla versione, verifica aggiornamenti, ringraziamenti, link.",
     "sidebar.relay": "Modalità Staffetta",
     "nav.relay": "Modalità Staffetta",
     "s2.cmdk.title": "Azioni rapide (⌘K)",
@@ -3053,8 +3110,12 @@ const i18n = {
   },
   ru: {
     "nav.features": "Возможности",
+    "nav.download": "Скачать",
+    "nav.sponsor": "Поддержать",
     "nav.help": "Справка",
     "nav.feedback": "Отзыв",
+    "nav.changelog": "История",
+    "nav.github": "GitHub",
     "footer.releases": "Релизы",
     "footer.issues": "Проблемы",
     "sidebar.quickstart": "Быстрый старт",
@@ -3068,7 +3129,6 @@ const i18n = {
     "sidebar.automation": "Автоматизация",
     "sidebar.shortcuts": "Горячие клавиши",
     "sidebar.settings": "Настройки",
-    "sidebar.pro": "Функции Pro",
     "doc.title": "Справка PasteMemo",
     "doc.subtitle": "Всё, что вам нужно знать о PasteMemo — умном менеджере буфера обмена для macOS.",
     "s1.title": "Быстрый старт",
@@ -3156,7 +3216,7 @@ const i18n = {
     "s1.install.desc": "Установите PasteMemo через <strong>Homebrew</strong> (рекомендуется):",
     "s1.install.update": "Обновить до последней версии: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Или скачайте <code>.dmg</code> с <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Автоматическое резервное копирование (Pro)",
+    "s6.backup.title": "Автоматическое резервное копирование",
     "s6.backup.desc": "Автоматически создавайте резервные копии истории буфера обмена по расписанию. Два метода:",
     "s6.backup.local": "<strong>Локально</strong> — Резервное копирование в папку на Mac. Можно выбрать любой каталог, включая iCloud Drive, Dropbox или другие сервисы синхронизации.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Резервное копирование на сервер WebDAV (Nextcloud, alist, Synology и др.). Настройте URL, имя пользователя и пароль.",
@@ -3209,20 +3269,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Настройки",
-    "s10.desc": "Окно настроек содержит 6 вкладок:",
-    "s10.general": "<strong>Основные</strong> &mdash; Запуск при входе в систему, глобальная горячая клавиша, язык, оформление, стиль значка строки меню.",
-    "s10.features": "<strong>Функции</strong> &mdash; Звуковые эффекты, обнаружение конфиденциального контента, переключатели умного распознавания.",
-    "s10.rules": "<strong>Правила</strong> &mdash; Список исключённых приложений, правила автоматического упрощения форматирования.",
-    "s10.data": "<strong>Данные</strong> &mdash; Период хранения истории, очистка данных, экспорт/импорт.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Управление подпиской Pro, просмотр сравнения функций.",
-    "s10.about": "<strong>О программе</strong> &mdash; Информация о версии, благодарности, ссылки.",
-    "s11.title": "Функции Pro",
-    "s11.desc": "PasteMemo Pro открывает доступ к расширенным возможностям:",
-    "s11.history": "<strong>Неограниченная история</strong> &mdash; Бесплатная версия хранит только последние элементы; Pro снимает ограничение.",
-    "s11.grouping": "<strong>Умная группировка</strong> &mdash; Автоматическая группировка связанных элементов буфера обмена.",
-    "s11.ignore": "<strong>Исключение приложений</strong> &mdash; Исключите определённые приложения из мониторинга буфера обмена.",
-    "s11.icloud": "<strong>Автоматическое резервное копирование в iCloud</strong> &mdash; Скоро. Безопасная синхронизация истории буфера обмена между устройствами.",
-    "s11.relay": "<strong>Режим Эстафеты</strong> &mdash; Поставьте несколько элементов в очередь и вставляйте их по одному. Отлично подходит для массового ввода данных.",
+    "s10.desc": "Окно настроек содержит 9 вкладок:",
+    "s10.general": "<strong>Основные</strong> &mdash; Запуск при входе, скрыть значок Dock, оформление, стиль значка строки меню, язык интерфейса, звуки копирования/вставки.",
+    "s10.preferences": "<strong>Параметры</strong> &mdash; Макет и позиция панели быстрой вставки, мониторинг буфера обмена, автовставка, предпросмотр ссылок и изображений, OCR, период хранения истории.",
+    "s10.shortcuts": "<strong>Горячие клавиши</strong> &mdash; Глобальные горячие клавиши для панели быстрой вставки, главного окна и режима Эстафеты; двойное нажатие модификатора.",
+    "s10.relay": "<strong>Эстафета</strong> &mdash; Горячая клавиша вставки и поведение режима Эстафеты.",
+    "s10.privacy": "<strong>Конфиденциальность</strong> &mdash; Автоматическое обнаружение конфиденциального контента, список исключённых приложений, переключатель анонимной статистики использования.",
+    "s10.automation": "<strong>Автоматизация</strong> &mdash; Включение/отключение автоматизации, управление встроенными и пользовательскими правилами.",
+    "s10.data": "<strong>Данные</strong> &mdash; Плановое резервное копирование (локальное / WebDAV), восстановление из резервной копии, экспорт/импорт.",
+    "s10.sponsor": "<strong>Поддержать</strong> &mdash; Поддержите разработку: сделайте пожертвование, поставьте звезду на GitHub, отправьте отзыв.",
+    "s10.about": "<strong>О программе</strong> &mdash; Информация о версии, проверка обновлений, благодарности, ссылки.",
     "sidebar.relay": "Режим Эстафеты",
     "nav.relay": "Режим Эстафеты",
     "s2.cmdk.title": "Быстрые действия (⌘K)",
@@ -3267,8 +3323,12 @@ const i18n = {
   },
   id: {
     "nav.features": "Fitur",
+    "nav.download": "Unduh",
+    "nav.sponsor": "Dukung",
     "nav.help": "Bantuan",
     "nav.feedback": "Umpan Balik",
+    "nav.changelog": "Pembaruan",
+    "nav.github": "GitHub",
     "footer.releases": "Rilis",
     "footer.issues": "Masalah",
     "sidebar.quickstart": "Mulai Cepat",
@@ -3282,7 +3342,6 @@ const i18n = {
     "sidebar.automation": "Otomatisasi",
     "sidebar.shortcuts": "Pintasan Keyboard",
     "sidebar.settings": "Pengaturan",
-    "sidebar.pro": "Fitur Pro",
     "doc.title": "Bantuan PasteMemo",
     "doc.subtitle": "Semua yang perlu Anda ketahui tentang PasteMemo, pengelola clipboard cerdas untuk macOS.",
     "s1.title": "Mulai Cepat",
@@ -3370,7 +3429,7 @@ const i18n = {
     "s1.install.desc": "Instal PasteMemo melalui <strong>Homebrew</strong> (direkomendasikan):",
     "s1.install.update": "Perbarui ke versi terbaru: <code>brew upgrade --cask pastememo</code>",
     "s1.install.manual": "Atau unduh <code>.dmg</code> dari <a href=\"https://github.com/lifedever/PasteMemo-app/releases\" style=\"color:var(--orange-500);\">GitHub Releases</a>.",
-    "s6.backup.title": "Pencadangan Otomatis (Pro)",
+    "s6.backup.title": "Pencadangan Otomatis",
     "s6.backup.desc": "Cadangkan riwayat clipboard secara otomatis sesuai jadwal. Dua metode pencadangan:",
     "s6.backup.local": "<strong>Lokal</strong> — Cadangkan ke folder di Mac. Bisa memilih direktori apa pun, termasuk iCloud Drive, Dropbox, atau layanan sinkronisasi lainnya.",
     "s6.backup.webdav": "<strong>WebDAV</strong> — Cadangkan ke server WebDAV (Nextcloud, alist, Synology, dll.). Konfigurasikan URL, nama pengguna, dan kata sandi di Pengaturan.",
@@ -3423,20 +3482,16 @@ const i18n = {
     "s9.modifier.option": "<kbd>&#8997;</kbd> / <kbd>Option</kbd> &mdash; Option / Alt",
     "s9.modifier.ctrl": "<kbd>&#8963;</kbd> / <kbd>Control</kbd> &mdash; Control",
     "s10.title": "Pengaturan",
-    "s10.desc": "Jendela Pengaturan memiliki 6 tab:",
-    "s10.general": "<strong>Umum</strong> &mdash; Luncurkan saat login, pintasan global, bahasa, tampilan, gaya ikon menu bar.",
-    "s10.features": "<strong>Fitur</strong> &mdash; Efek suara, deteksi konten sensitif, sakelar pengenalan cerdas.",
-    "s10.rules": "<strong>Aturan</strong> &mdash; Daftar aplikasi yang diabaikan, aturan penurunan otomatis teks kaya.",
-    "s10.data": "<strong>Data</strong> &mdash; Periode retensi riwayat, hapus data, ekspor/impor.",
-    "s10.pro": "<strong>Pro</strong> &mdash; Kelola langganan Pro Anda, lihat perbandingan fitur.",
-    "s10.about": "<strong>Tentang</strong> &mdash; Informasi versi, ucapan terima kasih, tautan.",
-    "s11.title": "Fitur Pro",
-    "s11.desc": "PasteMemo Pro membuka kemampuan lanjutan:",
-    "s11.history": "<strong>Riwayat tak terbatas</strong> &mdash; Versi gratis menyimpan item terbaru saja; Pro menghapus batasan.",
-    "s11.grouping": "<strong>Pengelompokan cerdas</strong> &mdash; Otomatis mengelompokkan item clipboard yang terkait.",
-    "s11.ignore": "<strong>Abaikan aplikasi tertentu</strong> &mdash; Kecualikan aplikasi tertentu dari pemantauan clipboard.",
-    "s11.icloud": "<strong>Pencadangan otomatis iCloud</strong> &mdash; Segera hadir. Sinkronkan riwayat clipboard Anda dengan aman antar perangkat.",
-    "s11.relay": "<strong>Mode Relay</strong> &mdash; Antrekan beberapa item dan tempelkan satu per satu secara berurutan. Cocok untuk entri data massal.",
+    "s10.desc": "Jendela Pengaturan memiliki 9 tab:",
+    "s10.general": "<strong>Umum</strong> &mdash; Luncurkan saat login, sembunyikan ikon Dock, tampilan, gaya ikon menu bar, bahasa antarmuka, efek suara salin/tempel.",
+    "s10.preferences": "<strong>Preferensi</strong> &mdash; Tata letak dan posisi Panel Tempel Cepat, pemantauan clipboard, tempel otomatis, pratinjau tautan dan gambar, OCR, periode retensi riwayat.",
+    "s10.shortcuts": "<strong>Pintasan</strong> &mdash; Pintasan global untuk Panel Tempel Cepat, Jendela Utama, dan Mode Relay; pintasan ketuk ganda dengan modifier.",
+    "s10.relay": "<strong>Relay</strong> &mdash; Pintasan tempel dan perilaku Mode Relay.",
+    "s10.privacy": "<strong>Privasi</strong> &mdash; Deteksi otomatis konten sensitif, daftar aplikasi yang diabaikan, sakelar statistik penggunaan anonim.",
+    "s10.automation": "<strong>Otomatisasi</strong> &mdash; Aktifkan/nonaktifkan otomatisasi, kelola aturan bawaan dan kustom.",
+    "s10.data": "<strong>Data</strong> &mdash; Pencadangan terjadwal (lokal / WebDAV), pulihkan dari cadangan, ekspor/impor.",
+    "s10.sponsor": "<strong>Dukung</strong> &mdash; Dukung pengembangan: donasi, beri bintang di GitHub, kirim umpan balik.",
+    "s10.about": "<strong>Tentang</strong> &mdash; Informasi versi, periksa pembaruan, ucapan terima kasih, tautan.",
     "sidebar.relay": "Mode Relay",
     "nav.relay": "Mode Relay",
     "s2.cmdk.title": "Tindakan Cepat (⌘K)",
@@ -3647,6 +3702,45 @@ sidebarLinks.forEach(link => {
       closeSidebar();
     }
   });
+});
+
+// ---- Mobile hamburger menu ----
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navBackdrop = document.getElementById("navBackdrop");
+
+function closeMobileNav() {
+  navLinks.classList.remove("open");
+  menuToggle.classList.remove("open");
+  navBackdrop.classList.remove("show");
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function openMobileNav() {
+  navLinks.classList.add("open");
+  menuToggle.classList.add("open");
+  navBackdrop.classList.add("show");
+  menuToggle.setAttribute("aria-expanded", "true");
+}
+
+menuToggle.addEventListener("click", () => {
+  if (navLinks.classList.contains("open")) {
+    closeMobileNav();
+  } else {
+    openMobileNav();
+  }
+});
+
+navBackdrop.addEventListener("click", closeMobileNav);
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) closeMobileNav();
+  });
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) closeMobileNav();
 });
 </script>
 
