@@ -1,21 +1,21 @@
 {
-  "version": "1.6.1",
-  "notes_zh": "### 🛠 修复\n\n- **修复** 1.6.0 新装用户在辅助功能授权页面点击\"打开辅助权限设置\"按钮时闪退的问题（#34，感谢 @BlackCCCat 反馈）",
-  "notes_en": "### 🛠 Fixes\n\n- **Fix** 1.6.0 fresh-install users crashed when clicking \"Open Accessibility Settings\" on the permission onboarding screen (#34, thanks @BlackCCCat)",
+  "version": "1.6.2",
+  "notes_zh": "### ✨ 新增\n\n- **新增** 自动化规则（自定义规则）按触发方式分组显示：自动、手动、已禁用，方便快速定位常用规则\n- **新增** 富文本剪贴板条目现在支持编辑：进入编辑自动获取焦点、ESC 取消、有独立背景色区分，保存时会提示「格式将丢失」并转为纯文本（#33，感谢 @bingoohuang 的 PR）\n\n### 🪄 优化\n\n- **优化** Toast 弹出/收起改用 spring 动画，滑动更自然\n- **优化** Toast 不同变体（操作、普通）的 pill 高度现已统一\n\n### 🛠 修复\n\n- **修复** 永久保存分组的「清空条目」菜单现已禁用，避免困惑（#37，感谢 @miniers 的 PR）\n- **修复** 就地编辑条目保存后，底部属性里的字数、行数、词数没有随之刷新\n- **修复** 手动规则的「触发时弹窗确认」开关实际不生效；手动触发本就是主动操作，开关已移除（#35，感谢 @xream 的反馈）",
+  "notes_en": "### ✨ New\n\n- **New** Custom automation rules are now grouped by trigger mode (Automatic / Manual / Disabled) for faster lookup\n- **New** Rich-text clips are now editable — the editor auto-focuses on entry, `Esc` cancels, edit mode has a dedicated background, and saving shows a \"formatting will be lost\" warning before converting to plain text (#33, thanks @bingoohuang for the PR)\n\n### 🪄 Improvements\n\n- **Improve** Toast enter/exit now uses a spring animation for a more natural slide\n- **Improve** Toast pills now share a consistent height across action and plain variants\n\n### 🛠 Fixes\n\n- **Fix** The \"Clear items\" menu is now disabled for preserved groups to prevent confusion (#37, thanks @miniers for the PR)\n- **Fix** Character / line / word counts in the properties panel now refresh after an in-place edit\n- **Fix** The \"Confirm before applying\" toggle on manual rules was a no-op; since manual triggers are already explicit, the toggle has been removed (#35, thanks @xream for the report)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-arm64.dmg",
-      "size": 4371845,
-      "sha256": "9bd1f10e6582923d4d58cd2c05f498db7f7685e08d404515c3752f026f042198"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-arm64.dmg",
+      "size": 4393543,
+      "sha256": "682e1ebb77eea5ff71043801c064b8db4a73fc814b71e37a7f1171cc3ad219f9"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-x86_64.dmg",
-      "size": 4501282,
-      "sha256": "0e8f92518f7b681983b7b62993c87475384587e941bd3c79e494f77cfc57d2c5"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-x86_64.dmg",
+      "size": 4525855,
+      "sha256": "ac1fa3f34c841075014099260230cb908e29d29529f0d892bc20d34b96811f88"
     }
   }
 }
