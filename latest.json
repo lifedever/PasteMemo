@@ -1,21 +1,21 @@
 {
-  "version": "1.6.0",
-  "notes_zh": "### ✨ 新增\n\n- **新增** 系统升级或应用移动位置后，重新授权辅助功能时会弹出引导浮窗，直接拖拽应用到系统设置即可（组件来自独立开源库 [lifedever/PermissionFlow](https://github.com/lifedever/PermissionFlow)）\n- **新增** 快捷面板宽度变小时自动隐藏右侧预览区，给列表让出空间（#27，感谢 @amiaoapp 反馈）\n- **新增** 侧边栏「类型 / 分组 / 来源」右键菜单新增\"清空\"，可清空当前范围内的条目，带进度条\n- **新增** 删除条目改为\"立即删除 + 撤销 toast\"，8 秒内点撤销或按 `⌘Z` 恢复；深浅色自适应\n- **新增** \"粘贴并销毁\"：在快捷面板按 `⌘⇧↩` 或 `⌘K → B`，粘贴后自动删除历史条目，5 秒内可按 `⌘Z` 撤销。适合一次性密码、临时 token 等敏感内容（置顶、收藏、受保护分组的条目不会生效）\n\n### 🪄 优化\n\n- **优化** 主窗口与快捷面板共用新的虚拟化列表，大量条目滚动更流畅、两处显示一致（#30，感谢 @miniers）\n- **优化** 在快捷面板内按\"打开管理器\"快捷键时作用域限制在面板，不再触发全局（#26，感谢 @miniers）\n\n### 🛠 修复\n\n- **修复** 多条接力粘贴到 Word 时粘错了条目（#28，感谢 @mesafier 反馈）\n- **修复** 来自 Telegram 等应用的自定义表情粘贴后格式丢失（#29，感谢 @xream 反馈）\n- **修复** 快捷面板搜索框中文输入时光标位置异常（#27）\n- **修复** 数据导入后侧边栏分组的条目数量显示不对（#31，感谢 @deafire 反馈）\n- **修复** 快捷面板条目行高与主窗口不一致\n- **修复** 接力未启动时加入队列，启动后出现\"当前条目\"重复\n- **修复** 辅助功能授权浮窗在浅色模式下看不清（拖拽卡片用了写死的白色）\n- **修复** 接力队列行内状态点、App 图标、文字没有垂直居中",
-  "notes_en": "### ✨ New\n\n- **New** Re-authorization guide for Accessibility permission — after a system update or when the app moves on disk, a floating panel appears beside System Settings with a draggable app icon (built on our independent open-source helper [lifedever/PermissionFlow](https://github.com/lifedever/PermissionFlow))\n- **New** Quick Panel auto-hides the preview pane when narrow, giving the list more room (#27, thanks @amiaoapp)\n- **New** Sidebar \"Type / Group / Source\" right-click menu adds \"Clear\" to empty every item in the current scope, with progress feedback\n- **New** Item deletion now uses an inline undo toast — delete instantly, press `⌘Z` or click **Undo** within 8 seconds to restore; adaptive to light/dark\n- **New** \"Paste & Destroy\": press `⌘⇧↩` in the Quick Panel or invoke `⌘K → B` to paste the current clip and remove it from history in one shot. Press `⌘Z` within 5 seconds to restore. Intended for one-time values like OTP codes and throwaway tokens (pinned, favourited and protected-group items are excluded)\n\n### 🪄 Improvements\n\n- **Improve** Main window and Quick Panel now share a single native virtualized list — smoother scrolling with large collections, consistent look between the two (#30, thanks @miniers)\n- **Improve** The \"Open Manager\" shortcut pressed inside the Quick Panel is scoped to the panel, no longer triggering global behavior (#26, thanks @miniers)\n\n### 🛠 Fixes\n\n- **Fix** Multi-item relay pasting to Word landed the wrong clip (#28, thanks @mesafier)\n- **Fix** Custom emoji from Telegram and similar apps lost their rich format on paste (#29, thanks @xream)\n- **Fix** IME cursor position in the Quick Panel search field (#27)\n- **Fix** After data import, sidebar groups showed incorrect item counts (#31, thanks @deafire)\n- **Fix** Quick Panel row height now matches the main window\n- **Fix** Adding items to the relay queue before activation no longer creates a duplicate \"current\" clip after starting\n- **Fix** Accessibility-permission panel was invisible in light mode (drag card had a hard-coded white background)\n- **Fix** Relay row — status dot, app icon and text now vertically aligned on the same baseline",
+  "version": "1.6.1",
+  "notes_zh": "### 🛠 修复\n\n- **修复** 1.6.0 新装用户在辅助功能授权页面点击\"打开辅助权限设置\"按钮时闪退的问题（#34，感谢 @BlackCCCat 反馈）",
+  "notes_en": "### 🛠 Fixes\n\n- **Fix** 1.6.0 fresh-install users crashed when clicking \"Open Accessibility Settings\" on the permission onboarding screen (#34, thanks @BlackCCCat)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.0-arm64.dmg",
-      "size": 4367777,
-      "sha256": "5677c474781abcf12e3ec7f23b5022741a3f632cdd6134e0d0d38e92770c9b92"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-arm64.dmg",
+      "size": 4371845,
+      "sha256": "9bd1f10e6582923d4d58cd2c05f498db7f7685e08d404515c3752f026f042198"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.0-x86_64.dmg",
-      "size": 4497038,
-      "sha256": "23678aff0123aa6fd411ab7cfa3c018ac5f1a373a6e6abfb1edaf6a0290db35e"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.1-x86_64.dmg",
+      "size": 4501282,
+      "sha256": "0e8f92518f7b681983b7b62993c87475384587e941bd3c79e494f77cfc57d2c5"
     }
   }
 }
