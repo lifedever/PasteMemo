@@ -1,21 +1,21 @@
 {
-  "version": "1.6.2",
-  "notes_zh": "### ✨ 新增\n\n- **新增** 自动化规则（自定义规则）按触发方式分组显示：自动、手动、已禁用，方便快速定位常用规则\n- **新增** 富文本剪贴板条目现在支持编辑：进入编辑自动获取焦点、ESC 取消、有独立背景色区分，保存时会提示「格式将丢失」并转为纯文本（#33，感谢 @bingoohuang 的 PR）\n\n### 🪄 优化\n\n- **优化** Toast 弹出/收起改用 spring 动画，滑动更自然\n- **优化** Toast 不同变体（操作、普通）的 pill 高度现已统一\n\n### 🛠 修复\n\n- **修复** 永久保存分组的「清空条目」菜单现已禁用，避免困惑（#37，感谢 @miniers 的 PR）\n- **修复** 就地编辑条目保存后，底部属性里的字数、行数、词数没有随之刷新\n- **修复** 手动规则的「触发时弹窗确认」开关实际不生效；手动触发本就是主动操作，开关已移除（#35，感谢 @xream 的反馈）",
-  "notes_en": "### ✨ New\n\n- **New** Custom automation rules are now grouped by trigger mode (Automatic / Manual / Disabled) for faster lookup\n- **New** Rich-text clips are now editable — the editor auto-focuses on entry, `Esc` cancels, edit mode has a dedicated background, and saving shows a \"formatting will be lost\" warning before converting to plain text (#33, thanks @bingoohuang for the PR)\n\n### 🪄 Improvements\n\n- **Improve** Toast enter/exit now uses a spring animation for a more natural slide\n- **Improve** Toast pills now share a consistent height across action and plain variants\n\n### 🛠 Fixes\n\n- **Fix** The \"Clear items\" menu is now disabled for preserved groups to prevent confusion (#37, thanks @miniers for the PR)\n- **Fix** Character / line / word counts in the properties panel now refresh after an in-place edit\n- **Fix** The \"Confirm before applying\" toggle on manual rules was a no-op; since manual triggers are already explicit, the toggle has been removed (#35, thanks @xream for the report)",
+  "version": "1.6.3",
+  "notes_zh": "### 🪄 优化\n\n- **优化** 单条剪贴板内容大小上限：图片 20 MB / 富文本 50 MB，避免极端复制撑爆库\n- **优化** 从 Finder 复制单张图片文件时，库里只存 1024 px JPEG 缩略图（不再保留原图字节），节省磁盘和内存；粘贴 / 保存到文件夹仍然走原文件\n- **优化** 图片 OCR 在原文件存在时优先用原图识别，小字也能更准\n- **优化** 启动自检：检测到组件文件缺失时不再崩溃，而是弹窗引导你重新下载 DMG 一键恢复\n\n### 🛠 修复\n\n- **修复** 部分用户从老版本在线升级到 1.6.x 后，点辅助功能授权弹窗的\"打开\"按钮闪退（#38）\n- **修复** 自动备份触发时内存短时间内暴涨到几十 GB（#39）\n- **修复** 从 Finder 复制的图片粘到 Claude Code / Slack / 浏览器等 app 时，拿到的是低分辨率缩略图\n- **修复** \"保存到 Finder 当前文件夹\" 写出来的图片是缩略图（现在直接复制原文件）\n- **修复** 详情面板对 Finder 复制的图片显示的尺寸 / 大小 / 格式不正确\n- **修复** 快捷面板中单按 K 或 W 会误触关闭命令面板（感谢 @bingoohuang #40）\n- **修复** 多处构建警告与 Swift 6 严格并发兼容（感谢 @bingoohuang #40）",
+  "notes_en": "### 🪄 Improvements\n\n- **Improve** Per-clip size cap (images 20 MB / rich text 50 MB) so pathological copies can't bloat the database\n- **Improve** Copying a single image file from Finder now stores only a 1024 px JPEG thumbnail; paste and save-to-folder still reach for the original file on disk\n- **Improve** OCR runs against the original file when available, recovering accuracy on small text\n- **Improve** Startup self-check: when a bundled component is missing, the app now degrades to a guided \"redownload DMG\" prompt instead of crashing\n\n### 🛠 Fixes\n\n- **Fix** Crash for users who upgraded to 1.6.x via in-app updater when tapping the \"Open\" button in the Accessibility prompt (#38)\n- **Fix** Memory spiked into tens of GB during scheduled backup runs (#39)\n- **Fix** Pasting Finder-copied images into Claude Code / Slack / browsers delivered a low-res thumbnail\n- **Fix** \"Save image to current Finder folder\" wrote a thumbnail; now byte-copies the source file instead\n- **Fix** Detail panel displayed thumbnail dimensions / size / format instead of the source file's\n- **Fix** Single-press K or W could close the command palette (thanks @bingoohuang #40)\n- **Fix** Various Swift 6 strict-concurrency build warnings (thanks @bingoohuang #40)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-arm64.dmg",
-      "size": 4393543,
-      "sha256": "682e1ebb77eea5ff71043801c064b8db4a73fc814b71e37a7f1171cc3ad219f9"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-arm64.dmg",
+      "size": 4409679,
+      "sha256": "4944e096dec02f32b3a4a03e193f210326e2578d712f4a5c94110e1988ac4d66"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.2-x86_64.dmg",
-      "size": 4525855,
-      "sha256": "ac1fa3f34c841075014099260230cb908e29d29529f0d892bc20d34b96811f88"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-x86_64.dmg",
+      "size": 4542296,
+      "sha256": "deaddd5088d438652bde6201c4b984c27086e6ec8a2a3ccfef27347a676148a9"
     }
   }
 }
