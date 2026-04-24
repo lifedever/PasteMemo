@@ -1,21 +1,21 @@
 {
-  "version": "1.6.3",
-  "notes_zh": "### 🪄 优化\n\n- **优化** 单条剪贴板内容大小上限：图片 20 MB / 富文本 50 MB，避免极端复制撑爆库\n- **优化** 从 Finder 复制单张图片文件时，库里只存 1024 px JPEG 缩略图（不再保留原图字节），节省磁盘和内存；粘贴 / 保存到文件夹仍然走原文件\n- **优化** 图片 OCR 在原文件存在时优先用原图识别，小字也能更准\n- **优化** 启动自检：检测到组件文件缺失时不再崩溃，而是弹窗引导你重新下载 DMG 一键恢复\n\n### 🛠 修复\n\n- **修复** 部分用户从老版本在线升级到 1.6.x 后，点辅助功能授权弹窗的\"打开\"按钮闪退（#38）\n- **修复** 自动备份触发时内存短时间内暴涨到几十 GB（#39）\n- **修复** 从 Finder 复制的图片粘到 Claude Code / Slack / 浏览器等 app 时，拿到的是低分辨率缩略图\n- **修复** \"保存到 Finder 当前文件夹\" 写出来的图片是缩略图（现在直接复制原文件）\n- **修复** 详情面板对 Finder 复制的图片显示的尺寸 / 大小 / 格式不正确\n- **修复** 快捷面板中单按 K 或 W 会误触关闭命令面板（感谢 @bingoohuang #40）\n- **修复** 多处构建警告与 Swift 6 严格并发兼容（感谢 @bingoohuang #40）",
-  "notes_en": "### 🪄 Improvements\n\n- **Improve** Per-clip size cap (images 20 MB / rich text 50 MB) so pathological copies can't bloat the database\n- **Improve** Copying a single image file from Finder now stores only a 1024 px JPEG thumbnail; paste and save-to-folder still reach for the original file on disk\n- **Improve** OCR runs against the original file when available, recovering accuracy on small text\n- **Improve** Startup self-check: when a bundled component is missing, the app now degrades to a guided \"redownload DMG\" prompt instead of crashing\n\n### 🛠 Fixes\n\n- **Fix** Crash for users who upgraded to 1.6.x via in-app updater when tapping the \"Open\" button in the Accessibility prompt (#38)\n- **Fix** Memory spiked into tens of GB during scheduled backup runs (#39)\n- **Fix** Pasting Finder-copied images into Claude Code / Slack / browsers delivered a low-res thumbnail\n- **Fix** \"Save image to current Finder folder\" wrote a thumbnail; now byte-copies the source file instead\n- **Fix** Detail panel displayed thumbnail dimensions / size / format instead of the source file's\n- **Fix** Single-press K or W could close the command palette (thanks @bingoohuang #40)\n- **Fix** Various Swift 6 strict-concurrency build warnings (thanks @bingoohuang #40)",
+  "version": "1.6.4",
+  "notes_zh": "- **新增** 图片缩略图右下角显示格式标签（PNG / JPG / SVG / WEBP / HEIC 等），一眼看清格式不遮挡预览\n- **修复** SVG 文件在列表中只显示通用图标、无法生成缩略图预览的问题",
+  "notes_en": "- **New** Show a format badge (PNG / JPG / SVG / WEBP / HEIC …) in the bottom-right corner of every image thumbnail — glanceable format info without covering the preview\n- **Fix** SVG files were showing a generic document icon instead of a thumbnail; now render alongside other image formats",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-arm64.dmg",
-      "size": 4409679,
-      "sha256": "4944e096dec02f32b3a4a03e193f210326e2578d712f4a5c94110e1988ac4d66"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-arm64.dmg",
+      "size": 4416476,
+      "sha256": "4d6b0eb130e62577e391974d9c92f6d76516c4ca7c82e6c0b45b8b257ec4abdc"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.3-x86_64.dmg",
-      "size": 4542296,
-      "sha256": "deaddd5088d438652bde6201c4b984c27086e6ec8a2a3ccfef27347a676148a9"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-x86_64.dmg",
+      "size": 4553229,
+      "sha256": "ec7085de51577c87b0eb08d93d6e0a832537de0a3a979c86460045d9d5bc74dd"
     }
   }
 }
