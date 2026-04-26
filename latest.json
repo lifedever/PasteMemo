@@ -1,21 +1,21 @@
 {
-  "version": "1.6.4",
-  "notes_zh": "- **新增** 图片缩略图右下角显示格式标签（PNG / JPG / SVG / WEBP / HEIC 等），一眼看清格式不遮挡预览\n- **修复** SVG 文件在列表中只显示通用图标、无法生成缩略图预览的问题",
-  "notes_en": "- **New** Show a format badge (PNG / JPG / SVG / WEBP / HEIC …) in the bottom-right corner of every image thumbnail — glanceable format info without covering the preview\n- **Fix** SVG files were showing a generic document icon instead of a thumbnail; now render alongside other image formats",
+  "version": "1.6.5",
+  "notes_zh": "- **修复** 粘贴超长 base64 图片（`data:image/...;base64,...`）时主线程卡死数秒的问题：现在入库时即解码为图片字节，搜索索引对超长内容设置了 256KB 上限，粘贴瞬间不再阻塞（#41，感谢 @miniers 的 PR）\n- **优化** base64 data URI 类型的剪贴板条目：列表缩略图秒出（不再 favicon 闪现）、右下角显示 PNG/JPG 格式角标、属性面板补全尺寸 / 大小 / 格式信息\n- **优化** 复制回 base64 data URI 时仍粘出原始 URI 字符串，保留前端 / Markdown / 邮件等场景的工作流",
+  "notes_en": "- **Fix** Pasting an oversized `data:image/...;base64,...` URI no longer freezes the main thread for several seconds — the URI is now decoded into image bytes at capture time and the search index skips content above 256 KB, so paste returns instantly (#41, thanks @miniers for the PR)\n- **Improve** Inline base64 data URI clips now show their thumbnail synchronously (no favicon flicker), display a PNG/JPG format badge, and surface dimensions / size / format in the properties panel\n- **Improve** Pasting a base64 data URI clip back returns the exact URI string the user copied, preserving CSS / Markdown / email workflows",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-arm64.dmg",
-      "size": 4416476,
-      "sha256": "4d6b0eb130e62577e391974d9c92f6d76516c4ca7c82e6c0b45b8b257ec4abdc"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-arm64.dmg",
+      "size": 4449957,
+      "sha256": "12b67f126cf9a351a14aef08285fd8684c5ba579d3c89ba66755ae52b4ff9c70"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.4-x86_64.dmg",
-      "size": 4553229,
-      "sha256": "ec7085de51577c87b0eb08d93d6e0a832537de0a3a979c86460045d9d5bc74dd"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-x86_64.dmg",
+      "size": 4585464,
+      "sha256": "2fe8f2dce3f576d28401bdb4ce028e2c19fe6bdccf56aff29e7114966068bbb1"
     }
   }
 }
