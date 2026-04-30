@@ -1,21 +1,21 @@
 {
-  "version": "1.6.5",
-  "notes_zh": "- **修复** 粘贴超长 base64 图片（`data:image/...;base64,...`）时主线程卡死数秒的问题：现在入库时即解码为图片字节，搜索索引对超长内容设置了 256KB 上限，粘贴瞬间不再阻塞（#41，感谢 @miniers 的 PR）\n- **优化** base64 data URI 类型的剪贴板条目：列表缩略图秒出（不再 favicon 闪现）、右下角显示 PNG/JPG 格式角标、属性面板补全尺寸 / 大小 / 格式信息\n- **优化** 复制回 base64 data URI 时仍粘出原始 URI 字符串，保留前端 / Markdown / 邮件等场景的工作流",
-  "notes_en": "- **Fix** Pasting an oversized `data:image/...;base64,...` URI no longer freezes the main thread for several seconds — the URI is now decoded into image bytes at capture time and the search index skips content above 256 KB, so paste returns instantly (#41, thanks @miniers for the PR)\n- **Improve** Inline base64 data URI clips now show their thumbnail synchronously (no favicon flicker), display a PNG/JPG format badge, and surface dimensions / size / format in the properties panel\n- **Improve** Pasting a base64 data URI clip back returns the exact URI string the user copied, preserving CSS / Markdown / email workflows",
+  "version": "1.6.6",
+  "notes_zh": "🎉🎉🎉 祝大家五一劳动节玩的快乐、玩得开心🎉🎉🎉\n\n### 主窗口\n\n- **新增** 双击列表条目直接复制（多选时合并复制）；单击保留为选中查看。右键菜单的「复制」也提到第一项（#42，感谢 @vvair 的反馈）\n\n### 接力模式\n\n- **新增** 「全部粘贴」按钮 + 全局快捷键 `⌥⌃V`：一次性顺序粘贴队列中所有剩余条目，每条之间留 150ms 给目标 App 处理；中途点同一按钮可停止；暂停 / 退出接力时自动停下；已完成 / 已跳过的条目不会被重粘（#42）\n- **新增** 队列条目右键「设为当前」/ 双击 直接跳转。超过十几条的队列里再也不用按 N 次「跳过 / 上一条」翻动；前进跳跃自动把跨过的条目标 skipped（等同连按多次跳过），倒退跳跃把跨过的条目重置为 pending（\"重新处理这一段\"），也支持双击曾经被 skipped 的条目恢复处理（#42）\n- **修复** 接力窗口拖到屏幕其它位置后，添加 / 删除条目或调整宽度时不再弹回右上角；每次重新打开仍默认右上（#42）\n\n### 状态栏\n\n- **新增** 状态栏图标左键动作可配置：默认仍是弹菜单，也可改成「打开管理器 / 快捷粘贴 / 切换接力 / 暂停剪贴板监听 / 打开设置」之一；右键始终弹菜单。在 设置 →「状态栏图标」下方（#42）\n\n---",
+  "notes_en": "🎉🎉🎉 Happy Labor Day — wishing everyone a joyful, relaxing holiday! 🎉🎉🎉\n\n### Main Window\n\n- **New** Double-click a row to copy (merge-copy when multi-selected); single-click still selects for preview. The \"Copy\" entry in the row context menu is now first (#42, thanks @vvair)\n\n### Relay Mode\n\n- **New** \"Paste All\" button + global hotkey `⌥⌃V` — pastes every remaining queue item in order with a 150ms gap between each so the target app can keep up. Click again to stop mid-flight; pause/exit also halts gracefully. Items already done or skipped are not re-pasted (#42)\n- **New** Right-click any queue row → \"Set as Current\", or double-click to jump directly. No more N-times skip/previous for large queues. Forward jumps mark intermediate items as skipped (equivalent to repeated skips); backward jumps reset intermediate items to pending so the segment can be re-processed; double-clicking a previously-skipped item brings it back as the active one (#42)\n- **Fix** After dragging the relay panel to another position, adding/removing items or resizing the width no longer snaps it back to the top-right corner (it still resets to top-right on each reopen) (#42)\n\n### Status Bar\n\n- **New** Configurable left-click action for the status bar icon. Default stays \"show menu\", or pick \"Open Manager / Quick Paste / Toggle Relay / Toggle Clipboard Monitoring / Open Settings\". Right-click always shows the menu. Settings → Status Bar Icon (#42)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.6-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.6-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-arm64.dmg",
-      "size": 4449957,
-      "sha256": "12b67f126cf9a351a14aef08285fd8684c5ba579d3c89ba66755ae52b4ff9c70"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.6-arm64.dmg",
+      "size": 4467763,
+      "sha256": "c2329969f288a5a62ada40332e434319026f074a61c19e4facf8d2f1d2fe9643"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.5-x86_64.dmg",
-      "size": 4585464,
-      "sha256": "2fe8f2dce3f576d28401bdb4ce028e2c19fe6bdccf56aff29e7114966068bbb1"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.6-x86_64.dmg",
+      "size": 4605550,
+      "sha256": "4b0b211ef1592dfd6a2c678f02f9650f7558f10c0feef2d062aec19fc0e91b1b"
     }
   }
 }
