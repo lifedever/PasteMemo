@@ -1,21 +1,21 @@
 {
-  "version": "1.6.7",
-  "notes_zh": "### 接力模式\n\n- **新增** 接力窗口右边缘也支持拖拽调宽（向右扩展、左边固定），与左边缘镜像；鼠标进入窗口时两侧指示器淡入（28%），靠近边缘或拖拽时变亮（65%）。同时修复了部分情况下左侧指示器一直显示不消失的问题\n- **优化** 「全部粘贴」大幅提速：每条之间间隔从 150ms 降到 30ms、单条内部延迟从 100ms 降到 20ms。100 条队列从约 38 秒缩短到约 6 秒\n- **优化** 「全部粘贴」完成后的行为更直觉：开启循环则重新从第一条开始；未开启循环则自动退出接力模式\n- **修复** 清空接力队列后，重新复制刚刚清掉的最后一条内容时进不了队列的问题\n\n---",
-  "notes_en": "### Relay Mode\n\n- **New** Drag the right edge of the relay panel to widen it (anchoring the left side), mirroring the existing left-edge behavior. Indicators on both edges fade in (28%) when the cursor enters the window and brighten (65%) when near the edge or while dragging. Also fixes a case where the left indicator could stay visible\n- **Improve** \"Paste All\" is now much faster: per-item delay reduced from 100ms to 20ms and inter-item gap from 150ms to 30ms — pasting 100 items drops from ~38s to ~6s\n- **Improve** Cleaner \"Paste All\" completion behavior: restart from the first item when loop is enabled; otherwise exit relay mode automatically\n- **Fix** After clearing the relay queue, re-copying the just-cleared last item now enters the queue again",
+  "version": "1.6.8",
+  "notes_zh": "### 隐私与网络\n\n- **新增**「隐私」标签页顶部的「单机模式」总开关：打开后除检查更新外不发起任何网络请求，包括链接元数据抓取、网页/图片预览加载和匿名使用统计\n- **新增**「预览时执行网页脚本」开关（偏好 → 链接与预览），默认开启；关闭后预览面板中的网页将不再执行 JavaScript\n- **修复** 复制大文件直链（dmg/zip/PDF/大图）时会触发完整下载的问题。链接元数据抓取改为 HEAD 预检，非 HTML 内容直接放弃，GET 流式接收硬性上限 50KB\n- **修复** 关闭「网页预览」「图片链接预览」后，PasteMemo 仍会为复制的链接发起后台请求的问题（#46，感谢 @wen-long 的反馈）\n\n### 预览\n\n- **新增**「富文本预览」开关（偏好 → 链接与预览），默认开启；关闭后预览面板将以纯文本渲染带格式的剪贴板内容，不影响粘贴行为——粘贴出去仍带原始格式（#44，感谢 @wudys 的 PR #43）\n\n### 设置\n\n- **调整**「历史记录」从「偏好」标签页搬到「通用」标签页\n- **调整** 链接相关的开关（链接显示原始网址、网页预览、图片链接预览、预览时执行网页脚本、富文本预览）独立成「链接与预览」分组\n\n---",
+  "notes_en": "### Privacy & Networking\n\n- **New** Master \"Offline mode\" toggle at the top of the Privacy tab — when on, PasteMemo makes no network requests beyond update checks (link metadata, web/image previews, and anonymous analytics are all suppressed)\n- **New** \"Run JavaScript in previews\" toggle (Preferences → Links & Previews), defaulting to on; turning it off renders previewed pages without executing any JavaScript\n- **Fix** Copying direct links to large binaries (dmg/zip/PDF/big images) no longer triggers a full-file download. Link metadata fetches now do a HEAD probe first, abort on non-HTML responses, and the GET path streams with a hard 50KB cap\n- **Fix** Disabling \"Web preview\" / \"Image link preview\" now also stops PasteMemo from making background requests for copied links (#46, thanks @wen-long for the report)\n\n### Preview\n\n- **New** \"Rich text preview\" toggle (Preferences → Links & Previews), defaulting to on; turning it off renders rich-text clips as plain text in the preview pane while paste behavior is unchanged — the original formatting still travels with the paste (#44, thanks @wudys for the PR #43)\n\n### Settings\n\n- **Improve** \"History\" moved from the Preferences tab to the bottom of the General tab\n- **Improve** Link-related toggles (raw URL, web preview, image link preview, JavaScript, rich text preview) now live in a dedicated \"Links & Previews\" section",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.7-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.7-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.7-arm64.dmg",
-      "size": 4471158,
-      "sha256": "afc863af769f0d2eec615c8b7665a3a1a4028c34cf65cc7597696c992d464b7c"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-arm64.dmg",
+      "size": 4489168,
+      "sha256": "b676069a7c6b95f76fb3fdb728db78c646147eae5d393265df200a93551d1353"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.7-x86_64.dmg",
-      "size": 4607697,
-      "sha256": "f188eeb1797b4a857706b272d349e55f6bc5b83f0f36eb12afded54a8bd5f00c"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-x86_64.dmg",
+      "size": 4625721,
+      "sha256": "6537e0d0d32be0dfb0dc17c9137f1d6ec370d10256dc45de5ebcb593a5fc4230"
     }
   }
 }
