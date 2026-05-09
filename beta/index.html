@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PasteMemo Beta — Try New Features Early</title>
+  <link rel="icon" type="image/svg+xml" href="../logo-2.svg">
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      --orange-500: #F97316;
+      --orange-600: #EA580C;
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #1F2937;
+      --text-heading: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --warn-bg: #FEF3C7;
+      --warn-text: #92400E;
+      --warn-border: #FCD34D;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F0F0F;
+        --bg-alt: #1A1A1A;
+        --card-bg: #1A1A1A;
+        --border: #262626;
+        --text: #E5E7EB;
+        --text-heading: #F9FAFB;
+        --text-secondary: #9CA3AF;
+        --text-muted: #6B7280;
+        --warn-bg: rgba(251, 191, 36, 0.12);
+        --warn-text: #FCD34D;
+        --warn-border: rgba(251, 191, 36, 0.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .top { max-width: 720px; margin: 0 auto; padding: 24px 24px 0; }
+    .top a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    .top a:hover { color: var(--orange-500); }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+    h1 {
+      color: var(--text-heading);
+      font-size: 32px; font-weight: 700;
+      margin: 0 0 8px; letter-spacing: -0.02em;
+    }
+    .subtitle { color: var(--text-secondary); font-size: 16px; margin: 0 0 32px; }
+    .warn {
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border: 1px solid var(--warn-border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .version-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .version-tag {
+      display: inline-block;
+      background: var(--orange-500);
+      color: #fff;
+      font-weight: 600; font-size: 12px;
+      padding: 3px 9px; border-radius: 6px;
+      letter-spacing: 0.04em;
+      vertical-align: middle;
+    }
+    .version-num {
+      font-size: 24px; font-weight: 700;
+      color: var(--text-heading);
+      margin-left: 8px; vertical-align: middle;
+    }
+    .notes { margin-top: 16px; color: var(--text); font-size: 14.5px; white-space: pre-wrap; }
+    .notes strong { color: var(--orange-600); }
+    .downloads { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .dl-btn {
+      flex: 1 1 220px;
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 14px 18px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .dl-btn:hover { border-color: var(--orange-500); transform: translateY(-1px); }
+    .dl-btn strong { color: var(--text-heading); font-size: 15px; }
+    .dl-btn small { color: var(--text-muted); font-size: 12.5px; }
+    .empty { text-align: center; padding: 48px 24px; color: var(--text-secondary); }
+    .empty p { margin: 0; font-size: 16px; }
+    .empty a { color: var(--orange-500); text-decoration: none; }
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a href="../"><span id="navHome">← Back to PasteMemo</span></a>
+  </div>
+  <main>
+    <h1 id="title">PasteMemo Beta</h1>
+    <p class="subtitle" id="subtitle">Try new features before they reach the stable channel.</p>
+    <div class="warn" id="warn">Beta builds may be unstable.</div>
+    <div id="content"></div>
+  </main>
+  <footer>
+    <span id="footerText">Stable releases:</span>
+    <a href="../">www.lifedever.com/PasteMemo</a>
+  </footer>
+
+  <script>
+    const I18N = {
+      en: {
+        "nav.home": "← Back to PasteMemo",
+        "title": "PasteMemo Beta",
+        "subtitle": "Try new features before they reach the stable channel.",
+        "warn": "Beta builds may be unstable. We recommend testing on a non-critical machine. Auto-update will pick up the next beta if you've enabled the Beta channel in Settings → About.",
+        "footer": "Stable releases:",
+        "empty.title": "No beta version available right now.",
+        "empty.cta": "Check the stable release →",
+        "arch.arm": "Apple Silicon",
+        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
+        "arch.intel": "Intel",
+        "arch.intel.detail": "x86_64",
+        "loading": "Loading…",
+        "error": "Couldn't load beta info. Please try again later."
+      },
+      "zh-Hans": {
+        "nav.home": "← 返回 PasteMemo 首页",
+        "title": "PasteMemo Beta",
+        "subtitle": "提前体验即将进入正式版的新功能。",
+        "warn": "Beta 版本可能不稳定，建议在非关键机器上测试。如果你在 设置 → 关于 中开启了 Beta 通道，应用会自动更新到下一个 Beta 版本。",
+        "footer": "正式版下载：",
+        "empty.title": "当前没有 Beta 版本。",
+        "empty.cta": "查看正式版 →",
+        "arch.arm": "Apple Silicon",
+        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
+        "arch.intel": "Intel",
+        "arch.intel.detail": "x86_64",
+        "loading": "加载中…",
+        "error": "无法加载 Beta 信息，请稍后再试。"
+      },
+      "zh-Hant": {
+        "nav.home": "← 返回 PasteMemo 首頁",
+        "title": "PasteMemo Beta",
+        "subtitle": "提前體驗即將進入正式版的新功能。",
+        "warn": "Beta 版本可能不穩定，建議在非關鍵機器上測試。如果你在 設定 → 關於 中開啟了 Beta 通道，應用會自動更新到下一個 Beta 版本。",
+        "footer": "正式版下載：",
+        "empty.title": "目前沒有 Beta 版本。",
+        "empty.cta": "查看正式版 →",
+        "arch.arm": "Apple Silicon",
+        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
+        "arch.intel": "Intel",
+        "arch.intel.detail": "x86_64",
+        "loading": "載入中…",
+        "error": "無法載入 Beta 資訊，請稍後再試。"
+      }
+    };
+
+    function pickLang() {
+      const nav = (navigator.language || 'en').toLowerCase();
+      if (nav.startsWith('zh')) {
+        return (nav.includes('hant') || nav.includes('tw') || nav.includes('hk')) ? 'zh-Hant' : 'zh-Hans';
+      }
+      return 'en';
+    }
+    const lang = pickLang();
+    const t = (key) => (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+    document.documentElement.lang = lang;
+    document.getElementById('navHome').textContent = t('nav.home');
+    document.getElementById('title').textContent = t('title');
+    document.getElementById('subtitle').textContent = t('subtitle');
+    document.getElementById('warn').textContent = t('warn');
+    document.getElementById('footerText').textContent = t('footer');
+    document.title = t('title') + ' — Try New Features Early';
+
+    function fmtSize(bytes) {
+      if (!bytes) return '';
+      const mb = bytes / 1048576;
+      return mb >= 100 ? mb.toFixed(0) + ' MB' : mb.toFixed(1) + ' MB';
+    }
+
+    // Notes use lightweight markdown (**bold**). Build with DOM nodes — never
+    // innerHTML — so a compromised latest.json can't inject script tags.
+    function renderNotes(text, host) {
+      const matches = [...text.matchAll(/\*\*([^*]+)\*\*/g)];
+      let last = 0;
+      for (const m of matches) {
+        if (m.index > last) host.appendChild(document.createTextNode(text.slice(last, m.index)));
+        const strong = document.createElement('strong');
+        strong.textContent = m[1];
+        host.appendChild(strong);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) host.appendChild(document.createTextNode(text.slice(last)));
+    }
+
+    function setEmpty(messageKey, ctaKey, ctaHref) {
+      const host = document.getElementById('content');
+      host.replaceChildren();
+      const wrap = document.createElement('div');
+      wrap.className = 'empty';
+      const p = document.createElement('p');
+      p.textContent = t(messageKey);
+      wrap.appendChild(p);
+      if (ctaKey) {
+        const p2 = document.createElement('p');
+        p2.style.marginTop = '16px';
+        const a = document.createElement('a');
+        a.href = ctaHref;
+        a.textContent = t(ctaKey);
+        p2.appendChild(a);
+        wrap.appendChild(p2);
+      }
+      host.appendChild(wrap);
+    }
+
+    function archButton(label, detail, url, size) {
+      const a = document.createElement('a');
+      a.className = 'dl-btn';
+      a.href = url;
+      const s = document.createElement('strong');
+      s.textContent = label;
+      a.appendChild(s);
+      const small = document.createElement('small');
+      small.textContent = detail + (size ? ' · ' + fmtSize(size) : '');
+      a.appendChild(small);
+      return a;
+    }
+
+    function renderBeta(beta) {
+      const host = document.getElementById('content');
+      host.replaceChildren();
+
+      const card = document.createElement('div');
+      card.className = 'version-card';
+
+      const tag = document.createElement('span');
+      tag.className = 'version-tag';
+      tag.textContent = 'BETA';
+      card.appendChild(tag);
+
+      const ver = document.createElement('span');
+      ver.className = 'version-num';
+      ver.textContent = 'v' + String(beta.version || '');
+      card.appendChild(ver);
+
+      const notes = document.createElement('div');
+      notes.className = 'notes';
+      const notesText = (lang.startsWith('zh') ? beta.notes_zh : beta.notes_en) || beta.notes_en || beta.notes_zh || '';
+      renderNotes(notesText, notes);
+      card.appendChild(notes);
+
+      const downloads = document.createElement('div');
+      downloads.className = 'downloads';
+      const arm = (beta.checksums && beta.checksums.arm64) || (beta.downloads && beta.downloads.arm64);
+      const x86 = (beta.checksums && beta.checksums.x86_64) || (beta.downloads && beta.downloads.x86_64);
+      const armUrl = typeof arm === 'string' ? arm : arm && arm.url;
+      const x86Url = typeof x86 === 'string' ? x86 : x86 && x86.url;
+      if (armUrl) downloads.appendChild(archButton(t('arch.arm'), t('arch.arm.detail'), armUrl, arm && arm.size));
+      if (x86Url) downloads.appendChild(archButton(t('arch.intel'), t('arch.intel.detail'), x86Url, x86 && x86.size));
+      card.appendChild(downloads);
+
+      host.appendChild(card);
+    }
+
+    setEmpty('loading');
+    fetch('../latest.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        if (data && data.beta && data.beta.version) {
+          renderBeta(data.beta);
+        } else {
+          setEmpty('empty.title', 'empty.cta', '../');
+        }
+      })
+      .catch(() => setEmpty('error'));
+  </script>
+</body>
+</html>
