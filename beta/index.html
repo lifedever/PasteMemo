@@ -8,176 +8,411 @@
   <meta name="robots" content="noindex">
   <style>
     :root {
+      --orange-300: #FDBA74;
+      --orange-400: #FB923C;
       --orange-500: #F97316;
       --orange-600: #EA580C;
       --bg: #FFFFFF;
-      --bg-alt: #F9FAFB;
+      --bg-alt: #FAFAFA;
+      --bg-soft: #FFF7ED;
       --card-bg: #FFFFFF;
       --border: #E5E7EB;
+      --border-strong: #D1D5DB;
       --text: #1F2937;
-      --text-heading: #111827;
-      --text-secondary: #6B7280;
-      --text-muted: #9CA3AF;
-      --warn-bg: #FEF3C7;
+      --text-heading: #0F172A;
+      --text-secondary: #4B5563;
+      --text-muted: #6B7280;
+      --code-bg: #F3F4F6;
+      --warn-bg: #FFFBEB;
       --warn-text: #92400E;
-      --warn-border: #FCD34D;
+      --warn-border: #FDE68A;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0F0F0F;
-        --bg-alt: #1A1A1A;
-        --card-bg: #1A1A1A;
+        --orange-300: rgba(253, 186, 116, 0.85);
+        --orange-400: #FB923C;
+        --bg: #0A0A0A;
+        --bg-alt: #141414;
+        --bg-soft: rgba(249, 115, 22, 0.08);
+        --card-bg: #161616;
         --border: #262626;
+        --border-strong: #333333;
         --text: #E5E7EB;
         --text-heading: #F9FAFB;
-        --text-secondary: #9CA3AF;
-        --text-muted: #6B7280;
-        --warn-bg: rgba(251, 191, 36, 0.12);
+        --text-secondary: #B3B3B3;
+        --text-muted: #8B8B8B;
+        --code-bg: #1F1F1F;
+        --warn-bg: rgba(251, 191, 36, 0.08);
         --warn-text: #FCD34D;
-        --warn-border: rgba(251, 191, 36, 0.35);
+        --warn-border: rgba(251, 191, 36, 0.3);
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
       }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .top { max-width: 720px; margin: 0 auto; padding: 24px 24px 0; }
-    .top a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
-    .top a:hover { color: var(--orange-500); }
-    main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
-    h1 {
+
+    /* Top bar */
+    .topbar {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px 28px 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--orange-500); }
+
+    /* Header */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 28px 96px;
+    }
+    .page-header {
+      margin-bottom: 32px;
+    }
+    .page-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 36px;
+      font-weight: 800;
       color: var(--text-heading);
-      font-size: 32px; font-weight: 700;
-      margin: 0 0 8px; letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      letter-spacing: -0.025em;
     }
-    .subtitle { color: var(--text-secondary); font-size: 16px; margin: 0 0 32px; }
+    .page-title .beta-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+      box-shadow: 0 2px 6px rgba(249, 115, 22, 0.35);
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 16px;
+      margin: 0;
+      max-width: 560px;
+    }
+
+    /* Warn banner */
     .warn {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
       background: var(--warn-bg);
       color: var(--warn-text);
       border: 1px solid var(--warn-border);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 14px 18px;
-      font-size: 14px;
-      margin-bottom: 32px;
+      font-size: 13.5px;
+      margin-bottom: 36px;
     }
+    .warn-icon {
+      flex: 0 0 18px;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+    }
+    .warn p { margin: 0; }
+
+    /* Version card */
     .version-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      margin-bottom: 24px;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
     }
-    .version-tag {
+    .version-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .version-pill {
       display: inline-block;
       background: var(--orange-500);
       color: #fff;
-      font-weight: 600; font-size: 12px;
-      padding: 3px 9px; border-radius: 6px;
-      letter-spacing: 0.04em;
-      vertical-align: middle;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 5px;
+      text-transform: uppercase;
     }
     .version-num {
-      font-size: 24px; font-weight: 700;
+      font-size: 26px;
+      font-weight: 700;
       color: var(--text-heading);
-      margin-left: 8px; vertical-align: middle;
+      letter-spacing: -0.015em;
     }
-    .notes { margin-top: 16px; color: var(--text); font-size: 14.5px; white-space: pre-wrap; }
-    .notes strong { color: var(--orange-600); }
-    .downloads { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+
+    /* Notes (rendered markdown) */
+    .notes {
+      color: var(--text);
+      font-size: 14.5px;
+      margin-top: 18px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    .notes h2, .notes h3 {
+      color: var(--text-heading);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .notes h2 { font-size: 17px; margin: 24px 0 10px; }
+    .notes h3 { font-size: 15.5px; margin: 22px 0 10px; }
+    .notes h2:first-child, .notes h3:first-child { margin-top: 0; }
+    .notes p { margin: 10px 0; }
+    .notes ul {
+      margin: 10px 0;
+      padding-left: 22px;
+    }
+    .notes li {
+      margin: 6px 0;
+      line-height: 1.65;
+    }
+    .notes li::marker { color: var(--orange-400); }
+    .notes strong {
+      color: var(--orange-600);
+      font-weight: 600;
+    }
+    .notes a {
+      color: var(--orange-500);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(249, 115, 22, 0.35);
+    }
+    .notes a:hover { border-bottom-color: var(--orange-500); }
+    .notes hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 18px 0;
+    }
+    .notes code {
+      background: var(--code-bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    /* Download buttons */
+    .downloads-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .downloads {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
     .dl-btn {
-      flex: 1 1 220px;
-      display: flex; flex-direction: column; gap: 4px;
-      padding: 14px 18px;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
       text-decoration: none;
       color: var(--text);
-      transition: border-color 0.15s, transform 0.15s;
+      transition: all 0.18s;
+      position: relative;
+      overflow: hidden;
     }
-    .dl-btn:hover { border-color: var(--orange-500); transform: translateY(-1px); }
-    .dl-btn strong { color: var(--text-heading); font-size: 15px; }
-    .dl-btn small { color: var(--text-muted); font-size: 12.5px; }
-    .empty { text-align: center; padding: 48px 24px; color: var(--text-secondary); }
-    .empty p { margin: 0; font-size: 16px; }
-    .empty a { color: var(--orange-500); text-decoration: none; }
+    .dl-btn:hover {
+      border-color: var(--orange-500);
+      background: var(--bg-soft);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .dl-btn:active { transform: translateY(0); }
+    .dl-btn-icon {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange-500);
+      transition: background 0.18s;
+    }
+    .dl-btn:hover .dl-btn-icon {
+      background: var(--orange-500);
+      color: #fff;
+    }
+    .dl-btn-icon svg { width: 18px; height: 18px; }
+    .dl-btn-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .dl-btn-body strong {
+      color: var(--text-heading);
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+    .dl-btn-body small {
+      color: var(--text-muted);
+      font-size: 12.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Empty / loading / error states */
+    .state {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--text-secondary);
+    }
+    .state-icon {
+      font-size: 32px;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+    .state p { margin: 0; font-size: 15px; }
+    .state .cta {
+      margin-top: 20px;
+    }
+    .state .cta a {
+      color: var(--orange-500);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .state .cta a:hover { text-decoration: underline; }
+
+    /* Footer */
     footer {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 0 24px 40px;
+      padding: 0 28px 56px;
       color: var(--text-muted);
       font-size: 13px;
       text-align: center;
     }
-    footer a { color: inherit; }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--border-strong);
+    }
+    footer a:hover { color: var(--orange-500); border-bottom-color: var(--orange-500); }
   </style>
 </head>
 <body>
-  <div class="top">
-    <a href="../"><span id="navHome">← Back to PasteMemo</span></a>
+  <div class="topbar">
+    <a class="back-link" href="../" id="backLink">← Back to PasteMemo</a>
   </div>
+
   <main>
-    <h1 id="title">PasteMemo Beta</h1>
-    <p class="subtitle" id="subtitle">Try new features before they reach the stable channel.</p>
-    <div class="warn" id="warn">Beta builds may be unstable.</div>
+    <header class="page-header">
+      <h1 class="page-title">
+        <span id="title">PasteMemo</span>
+        <span class="beta-tag">BETA</span>
+      </h1>
+      <p class="subtitle" id="subtitle">Try new features before they reach the stable channel.</p>
+    </header>
+
+    <div class="warn">
+      <svg class="warn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M12 9v3m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p id="warn">Beta builds may be unstable.</p>
+    </div>
+
     <div id="content"></div>
   </main>
+
   <footer>
     <span id="footerText">Stable releases:</span>
     <a href="../">www.lifedever.com/PasteMemo</a>
   </footer>
 
   <script>
+    // ============================================================
+    // i18n
+    // ============================================================
     const I18N = {
       en: {
-        "nav.home": "← Back to PasteMemo",
-        "title": "PasteMemo Beta",
+        "back": "← Back to PasteMemo",
+        "title": "PasteMemo",
         "subtitle": "Try new features before they reach the stable channel.",
         "warn": "Beta builds may be unstable. We recommend testing on a non-critical machine. Auto-update will pick up the next beta if you've enabled the Beta channel in Settings → About.",
         "footer": "Stable releases:",
-        "empty.title": "No beta version available right now.",
-        "empty.cta": "Check the stable release →",
-        "arch.arm": "Apple Silicon",
-        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
-        "arch.intel": "Intel",
-        "arch.intel.detail": "x86_64",
+        "downloads_label": "Download for macOS",
+        "empty": "No beta version available right now.",
+        "empty_cta": "Check the stable release →",
         "loading": "Loading…",
-        "error": "Couldn't load beta info. Please try again later."
+        "error": "Couldn't load beta info. Please try again later.",
+        "arch_arm": "Apple Silicon",
+        "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
+        "arch_intel": "Intel",
+        "arch_intel_detail": "x86_64"
       },
       "zh-Hans": {
-        "nav.home": "← 返回 PasteMemo 首页",
-        "title": "PasteMemo Beta",
+        "back": "← 返回 PasteMemo 首页",
+        "title": "PasteMemo",
         "subtitle": "提前体验即将进入正式版的新功能。",
         "warn": "Beta 版本可能不稳定，建议在非关键机器上测试。如果你在 设置 → 关于 中开启了 Beta 通道，应用会自动更新到下一个 Beta 版本。",
         "footer": "正式版下载：",
-        "empty.title": "当前没有 Beta 版本。",
-        "empty.cta": "查看正式版 →",
-        "arch.arm": "Apple Silicon",
-        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
-        "arch.intel": "Intel",
-        "arch.intel.detail": "x86_64",
+        "downloads_label": "下载到 macOS",
+        "empty": "当前没有 Beta 版本。",
+        "empty_cta": "查看正式版 →",
         "loading": "加载中…",
-        "error": "无法加载 Beta 信息，请稍后再试。"
+        "error": "无法加载 Beta 信息，请稍后再试。",
+        "arch_arm": "Apple Silicon",
+        "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
+        "arch_intel": "Intel",
+        "arch_intel_detail": "x86_64"
       },
       "zh-Hant": {
-        "nav.home": "← 返回 PasteMemo 首頁",
-        "title": "PasteMemo Beta",
+        "back": "← 返回 PasteMemo 首頁",
+        "title": "PasteMemo",
         "subtitle": "提前體驗即將進入正式版的新功能。",
         "warn": "Beta 版本可能不穩定，建議在非關鍵機器上測試。如果你在 設定 → 關於 中開啟了 Beta 通道，應用會自動更新到下一個 Beta 版本。",
         "footer": "正式版下載：",
-        "empty.title": "目前沒有 Beta 版本。",
-        "empty.cta": "查看正式版 →",
-        "arch.arm": "Apple Silicon",
-        "arch.arm.detail": "M1 / M2 / M3 / M4 / M5",
-        "arch.intel": "Intel",
-        "arch.intel.detail": "x86_64",
+        "downloads_label": "下載到 macOS",
+        "empty": "目前沒有 Beta 版本。",
+        "empty_cta": "查看正式版 →",
         "loading": "載入中…",
-        "error": "無法載入 Beta 資訊，請稍後再試。"
+        "error": "無法載入 Beta 資訊，請稍後再試。",
+        "arch_arm": "Apple Silicon",
+        "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
+        "arch_intel": "Intel",
+        "arch_intel_detail": "x86_64"
       }
     };
 
@@ -191,64 +426,180 @@
     const lang = pickLang();
     const t = (key) => (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
     document.documentElement.lang = lang;
-    document.getElementById('navHome').textContent = t('nav.home');
+    document.getElementById('backLink').textContent = t('back');
     document.getElementById('title').textContent = t('title');
     document.getElementById('subtitle').textContent = t('subtitle');
     document.getElementById('warn').textContent = t('warn');
     document.getElementById('footerText').textContent = t('footer');
-    document.title = t('title') + ' — Try New Features Early';
+    document.title = `${t('title')} Beta — Try New Features Early`;
 
+    // ============================================================
+    // Helpers
+    // ============================================================
     function fmtSize(bytes) {
       if (!bytes) return '';
       const mb = bytes / 1048576;
       return mb >= 100 ? mb.toFixed(0) + ' MB' : mb.toFixed(1) + ' MB';
     }
 
-    // Notes use lightweight markdown (**bold**). Build with DOM nodes — never
-    // innerHTML — so a compromised latest.json can't inject script tags.
-    function renderNotes(text, host) {
-      const matches = [...text.matchAll(/\*\*([^*]+)\*\*/g)];
-      let last = 0;
-      for (const m of matches) {
-        if (m.index > last) host.appendChild(document.createTextNode(text.slice(last, m.index)));
-        const strong = document.createElement('strong');
-        strong.textContent = m[1];
-        host.appendChild(strong);
-        last = m.index + m[0].length;
-      }
-      if (last < text.length) host.appendChild(document.createTextNode(text.slice(last)));
+    // Allowlist URL schemes — refuse javascript:, data:, etc. so a compromised
+    // latest.json can't smuggle in a script-loading link.
+    function safeUrl(url) {
+      if (!url) return '#';
+      const trimmed = String(url).trim();
+      return /^(https?:|mailto:|\/|\.\.?\/|#)/i.test(trimmed) ? trimmed : '#';
     }
 
-    function setEmpty(messageKey, ctaKey, ctaHref) {
+    // ============================================================
+    // Markdown renderer (DOM-based, no innerHTML)
+    // Supports: ## h2, ### h3, - list, **bold**, [text](url), --- hr, blank-line paragraphs
+    // ============================================================
+    function tokenizeInline(text) {
+      const out = [];
+      const re = /\*\*([^*]+?)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+      const matches = [...text.matchAll(re)];
+      let i = 0;
+      for (const m of matches) {
+        if (m.index > i) out.push({ kind: 'text', value: text.slice(i, m.index) });
+        if (m[1] !== undefined) {
+          out.push({ kind: 'bold', value: m[1] });
+        } else {
+          out.push({ kind: 'link', text: m[2], url: m[3] });
+        }
+        i = m.index + m[0].length;
+      }
+      if (i < text.length) out.push({ kind: 'text', value: text.slice(i) });
+      return out;
+    }
+
+    function renderInline(text, host) {
+      for (const tok of tokenizeInline(text)) {
+        if (tok.kind === 'text') {
+          host.appendChild(document.createTextNode(tok.value));
+        } else if (tok.kind === 'bold') {
+          const s = document.createElement('strong');
+          s.textContent = tok.value;
+          host.appendChild(s);
+        } else if (tok.kind === 'link') {
+          const a = document.createElement('a');
+          a.href = safeUrl(tok.url);
+          a.textContent = tok.text;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          host.appendChild(a);
+        }
+      }
+    }
+
+    function renderMarkdown(text, host) {
+      const lines = text.split('\n');
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        const trimmed = line.trim();
+        if (!trimmed) { i++; continue; }
+
+        if (trimmed.startsWith('### ')) {
+          const h = document.createElement('h3');
+          renderInline(trimmed.slice(4).trim(), h);
+          host.appendChild(h);
+          i++;
+        } else if (trimmed.startsWith('## ')) {
+          const h = document.createElement('h2');
+          renderInline(trimmed.slice(3).trim(), h);
+          host.appendChild(h);
+          i++;
+        } else if (/^---+$/.test(trimmed)) {
+          host.appendChild(document.createElement('hr'));
+          i++;
+        } else if (line.startsWith('- ')) {
+          const ul = document.createElement('ul');
+          while (i < lines.length && lines[i].startsWith('- ')) {
+            const li = document.createElement('li');
+            renderInline(lines[i].slice(2), li);
+            ul.appendChild(li);
+            i++;
+          }
+          host.appendChild(ul);
+        } else {
+          // Paragraph: collect until blank line or block boundary.
+          const p = document.createElement('p');
+          let buf = line;
+          i++;
+          while (i < lines.length) {
+            const next = lines[i];
+            const nt = next.trim();
+            if (!nt) break;
+            if (next.startsWith('- ') || nt.startsWith('## ') || nt.startsWith('### ') || /^---+$/.test(nt)) break;
+            buf += '\n' + next;
+            i++;
+          }
+          renderInline(buf, p);
+          host.appendChild(p);
+        }
+      }
+    }
+
+    // ============================================================
+    // State renderers
+    // ============================================================
+    const DOWNLOAD_ICON_PATH = 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3';
+
+    function renderState(messageKey, ctaKey, ctaHref) {
       const host = document.getElementById('content');
       host.replaceChildren();
       const wrap = document.createElement('div');
-      wrap.className = 'empty';
+      wrap.className = 'state';
       const p = document.createElement('p');
       p.textContent = t(messageKey);
       wrap.appendChild(p);
       if (ctaKey) {
-        const p2 = document.createElement('p');
-        p2.style.marginTop = '16px';
+        const ctaWrap = document.createElement('div');
+        ctaWrap.className = 'cta';
         const a = document.createElement('a');
         a.href = ctaHref;
         a.textContent = t(ctaKey);
-        p2.appendChild(a);
-        wrap.appendChild(p2);
+        ctaWrap.appendChild(a);
+        wrap.appendChild(ctaWrap);
       }
       host.appendChild(wrap);
+    }
+
+    function makeDownloadIcon() {
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '2');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      const path = document.createElementNS(svgNS, 'path');
+      path.setAttribute('d', DOWNLOAD_ICON_PATH);
+      svg.appendChild(path);
+      return svg;
     }
 
     function archButton(label, detail, url, size) {
       const a = document.createElement('a');
       a.className = 'dl-btn';
-      a.href = url;
-      const s = document.createElement('strong');
-      s.textContent = label;
-      a.appendChild(s);
+      a.href = safeUrl(url);
+
+      const iconWrap = document.createElement('span');
+      iconWrap.className = 'dl-btn-icon';
+      iconWrap.appendChild(makeDownloadIcon());
+      a.appendChild(iconWrap);
+
+      const body = document.createElement('span');
+      body.className = 'dl-btn-body';
+      const strong = document.createElement('strong');
+      strong.textContent = label;
+      body.appendChild(strong);
       const small = document.createElement('small');
       small.textContent = detail + (size ? ' · ' + fmtSize(size) : '');
-      a.appendChild(small);
+      body.appendChild(small);
+      a.appendChild(body);
+
       return a;
     }
 
@@ -259,21 +610,31 @@
       const card = document.createElement('div');
       card.className = 'version-card';
 
-      const tag = document.createElement('span');
-      tag.className = 'version-tag';
-      tag.textContent = 'BETA';
-      card.appendChild(tag);
-
+      // Header: BETA pill + version number
+      const header = document.createElement('div');
+      header.className = 'version-header';
+      const pill = document.createElement('span');
+      pill.className = 'version-pill';
+      pill.textContent = 'Beta';
+      header.appendChild(pill);
       const ver = document.createElement('span');
       ver.className = 'version-num';
       ver.textContent = 'v' + String(beta.version || '');
-      card.appendChild(ver);
+      header.appendChild(ver);
+      card.appendChild(header);
 
+      // Notes (markdown)
       const notes = document.createElement('div');
       notes.className = 'notes';
       const notesText = (lang.startsWith('zh') ? beta.notes_zh : beta.notes_en) || beta.notes_en || beta.notes_zh || '';
-      renderNotes(notesText, notes);
+      renderMarkdown(notesText, notes);
       card.appendChild(notes);
+
+      // Downloads
+      const downloadsLabel = document.createElement('span');
+      downloadsLabel.className = 'downloads-label';
+      downloadsLabel.textContent = t('downloads_label');
+      card.appendChild(downloadsLabel);
 
       const downloads = document.createElement('div');
       downloads.className = 'downloads';
@@ -281,24 +642,27 @@
       const x86 = (beta.checksums && beta.checksums.x86_64) || (beta.downloads && beta.downloads.x86_64);
       const armUrl = typeof arm === 'string' ? arm : arm && arm.url;
       const x86Url = typeof x86 === 'string' ? x86 : x86 && x86.url;
-      if (armUrl) downloads.appendChild(archButton(t('arch.arm'), t('arch.arm.detail'), armUrl, arm && arm.size));
-      if (x86Url) downloads.appendChild(archButton(t('arch.intel'), t('arch.intel.detail'), x86Url, x86 && x86.size));
+      if (armUrl) downloads.appendChild(archButton(t('arch_arm'), t('arch_arm_detail'), armUrl, arm && arm.size));
+      if (x86Url) downloads.appendChild(archButton(t('arch_intel'), t('arch_intel_detail'), x86Url, x86 && x86.size));
       card.appendChild(downloads);
 
       host.appendChild(card);
     }
 
-    setEmpty('loading');
+    // ============================================================
+    // Boot
+    // ============================================================
+    renderState('loading');
     fetch('../latest.json', { cache: 'no-store' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then(data => {
         if (data && data.beta && data.beta.version) {
           renderBeta(data.beta);
         } else {
-          setEmpty('empty.title', 'empty.cta', '../');
+          renderState('empty', 'empty_cta', '../');
         }
       })
-      .catch(() => setEmpty('error'));
+      .catch(() => renderState('error'));
   </script>
 </body>
 </html>
