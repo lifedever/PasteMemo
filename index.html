@@ -945,6 +945,10 @@
   <img src="logo.svg" alt="PasteMemo" class="hero-icon">
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
+  <p style="margin-top:14px;font-size:14px;color:var(--orange-500);">
+    <span data-i18n="hero.aiAgentTagline">✨ New: your clipboard now bridges to AI Agents — Claude Code, Cursor, Codex.</span>
+    <a href="#ai-agent-feature" style="color:var(--orange-500);text-decoration:underline;margin-left:4px;" data-i18n="hero.aiAgentLink">See it →</a>
+  </p>
   <div id="download" class="hero-actions">
     <div class="download-dropdown">
       <button class="btn btn-primary" id="downloadBtn" onclick="toggleDropdown();LA.track('download')">
@@ -1006,7 +1010,18 @@
     <h2 data-i18n="features.title">Everything you need, nothing you don't.</h2>
 
     <!-- Showcase: alternating image + text -->
-    <div class="feature-showcase">
+    <div class="feature-showcase" id="ai-agent-feature">
+      <div class="feature-showcase-img">
+        <img src="help/images/agent-demo.gif" alt="AI Agent Bridge in action">
+      </div>
+      <div class="feature-showcase-text">
+        <span class="feature-showcase-tag" data-i18n="features.showcase.new">New</span>
+        <h3 data-i18n="features.aiAgent.title">AI Agent Bridge</h3>
+        <p data-i18n-html="features.aiAgent.desc">Plug PasteMemo into <strong>Claude Code, Cursor, Codex</strong> and any MCP-compatible client. Agents can search your clipboard history, read past items, and write text back — <strong>one-click install</strong>, sensitive items filtered by default.</p>
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
       <div class="feature-showcase-img">
         <img src="help/images/quick-panel-filter.png" alt="Quick Panel">
       </div>
@@ -1017,7 +1032,7 @@
       </div>
     </div>
 
-    <div class="feature-showcase reverse">
+    <div class="feature-showcase">
       <div class="feature-showcase-img">
         <img src="help/images/automation-rules.png" alt="Automation Rules">
       </div>
@@ -1028,7 +1043,7 @@
       </div>
     </div>
 
-    <div class="feature-showcase">
+    <div class="feature-showcase reverse">
       <div class="feature-showcase-img">
         <img src="help/images/custom-groups.png" alt="Custom Groups">
       </div>
@@ -1036,17 +1051,6 @@
         <span class="feature-showcase-tag" data-i18n="features.showcase.new">New</span>
         <h3 data-i18n="features.groups.title">Custom Groups</h3>
         <p data-i18n-html="features.groups.desc2">Create your own groups to organize clipboard history. <strong>Right-click to assign or let automation rules sort automatically</strong> — colors, code snippets, links, each in its own place.</p>
-      </div>
-    </div>
-
-    <div class="feature-showcase reverse">
-      <div class="feature-showcase-img">
-        <img src="help/images/agent-demo.gif" alt="AI Agent Bridge in action">
-      </div>
-      <div class="feature-showcase-text">
-        <span class="feature-showcase-tag" data-i18n="features.showcase.new">New</span>
-        <h3 data-i18n="features.aiAgent.title">AI Agent Bridge</h3>
-        <p data-i18n-html="features.aiAgent.desc">Plug PasteMemo into <strong>Claude Code, Cursor, Codex</strong> and any MCP-compatible client. Agents can search your clipboard history, read past items, and write text back — <strong>one-click install</strong>, sensitive items filtered by default.</p>
       </div>
     </div>
 
@@ -1146,6 +1150,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Your clipboard,<br><span class="highlight">supercharged.</span>',
     "hero.desc": "A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.",
+    "hero.aiAgentTagline": "✨ New: your clipboard now bridges to AI Agents — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "See it →",
     "hero.download": "Download for macOS",
     "screenshot.placeholder": "App screenshot coming soon",
     "features.title": "Everything you need, nothing you don't.",
@@ -1200,6 +1206,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": '你的剪贴板，<br><span class="highlight">超级加强。</span>',
     "hero.desc": "一款轻量级原生 macOS 剪贴板管理器，常驻菜单栏。自动记录你复制的一切，即搜即用，随处粘贴。",
+    "hero.aiAgentTagline": "✨ 新功能: 你的剪贴板现在能直连 AI Agent — Claude Code、Cursor、Codex。",
+    "hero.aiAgentLink": "看效果 →",
     "hero.download": "下载 macOS 版",
     "screenshot.placeholder": "应用截图即将上线",
     "features.title": "恰到好处，不多不少。",
@@ -1254,6 +1262,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'クリップボードを、<br><span class="highlight">もっとスマートに。</span>',
     "hero.desc": "メニューバーに常駐する軽量なネイティブ macOS クリップボードマネージャー。コピーしたものを自動記録、すぐに検索、どこでもペースト。",
+    "hero.aiAgentTagline": "✨ 新機能: クリップボードが AI Agent に直接接続 — Claude Code、Cursor、Codex。",
+    "hero.aiAgentLink": "詳しく見る →",
     "hero.download": "macOS 版をダウンロード",
     "screenshot.placeholder": "スクリーンショットは近日公開",
     "features.title": "必要なものだけ、過不足なく。",
@@ -1308,6 +1318,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": '당신의 클립보드,<br><span class="highlight">슈퍼 파워.</span>',
     "hero.desc": "메뉴 바에 상주하는 가벼운 네이티브 macOS 클립보드 관리자. 복사한 모든 것을 자동 기록하고, 즉시 검색하고, 어디서든 붙여넣기.",
+    "hero.aiAgentTagline": "✨ 새 기능: 클립보드가 AI Agent에 직접 연결 — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "자세히 보기 →",
     "hero.download": "macOS용 다운로드",
     "screenshot.placeholder": "앱 스크린샷 곧 공개",
     "features.title": "필요한 것만, 딱 그만큼.",
@@ -1362,6 +1374,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Votre presse-papiers,<br><span class="highlight">surpuissant.</span>',
     "hero.desc": "Un gestionnaire de presse-papiers macOS natif et léger, logé dans votre barre de menus. Capturez tout ce que vous copiez, retrouvez-le instantanément, collez-le partout.",
+    "hero.aiAgentTagline": "✨ Nouveau : votre presse-papiers se connecte aux agents IA — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Voir la démo →",
     "hero.download": "Télécharger pour macOS",
     "screenshot.placeholder": "Captures d'écran à venir",
     "features.title": "Tout ce qu'il faut, rien de superflu.",
@@ -1416,6 +1430,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Deine Zwischenablage,<br><span class="highlight">aufgeladen.</span>',
     "hero.desc": "Ein leichtgewichtiger, nativer macOS-Zwischenablage-Manager in deiner Menüleiste. Erfasse alles, was du kopierst, finde es sofort, füge es überall ein.",
+    "hero.aiAgentTagline": "✨ Neu: Deine Zwischenablage verbindet sich direkt mit KI-Agenten — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Demo ansehen →",
     "hero.download": "Für macOS herunterladen",
     "screenshot.placeholder": "App-Screenshots folgen",
     "features.title": "Alles, was du brauchst. Nichts, was du nicht brauchst.",
@@ -1470,6 +1486,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Tu portapapeles,<br><span class="highlight">potenciado.</span>',
     "hero.desc": "Un gestor de portapapeles nativo y ligero para macOS que vive en tu barra de menús. Captura todo lo que copias, encuéntralo al instante, pégalo en cualquier lugar.",
+    "hero.aiAgentTagline": "✨ Nuevo: tu portapapeles se conecta con agentes IA — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Ver demo →",
     "hero.download": "Descargar para macOS",
     "screenshot.placeholder": "Capturas de pantalla próximamente",
     "features.title": "Todo lo que necesitas, nada que no.",
@@ -1524,6 +1542,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": '你的剪貼簿，<br><span class="highlight">超級強化。</span>',
     "hero.desc": "一款輕量級原生 macOS 剪貼簿管理工具，常駐選單列。自動記錄你複製的一切，即搜即用，隨處貼上。",
+    "hero.aiAgentTagline": "✨ 新功能: 你的剪貼簿現在能直連 AI Agent — Claude Code、Cursor、Codex。",
+    "hero.aiAgentLink": "看效果 →",
     "hero.download": "下載 macOS 版",
     "screenshot.placeholder": "應用程式截圖即將上線",
     "features.title": "恰到好處，不多不少。",
@@ -1578,6 +1598,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'I tuoi appunti,<br><span class="highlight">potenziati.</span>',
     "hero.desc": "Un gestore di appunti nativo e leggero per macOS che vive nella barra dei menu. Cattura tutto ciò che copi, trovalo all'istante, incollalo ovunque.",
+    "hero.aiAgentTagline": "✨ Novità: i tuoi appunti si collegano agli agenti IA — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Guarda la demo →",
     "hero.download": "Scarica per macOS",
     "screenshot.placeholder": "Screenshot dell'app in arrivo",
     "features.title": "Tutto ciò che serve, niente di superfluo.",
@@ -1632,6 +1654,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Ваш буфер обмена,<br><span class="highlight">на максимум.</span>',
     "hero.desc": "Лёгкий нативный менеджер буфера обмена для macOS, живущий в строке меню. Сохраняйте всё, что копируете, находите мгновенно, вставляйте куда угодно.",
+    "hero.aiAgentTagline": "✨ Новое: ваш буфер обмена подключается к ИИ-агентам — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Смотреть демо →",
     "hero.download": "Скачать для macOS",
     "screenshot.placeholder": "Скриншоты приложения скоро появятся",
     "features.title": "Всё, что нужно. Ничего лишнего.",
@@ -1686,6 +1710,8 @@ const i18n = {
     "nav.github": "GitHub",
     "hero.title": 'Clipboard Anda,<br><span class="highlight">lebih bertenaga.</span>',
     "hero.desc": "Pengelola clipboard macOS yang ringan dan native, tinggal di menu bar Anda. Tangkap semua yang Anda salin, temukan seketika, tempel di mana saja.",
+    "hero.aiAgentTagline": "✨ Baru: clipboard Anda terhubung ke Agen AI — Claude Code, Cursor, Codex.",
+    "hero.aiAgentLink": "Lihat demo →",
     "hero.download": "Unduh untuk macOS",
     "screenshot.placeholder": "Tangkapan layar aplikasi segera hadir",
     "features.title": "Semua yang Anda butuhkan, tanpa yang tidak perlu.",
