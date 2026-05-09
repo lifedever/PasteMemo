@@ -1,21 +1,21 @@
 {
-  "version": "1.6.8",
-  "notes_zh": "### 隐私与网络\n\n- **新增**「隐私」标签页顶部的「单机模式」总开关：打开后除检查更新外不发起任何网络请求，包括链接元数据抓取、网页/图片预览加载和匿名使用统计\n- **新增**「预览时执行网页脚本」开关（偏好 → 链接与预览），默认开启；关闭后预览面板中的网页将不再执行 JavaScript\n- **修复** 复制大文件直链（dmg/zip/PDF/大图）时会触发完整下载的问题。链接元数据抓取改为 HEAD 预检，非 HTML 内容直接放弃，GET 流式接收硬性上限 50KB\n- **修复** 关闭「网页预览」「图片链接预览」后，PasteMemo 仍会为复制的链接发起后台请求的问题（#46，感谢 @wen-long 的反馈）\n\n### 预览\n\n- **新增**「富文本预览」开关（偏好 → 链接与预览），默认开启；关闭后预览面板将以纯文本渲染带格式的剪贴板内容，不影响粘贴行为——粘贴出去仍带原始格式（#44，感谢 @wudys 的 PR #43）\n\n### 设置\n\n- **调整**「历史记录」从「偏好」标签页搬到「通用」标签页\n- **调整** 链接相关的开关（链接显示原始网址、网页预览、图片链接预览、预览时执行网页脚本、富文本预览）独立成「链接与预览」分组\n\n---",
-  "notes_en": "### Privacy & Networking\n\n- **New** Master \"Offline mode\" toggle at the top of the Privacy tab — when on, PasteMemo makes no network requests beyond update checks (link metadata, web/image previews, and anonymous analytics are all suppressed)\n- **New** \"Run JavaScript in previews\" toggle (Preferences → Links & Previews), defaulting to on; turning it off renders previewed pages without executing any JavaScript\n- **Fix** Copying direct links to large binaries (dmg/zip/PDF/big images) no longer triggers a full-file download. Link metadata fetches now do a HEAD probe first, abort on non-HTML responses, and the GET path streams with a hard 50KB cap\n- **Fix** Disabling \"Web preview\" / \"Image link preview\" now also stops PasteMemo from making background requests for copied links (#46, thanks @wen-long for the report)\n\n### Preview\n\n- **New** \"Rich text preview\" toggle (Preferences → Links & Previews), defaulting to on; turning it off renders rich-text clips as plain text in the preview pane while paste behavior is unchanged — the original formatting still travels with the paste (#44, thanks @wudys for the PR #43)\n\n### Settings\n\n- **Improve** \"History\" moved from the Preferences tab to the bottom of the General tab\n- **Improve** Link-related toggles (raw URL, web preview, image link preview, JavaScript, rich text preview) now live in a dedicated \"Links & Previews\" section",
+  "version": "1.6.9",
+  "notes_zh": "### Beta 测试通道\n\n- **新增** 「参与 Beta 测试」开关（设置 → 关于 → 自动检查更新下方）。开启后会自动检查并接收 Beta 版本，提前体验下一个大版本的新功能；Beta 稳定后会自动升级到正式版\n- **新增** Beta 版本独立下载入口：[www.lifedever.com/PasteMemo/beta](https://www.lifedever.com/PasteMemo/beta)（首页下载区下方也有\"试用 Beta 版本 →\"链接）\n\n### 更新检查\n\n- **修复** 版本号比较在遇到 SemVer pre-release 标识（如 `-beta.N`）时判断错误的问题。旧版本会把 `1.7.0-beta.1` 误判为高于 `1.7.0` 正式版，导致 Beta 用户无法升级到正式版\n- **改进** Beta 版的更新提示弹窗与正式版有清晰的视觉区分（橙色 BETA 标签 + 风险提示）\n- **改进** 后备更新源（GitHub / Gitee Releases API）现在会过滤掉预发布版本，避免极少数情况下被误推送 Beta 版本\n\n---",
+  "notes_en": "### Beta Testing Channel\n\n- **New** \"Join Beta Channel\" toggle (Settings → About, below the auto-update controls). Opt in to automatically check for and receive beta builds, and try new features before they reach the stable channel. When a beta is promoted to stable, you'll be auto-upgraded\n- **New** Dedicated beta download page at [www.lifedever.com/PasteMemo/beta](https://www.lifedever.com/PasteMemo/beta) (also linked from the homepage's download section)\n\n### Update Checking\n\n- **Fix** Version comparison incorrectly handled SemVer pre-release identifiers (e.g. `-beta.N`). Older builds would rank `1.7.0-beta.1` above `1.7.0` stable, blocking beta users from upgrading to the stable release\n- **Improve** Beta update prompts now look visually distinct from stable ones (orange BETA tag + risk warning banner)\n- **Improve** Fallback update sources (GitHub / Gitee Releases API) now filter out pre-releases, preventing the rare case of a beta being suggested to a stable user",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.9-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.9-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-arm64.dmg",
-      "size": 4489168,
-      "sha256": "b676069a7c6b95f76fb3fdb728db78c646147eae5d393265df200a93551d1353"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.9-arm64.dmg",
+      "size": 4725351,
+      "sha256": "7094ad70812b1e23f29b7c9c7b4057a06bccab26148f43795260695055a5156b"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.8-x86_64.dmg",
-      "size": 4625721,
-      "sha256": "6537e0d0d32be0dfb0dc17c9137f1d6ec370d10256dc45de5ebcb593a5fc4230"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.6.9-x86_64.dmg",
+      "size": 4871263,
+      "sha256": "90568f37f4a736c6a4e54058d868d24c7c93a776159b2de3feaf55eca1559b23"
     }
   },
   "beta": {
