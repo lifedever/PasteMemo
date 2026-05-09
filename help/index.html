@@ -712,6 +712,7 @@
       <li><a href="#sound" data-i18n="sidebar.sound">Sound Effects</a></li>
       <li><a href="#relay" data-i18n="sidebar.relay">Relay Mode</a></li>
       <li><a href="#automation" data-i18n="sidebar.automation">Automation</a></li>
+      <li><a href="#ai-agent" data-i18n="sidebar.aiAgent">AI Agent Bridge</a></li>
       <li><a href="#shortcuts" data-i18n="sidebar.shortcuts">Keyboard Shortcuts</a></li>
       <li><a href="#settings" data-i18n="sidebar.settings">Settings</a></li>
     </ul>
@@ -1045,6 +1046,29 @@ brew install --cask pastememo</code></pre>
       <p data-i18n="s13.order">All matching rules are executed in order. Drag rules in the list to adjust priority.</p>
     </section>
 
+    <!-- 14. AI Agent Bridge -->
+    <section id="ai-agent">
+      <hr class="section-divider">
+      <h2 data-i18n="s14.title">AI Agent Bridge</h2>
+
+      <p data-i18n-html="s14.intro">PasteMemo can act as a <strong>clipboard context layer</strong> for AI Agents. Supported clients include <strong>Claude Code, Cursor, Codex, Cline</strong> and any MCP-compatible client. Once installed, agents can search your clipboard history, read past items, and write text back &mdash; all from inside their chat.</p>
+
+      <h3 data-i18n="s14.tools.title">5 MCP Tools</h3>
+      <ul data-i18n-html="s14.tools.body">
+        <li><strong>clipboard_get_current</strong> &mdash; Read the most recent clipboard item.</li>
+        <li><strong>clipboard_search</strong> &mdash; Search history by keyword, content type, source app, or time window.</li>
+        <li><strong>clipboard_get</strong> &mdash; Get full content of a specific item by ID.</li>
+        <li><strong>clipboard_list_recent_apps</strong> &mdash; List apps you recently copied from (for narrowing searches).</li>
+        <li><strong>clipboard_set</strong> &mdash; Write text back to your clipboard so you can paste it manually.</li>
+      </ul>
+
+      <h3 data-i18n="s14.install.title">Setup</h3>
+      <p data-i18n-html="s14.install.body">Open <strong>Settings &gt; AI Agents</strong>. PasteMemo auto-detects which agents are installed on your Mac. <strong>Claude Code</strong> and <strong>Cursor</strong> support one-click install. <strong>Codex</strong> and other agents (Cline, etc.) provide a copy-paste config snippet that you add to their config file manually. After install, restart the agent to pick up the new tools.</p>
+
+      <h3 data-i18n="s14.privacy.title">Privacy</h3>
+      <p data-i18n-html="s14.privacy.body">By default, items marked as <strong>sensitive</strong> (passwords, tokens, etc.) are filtered out before reaching agents. You can also configure a per-source-app blocklist &mdash; clips from those apps will never be exposed. Items written by agents (via <code>clipboard_set</code>) are auto-tagged into the <strong>AI Agent</strong> sidebar category for easy retrieval.</p>
+    </section>
+
     <!-- 9. Keyboard Shortcuts -->
     <section id="shortcuts">
       <hr class="section-divider">
@@ -1158,6 +1182,7 @@ const i18n = {
     "sidebar.richtext": "Rich Text & Plain Text",
     "sidebar.sound": "Sound Effects",
     "sidebar.automation": "Automation",
+    "sidebar.aiAgent": "AI Agent Bridge",
     "sidebar.shortcuts": "Keyboard Shortcuts",
     "sidebar.settings": "Settings",
     "doc.title": "PasteMemo Help",
@@ -1377,6 +1402,14 @@ const i18n = {
     "s13.settings.notify": "<strong>Notify on trigger</strong> &mdash; Show a notification when a rule is triggered.",
     "s13.settings.confirm": "<strong>Confirm before apply</strong> &mdash; Show a confirmation dialog before applying changes.",
     "s13.order": "All matching rules are executed in order. Drag rules in the list to adjust priority.",
+    "s14.title": "AI Agent Bridge",
+    "s14.intro": "PasteMemo can act as a <strong>clipboard context layer</strong> for AI Agents. Supported clients include <strong>Claude Code, Cursor, Codex, Cline</strong> and any MCP-compatible client. Once installed, agents can search your clipboard history, read past items, and write text back &mdash; all from inside their chat.",
+    "s14.tools.title": "5 MCP Tools",
+    "s14.tools.body": "<li><strong>clipboard_get_current</strong> &mdash; Read the most recent clipboard item.</li><li><strong>clipboard_search</strong> &mdash; Search history by keyword, content type, source app, or time window.</li><li><strong>clipboard_get</strong> &mdash; Get full content of a specific item by ID.</li><li><strong>clipboard_list_recent_apps</strong> &mdash; List apps you recently copied from (for narrowing searches).</li><li><strong>clipboard_set</strong> &mdash; Write text back to your clipboard so you can paste it manually.</li>",
+    "s14.install.title": "Setup",
+    "s14.install.body": "Open <strong>Settings &gt; AI Agents</strong>. PasteMemo auto-detects which agents are installed on your Mac. <strong>Claude Code</strong> and <strong>Cursor</strong> support one-click install. <strong>Codex</strong> and other agents (Cline, etc.) provide a copy-paste config snippet that you add to their config file manually. After install, restart the agent to pick up the new tools.",
+    "s14.privacy.title": "Privacy",
+    "s14.privacy.body": "By default, items marked as <strong>sensitive</strong> (passwords, tokens, etc.) are filtered out before reaching agents. You can also configure a per-source-app blocklist &mdash; clips from those apps will never be exposed. Items written by agents (via <code>clipboard_set</code>) are auto-tagged into the <strong>AI Agent</strong> sidebar category for easy retrieval.",
   },
   "zh-Hans": {
     "nav.features": "功能",
@@ -1397,6 +1430,7 @@ const i18n = {
     "sidebar.richtext": "富文本与纯文本",
     "sidebar.sound": "音效",
     "sidebar.automation": "自动化",
+    "sidebar.aiAgent": "AI Agent 集成",
     "sidebar.shortcuts": "快捷键",
     "sidebar.settings": "设置",
     "doc.title": "PasteMemo 帮助",
@@ -1616,6 +1650,14 @@ const i18n = {
     "s13.settings.notify": "<strong>触发时发送通知</strong> —— 规则触发时显示系统通知。",
     "s13.settings.confirm": "<strong>触发时弹窗确认</strong> —— 应用修改前显示确认对话框。",
     "s13.order": "所有匹配的规则将按顺序执行，可拖拽调整优先级。",
+    "s14.title": "AI Agent 集成",
+    "s14.intro": "PasteMemo 可以作为 AI Agent 的<strong>剪贴板上下文层</strong>。支持的客户端包括 <strong>Claude Code、Cursor、Codex、Cline</strong> 等任何 MCP 兼容客户端。安装后,Agent 可以在对话中搜索你的剪贴板历史、读取过往条目、写文本回剪贴板。",
+    "s14.tools.title": "5 个 MCP 工具",
+    "s14.tools.body": "<li><strong>clipboard_get_current</strong> &mdash; 读取当前(最新)剪贴板内容。</li><li><strong>clipboard_search</strong> &mdash; 按关键词、内容类型、源 App、时间窗搜索历史。</li><li><strong>clipboard_get</strong> &mdash; 按 ID 取条目完整内容。</li><li><strong>clipboard_list_recent_apps</strong> &mdash; 列最近有复制的源 App(用于窄化搜索)。</li><li><strong>clipboard_set</strong> &mdash; 把文本写到剪贴板,等你手动粘贴。</li>",
+    "s14.install.title": "安装",
+    "s14.install.body": "打开 <strong>设置 &gt; AI Agents</strong>。PasteMemo 自动检测本机已安装的 Agent。<strong>Claude Code</strong> 和 <strong>Cursor</strong> 支持一键安装;<strong>Codex</strong> 及其他 Agent(Cline 等)提供可复制的配置片段,粘到对应配置文件即可。装完后重启 Agent 让新工具生效。",
+    "s14.privacy.title": "隐私",
+    "s14.privacy.body": "默认情况下,标记为<strong>敏感</strong>的条目(密码、token 等)在到达 Agent 之前已被过滤。你也可以按源 App 设黑名单——这些 App 的剪贴内容永远不暴露。Agent 写入的条目(通过 <code>clipboard_set</code>)会自动归到侧栏 <strong>AI Agent</strong> 分类,方便回查。",
   },
   "zh-Hant": {
     "nav.features": "功能",
@@ -1636,6 +1678,7 @@ const i18n = {
     "sidebar.richtext": "富文本與純文字",
     "sidebar.sound": "音效",
     "sidebar.automation": "自動化",
+    "sidebar.aiAgent": "AI Agent 整合",
     "sidebar.shortcuts": "快速鍵",
     "sidebar.settings": "設定",
     "doc.title": "PasteMemo 說明",
@@ -1849,6 +1892,7 @@ const i18n = {
     "sidebar.richtext": "リッチテキストとプレーンテキスト",
     "sidebar.sound": "サウンドエフェクト",
     "sidebar.automation": "オートメーション",
+    "sidebar.aiAgent": "AI Agent 連携",
     "sidebar.shortcuts": "キーボードショートカット",
     "sidebar.settings": "設定",
     "doc.title": "PasteMemo ヘルプ",
@@ -2062,6 +2106,7 @@ const i18n = {
     "sidebar.richtext": "서식 있는 텍스트와 일반 텍스트",
     "sidebar.sound": "효과음",
     "sidebar.automation": "자동화",
+    "sidebar.aiAgent": "AI Agent 연동",
     "sidebar.shortcuts": "키보드 단축키",
     "sidebar.settings": "설정",
     "doc.title": "PasteMemo 도움말",
@@ -2275,6 +2320,7 @@ const i18n = {
     "sidebar.richtext": "Texte enrichi et texte brut",
     "sidebar.sound": "Effets sonores",
     "sidebar.automation": "Automatisation",
+    "sidebar.aiAgent": "Pont vers les agents IA",
     "sidebar.shortcuts": "Raccourcis clavier",
     "sidebar.settings": "Réglages",
     "doc.title": "Aide PasteMemo",
@@ -2488,6 +2534,7 @@ const i18n = {
     "sidebar.richtext": "Rich Text & Klartext",
     "sidebar.sound": "Soundeffekte",
     "sidebar.automation": "Automatisierung",
+    "sidebar.aiAgent": "KI-Agenten-Brücke",
     "sidebar.shortcuts": "Tastenkürzel",
     "sidebar.settings": "Einstellungen",
     "doc.title": "PasteMemo Hilfe",
@@ -2701,6 +2748,7 @@ const i18n = {
     "sidebar.richtext": "Texto enriquecido y texto plano",
     "sidebar.sound": "Efectos de sonido",
     "sidebar.automation": "Automatización",
+    "sidebar.aiAgent": "Puente para agentes IA",
     "sidebar.shortcuts": "Atajos de teclado",
     "sidebar.settings": "Ajustes",
     "doc.title": "Ayuda de PasteMemo",
@@ -2914,6 +2962,7 @@ const i18n = {
     "sidebar.richtext": "Testo formattato e testo semplice",
     "sidebar.sound": "Effetti sonori",
     "sidebar.automation": "Automazione",
+    "sidebar.aiAgent": "Ponte per agenti IA",
     "sidebar.shortcuts": "Scorciatoie da tastiera",
     "sidebar.settings": "Impostazioni",
     "doc.title": "Aiuto PasteMemo",
@@ -3127,6 +3176,7 @@ const i18n = {
     "sidebar.richtext": "Форматированный и простой текст",
     "sidebar.sound": "Звуковые эффекты",
     "sidebar.automation": "Автоматизация",
+    "sidebar.aiAgent": "Мост к ИИ-агентам",
     "sidebar.shortcuts": "Горячие клавиши",
     "sidebar.settings": "Настройки",
     "doc.title": "Справка PasteMemo",
@@ -3340,6 +3390,7 @@ const i18n = {
     "sidebar.richtext": "Teks Kaya & Teks Biasa",
     "sidebar.sound": "Efek Suara",
     "sidebar.automation": "Otomatisasi",
+    "sidebar.aiAgent": "Jembatan AI Agent",
     "sidebar.shortcuts": "Pintasan Keyboard",
     "sidebar.settings": "Pengaturan",
     "doc.title": "Bantuan PasteMemo",
