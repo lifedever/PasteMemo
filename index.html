@@ -890,6 +890,21 @@
     .changelog-modal .changelog-content p{margin:0 0 10px}
     .changelog-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-secondary);line-height:1;padding:4px}
     .changelog-close:hover{color:var(--text)}
+
+    /* AI Agent NEW badge — 双重动画:外圈 ripple 提示 + 主体轻微 scale 呼吸 */
+    @keyframes ai-new-ripple {
+      0%   { box-shadow: 0 0 0 0 rgba(249,115,22,0.55); }
+      80%  { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+      100% { box-shadow: 0 0 0 0 rgba(249,115,22,0); }
+    }
+    @keyframes ai-new-pulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.08); }
+    }
+    .ai-new-badge {
+      animation: ai-new-ripple 2.2s ease-out infinite, ai-new-pulse 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
   </style>
   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js" async></script>
   <script>window.LA=window.LA||{init(){},track(){}};LA.init({id:"3PObWgvBwMcOfbgJ",ck:"3PObWgvBwMcOfbgJ"})</script>
@@ -946,7 +961,7 @@
   <h1 data-i18n-html="hero.title">Your clipboard,<br><span class="highlight">supercharged.</span></h1>
   <p data-i18n="hero.desc">A lightweight, native macOS clipboard manager that lives in your menu bar. Capture everything you copy, find it instantly, paste it anywhere.</p>
   <a href="#ai-agent-feature" id="aiAgentHeroCTA" style="display:inline-flex;align-items:center;gap:8px;margin:14px 0 32px;color:var(--orange-600);font-size:13.5px;font-weight:500;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-    <span style="background:var(--orange-500);color:#fff;padding:1px 8px;border-radius:4px;font-size:10.5px;font-weight:700;letter-spacing:0.4px;" data-i18n="hero.aiAgentBadge">NEW</span>
+    <span class="ai-new-badge" style="background:var(--orange-500);color:#fff;padding:1px 8px;border-radius:4px;font-size:10.5px;font-weight:700;letter-spacing:0.4px;" data-i18n="hero.aiAgentBadge">NEW</span>
     <span data-i18n="hero.aiAgentTagline" style="text-decoration:underline;text-decoration-color:rgba(249,115,22,0.35);text-underline-offset:3px;">Your clipboard now bridges to Claude Code, Cursor, Codex →</span>
   </a>
   <div id="download" class="hero-actions">
