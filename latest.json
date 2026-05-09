@@ -17,5 +17,26 @@
       "size": 4625721,
       "sha256": "6537e0d0d32be0dfb0dc17c9137f1d6ec370d10256dc45de5ebcb593a5fc4230"
     }
+  },
+  "beta": {
+    "version": "1.7.0-beta.1",
+    "notes_zh": "### AI Agent Bridge（核心新功能）\n\n- **新增** AI Agent 集成：在 设置 → AI Agent 中一键安装到 Claude Code / Cursor / Codex 等 MCP 客户端，让 AI 助手直接读取剪贴板历史、搜索过往内容、写回文本\n- **新增** 详情面板 AI Agent 来源标记：圆点 + 名称显示某个剪贴板项目是哪个 AI 助手写入的\n- **新增** Onboarding 引导：首次启动会介绍 AI Agent 功能（11 种语言）\n- **改进** 历史搜索支持深翻页：AI Agent 可以分批读取大量剪贴板历史，不会丢失上下文\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "### AI Agent Bridge (Major New Feature)\n\n- **New** AI Agent integration: one-click install into Claude Code / Cursor / Codex (or any MCP client) via Settings → AI Agent. Let AI assistants read clipboard history, search past clips, and write text back\n- **New** AI Agent source badge in the detail pane: see which AI assistant wrote a given clipboard item (colored dot + name)\n- **New** Onboarding step introducing the AI Agent feature on first launch (11 languages)\n- **Improve** Deep history pagination: agents can page through large clipboard histories without losing context\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-arm64.dmg",
+        "size": 4722875,
+        "sha256": "c461109051ed0dbc54069b4ffa3ec76ac45b7717a6073b22cbe80c2399c6d478"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-x86_64.dmg",
+        "size": 4871256,
+        "sha256": "fe0f9cbe24c8d09ee7e6bf739a6fe7a932da1bd0ce3a488b10fc105afbc91a64"
+      }
+    }
   }
 }
