@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.0-beta.1",
-    "notes_zh": "### AI Agent Bridge（核心新功能）\n\n- **新增** AI Agent 集成：在 设置 → AI Agent 中一键安装到 Claude Code / Cursor / Codex 等 MCP 客户端，让 AI 助手直接读取剪贴板历史、搜索过往内容、写回文本\n- **新增** 详情面板 AI Agent 来源标记：圆点 + 名称显示某个剪贴板项目是哪个 AI 助手写入的\n- **新增** Onboarding 引导：首次启动会介绍 AI Agent 功能（11 种语言）\n- **改进** 历史搜索支持深翻页：AI Agent 可以分批读取大量剪贴板历史，不会丢失上下文\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
-    "notes_en": "### AI Agent Bridge (Major New Feature)\n\n- **New** AI Agent integration: one-click install into Claude Code / Cursor / Codex (or any MCP client) via Settings → AI Agent. Let AI assistants read clipboard history, search past clips, and write text back\n- **New** AI Agent source badge in the detail pane: see which AI assistant wrote a given clipboard item (colored dot + name)\n- **New** Onboarding step introducing the AI Agent feature on first launch (11 languages)\n- **Improve** Deep history pagination: agents can page through large clipboard histories without losing context\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "version": "1.7.0-beta.2",
+    "notes_zh": "- **修复** 切换状态栏图标\"描边 / 填充\"样式后不立即生效，必须等剪贴板内容变化才更新\n- **修复** 从 Telegram 复制图片粘贴到 Finder 文件夹时，出现 174 字节的\"替身\"文件、无法预览\n- **修复** 从 Telegram 复制 TIFF 图片粘贴到 Finder 后，文件后缀错成 `.png`、Finder 大图标无法显示缩略图 (#48，感谢 @xream 的反馈)\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "- **Fix** Menu bar icon \"outline / filled\" style toggle now takes effect right away, instead of waiting for the next clipboard change\n- **Fix** Pasting an image from Telegram into a Finder folder no longer produces a broken 174-byte \"alias\" file\n- **Fix** TIFF images copied from Telegram now save with the correct extension and preview properly in Finder, instead of landing as a `.png` file Finder couldn't render (#48, thanks @xream for the report)\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-arm64.dmg",
-        "size": 4722875,
-        "sha256": "c461109051ed0dbc54069b4ffa3ec76ac45b7717a6073b22cbe80c2399c6d478"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-arm64.dmg",
+        "size": 4724008,
+        "sha256": "8e933d28f9f59f71e413a874aa21baa29bb294ece6db91e97756372423ea348d"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.1-x86_64.dmg",
-        "size": 4871256,
-        "sha256": "fe0f9cbe24c8d09ee7e6bf739a6fe7a932da1bd0ce3a488b10fc105afbc91a64"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-x86_64.dmg",
+        "size": 4873502,
+        "sha256": "9c28291e8a66862dc17775508536f9e9ff52f9579b9ce8f68a04699cfcb4ab4e"
       }
     }
   }
