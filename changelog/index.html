@@ -314,6 +314,30 @@
       width: 6px; height: 1px; background: var(--text-muted); opacity: 0.55;
     }
     .release-body strong { color: var(--text-heading); font-weight: 600; }
+    /* Release-note category tags: 新增 / 改进 / 修复 (New / Improve / Fix).
+       Renders as a colored pill so the three categories scan-able at a glance. */
+    .release-body strong.tag-new,
+    .release-body strong.tag-improve,
+    .release-body strong.tag-fix {
+      display: inline-block;
+      padding: 1px 8px;
+      margin-right: 4px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.55;
+      color: #FFFFFF;
+      vertical-align: 1px;
+    }
+    .release-body strong.tag-new     { background: #10B981; }
+    .release-body strong.tag-improve { background: #3B82F6; }
+    .release-body strong.tag-fix     { background: #F59E0B; }
+    @media (prefers-color-scheme: dark) {
+      .release-body strong.tag-new     { background: rgba(16, 185, 129, 0.85); }
+      .release-body strong.tag-improve { background: rgba(59, 130, 246, 0.85); }
+      .release-body strong.tag-fix     { background: rgba(245, 158, 11, 0.85); }
+    }
     .release-body a {
       color: var(--orange-600); text-decoration: none;
       border-bottom: 1px solid color-mix(in srgb, var(--orange-500) 35%, transparent);
@@ -716,8 +740,19 @@
         s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, url) => `<img src="${url}" alt="${alt}">`);
         s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, txt, url) => `<a href="${url}" target="_blank" rel="noopener">${txt}</a>`);
         s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
-        s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-        s = s.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+        const tagClass = (label) => {
+          const t = label.trim().toLowerCase();
+          if (t === "新增" || t === "new") return "tag-new";
+          if (t === "改进" || t === "优化" || t === "improve" || t === "improved") return "tag-improve";
+          if (t === "修复" || t === "fix" || t === "fixed") return "tag-fix";
+          return null;
+        };
+        const strongWithTag = (m, txt) => {
+          const cls = tagClass(txt);
+          return cls ? `<strong class="${cls}">${txt}</strong>` : `<strong>${txt}</strong>`;
+        };
+        s = s.replace(/\*\*([^*]+)\*\*/g, strongWithTag);
+        s = s.replace(/__([^_]+)__/g, strongWithTag);
         s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
         s = s.replace(/(^|[\s(])((?:https?:\/\/)[^\s<)]+)/g, (m, pre, url) => `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
         s = s.replace(/(^|[\s(>])@([A-Za-z0-9][A-Za-z0-9-]{0,38})\b/g,

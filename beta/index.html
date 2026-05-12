@@ -202,6 +202,31 @@
       color: var(--orange-600);
       font-weight: 600;
     }
+    /* Release-note category tags: 新增 / 改进 / 修复 (New / Improve / Fix).
+       Renders as a colored pill so the three categories are visually distinct
+       and scan-able when there are many bullets. */
+    .notes strong.tag-new,
+    .notes strong.tag-improve,
+    .notes strong.tag-fix {
+      display: inline-block;
+      padding: 1px 8px;
+      margin-right: 4px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.55;
+      color: #FFFFFF;
+      vertical-align: 1px;
+    }
+    .notes strong.tag-new     { background: #10B981; }
+    .notes strong.tag-improve { background: #3B82F6; }
+    .notes strong.tag-fix     { background: #F59E0B; }
+    @media (prefers-color-scheme: dark) {
+      .notes strong.tag-new     { background: rgba(16, 185, 129, 0.85); }
+      .notes strong.tag-improve { background: rgba(59, 130, 246, 0.85); }
+      .notes strong.tag-fix     { background: rgba(245, 158, 11, 0.85); }
+    }
     .notes a {
       color: var(--orange-500);
       text-decoration: none;
@@ -472,6 +497,17 @@
       return out;
     }
 
+    // Map release-note category labels to a CSS class so the beta page can
+    // render them as colored pills (新增 → green, 改进 → blue, 修复 → orange).
+    // Returns null for other bold spans (those keep the default orange text).
+    function releaseTagClass(text) {
+      const t = (text || '').trim().toLowerCase();
+      if (t === '新增' || t === 'new') return 'tag-new';
+      if (t === '改进' || t === '优化' || t === 'improve' || t === 'improved') return 'tag-improve';
+      if (t === '修复' || t === 'fix' || t === 'fixed') return 'tag-fix';
+      return null;
+    }
+
     function renderInline(text, host) {
       for (const tok of tokenizeInline(text)) {
         if (tok.kind === 'text') {
@@ -479,6 +515,8 @@
         } else if (tok.kind === 'bold') {
           const s = document.createElement('strong');
           s.textContent = tok.value;
+          const cls = releaseTagClass(tok.value);
+          if (cls) s.className = cls;
           host.appendChild(s);
         } else if (tok.kind === 'link') {
           const a = document.createElement('a');
