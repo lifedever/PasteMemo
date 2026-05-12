@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.0-beta.2",
-    "notes_zh": "- **修复** 切换状态栏图标\"描边 / 填充\"样式后不立即生效，必须等剪贴板内容变化才更新\n- **修复** 从 Telegram 复制图片粘贴到 Finder 文件夹时，出现 174 字节的\"替身\"文件、无法预览\n- **修复** 从 Telegram 复制 TIFF 图片粘贴到 Finder 后，文件后缀错成 `.png`、Finder 大图标无法显示缩略图 (#48，感谢 @xream 的反馈)\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
-    "notes_en": "- **Fix** Menu bar icon \"outline / filled\" style toggle now takes effect right away, instead of waiting for the next clipboard change\n- **Fix** Pasting an image from Telegram into a Finder folder no longer produces a broken 174-byte \"alias\" file\n- **Fix** TIFF images copied from Telegram now save with the correct extension and preview properly in Finder, instead of landing as a `.png` file Finder couldn't render (#48, thanks @xream for the report)\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "version": "1.7.0-beta.3",
+    "notes_zh": "- **修复** 当历史保留期（设置 → Pro → 保留期）和「永久保存」分组同时使用时，分组内超过保留期的条目会从列表/快捷面板里\"消失\"，但实际还在数据库里。再次复制相同内容时会被静默并入这条隐藏老条目，导致用户感知为\"这串字复制不上\"\n- **改进** 顶部菜单「文件 → 导入数据」现在有独立的进度面板（解密 → 导入 → 刷新主界面 → 结果摘要），并把解密 / 解析放到后台线程，不再卡住主线程让光标转圈；导入完成的成功提示直接整合在面板里（\"已导入 N 条 / 跳过 M 条 / 新增分组 K 个 / 新增规则 L 个\"），不再额外弹一个 alert\n- **改进** 设置面板的导入流程一致化：解密 / 刷新等无确定百分比的阶段显示滚动动画；导入结束前同步刷新所有打开的窗口，避免主窗口先空一段再\"突然出现数据\"\n- **新增** 列表行显示 AI Agent 来源徽标，多个格式徽章高度对齐\n- **改进** 快捷面板的「AI Agent」过滤标签移到 tab 栏末尾\n- **修复** 详情面板的文件大小现在跟随符号链接，显示链接指向的实际文件大小\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "- **Fix** When a retention period (Settings → Pro → Retention) is configured alongside a \"preserve items\" group, items in that group would silently disappear from the list / quick panel once they aged past the cutoff — yet still live in the database and still win duplicate detection. The next copy of the same content silently merged into the hidden row, so the user saw nothing happen and assumed \"this string won't copy\"\n- **Improve** Top-menu **File → Import** now uses a dedicated progress panel (decrypt → import → refresh main view → result summary). Decrypt + parse run off the main actor so the cursor no longer spins on large files. The success summary (\"Imported N, skipped M, +K groups, +L rules\") is folded into the same panel — no separate alert\n- **Improve** Settings panel import gets the same polish: an indeterminate spinner during non-measurable stages, and a synchronous refresh pass before the sheet dismisses so the main window doesn't flash empty after a large import\n- **New** Clip rows display an AI Agent source badge, with multi-badge heights aligned\n- **Improve** Quick panel's \"AI Agent\" filter tab moved to the end of the tab bar\n- **Fix** File size in the detail panel now follows symlinks, showing the actual target file's size instead of the link's\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.3-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.3-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-arm64.dmg",
-        "size": 4724008,
-        "sha256": "8e933d28f9f59f71e413a874aa21baa29bb294ece6db91e97756372423ea348d"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.3-arm64.dmg",
+        "size": 4761371,
+        "sha256": "9e1c17fde928293261046f5094f1620811c83d7c4c4c588a573ac0134ede9f14"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.2-x86_64.dmg",
-        "size": 4873502,
-        "sha256": "9c28291e8a66862dc17775508536f9e9ff52f9579b9ce8f68a04699cfcb4ab4e"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.0-beta.3-x86_64.dmg",
+        "size": 4907551,
+        "sha256": "e0e4271e8de9ab561817580f2496355aa47dd43ea23d0d4d01f46b3a3a7b22cb"
       }
     }
   }
