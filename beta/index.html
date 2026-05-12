@@ -3,55 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PasteMemo Beta — Try New Features Early</title>
+  <title>PasteMemo Beta — Preview Channel</title>
   <link rel="icon" type="image/svg+xml" href="../logo-2.svg">
   <meta name="robots" content="noindex">
   <style>
     :root {
-      --orange-300: #FDBA74;
       --orange-400: #FB923C;
       --orange-500: #F97316;
       --orange-600: #EA580C;
-      --bg: #FFFFFF;
-      --bg-alt: #FAFAFA;
-      --bg-soft: #FFF7ED;
+      --bg: #FAFAF7;
+      --bg-alt: #FFFFFF;
       --card-bg: #FFFFFF;
+      --card-border: #E7E5E0;
+      --divider: #EFEDE8;
       --border: #E5E7EB;
       --border-strong: #D1D5DB;
-      --text: #1F2937;
+      --text: #2A2A2A;
       --text-heading: #0F172A;
       --text-secondary: #4B5563;
-      --text-muted: #6B7280;
-      --code-bg: #F3F4F6;
-      --warn-bg: #FFFBEB;
+      --text-muted: #707782;
+      --code-bg: #F4F2EE;
+      --warn-bg: #FEF8EB;
       --warn-text: #92400E;
-      --warn-border: #FDE68A;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+      --warn-border: #F59E0B;
+      --shadow-card: 0 1px 2px rgba(28,25,23,0.04), 0 4px 24px rgba(28,25,23,0.05);
+      --shadow-card-hover: 0 1px 2px rgba(28,25,23,0.06), 0 8px 32px rgba(28,25,23,0.07);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --orange-300: rgba(253, 186, 116, 0.85);
-        --orange-400: #FB923C;
-        --bg: #0A0A0A;
+        --bg: #0E0E0E;
         --bg-alt: #141414;
-        --bg-soft: rgba(249, 115, 22, 0.08);
-        --card-bg: #161616;
+        --card-bg: #1A1A1A;
+        --card-border: #2A2925;
+        --divider: #2A2925;
         --border: #262626;
-        --border-strong: #333333;
+        --border-strong: #3A3A3A;
         --text: #E5E7EB;
-        --text-heading: #F9FAFB;
-        --text-secondary: #B3B3B3;
-        --text-muted: #8B8B8B;
-        --code-bg: #1F1F1F;
-        --warn-bg: rgba(251, 191, 36, 0.08);
+        --text-heading: #FAFAFA;
+        --text-secondary: #B8B8B8;
+        --text-muted: #888;
+        --code-bg: #232120;
+        --warn-bg: rgba(245, 158, 11, 0.08);
         --warn-text: #FCD34D;
-        --warn-border: rgba(251, 191, 36, 0.3);
-        --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-        --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+        --warn-border: rgba(245, 158, 11, 0.5);
+        --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.25);
+        --shadow-card-hover: 0 1px 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.35);
       }
     }
     * { box-sizing: border-box; }
+    html { background: var(--bg); }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans", sans-serif;
@@ -62,181 +62,270 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Top bar */
-    .topbar {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 24px 28px 0;
+    /* Top navigation */
+    .topnav {
+      border-bottom: 1px solid var(--card-border);
+      background: var(--bg);
     }
-    .back-link {
+    .topnav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-brand {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      color: var(--text-muted);
+      gap: 10px;
+      color: var(--text-heading);
       text-decoration: none;
-      font-size: 13.5px;
+    }
+    .nav-brand img {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+    }
+    .nav-brand-name {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
       transition: color 0.15s;
     }
-    .back-link:hover { color: var(--orange-500); }
+    .nav-links a:hover { color: var(--text-heading); }
+    .nav-links a.active {
+      color: var(--text-heading);
+      font-weight: 600;
+    }
 
-    /* Header */
+    /* Hero */
     main {
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 32px 28px 96px;
+      padding: 36px 32px 96px;
     }
-    .page-header {
-      margin-bottom: 32px;
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 16px;
     }
-    .page-title {
-      display: inline-flex;
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex: 0 0 auto;
+      box-shadow: 0 4px 16px rgba(249, 115, 22, 0.18);
+    }
+    .hero-text { min-width: 0; }
+    .hero-title {
+      display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--text-heading);
-      margin: 0 0 10px;
-      letter-spacing: -0.025em;
-    }
-    .page-title .beta-tag {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
-      color: #fff;
-      font-size: 12px;
+      font-size: 32px;
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.06em;
-      vertical-align: middle;
-      box-shadow: 0 2px 6px rgba(249, 115, 22, 0.35);
+      letter-spacing: -0.025em;
+      color: var(--text-heading);
+      margin: 0 0 6px;
+      line-height: 1.1;
+      flex-wrap: wrap;
     }
-    .subtitle {
+    .beta-tag {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 9px;
+      background: var(--orange-500);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      border-radius: 4px;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .hero-subtitle {
       color: var(--text-secondary);
-      font-size: 16px;
+      font-size: 15.5px;
       margin: 0;
       max-width: 560px;
     }
 
-    /* Warn banner */
+    /* Warn banner — subtle tinted card with left accent */
     .warn {
       display: flex;
       gap: 12px;
       align-items: flex-start;
       background: var(--warn-bg);
       color: var(--warn-text);
-      border: 1px solid var(--warn-border);
-      border-radius: 12px;
-      padding: 14px 18px;
+      border: 1px solid color-mix(in srgb, var(--warn-border) 35%, transparent);
+      border-left: 3px solid var(--warn-border);
+      border-radius: 8px;
+      padding: 12px 16px;
       font-size: 13.5px;
-      margin-bottom: 36px;
+      margin: 28px 0 36px;
     }
     .warn-icon {
       flex: 0 0 18px;
       width: 18px;
       height: 18px;
-      margin-top: 1px;
+      margin-top: 2px;
     }
-    .warn p { margin: 0; }
+    .warn p { margin: 0; line-height: 1.6; }
 
-    /* Version card */
-    .version-card {
+    /* Release card */
+    .release-card {
       background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
     }
-    .version-header {
+    .release-card-meta {
+      padding: 22px 28px 18px;
       display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 4px;
+      align-items: center;
+      gap: 14px;
       flex-wrap: wrap;
     }
-    .version-pill {
-      display: inline-block;
-      background: var(--orange-500);
-      color: #fff;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      padding: 3px 9px;
-      border-radius: 5px;
-      text-transform: uppercase;
-    }
-    .version-num {
-      font-size: 26px;
+    .release-version {
+      font-size: 22px;
       font-weight: 700;
       color: var(--text-heading);
       letter-spacing: -0.015em;
+      font-variant-numeric: tabular-nums;
+    }
+    .release-channel {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 9px;
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--orange-600);
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    @media (prefers-color-scheme: dark) {
+      .release-channel { color: var(--orange-400); background: rgba(249, 115, 22, 0.15); }
+    }
+    .release-channel::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
     }
 
-    /* Notes (rendered markdown) */
+    .release-section {
+      padding: 8px 28px 28px;
+    }
+    .release-section + .release-section { border-top: 1px solid var(--divider); padding-top: 24px; }
+    .section-title {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Notes content */
     .notes {
       color: var(--text);
       font-size: 14.5px;
-      margin-top: 18px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 28px;
     }
     .notes h2, .notes h3 {
       color: var(--text-heading);
       font-weight: 600;
       letter-spacing: -0.01em;
     }
-    .notes h2 { font-size: 17px; margin: 24px 0 10px; }
-    .notes h3 { font-size: 15.5px; margin: 22px 0 10px; }
+    .notes h2 { font-size: 16px; margin: 24px 0 10px; }
+    .notes h3 { font-size: 14.5px; margin: 20px 0 8px; }
     .notes h2:first-child, .notes h3:first-child { margin-top: 0; }
     .notes p { margin: 10px 0; }
     .notes ul {
-      margin: 10px 0;
-      padding-left: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
     .notes li {
-      margin: 6px 0;
-      line-height: 1.65;
+      position: relative;
+      margin: 12px 0;
+      padding-left: 18px;
+      line-height: 1.72;
     }
-    .notes li::marker { color: var(--orange-400); }
+    .notes li:first-child { margin-top: 4px; }
+    .notes li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      opacity: 0.45;
+    }
     .notes strong {
-      color: var(--orange-600);
+      color: var(--text-heading);
       font-weight: 600;
     }
-    /* Release-note category tags: 新增 / 改进 / 修复 (New / Improve / Fix).
-       Renders as a colored pill so the three categories are visually distinct
-       and scan-able when there are many bullets. */
+
+    /* Category tag pills */
     .notes strong.tag-new,
     .notes strong.tag-improve,
     .notes strong.tag-fix {
       display: inline-block;
-      padding: 1px 8px;
-      margin-right: 4px;
+      min-width: 38px;
+      text-align: center;
+      padding: 2px 8px;
+      margin-right: 8px;
       border-radius: 4px;
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      line-height: 1.55;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.45;
       color: #FFFFFF;
       vertical-align: 1px;
     }
-    .notes strong.tag-new     { background: #10B981; }
-    .notes strong.tag-improve { background: #3B82F6; }
-    .notes strong.tag-fix     { background: #F59E0B; }
+    .notes strong.tag-new     { background: #059669; }
+    .notes strong.tag-improve { background: #2563EB; }
+    .notes strong.tag-fix     { background: #D97706; }
     @media (prefers-color-scheme: dark) {
-      .notes strong.tag-new     { background: rgba(16, 185, 129, 0.85); }
-      .notes strong.tag-improve { background: rgba(59, 130, 246, 0.85); }
-      .notes strong.tag-fix     { background: rgba(245, 158, 11, 0.85); }
+      .notes strong.tag-new     { background: #10B981; }
+      .notes strong.tag-improve { background: #3B82F6; }
+      .notes strong.tag-fix     { background: #F59E0B; }
     }
+
     .notes a {
-      color: var(--orange-500);
+      color: var(--orange-600);
       text-decoration: none;
-      border-bottom: 1px solid rgba(249, 115, 22, 0.35);
+      border-bottom: 1px solid color-mix(in srgb, var(--orange-500) 35%, transparent);
+      transition: border-color 0.15s;
     }
     .notes a:hover { border-bottom-color: var(--orange-500); }
+    @media (prefers-color-scheme: dark) {
+      .notes a { color: var(--orange-400); }
+    }
     .notes hr {
       border: none;
-      border-top: 1px solid var(--border);
-      margin: 18px 0;
+      border-top: 1px solid var(--divider);
+      margin: 20px 0;
     }
     .notes code {
       background: var(--code-bg);
@@ -246,134 +335,200 @@
       font-family: "SF Mono", Menlo, Consolas, monospace;
     }
 
-    /* Download buttons */
-    .downloads-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
+    /* Downloads */
     .downloads {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
     .dl-btn {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 16px 18px;
-      background: var(--card-bg);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
+      padding: 14px 16px;
+      background: var(--bg-alt);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
       text-decoration: none;
       color: var(--text);
-      transition: all 0.18s;
-      position: relative;
-      overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
     }
     .dl-btn:hover {
       border-color: var(--orange-500);
-      background: var(--bg-soft);
+      box-shadow: 0 2px 10px rgba(249, 115, 22, 0.12);
       transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
     }
-    .dl-btn:active { transform: translateY(0); }
+    .dl-btn:active { transform: translateY(0); box-shadow: none; }
     .dl-btn-icon {
-      flex: 0 0 38px;
-      width: 38px;
-      height: 38px;
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
       border-radius: 9px;
-      background: var(--bg-soft);
+      background: rgba(249, 115, 22, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange-500);
-      transition: background 0.18s;
+      color: var(--orange-600);
+      transition: background 0.15s, color 0.15s;
+    }
+    @media (prefers-color-scheme: dark) {
+      .dl-btn-icon { background: rgba(249, 115, 22, 0.12); color: var(--orange-400); }
     }
     .dl-btn:hover .dl-btn-icon {
       background: var(--orange-500);
-      color: #fff;
+      color: #FFFFFF;
     }
-    .dl-btn-icon svg { width: 18px; height: 18px; }
+    .dl-btn-icon svg { width: 18px; height: 18px; display: block; }
     .dl-btn-body {
       display: flex;
       flex-direction: column;
       gap: 2px;
       min-width: 0;
+      flex: 1;
     }
-    .dl-btn-body strong {
+    .dl-btn-title {
       color: var(--text-heading);
       font-size: 14.5px;
       font-weight: 600;
     }
-    .dl-btn-body small {
+    .dl-btn-meta {
       color: var(--text-muted);
-      font-size: 12.5px;
+      font-size: 12px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .dl-btn-size {
+      flex: 0 0 auto;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
 
-    /* Empty / loading / error states */
+    /* States */
     .state {
       text-align: center;
       padding: 64px 24px;
       color: var(--text-secondary);
     }
-    .state-icon {
-      font-size: 32px;
-      opacity: 0.5;
-      margin-bottom: 8px;
-    }
-    .state p { margin: 0; font-size: 15px; }
-    .state .cta {
-      margin-top: 20px;
-    }
+    .state p { margin: 0; font-size: 14.5px; }
+    .state .cta { margin-top: 20px; }
     .state .cta a {
-      color: var(--orange-500);
+      color: var(--orange-600);
       text-decoration: none;
       font-weight: 500;
+      border-bottom: 1px solid color-mix(in srgb, var(--orange-500) 35%, transparent);
+      padding-bottom: 1px;
     }
-    .state .cta a:hover { text-decoration: underline; }
+    .state .cta a:hover { border-bottom-color: var(--orange-500); }
 
     /* Footer */
     footer {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 28px 56px;
-      color: var(--text-muted);
-      font-size: 13px;
-      text-align: center;
+      border-top: 1px solid var(--card-border);
+      background: var(--bg);
+      margin-top: 40px;
     }
-    footer a {
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 40px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: var(--text-secondary);
       text-decoration: none;
-      border-bottom: 1px dotted var(--border-strong);
+      font-size: 13.5px;
     }
-    footer a:hover { color: var(--orange-500); border-bottom-color: var(--orange-500); }
+    .footer-brand img {
+      width: 22px;
+      height: 22px;
+      border-radius: 5px;
+      opacity: 0.85;
+    }
+    .footer-brand:hover { color: var(--text-heading); }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text-heading); }
+    .footer-meta {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 12px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 40px 28px;
+    }
+
+    @media (max-width: 680px) {
+      .topnav-inner { padding: 14px 20px; gap: 12px; }
+      .nav-brand-name { font-size: 16px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 13px; }
+      main { padding: 28px 20px 56px; }
+      .footer-inner { padding: 28px 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-meta { padding: 0 20px 28px; }
+      .hero { flex-direction: row; gap: 14px; align-items: center; }
+      .hero-icon { width: 52px; height: 52px; border-radius: 12px; }
+      .hero-title { font-size: 26px; }
+      .release-card-meta { padding: 18px 20px 14px; }
+      .release-section { padding: 8px 20px 22px; }
+      .release-section + .release-section { padding-top: 20px; }
+      .downloads { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <a class="back-link" href="../" id="backLink">← Back to PasteMemo</a>
-  </div>
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a class="nav-brand" href="../">
+        <img src="../logo-2.svg" alt="PasteMemo">
+        <span class="nav-brand-name">PasteMemo</span>
+      </a>
+      <div class="nav-links">
+        <a href="../" id="navStable">Stable</a>
+        <a class="active" href="./" id="navBeta">Beta</a>
+        <a href="../changelog/" id="navChangelog">Changelog</a>
+        <a href="https://www.lifedever.com" id="navSponsor" target="_blank" rel="noopener">Sponsor</a>
+        <a href="https://github.com/lifedever/PasteMemo-app" id="navGithub" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
 
   <main>
-    <header class="page-header">
-      <h1 class="page-title">
-        <span id="title">PasteMemo</span>
-        <span class="beta-tag">BETA</span>
-      </h1>
-      <p class="subtitle" id="subtitle">Try new features before they reach the stable channel.</p>
-    </header>
+    <section class="hero">
+      <img class="hero-icon" src="../logo-2.svg" alt="PasteMemo">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span id="title">PasteMemo</span>
+          <span class="beta-tag">Beta</span>
+        </h1>
+        <p class="hero-subtitle" id="subtitle">Preview channel — features in active development before they ship to stable.</p>
+      </div>
+    </section>
 
     <div class="warn">
-      <svg class="warn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-        <path d="M12 9v3m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="warn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12.5"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
       </svg>
       <p id="warn">Beta builds may be unstable.</p>
     </div>
@@ -382,8 +537,20 @@
   </main>
 
   <footer>
-    <span id="footerText">Stable releases:</span>
-    <a href="../">www.lifedever.com/PasteMemo</a>
+    <div class="footer-inner">
+      <a class="footer-brand" href="../">
+        <img src="../logo-2.svg" alt="">
+        <span id="footerBrand">PasteMemo</span>
+      </a>
+      <nav class="footer-links">
+        <a href="../" id="footerStable">Stable</a>
+        <a href="../changelog/" id="footerChangelog">Changelog</a>
+        <a href="../help/" id="footerHelp">Help</a>
+        <a href="https://github.com/lifedever/PasteMemo-app/issues" id="footerFeedback" target="_blank" rel="noopener">Feedback</a>
+        <a href="https://github.com/lifedever/PasteMemo-app" id="footerGithub" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+    <div class="footer-meta" id="footerMeta">PasteMemo is a free, open-source clipboard manager for macOS.</div>
   </footer>
 
   <script>
@@ -392,14 +559,25 @@
     // ============================================================
     const I18N = {
       en: {
-        "back": "← Back to PasteMemo",
+        "nav_stable": "Stable",
+        "nav_beta": "Beta",
+        "nav_changelog": "Changelog",
+        "nav_sponsor": "Sponsor",
+        "nav_github": "GitHub",
+        "footer_stable": "Stable",
+        "footer_changelog": "Changelog",
+        "footer_help": "Help",
+        "footer_feedback": "Feedback",
+        "footer_github": "GitHub",
+        "footer_meta": "PasteMemo is a free, open-source clipboard manager for macOS.",
         "title": "PasteMemo",
-        "subtitle": "Try new features before they reach the stable channel.",
-        "warn": "Beta builds may be unstable. We recommend testing on a non-critical machine. Auto-update will pick up the next beta if you've enabled the Beta channel in Settings → About.",
-        "footer": "Stable releases:",
-        "downloads_label": "Download for macOS",
-        "empty": "No beta version available right now.",
-        "empty_cta": "Check the stable release →",
+        "subtitle": "Preview channel — features in active development before they ship to stable.",
+        "warn": "Beta builds are pre-release software. Test on a non-critical machine. Auto-update picks up the next beta when the Beta channel is enabled in Settings → About.",
+        "section_notes": "What's New",
+        "section_downloads": "Downloads",
+        "channel_beta": "Beta channel",
+        "empty": "No beta release is published right now.",
+        "empty_cta": "View the stable release →",
         "loading": "Loading…",
         "error": "Couldn't load beta info. Please try again later.",
         "arch_arm": "Apple Silicon",
@@ -408,13 +586,24 @@
         "arch_intel_detail": "x86_64"
       },
       "zh-Hans": {
-        "back": "← 返回 PasteMemo 首页",
+        "nav_stable": "正式版",
+        "nav_beta": "Beta",
+        "nav_changelog": "更新日志",
+        "nav_sponsor": "捐助",
+        "nav_github": "GitHub",
+        "footer_stable": "正式版",
+        "footer_changelog": "更新日志",
+        "footer_help": "帮助",
+        "footer_feedback": "问题反馈",
+        "footer_github": "GitHub",
+        "footer_meta": "PasteMemo 是免费开源的 macOS 剪贴板管理工具。",
         "title": "PasteMemo",
-        "subtitle": "提前体验即将进入正式版的新功能。",
-        "warn": "Beta 版本可能不稳定，建议在非关键机器上测试。如果你在 设置 → 关于 中开启了 Beta 通道，应用会自动更新到下一个 Beta 版本。",
-        "footer": "正式版下载：",
-        "downloads_label": "下载到 macOS",
-        "empty": "当前没有 Beta 版本。",
+        "subtitle": "预览通道 — 提前体验即将进入正式版的功能。",
+        "warn": "Beta 是预发布版本，建议在非关键机器上测试。在 设置 → 关于 中开启 Beta 通道后，应用会自动接收下一个 Beta 版本。",
+        "section_notes": "更新内容",
+        "section_downloads": "下载",
+        "channel_beta": "Beta 通道",
+        "empty": "当前没有可用的 Beta 版本。",
         "empty_cta": "查看正式版 →",
         "loading": "加载中…",
         "error": "无法加载 Beta 信息，请稍后再试。",
@@ -424,13 +613,24 @@
         "arch_intel_detail": "x86_64"
       },
       "zh-Hant": {
-        "back": "← 返回 PasteMemo 首頁",
+        "nav_stable": "正式版",
+        "nav_beta": "Beta",
+        "nav_changelog": "更新日誌",
+        "nav_sponsor": "贊助",
+        "nav_github": "GitHub",
+        "footer_stable": "正式版",
+        "footer_changelog": "更新日誌",
+        "footer_help": "說明",
+        "footer_feedback": "問題回饋",
+        "footer_github": "GitHub",
+        "footer_meta": "PasteMemo 是免費開源的 macOS 剪貼簿管理工具。",
         "title": "PasteMemo",
-        "subtitle": "提前體驗即將進入正式版的新功能。",
-        "warn": "Beta 版本可能不穩定，建議在非關鍵機器上測試。如果你在 設定 → 關於 中開啟了 Beta 通道，應用會自動更新到下一個 Beta 版本。",
-        "footer": "正式版下載：",
-        "downloads_label": "下載到 macOS",
-        "empty": "目前沒有 Beta 版本。",
+        "subtitle": "預覽通道 — 提前體驗即將進入正式版的功能。",
+        "warn": "Beta 是預發行版本，建議在非關鍵機器上測試。在 設定 → 關於 中開啟 Beta 通道後，應用會自動接收下一個 Beta 版本。",
+        "section_notes": "更新內容",
+        "section_downloads": "下載",
+        "channel_beta": "Beta 通道",
+        "empty": "目前沒有可用的 Beta 版本。",
         "empty_cta": "查看正式版 →",
         "loading": "載入中…",
         "error": "無法載入 Beta 資訊，請稍後再試。",
@@ -450,13 +650,27 @@
     }
     const lang = pickLang();
     const t = (key) => (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+    const setText = (id, key) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = t(key);
+    };
     document.documentElement.lang = lang;
-    document.getElementById('backLink').textContent = t('back');
-    document.getElementById('title').textContent = t('title');
-    document.getElementById('subtitle').textContent = t('subtitle');
-    document.getElementById('warn').textContent = t('warn');
-    document.getElementById('footerText').textContent = t('footer');
-    document.title = `${t('title')} Beta — Try New Features Early`;
+    setText('navStable', 'nav_stable');
+    setText('navBeta', 'nav_beta');
+    setText('navChangelog', 'nav_changelog');
+    setText('navSponsor', 'nav_sponsor');
+    setText('navGithub', 'nav_github');
+    setText('footerStable', 'footer_stable');
+    setText('footerChangelog', 'footer_changelog');
+    setText('footerHelp', 'footer_help');
+    setText('footerFeedback', 'footer_feedback');
+    setText('footerGithub', 'footer_github');
+    setText('footerBrand', 'title');
+    setText('footerMeta', 'footer_meta');
+    setText('title', 'title');
+    setText('subtitle', 'subtitle');
+    setText('warn', 'warn');
+    document.title = `${t('title')} Beta — Preview Channel`;
 
     // ============================================================
     // Helpers
@@ -467,8 +681,6 @@
       return mb >= 100 ? mb.toFixed(0) + ' MB' : mb.toFixed(1) + ' MB';
     }
 
-    // Allowlist URL schemes — refuse javascript:, data:, etc. so a compromised
-    // latest.json can't smuggle in a script-loading link.
     function safeUrl(url) {
       if (!url) return '#';
       const trimmed = String(url).trim();
@@ -477,7 +689,6 @@
 
     // ============================================================
     // Markdown renderer (DOM-based, no innerHTML)
-    // Supports: ## h2, ### h3, - list, **bold**, [text](url), --- hr, blank-line paragraphs
     // ============================================================
     function tokenizeInline(text) {
       const out = [];
@@ -497,9 +708,6 @@
       return out;
     }
 
-    // Map release-note category labels to a CSS class so the beta page can
-    // render them as colored pills (新增 → green, 改进 → blue, 修复 → orange).
-    // Returns null for other bold spans (those keep the default orange text).
     function releaseTagClass(text) {
       const t = (text || '').trim().toLowerCase();
       if (t === '新增' || t === 'new') return 'tag-new';
@@ -560,7 +768,6 @@
           }
           host.appendChild(ul);
         } else {
-          // Paragraph: collect until blank line or block boundary.
           const p = document.createElement('p');
           let buf = line;
           i++;
@@ -576,6 +783,25 @@
           host.appendChild(p);
         }
       }
+    }
+
+    // ============================================================
+    // Strip the trailing "⚠️ 这是 Beta 测试版本..." warning paragraph and
+    // any leftover horizontal rule from the notes body — the same warning
+    // already lives in the page-level banner up top, so showing it twice
+    // is redundant noise.
+    // ============================================================
+    function stripBetaWarning(text) {
+      if (!text) return text;
+      const lines = text.split('\n');
+      let cut = lines.length;
+      for (let i = 0; i < lines.length; i++) {
+        if (/^⚠️/.test(lines[i].trim())) { cut = i; break; }
+      }
+      while (cut > 0 && !lines[cut - 1].trim()) cut--;
+      while (cut > 0 && /^---+$/.test(lines[cut - 1].trim())) cut--;
+      while (cut > 0 && !lines[cut - 1].trim()) cut--;
+      return lines.slice(0, cut).join('\n');
     }
 
     // ============================================================
@@ -630,13 +856,22 @@
 
       const body = document.createElement('span');
       body.className = 'dl-btn-body';
-      const strong = document.createElement('strong');
-      strong.textContent = label;
-      body.appendChild(strong);
-      const small = document.createElement('small');
-      small.textContent = detail + (size ? ' · ' + fmtSize(size) : '');
-      body.appendChild(small);
+      const title = document.createElement('span');
+      title.className = 'dl-btn-title';
+      title.textContent = label;
+      body.appendChild(title);
+      const meta = document.createElement('span');
+      meta.className = 'dl-btn-meta';
+      meta.textContent = detail;
+      body.appendChild(meta);
       a.appendChild(body);
+
+      if (size) {
+        const sizeEl = document.createElement('span');
+        sizeEl.className = 'dl-btn-size';
+        sizeEl.textContent = fmtSize(size);
+        a.appendChild(sizeEl);
+      }
 
       return a;
     }
@@ -645,35 +880,43 @@
       const host = document.getElementById('content');
       host.replaceChildren();
 
-      const card = document.createElement('div');
-      card.className = 'version-card';
+      const card = document.createElement('article');
+      card.className = 'release-card';
 
-      // Header: BETA pill + version number
-      const header = document.createElement('div');
-      header.className = 'version-header';
-      const pill = document.createElement('span');
-      pill.className = 'version-pill';
-      pill.textContent = 'Beta';
-      header.appendChild(pill);
+      // Header strip
+      const meta = document.createElement('div');
+      meta.className = 'release-card-meta';
       const ver = document.createElement('span');
-      ver.className = 'version-num';
+      ver.className = 'release-version';
       ver.textContent = 'v' + String(beta.version || '');
-      header.appendChild(ver);
-      card.appendChild(header);
+      meta.appendChild(ver);
+      const channel = document.createElement('span');
+      channel.className = 'release-channel';
+      channel.textContent = t('channel_beta');
+      meta.appendChild(channel);
+      card.appendChild(meta);
 
-      // Notes (markdown)
+      // What's New section
+      const notesSection = document.createElement('section');
+      notesSection.className = 'release-section';
+      const notesLabel = document.createElement('span');
+      notesLabel.className = 'section-title';
+      notesLabel.textContent = t('section_notes');
+      notesSection.appendChild(notesLabel);
       const notes = document.createElement('div');
       notes.className = 'notes';
-      const notesText = (lang.startsWith('zh') ? beta.notes_zh : beta.notes_en) || beta.notes_en || beta.notes_zh || '';
-      renderMarkdown(notesText, notes);
-      card.appendChild(notes);
+      const rawNotes = (lang.startsWith('zh') ? beta.notes_zh : beta.notes_en) || beta.notes_en || beta.notes_zh || '';
+      renderMarkdown(stripBetaWarning(rawNotes), notes);
+      notesSection.appendChild(notes);
+      card.appendChild(notesSection);
 
-      // Downloads
-      const downloadsLabel = document.createElement('span');
-      downloadsLabel.className = 'downloads-label';
-      downloadsLabel.textContent = t('downloads_label');
-      card.appendChild(downloadsLabel);
-
+      // Downloads section
+      const dlSection = document.createElement('section');
+      dlSection.className = 'release-section';
+      const dlLabel = document.createElement('span');
+      dlLabel.className = 'section-title';
+      dlLabel.textContent = t('section_downloads');
+      dlSection.appendChild(dlLabel);
       const downloads = document.createElement('div');
       downloads.className = 'downloads';
       const arm = (beta.checksums && beta.checksums.arm64) || (beta.downloads && beta.downloads.arm64);
@@ -682,7 +925,8 @@
       const x86Url = typeof x86 === 'string' ? x86 : x86 && x86.url;
       if (armUrl) downloads.appendChild(archButton(t('arch_arm'), t('arch_arm_detail'), armUrl, arm && arm.size));
       if (x86Url) downloads.appendChild(archButton(t('arch_intel'), t('arch_intel_detail'), x86Url, x86 && x86.size));
-      card.appendChild(downloads);
+      dlSection.appendChild(downloads);
+      card.appendChild(dlSection);
 
       host.appendChild(card);
     }
