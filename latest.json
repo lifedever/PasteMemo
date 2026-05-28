@@ -1,21 +1,21 @@
 {
-  "version": "1.7.1",
-  "notes_zh": "- **新增** 图片预览缩放：长图、大图可在面板内按宽度自适应或 1:1 原始大小查看，鼠标移到预览区右下角会浮现工具栏（切换适应/原始、在\"预览\"中打开）（#55，感谢 @bingoohuang 的贡献）\n- **新增** 自定义快捷键支持 Esc 与修饰键组合（例如 ⌘+Esc）（#51，感谢 @yguangbxiu 的反馈）",
-  "notes_en": "- **New** Zoomable image preview: long or large images can be viewed at fit-to-window or 1:1 actual size; a toolbar (toggle fit/actual, open in Preview) appears on hover in the bottom-right of the preview area (#55, thanks @bingoohuang for the contribution)\n- **New** Allow Esc as part of custom shortcuts when combined with modifier keys (e.g. ⌘+Esc) (#51, thanks @yguangbxiu for the report)",
+  "version": "1.7.2",
+  "notes_zh": "- **新增** 搜索支持空格拆分（多关键词并集匹配）：输入 `aaa bbb` 会找同时包含两词的条目，CJK 也适用（如 `学习 笔记`）\n- **新增** 纯文本预览中匹配的关键词高亮显示（多关键词都会高亮，CJK / 英文均支持）\n- **优化** 搜索输入响应更跟手（防抖时间从 200ms 缩短到 80ms）\n- **优化** 大体量历史下粘贴更流畅（过期清理查询从全表扫描改为索引层过滤）\n- **修复** 搜索时右上角数量徽章未跟随过滤结果更新（之前一直显示历史总数）",
+  "notes_en": "- **New** Multi-keyword search via space (AND semantics): typing `aaa bbb` matches items containing both terms — works for CJK too (e.g. `学习 笔记`)\n- **New** Highlight matched terms in plain-text preview (all keywords are highlighted; works for both ASCII and CJK)\n- **Improve** Snappier search input (debounce reduced from 200ms to 80ms)\n- **Improve** Smoother paste on large clipboard histories (expiration scan now uses SQL-level filtering instead of a full table fetch)\n- **Fix** Count badge in the top-right not updating to reflect filtered results during search (previously kept showing total history count)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.1-arm64.dmg",
-      "size": 4828530,
-      "sha256": "fc5a23c09d18c31cdec7dbbf68e190ae62ae1d6162de1c773251b3c4237aff67"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.2-arm64.dmg",
+      "size": 4830363,
+      "sha256": "5d2cb8a2d63844250f5572761bf3e860af4f6d83e7833a4a310881b6d60dd3f6"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.1-x86_64.dmg",
-      "size": 4982377,
-      "sha256": "a134723ea3ce2ec3e2f74dd90ff73505cc8127cb3a44bc9e12a503c969063d10"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.2-x86_64.dmg",
+      "size": 5001683,
+      "sha256": "fa008ff00124db6819ae071c5c1ba409d1cfd83c3e3c44e125b4474a34e4b5d4"
     }
   }
 }
