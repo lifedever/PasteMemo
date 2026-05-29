@@ -733,6 +733,17 @@
       font-size: 13px;
       color: var(--text-muted);
     }
+    .beta-modal p.beta-modal-expired {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      opacity: 0.85;
+    }
+    .beta-modal p.beta-modal-expired strong {
+      color: var(--text);
+      font-weight: 600;
+    }
 
     /* Download dropdown */
     .download-dropdown {
@@ -1159,8 +1170,9 @@
 <div id="betaModal" class="beta-modal-overlay" onclick="if(event.target===this)this.classList.remove('active')">
   <div class="beta-modal">
     <button class="beta-modal-close" onclick="document.getElementById('betaModal').classList.remove('active')">&times;</button>
-    <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/it/2026/05/20260506-130305.jpeg" alt="Feedback Group QR Code">
+    <img src="https://cdn.jsdelivr.net/gh/lifedever/images@master/uploads/2026/05/20260529-160257.jpeg" alt="Feedback Group QR Code">
     <p data-i18n="beta.hint">Scan to join the beta testing WeChat group</p>
+    <p class="beta-modal-expired" data-i18n-html="beta.expired">You can also add the author's WeChat <strong>lifedever</strong> to be invited to the group.</p>
   </div>
 </div>
 
@@ -1222,6 +1234,7 @@ const i18n = {
     "footer.beta": "Join Feedback Group",
     "footer.author": "About Author",
     "beta.hint": "Scan to join the WeChat feedback group",
+    "beta.expired": "You can also add the author's WeChat <strong>lifedever</strong> to be invited to the group.",
   },
   "zh-Hans": {
     "hero.opensource": "开源",
@@ -1279,6 +1292,7 @@ const i18n = {
     "footer.beta": "加入反馈群",
     "footer.author": "关于作者",
     "beta.hint": "扫码加入微信反馈群",
+    "beta.expired": "也可添加作者微信 <strong>lifedever</strong> 邀请进群。",
   },
   ja: {
     "hero.opensource": "オープンソース",
@@ -1336,6 +1350,7 @@ const i18n = {
     "footer.beta": "フィードバックグループに参加",
     "footer.author": "著者について",
     "beta.hint": "WeChat フィードバックグループに参加するにはスキャンしてください",
+    "beta.expired": "作者の WeChat <strong>lifedever</strong> を追加してグループに招待してもらうこともできます。",
   },
   ko: {
     "hero.opensource": "오픈소스",
@@ -1393,6 +1408,7 @@ const i18n = {
     "footer.beta": "피드백 그룹 참여",
     "footer.author": "저자 소개",
     "beta.hint": "WeChat 피드백 그룹에 참여하려면 스캔하세요",
+    "beta.expired": "작성자의 WeChat <strong>lifedever</strong> 를 추가하여 그룹에 초대받을 수도 있습니다.",
   },
   fr: {
     "hero.opensource": "Open Source",
@@ -1450,6 +1466,7 @@ const i18n = {
     "footer.beta": "Rejoindre le groupe de feedback",
     "footer.author": "À propos de l'auteur",
     "beta.hint": "Scannez pour rejoindre le groupe de feedback WeChat",
+    "beta.expired": "Vous pouvez aussi ajouter le WeChat de l'auteur <strong>lifedever</strong> pour être invité dans le groupe.",
   },
   de: {
     "hero.opensource": "Open Source",
@@ -1507,6 +1524,7 @@ const i18n = {
     "footer.beta": "Feedback-Gruppe beitreten",
     "footer.author": "Über den Autor",
     "beta.hint": "Scannen Sie, um der WeChat-Feedback-Gruppe beizutreten",
+    "beta.expired": "Sie können auch den WeChat des Autors <strong>lifedever</strong> hinzufügen, um in die Gruppe eingeladen zu werden.",
   },
   es: {
     "hero.opensource": "Código Abierto",
@@ -1564,6 +1582,7 @@ const i18n = {
     "footer.beta": "Unirse al grupo de feedback",
     "footer.author": "Sobre el autor",
     "beta.hint": "Escanea para unirte al grupo de feedback de WeChat",
+    "beta.expired": "También puedes añadir el WeChat del autor <strong>lifedever</strong> para que te invite al grupo.",
   },
   "zh-Hant": {
     "hero.opensource": "開源",
@@ -1621,6 +1640,7 @@ const i18n = {
     "footer.beta": "加入反饋群",
     "footer.author": "關於作者",
     "beta.hint": "掃碼加入微信反饋群",
+    "beta.expired": "也可新增作者微信 <strong>lifedever</strong> 邀請進群。",
   },
   it: {
     "hero.opensource": "Open Source",
@@ -1678,6 +1698,7 @@ const i18n = {
     "footer.beta": "Unisciti al gruppo di feedback",
     "footer.author": "Sull'autore",
     "beta.hint": "Scansiona per unirti al gruppo di feedback WeChat",
+    "beta.expired": "Puoi anche aggiungere il WeChat dell'autore <strong>lifedever</strong> per essere invitato nel gruppo.",
   },
   ru: {
     "hero.opensource": "Открытый код",
@@ -1735,6 +1756,7 @@ const i18n = {
     "footer.beta": "Присоединиться к группе обратной связи",
     "footer.author": "Об авторе",
     "beta.hint": "Отсканируйте, чтобы присоединиться к группе обратной связи в WeChat",
+    "beta.expired": "Также можно добавить WeChat автора <strong>lifedever</strong>, чтобы вас пригласили в группу.",
   },
   id: {
     "hero.opensource": "Open Source",
@@ -1792,6 +1814,7 @@ const i18n = {
     "footer.beta": "Gabung Grup Feedback",
     "footer.author": "Tentang Penulis",
     "beta.hint": "Pindai untuk bergabung dengan grup feedback WeChat",
+    "beta.expired": "Anda juga dapat menambahkan WeChat penulis <strong>lifedever</strong> untuk diundang ke grup.",
   },
 };
 
