@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.3-beta.1",
-    "notes_zh": "- **新增** 快捷面板支持 ⌘T 一键置顶；置顶后可连续按 ⌘1–9 快速粘贴多项、面板不再关闭，且粘贴目标会自动跟随当前所在的应用，方便在多个 App 间穿插粘贴（#59，感谢 @vvair 的反馈）\n- **新增** 设置中可开启「记住上次的分组/分类」，重新打开快捷面板时恢复上次的筛选（默认关闭）\n- **修复** 在 Windows 远程桌面、UU 远程等远程桌面中无法粘贴、只粘出一个 “v” 的问题（#60，感谢 @vvair 的反馈）\n- **优化** 快捷面板右键菜单「复制」移到第一项，与主窗口一致\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
-    "notes_en": "- **New** Press ⌘T to pin the Quick Panel; while pinned, paste multiple items in a row with ⌘1–9 without the panel closing, and the paste target now follows whichever app you're currently in — handy for pasting across several apps (#59, thanks @vvair for the report)\n- **New** Optional “Remember last filter” in Settings restores the Quick Panel's last group/category when reopened (off by default)\n- **Fix** Pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) only produced a “v” — it now pastes correctly (#60, thanks @vvair for the report)\n- **Improve** Moved “Copy” to the top of the Quick Panel's right-click menu, matching the main window\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "version": "1.7.3-beta.2",
+    "notes_zh": "- **修复** 进一步修复在 Windows 远程桌面、UU 远程等远程桌面中粘贴失败、只粘出一个 “v” 的问题——改为在系统底层注入按键，让远程客户端能正确识别为粘贴（#60，感谢 @vvair 的反馈与定位）\n- **优化** 快捷面板窗口拖窄、收起预览区时，列表自动切换为更紧凑的单行布局，一屏看到更多记录\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "- **Fix** Further fix for pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) that only produced a “v” — keystrokes are now injected at the system's lowest level so remote clients recognize them as a paste (#60, thanks @vvair for the report and diagnosis)\n- **Improve** When the Quick Panel is narrowed and the preview pane collapses, the list switches to a tighter single-line layout so you can see more items at a glance\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.1-arm64.dmg",
-        "size": 4841315,
-        "sha256": "2a6ca37aacc3e4612f492d9f5162a48037ca34e204e3b116c69d0b2ada6d5ab9"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-arm64.dmg",
+        "size": 4846827,
+        "sha256": "30bfcca66b508142ca3143afaf54a8ca982d9c9e1e41522a49a5e03b48f90d78"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.1-x86_64.dmg",
-        "size": 4991272,
-        "sha256": "cabe64fb69aeb008d586d845e956f2cff1409cfdca63bc9ca88d17a0a9cb1cc5"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-x86_64.dmg",
+        "size": 4993057,
+        "sha256": "af0d9d3491ebdb10474e39ae19ea846d1983d01fc0e2cf1e234c46e2a99b703b"
       }
     }
   }
