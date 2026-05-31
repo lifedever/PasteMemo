@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.3-beta.2",
-    "notes_zh": "- **修复** 进一步修复在 Windows 远程桌面、UU 远程等远程桌面中粘贴失败、只粘出一个 “v” 的问题——改为在系统底层注入按键，让远程客户端能正确识别为粘贴（#60，感谢 @vvair 的反馈与定位）\n- **优化** 快捷面板窗口拖窄、收起预览区时，列表自动切换为更紧凑的单行布局，一屏看到更多记录\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
-    "notes_en": "- **Fix** Further fix for pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) that only produced a “v” — keystrokes are now injected at the system's lowest level so remote clients recognize them as a paste (#60, thanks @vvair for the report and diagnosis)\n- **Improve** When the Quick Panel is narrowed and the preview pane collapses, the list switches to a tighter single-line layout so you can see more items at a glance\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "version": "1.7.3-beta.3",
+    "notes_zh": "- **修复** 彻底修复在 Windows 远程桌面、UU 远程等远程桌面中粘贴只粘出一个 “v” 的问题——已在真实远程桌面环境中验证通过（#60，感谢 @vvair 的反馈、定位与多轮测试）\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "- **Fix** Definitively fixed pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) only producing a “v” — verified working in a real remote-desktop environment (#60, thanks @vvair for the report, diagnosis, and repeated testing)\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-arm64.dmg",
-        "size": 4846827,
-        "sha256": "30bfcca66b508142ca3143afaf54a8ca982d9c9e1e41522a49a5e03b48f90d78"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-arm64.dmg",
+        "size": 4844368,
+        "sha256": "7444cca8dc98744c3c56fc163b6de0bed4aa4208bc7e6a2038505c8d3503b45f"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.2-x86_64.dmg",
-        "size": 4993057,
-        "sha256": "af0d9d3491ebdb10474e39ae19ea846d1983d01fc0e2cf1e234c46e2a99b703b"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-x86_64.dmg",
+        "size": 4993624,
+        "sha256": "357b6b4fcfa53518955c9cb212d027ae14d634d9a6b2ebe67f22ac0ea0767ff6"
       }
     }
   }
