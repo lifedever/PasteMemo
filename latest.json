@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.3-beta.3",
-    "notes_zh": "- **修复** 彻底修复在 Windows 远程桌面、UU 远程等远程桌面中粘贴只粘出一个 “v” 的问题——已在真实远程桌面环境中验证通过（#60，感谢 @vvair 的反馈、定位与多轮测试）\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
-    "notes_en": "- **Fix** Definitively fixed pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) only producing a “v” — verified working in a real remote-desktop environment (#60, thanks @vvair for the report, diagnosis, and repeated testing)\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
+    "version": "1.7.3-beta.4",
+    "notes_zh": "- **修复** 在快捷面板用 ⌘C 复制图片（以及文件等非文本内容）后，粘贴到微信等应用时变成文件路径而非图片——现在复制和回车粘贴拿到一致的剪贴板内容，粘出的是图片/文件本身\n\n⚠️ **这是 Beta 测试版本**。建议在非关键环境体验，问题反馈到 [GitHub Issues](https://github.com/lifedever/PasteMemo-app/issues)。Beta 稳定后会自动升级到正式版。\n\n---",
+    "notes_en": "- **Fix** Copying an image (or other non-text content like files) from the Quick Panel with ⌘C and pasting into apps such as WeChat produced a file path instead of the image — copy now puts the same content on the clipboard as Enter-to-paste, so you get the actual image/file\n\n⚠️ **This is a beta release.** Please test on non-critical machines and report issues on [GitHub](https://github.com/lifedever/PasteMemo-app/issues). You'll be auto-upgraded to the stable release once the beta stabilizes.",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.4-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.4-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-arm64.dmg",
-        "size": 4844368,
-        "sha256": "7444cca8dc98744c3c56fc163b6de0bed4aa4208bc7e6a2038505c8d3503b45f"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.4-arm64.dmg",
+        "size": 4846457,
+        "sha256": "3cfd661d144286ddf26712d454ea9000fd4018bc694e6a60ac96c332c35da811"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.3-x86_64.dmg",
-        "size": 4993624,
-        "sha256": "357b6b4fcfa53518955c9cb212d027ae14d634d9a6b2ebe67f22ac0ea0767ff6"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.3-beta.4-x86_64.dmg",
+        "size": 4995248,
+        "sha256": "faa27077b69d4302522dce6d15aa1bb92c3e94e3636a0bd2af0942ca6b2755ac"
       }
     }
   }
