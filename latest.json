@@ -17,5 +17,26 @@
       "size": 4995234,
       "sha256": "7ceee363731c51eaf22baef371f6e07dcc3c85da4d937a4249afc36c5c331c55"
     }
+  },
+  "beta": {
+    "version": "1.7.4-beta.1",
+    "notes_zh": "- **修复** 全新安装后第一次启动时，快捷面板搜索不到任何内容（需重启 App 才恢复）的问题（#61，感谢 @Jiohon 的反馈）",
+    "notes_en": "- **Fix** On the first launch after a fresh install, Quick Panel search returned no results until the app was restarted — now fixed (#61, thanks @Jiohon for the report)",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-arm64.dmg",
+        "size": 4846372,
+        "sha256": "d869ead97deba1f6e6205f62de509a07c5f838bde117e5688addc9faa72ee8f9"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-x86_64.dmg",
+        "size": 4995250,
+        "sha256": "ffc40a08d5b3ceb488315f0017984a1d147a292cdd3f0328ee818145c83ffd02"
+      }
+    }
   }
 }
