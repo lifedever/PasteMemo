@@ -1,42 +1,21 @@
 {
-  "version": "1.7.3",
-  "notes_zh": "- **新增** 快捷面板支持 ⌘T 一键置顶；置顶后可连续按 ⌘1–9 快速粘贴多项、面板不再关闭，且粘贴目标会自动跟随当前所在的应用，方便在多个 App 间穿插粘贴（#59，感谢 @vvair 的反馈）\n- **新增** 设置中可开启「记住上次的分组/分类」，重新打开快捷面板时恢复上次的筛选（默认关闭）\n- **优化** 快捷面板窗口拖窄、收起预览区时，列表自动切换为更紧凑的单行布局，一屏看到更多记录\n- **优化** 快捷面板右键菜单「复制」移到第一项，与主窗口一致\n- **修复** 在 Windows 远程桌面、UU 远程等远程桌面中粘贴只粘出一个 “v” 的问题（#60，感谢 @vvair 的反馈）\n- **修复** 快捷面板用 ⌘C 复制图片（及文件等非文本内容）后，粘贴到微信等应用时变成文件路径而非图片",
-  "notes_en": "- **New** Press ⌘T to pin the Quick Panel; while pinned, paste multiple items in a row with ⌘1–9 without the panel closing, and the paste target now follows whichever app you're currently in — handy for pasting across several apps (#59, thanks @vvair for the report)\n- **New** Optional “Remember last filter” in Settings restores the Quick Panel's last group/category when reopened (off by default)\n- **Improve** When the Quick Panel is narrowed or the preview pane is collapsed, the list switches to a tighter single-line layout so you can see more items at a glance\n- **Improve** Moved “Copy” to the top of the Quick Panel's right-click menu, matching the main window\n- **Fix** Pasting into remote desktops (Windows Remote Desktop, UU Remote, etc.) only produced a “v” — now fixed (#60, thanks @vvair for the report)\n- **Fix** Copying an image (or other non-text content like files) from the Quick Panel with ⌘C produced a file path instead of the image when pasting into apps such as WeChat",
+  "version": "1.7.4",
+  "notes_zh": "- **新增** 自动化规则增加「处理后写回剪贴板」开关；开启后，规则处理的结果会写回系统剪贴板，复制后直接 ⌘V 粘贴即为处理后的内容（例如自动去除换行）（#62，感谢 @313069365 的反馈）\n- **修复** 全新安装后第一次启动时，快捷面板搜索不到任何内容（需重启 App 才恢复）的问题（#61，感谢 @Jiohon 的反馈）",
+  "notes_en": "- **New** Automation rules now have a \"Write result back to clipboard\" toggle; when on, the rule's result is written back to the system clipboard, so ⌘V right after copying pastes the transformed text (e.g. with newlines removed) (#62, thanks @313069365 for the report)\n- **Fix** On the first launch after a fresh install, Quick Panel search returned no results until the app was restarted — now fixed (#61, thanks @Jiohon for the report)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.3-arm64.dmg",
-      "size": 4846409,
-      "sha256": "7dee5212a1d24414ce0f5c8282e2f07b13cd15f33e0b5aab492e1b3d417c9c2f"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-arm64.dmg",
+      "size": 4851824,
+      "sha256": "38b58b715947a8da5369a43809591ab47684fe364843a04f6f98c2042da52a52"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.3-x86_64.dmg",
-      "size": 4995234,
-      "sha256": "7ceee363731c51eaf22baef371f6e07dcc3c85da4d937a4249afc36c5c331c55"
-    }
-  },
-  "beta": {
-    "version": "1.7.4-beta.1",
-    "notes_zh": "- **修复** 全新安装后第一次启动时，快捷面板搜索不到任何内容（需重启 App 才恢复）的问题（#61，感谢 @Jiohon 的反馈）",
-    "notes_en": "- **Fix** On the first launch after a fresh install, Quick Panel search returned no results until the app was restarted — now fixed (#61, thanks @Jiohon for the report)",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-arm64.dmg",
-        "size": 4846372,
-        "sha256": "d869ead97deba1f6e6205f62de509a07c5f838bde117e5688addc9faa72ee8f9"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.4-beta.1-x86_64.dmg",
-        "size": 4995250,
-        "sha256": "ffc40a08d5b3ceb488315f0017984a1d147a292cdd3f0328ee818145c83ffd02"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-x86_64.dmg",
+      "size": 5000211,
+      "sha256": "609162c47f2ef113f06dff1f8c3fd84926479a36e0ebb55c401aac7ce7618656"
     }
   }
 }
