@@ -17,5 +17,26 @@
       "size": 5000211,
       "sha256": "609162c47f2ef113f06dff1f8c3fd84926479a36e0ebb55c401aac7ce7618656"
     }
+  },
+  "beta": {
+    "version": "1.7.5-beta.1",
+    "notes_zh": "- **优化** 首次引导的「隐私保护」步骤现在会标明每个 App 的忽略状态（已忽略 / 未忽略），并加了一行说明，不再让人困惑勾选到底代表忽略还是监控（#63，感谢 @KanTakahiro 的反馈）",
+    "notes_en": "- **Improve** The Privacy Protection step in onboarding now labels each app's ignore state (Ignored / Not ignored) and shows a one-line hint, so it's clear what the checkmark means (#63, thanks @KanTakahiro for the report)",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.1-arm64.dmg",
+        "size": 4853036,
+        "sha256": "3a47c363996a96fd1ed0ef0488cbe5ba6111820eaba397e8167c39bc4e671683"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.1-x86_64.dmg",
+        "size": 5003162,
+        "sha256": "d9e69539261956f3c48cbdb018920770e91e0e016c26f943d15df0c2d85eec33"
+      }
+    }
   }
 }
