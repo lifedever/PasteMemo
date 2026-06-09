@@ -1,42 +1,21 @@
 {
-  "version": "1.7.4",
-  "notes_zh": "- **新增** 自动化规则增加「处理后写回剪贴板」开关；开启后，规则处理的结果会写回系统剪贴板，复制后直接 ⌘V 粘贴即为处理后的内容（例如自动去除换行）（#62，感谢 @313069365 的反馈）\n- **修复** 全新安装后第一次启动时，快捷面板搜索不到任何内容（需重启 App 才恢复）的问题（#61，感谢 @Jiohon 的反馈）",
-  "notes_en": "- **New** Automation rules now have a \"Write result back to clipboard\" toggle; when on, the rule's result is written back to the system clipboard, so ⌘V right after copying pastes the transformed text (e.g. with newlines removed) (#62, thanks @313069365 for the report)\n- **Fix** On the first launch after a fresh install, Quick Panel search returned no results until the app was restarted — now fixed (#61, thanks @Jiohon for the report)",
+  "version": "1.7.5",
+  "notes_zh": "- **新增** 快捷面板命令菜单新增「粘贴 OCR 文字」：对带文字的图片，可直接把识别出的文字粘进当前 App；即使关闭了图片 OCR 开关，点击时也会即时识别再粘贴\n- **优化** 设置窗口改为侧边栏导航（参考 macOS 系统设置），分类更清晰，内容不再因过多而被截断\n- **优化** 命令菜单按功能分组，更易扫读\n- **优化** 首次引导的「隐私保护」步骤现在会标明每个 App 的忽略状态（已忽略 / 未忽略），并加了一行说明，不再让人困惑勾选到底代表忽略还是监控（#63，感谢 @KanTakahiro 的反馈）\n- **修复** 命令菜单里粘贴后偶尔「先粘上内容、面板才消失」的滞留感\n- **修复** 不带 https:// 的裸域名链接（如 jp.evoxt.lifedever.com）现在能正确打开，并显示站点标题与图标",
+  "notes_en": "- **New** \"Paste OCR Text\" in the quick-panel command menu: paste the recognized text from an image straight into the current app — works even with image OCR turned off (it recognizes on demand)\n- **Improve** Settings window redesigned with a sidebar (like macOS System Settings) — clearer grouping, no more clipped content\n- **Improve** Command menu is now grouped by function for easier scanning\n- **Improve** The Privacy Protection step in onboarding now labels each app's ignore state (Ignored / Not ignored) and shows a one-line hint, so it's clear what the checkmark means (#63, thanks @KanTakahiro for the report)\n- **Fix** Removed the lag where the panel lingered after pasting from the command menu\n- **Fix** Bare-domain links without https:// (e.g. jp.evoxt.lifedever.com) now open correctly and show their title/favicon",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.5-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.5-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-arm64.dmg",
-      "size": 4851824,
-      "sha256": "38b58b715947a8da5369a43809591ab47684fe364843a04f6f98c2042da52a52"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.5-arm64.dmg",
+      "size": 4878613,
+      "sha256": "093148bab4ae172a75b4dab2df0e9f55ca7307850a7f91b22ecd659e25b2b31b"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.4-x86_64.dmg",
-      "size": 5000211,
-      "sha256": "609162c47f2ef113f06dff1f8c3fd84926479a36e0ebb55c401aac7ce7618656"
-    }
-  },
-  "beta": {
-    "version": "1.7.5-beta.2",
-    "notes_zh": "- **新增** 快捷面板命令菜单新增「粘贴 OCR 文字」：对带文字的图片，可直接把识别出的文字粘进当前 App；即使关闭了图片 OCR 开关，点击时也会即时识别再粘贴\n- **优化** 设置窗口改为侧边栏导航（参考 macOS 系统设置），分类更清晰，内容不再因过多而被截断\n- **优化** 命令菜单按功能分组，更易扫读\n- **修复** 命令菜单里粘贴后偶尔「先粘上内容、面板才消失」的滞留感\n- **修复** 不带 https:// 的裸域名链接（如 jp.evoxt.lifedever.com）现在能正确打开，并显示站点标题与图标",
-    "notes_en": "- **New** \"Paste OCR Text\" in the quick-panel command menu: paste the recognized text from an image straight into the current app — works even with image OCR turned off (it recognizes on demand)\n- **Improve** Settings window redesigned with a sidebar (like macOS System Settings) — clearer grouping, no more clipped content\n- **Improve** Command menu is now grouped by function for easier scanning\n- **Fix** Removed the lag where the panel lingered after pasting from the command menu\n- **Fix** Bare-domain links without https:// (e.g. jp.evoxt.lifedever.com) now open correctly and show their title/favicon",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.2-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.2-arm64.dmg",
-        "size": 4875854,
-        "sha256": "285b9a80b715c12a4971bdda314f56e6f392a9da5544b4ee1eae19a72790a9de"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.5-beta.2-x86_64.dmg",
-        "size": 5029815,
-        "sha256": "2c3af4398957510ba55eafb0ec7afdb4116ca27477755b2a080438c32140bc1f"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.5-x86_64.dmg",
+      "size": 5030513,
+      "sha256": "71f9325cd2e577cfa639b2cd3619b50aa81d11c5901215a1ece7099725f0e7bd"
     }
   }
 }
