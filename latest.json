@@ -17,5 +17,26 @@
       "size": 5030513,
       "sha256": "71f9325cd2e577cfa639b2cd3619b50aa81d11c5901215a1ece7099725f0e7bd"
     }
+  },
+  "beta": {
+    "version": "1.7.6-beta.1",
+    "notes_zh": "- **新增** 「导出诊断日志」（设置 → 通用）",
+    "notes_en": "- **New** \"Export Diagnostic Log\" (Settings → General)",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-arm64.dmg",
+        "size": 4893701,
+        "sha256": "c441201c8f26752d0afa6a4f7e905c1ebadc7331d4ca541cdd92ec2d3d72fd7c"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-x86_64.dmg",
+        "size": 5047586,
+        "sha256": "a0a79a9183fcc59a21460c3282c8b0de870b3f35485d7df87610547ec4ccae63"
+      }
+    }
   }
 }
