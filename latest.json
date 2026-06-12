@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.6-beta.1",
-    "notes_zh": "- **新增** 「导出诊断日志」（设置 → 通用）",
-    "notes_en": "- **New** \"Export Diagnostic Log\" (Settings → General)",
+    "version": "1.7.7-beta.1",
+    "notes_zh": "- **新增** 图片 OCR 支持识别为 Markdown：自动识别段落、列表和表格并转为 Markdown 格式，需 macOS 26，旧系统自动回退为普通文本识别（#67，感谢 @bingoohuang 的贡献）\n- **新增** 图片 OCR 设置独立成页，后台扫描支持随时停止\n- **优化** OCR 识别文本在快捷面板和详情页完整显示（原先超长会被截断），长文本渲染开销大幅降低\n- **优化** 列表点选时的 CPU 占用\n- **修复** 设置窗口标题显示为原始键名的问题\n- **修复** 主窗口侧边栏未延伸到标题栏顶部的问题",
+    "notes_en": "- **New** Image OCR can now recognize layout as Markdown: paragraphs, lists, and tables are converted to Markdown automatically. Requires macOS 26; older systems fall back to plain-text recognition (#67, thanks @bingoohuang for the contribution)\n- **New** Image OCR settings moved to a dedicated pane; the background scan can now be stopped at any time\n- **Improve** Recognized text is shown in full in the quick panel and detail view (previously truncated when long), with much lower rendering cost for long text\n- **Improve** Reduced CPU usage when clicking through list items\n- **Fix** Settings window title showing a raw localization key\n- **Fix** Main window sidebar not extending to the top of the title bar",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.1-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-arm64.dmg",
-        "size": 4893701,
-        "sha256": "c441201c8f26752d0afa6a4f7e905c1ebadc7331d4ca541cdd92ec2d3d72fd7c"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.1-arm64.dmg",
+        "size": 4924510,
+        "sha256": "763d049d6e559243e824af37c4a432c9f5fac5691cc135adaca608719d68e02d"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.6-beta.1-x86_64.dmg",
-        "size": 5047586,
-        "sha256": "a0a79a9183fcc59a21460c3282c8b0de870b3f35485d7df87610547ec4ccae63"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.1-x86_64.dmg",
+        "size": 5083865,
+        "sha256": "7fe32dfc0cbc7a29e32f9ae22bd6ae4b595522bd2dd04b7fbaafc3f7a69a1160"
       }
     }
   }
