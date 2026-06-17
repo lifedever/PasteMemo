@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.7-beta.2",
-    "notes_zh": "- **修复** 在 macOS 26 上打开设置「链接与预览」页面时崩溃（#70，感谢 @Yricky 的反馈）\n- **修复** 开启 AI Agent 集成后，App 在极少数情况下无提示自动退出\n- **优化** 大尺寸图片（如 PixPin 等截图工具复制的 TIFF）现在能完整保存与粘贴，不再因体积过大被丢弃；浏览、切换历史记录更流畅",
-    "notes_en": "- **Fix** Crash when opening Settings → Link & Preview on macOS 26 (#70, thanks @Yricky for the report)\n- **Fix** App could quit unexpectedly with no prompt when AI Agent integration was enabled\n- **Improve** Large images (e.g. TIFF screenshots from tools like PixPin) are now saved and pasted at full resolution instead of being dropped when oversized; browsing and switching history feels smoother",
+    "version": "1.7.7-beta.3",
+    "notes_zh": "- **修复** 针对图片、视频等非文本内容的自动化规则现在能正常触发（例如「自动移入分组」），此前这类规则完全不执行（#71，感谢 @hiby-arch 的反馈）\n- **修复** 在快捷面板手动应用「移入分组 / 置顶 / 标记敏感」类规则现在能正确生效\n- **修复** 规则编辑器中「移入分组」动作显示异常（行高过高、标签丢失）\n- **优化** 含「运行快捷指令」的规则锁定为手动触发，避免误设为自动时静默不执行\n- **优化** 图片类规则的触发通知不再显示 \"[Image]\" 占位文本，改为显示内容类型",
+    "notes_en": "- **Fix** Automation rules targeting non-text content (images, videos, etc.) now trigger correctly — e.g. \"move to group\" — they previously never ran at all (#71, thanks @hiby-arch for the report)\n- **Fix** Manually applying \"move to group / pin / mark sensitive\" rules from the quick panel now works\n- **Fix** Display glitch for the \"move to group\" action in the rule editor (row too tall, label missing)\n- **Improve** Rules containing \"Run Shortcut\" are locked to manual triggering to avoid silently never running when set to automatic\n- **Improve** Trigger notifications for image rules show the content type instead of the \"[Image]\" placeholder",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.2-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.2-arm64.dmg",
-        "size": 4936371,
-        "sha256": "ba9ccff476f7e72d0a228fff6216fc2c655b2dfba76c7895820da3b60df3804c"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-arm64.dmg",
+        "size": 4934058,
+        "sha256": "916c3c76ec969da7a9e6cfd2ce9f054961847d7507512f8470c92f1faeafa821"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.2-x86_64.dmg",
-        "size": 5091370,
-        "sha256": "7d2734170d06179e4741a5d193ac913aa59d4683f38c1ca2d4b142f1bab34b6f"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-x86_64.dmg",
+        "size": 5092011,
+        "sha256": "8b4e1a3a946f79761fc79dce200d1a2a4ff9aa1336f9083d7ac7b218447f26b2"
       }
     }
   }
