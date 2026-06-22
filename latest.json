@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.7-beta.3",
-    "notes_zh": "- **修复** 针对图片、视频等非文本内容的自动化规则现在能正常触发（例如「自动移入分组」），此前这类规则完全不执行（#71，感谢 @hiby-arch 的反馈）\n- **修复** 在快捷面板手动应用「移入分组 / 置顶 / 标记敏感」类规则现在能正确生效\n- **修复** 规则编辑器中「移入分组」动作显示异常（行高过高、标签丢失）\n- **优化** 含「运行快捷指令」的规则锁定为手动触发，避免误设为自动时静默不执行\n- **优化** 图片类规则的触发通知不再显示 \"[Image]\" 占位文本，改为显示内容类型",
-    "notes_en": "- **Fix** Automation rules targeting non-text content (images, videos, etc.) now trigger correctly — e.g. \"move to group\" — they previously never ran at all (#71, thanks @hiby-arch for the report)\n- **Fix** Manually applying \"move to group / pin / mark sensitive\" rules from the quick panel now works\n- **Fix** Display glitch for the \"move to group\" action in the rule editor (row too tall, label missing)\n- **Improve** Rules containing \"Run Shortcut\" are locked to manual triggering to avoid silently never running when set to automatic\n- **Improve** Trigger notifications for image rules show the content type instead of the \"[Image]\" placeholder",
+    "version": "1.7.7-beta.4",
+    "notes_zh": "- **新增** 快捷面板中文件、以及内容为有效路径的纯文本，按 ⌘O 可直接在 Finder 中打开，预览区会显示 ⌘O 快捷键提示\n- **优化** 输入 `/` 唤起的分组 / 类型 / 应用子菜单：匹配项过多时收起为可滚动列表，不再撑高面板窗口\n- **优化** 链接预览精简为「在浏览器中打开」（⌘O），移除冗余的复制按钮\n- **修复** 快捷面板输入 `/关键词` 时，若不匹配任何子菜单项，现在会按字面搜索内容（如以 `/` 开头的命令）；按 Esc 可退出子菜单、保留输入并直接搜索内容",
+    "notes_en": "- **New** Press ⌘O on file clips — and plain-text clips whose content is a valid path — to reveal them in Finder; the preview shows the ⌘O hint\n- **Improve** The `/` group / type / app submenu now caps matches into a scrollable list instead of stretching the panel\n- **Improve** Link preview streamlined to \"Open in browser\" (⌘O); removed the redundant Copy button\n- **Fix** Typing `/keyword` with no submenu match now searches content literally (e.g. clips starting with `/`); press Esc to leave the submenu while keeping your query and searching content",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-arm64.dmg",
-        "size": 4934058,
-        "sha256": "916c3c76ec969da7a9e6cfd2ce9f054961847d7507512f8470c92f1faeafa821"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-arm64.dmg",
+        "size": 4963693,
+        "sha256": "dea04582f954aac5f6ce73d6c7304be0e3f7430724f34b6e4ec1b5096ea252bd"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.3-x86_64.dmg",
-        "size": 5092011,
-        "sha256": "8b4e1a3a946f79761fc79dce200d1a2a4ff9aa1336f9083d7ac7b218447f26b2"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-x86_64.dmg",
+        "size": 5121300,
+        "sha256": "208a6a22d478dc1ac894eec8feb8b5c3399a01226db8fd2f1c42578d706f3d62"
       }
     }
   }
