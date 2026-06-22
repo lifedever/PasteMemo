@@ -808,6 +808,58 @@
       text-align: center;
     }
 
+    /* First-open (Gatekeeper) help — revealed after a download click */
+    .first-open-help {
+      display: none;
+      max-width: 460px;
+      margin: 16px auto 0;
+      text-align: left;
+      background: rgba(249, 115, 22, 0.08);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+    .first-open-help.show { display: block; }
+    .first-open-help h4 {
+      margin: 0 0 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-heading);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .first-open-cmd {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+      padding: 8px 10px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: var(--text-heading);
+    }
+    .first-open-cmd code { flex: 1; overflow-x: auto; white-space: nowrap; }
+    .first-open-copy {
+      flex-shrink: 0;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .first-open-copy:hover { color: var(--orange-500); background: rgba(249, 115, 22, 0.1); }
+    .first-open-help .first-open-or { margin: 6px 0 0; }
+
     @media (max-width: 768px) {
       header { padding: 14px 16px; position: relative; }
       .logo-group span { font-size: 17px; }
@@ -1015,6 +1067,15 @@
         <small id="downloadStatusText" style="font-size:12px;color:var(--text-muted);"></small>
       </div>
     </div>
+  </div>
+  <div id="firstOpenHelp" class="first-open-help">
+    <h4>⚠️ <span data-i18n="firstopen.title">Can't open it the first time?</span></h4>
+    <span data-i18n="firstopen.desc">PasteMemo isn't notarized yet, so macOS may block it. On macOS 15/26 the old right-click → Open trick no longer works — allow it one of two ways:</span>
+    <div class="first-open-cmd">
+      <code id="firstOpenCmd">xattr -cr /Applications/PasteMemo.app</code>
+      <button class="first-open-copy" id="firstOpenCopy" onclick="copyFirstOpenCmd()" data-i18n="firstopen.copy">Copy</button>
+    </div>
+    <div class="first-open-or"><span data-i18n="firstopen.or">Or: System Settings → Privacy &amp; Security → scroll down → Open Anyway.</span></div>
   </div>
   <p style="margin-top:12px;text-align:center;font-size:13px;">
     <a href="beta/" style="color:var(--text-secondary);text-decoration:none;" data-i18n="hero.beta_link">Try Beta version →</a>
@@ -1228,6 +1289,10 @@ const i18n = {
     "sponsor.btn": "❤️ Sponsor",
     "hero.download_trouble": "Download issues?",
     "hero.brew_label": "Or install via Homebrew:",
+    "firstopen.title": "Can't open it the first time?",
+    "firstopen.desc": "PasteMemo isn't notarized yet, so macOS may block it. On macOS 15/26 the old right-click → Open trick no longer works — allow it one of two ways:",
+    "firstopen.copy": "Copy",
+    "firstopen.or": "Or: System Settings → Privacy & Security → scroll down → Open Anyway.",
     "hero.beta_link": "Try Beta version →",
     "footer.releases": "Releases",
     "footer.issues": "Issues",
@@ -1286,6 +1351,10 @@ const i18n = {
     "sponsor.btn": "❤️ 捐赠支持",
     "hero.download_trouble": "下载遇到问题？",
     "hero.brew_label": "或通过 Homebrew 安装：",
+    "firstopen.title": "首次打不开？",
+    "firstopen.desc": "PasteMemo 暂未做苹果公证，macOS 可能会拦截。macOS 15/26 的「右键 → 打开」已失效，任选一种放行：",
+    "firstopen.copy": "复制",
+    "firstopen.or": "或：系统设置 → 隐私与安全性 → 下滑找到 PasteMemo → 仍要打开。",
     "hero.beta_link": "试用 Beta 版本 →",
     "footer.releases": "版本发布",
     "footer.issues": "问题反馈",
@@ -1344,6 +1413,10 @@ const i18n = {
     "sponsor.btn": "❤️ サポートする",
     "hero.download_trouble": "ダウンロードに問題がありますか？",
     "hero.brew_label": "Homebrew でインストール：",
+    "firstopen.title": "初回に開けませんか？",
+    "firstopen.desc": "PasteMemo はまだ公証されていないため、macOS がブロックすることがあります。macOS 15/26 では「右クリック → 開く」が使えません。次のいずれかで許可してください：",
+    "firstopen.copy": "コピー",
+    "firstopen.or": "または：システム設定 → プライバシーとセキュリティ → 下にスクロール → このまま開く。",
     "hero.beta_link": "Beta 版を試す →",
     "footer.releases": "リリース",
     "footer.issues": "課題",
@@ -1402,6 +1475,10 @@ const i18n = {
     "sponsor.btn": "❤️ 후원하기",
     "hero.download_trouble": "다운로드에 문제가 있나요?",
     "hero.brew_label": "Homebrew로 설치:",
+    "firstopen.title": "처음에 열리지 않나요?",
+    "firstopen.desc": "PasteMemo는 아직 공증되지 않아 macOS가 차단할 수 있습니다. macOS 15/26에서는 '오른쪽 클릭 → 열기'가 더 이상 통하지 않습니다. 다음 중 하나로 허용하세요:",
+    "firstopen.copy": "복사",
+    "firstopen.or": "또는: 시스템 설정 → 개인정보 보호 및 보안 → 아래로 스크롤 → 그래도 열기.",
     "hero.beta_link": "Beta 버전 사용해 보기 →",
     "footer.releases": "릴리스",
     "footer.issues": "이슈",
@@ -1460,6 +1537,10 @@ const i18n = {
     "sponsor.btn": "❤️ Soutenir",
     "hero.download_trouble": "Problème de téléchargement ?",
     "hero.brew_label": "Ou installer via Homebrew :",
+    "firstopen.title": "Impossible de l'ouvrir la première fois ?",
+    "firstopen.desc": "PasteMemo n'est pas encore notarisée, donc macOS peut la bloquer. Sur macOS 15/26, l'astuce clic droit → Ouvrir ne fonctionne plus — autorisez-la de l'une de ces deux façons :",
+    "firstopen.copy": "Copier",
+    "firstopen.or": "Ou : Réglages Système → Confidentialité et sécurité → faites défiler → Ouvrir quand même.",
     "hero.beta_link": "Essayer la version Bêta →",
     "footer.releases": "Versions",
     "footer.issues": "Problèmes",
@@ -1518,6 +1599,10 @@ const i18n = {
     "sponsor.btn": "❤️ Unterstützen",
     "hero.download_trouble": "Probleme beim Download?",
     "hero.brew_label": "Oder via Homebrew installieren:",
+    "firstopen.title": "Lässt es sich beim ersten Mal nicht öffnen?",
+    "firstopen.desc": "PasteMemo ist noch nicht notarisiert, daher kann macOS es blockieren. Unter macOS 15/26 funktioniert der Trick Rechtsklick → Öffnen nicht mehr — erlaube es auf eine von zwei Arten:",
+    "firstopen.copy": "Kopieren",
+    "firstopen.or": "Oder: Systemeinstellungen → Datenschutz & Sicherheit → nach unten scrollen → Trotzdem öffnen.",
     "hero.beta_link": "Beta-Version ausprobieren →",
     "footer.releases": "Versionen",
     "footer.issues": "Probleme",
@@ -1576,6 +1661,10 @@ const i18n = {
     "sponsor.btn": "❤️ Apoyar",
     "hero.download_trouble": "¿Problemas con la descarga?",
     "hero.brew_label": "O instalar con Homebrew:",
+    "firstopen.title": "¿No se abre la primera vez?",
+    "firstopen.desc": "PasteMemo aún no está notarizada, por lo que macOS puede bloquearla. En macOS 15/26 el truco de clic derecho → Abrir ya no funciona; permítela de una de estas dos formas:",
+    "firstopen.copy": "Copiar",
+    "firstopen.or": "O: Ajustes del Sistema → Privacidad y seguridad → desplázate hacia abajo → Abrir igualmente.",
     "hero.beta_link": "Probar versión Beta →",
     "footer.releases": "Versiones",
     "footer.issues": "Problemas",
@@ -1634,6 +1723,10 @@ const i18n = {
     "sponsor.btn": "❤️ 捐贈支持",
     "hero.download_trouble": "下載遇到問題？",
     "hero.brew_label": "或透過 Homebrew 安裝：",
+    "firstopen.title": "首次打不開？",
+    "firstopen.desc": "PasteMemo 暫未經 Apple 公證，macOS 可能會攔截。macOS 15/26 的「右鍵 → 打開」已失效，任選一種放行：",
+    "firstopen.copy": "複製",
+    "firstopen.or": "或：系統設定 → 隱私權與安全性 → 下滑找到 PasteMemo → 仍要打開。",
     "hero.beta_link": "試用 Beta 版本 →",
     "footer.releases": "版本發佈",
     "footer.issues": "問題回饋",
@@ -1692,6 +1785,10 @@ const i18n = {
     "sponsor.btn": "❤️ Supporta",
     "hero.download_trouble": "Problemi con il download?",
     "hero.brew_label": "Oppure installa tramite Homebrew:",
+    "firstopen.title": "Non si apre la prima volta?",
+    "firstopen.desc": "PasteMemo non è ancora autenticata (notarized), quindi macOS potrebbe bloccarla. Su macOS 15/26 il trucco clic destro → Apri non funziona più: consentila in uno di questi due modi:",
+    "firstopen.copy": "Copia",
+    "firstopen.or": "Oppure: Impostazioni di Sistema → Privacy e sicurezza → scorri in basso → Apri comunque.",
     "hero.beta_link": "Prova la versione Beta →",
     "footer.releases": "Versioni",
     "footer.issues": "Problemi",
@@ -1750,6 +1847,10 @@ const i18n = {
     "sponsor.btn": "❤️ Поддержать",
     "hero.download_trouble": "Проблемы со скачиванием?",
     "hero.brew_label": "Или установить через Homebrew:",
+    "firstopen.title": "Не открывается с первого раза?",
+    "firstopen.desc": "PasteMemo пока не нотаризована, поэтому macOS может её блокировать. В macOS 15/26 приём «правый клик → Открыть» больше не работает — разрешите одним из двух способов:",
+    "firstopen.copy": "Копировать",
+    "firstopen.or": "Или: Системные настройки → Конфиденциальность и безопасность → прокрутите вниз → Всё равно открыть.",
     "hero.beta_link": "Попробовать бета-версию →",
     "footer.releases": "Релизы",
     "footer.issues": "Проблемы",
@@ -1808,6 +1909,10 @@ const i18n = {
     "sponsor.btn": "❤️ Dukung",
     "hero.download_trouble": "Masalah mengunduh?",
     "hero.brew_label": "Atau instal melalui Homebrew:",
+    "firstopen.title": "Tidak bisa dibuka saat pertama kali?",
+    "firstopen.desc": "PasteMemo belum dinotarisasi, jadi macOS mungkin memblokirnya. Di macOS 15/26 trik klik kanan → Buka tidak lagi berfungsi — izinkan dengan salah satu dari dua cara:",
+    "firstopen.copy": "Salin",
+    "firstopen.or": "Atau: Pengaturan Sistem → Privasi & Keamanan → gulir ke bawah → Tetap Buka.",
     "hero.beta_link": "Coba versi Beta →",
     "footer.releases": "Rilis",
     "footer.issues": "Masalah",
@@ -2001,8 +2106,27 @@ async function sha256Hex(buffer) {
 let downloading = false;
 const MAX_RETRIES = 2;
 
+function revealFirstOpenHelp() {
+  const el = document.getElementById("firstOpenHelp");
+  if (el) el.classList.add("show");
+}
+
+function copyFirstOpenCmd() {
+  const cmd = document.getElementById("firstOpenCmd")?.textContent || "";
+  const btn = document.getElementById("firstOpenCopy");
+  navigator.clipboard?.writeText(cmd).then(() => {
+    if (!btn) return;
+    const orig = btn.textContent;
+    const lang = document.documentElement.lang || "en";
+    btn.textContent = lang.startsWith("zh") ? "已复制" : "Copied";
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  });
+}
+
 async function verifiedDownload(e, arch) {
   e.preventDefault();
+  // Surface the Gatekeeper "first open" steps the moment a download starts.
+  revealFirstOpenHelp();
   const info = downloadData[arch];
   if (!info || !info.url) {
     // fallback: no verified download info, open releases page

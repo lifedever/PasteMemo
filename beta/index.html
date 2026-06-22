@@ -341,6 +341,50 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+    /* First-open (Gatekeeper) help — revealed after a download click */
+    .first-open-help {
+      display: none;
+      margin-top: 14px;
+      background: rgba(249, 115, 22, 0.08);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+    .first-open-help.show { display: block; }
+    .first-open-help h4 {
+      margin: 0 0 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .first-open-cmd {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+      padding: 8px 10px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: var(--text-heading);
+    }
+    .first-open-cmd code { flex: 1; overflow-x: auto; white-space: nowrap; }
+    .first-open-copy {
+      flex-shrink: 0;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+    .first-open-copy:hover { color: var(--orange-500); background: rgba(249, 115, 22, 0.1); }
     .dl-btn {
       display: flex;
       align-items: center;
@@ -583,7 +627,11 @@
         "arch_arm": "Apple Silicon",
         "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
         "arch_intel": "Intel",
-        "arch_intel_detail": "x86_64"
+        "arch_intel_detail": "x86_64",
+        "firstopen_title": "Can't open it the first time?",
+        "firstopen_desc": "PasteMemo isn't notarized, so macOS may block it. On macOS 15/26 the old right-click → Open trick no longer works — allow it one of two ways:",
+        "firstopen_copy": "Copy",
+        "firstopen_or": "Or: System Settings → Privacy & Security → scroll down → Open Anyway."
       },
       "zh-Hans": {
         "nav_stable": "正式版",
@@ -610,7 +658,11 @@
         "arch_arm": "Apple Silicon",
         "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
         "arch_intel": "Intel",
-        "arch_intel_detail": "x86_64"
+        "arch_intel_detail": "x86_64",
+        "firstopen_title": "首次打不开？",
+        "firstopen_desc": "PasteMemo 暂未做苹果公证，macOS 可能会拦截。macOS 15/26 的「右键 → 打开」已失效，任选一种放行：",
+        "firstopen_copy": "复制",
+        "firstopen_or": "或：系统设置 → 隐私与安全性 → 下滑找到 PasteMemo → 仍要打开。"
       },
       "zh-Hant": {
         "nav_stable": "正式版",
@@ -637,7 +689,11 @@
         "arch_arm": "Apple Silicon",
         "arch_arm_detail": "M1 / M2 / M3 / M4 / M5",
         "arch_intel": "Intel",
-        "arch_intel_detail": "x86_64"
+        "arch_intel_detail": "x86_64",
+        "firstopen_title": "首次打不開？",
+        "firstopen_desc": "PasteMemo 暫未經 Apple 公證，macOS 可能會攔截。macOS 15/26 的「右鍵 → 打開」已失效，任選一種放行：",
+        "firstopen_copy": "複製",
+        "firstopen_or": "或：系統設定 → 隱私權與安全性 → 下滑找到 PasteMemo → 仍要打開。"
       }
     };
 
@@ -873,7 +929,57 @@
         a.appendChild(sizeEl);
       }
 
+      // Surface the Gatekeeper "first open" steps the moment a download starts.
+      a.addEventListener('click', revealFirstOpenHelp);
       return a;
+    }
+
+    function makeFirstOpenHelp() {
+      const box = document.createElement('div');
+      box.className = 'first-open-help';
+      box.id = 'firstOpenHelp';
+
+      const h = document.createElement('h4');
+      h.textContent = '⚠️ ' + t('firstopen_title');
+      box.appendChild(h);
+
+      const desc = document.createElement('div');
+      desc.textContent = t('firstopen_desc');
+      box.appendChild(desc);
+
+      const cmd = document.createElement('div');
+      cmd.className = 'first-open-cmd';
+      const code = document.createElement('code');
+      code.id = 'firstOpenCmd';
+      code.textContent = 'xattr -cr /Applications/PasteMemo.app';
+      cmd.appendChild(code);
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'first-open-copy';
+      copyBtn.textContent = t('firstopen_copy');
+      copyBtn.addEventListener('click', () => copyFirstOpenCmd(copyBtn));
+      cmd.appendChild(copyBtn);
+      box.appendChild(cmd);
+
+      const or = document.createElement('div');
+      or.textContent = t('firstopen_or');
+      box.appendChild(or);
+
+      return box;
+    }
+
+    function revealFirstOpenHelp() {
+      const el = document.getElementById('firstOpenHelp');
+      if (el) el.classList.add('show');
+    }
+
+    function copyFirstOpenCmd(btn) {
+      const code = document.getElementById('firstOpenCmd');
+      if (!code || !navigator.clipboard) return;
+      navigator.clipboard.writeText(code.textContent).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = lang === 'zh-Hant' ? '已複製' : lang.startsWith('zh') ? '已复制' : 'Copied';
+        setTimeout(() => { btn.textContent = orig; }, 1500);
+      });
     }
 
     function renderBeta(beta) {
@@ -926,6 +1032,7 @@
       if (armUrl) downloads.appendChild(archButton(t('arch_arm'), t('arch_arm_detail'), armUrl, arm && arm.size));
       if (x86Url) downloads.appendChild(archButton(t('arch_intel'), t('arch_intel_detail'), x86Url, x86 && x86.size));
       dlSection.appendChild(downloads);
+      dlSection.appendChild(makeFirstOpenHelp());
       card.appendChild(dlSection);
 
       host.appendChild(card);
