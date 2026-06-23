@@ -1,21 +1,21 @@
 {
-  "version": "1.7.6",
-  "notes_zh": "- **修复** 开机自启动后，状态栏「主管理器 / 设置 / 自动化规则」点击无响应的问题（#66，感谢 @Zxxxxxl @miniers @ghostman-git 的反馈）\n- **新增** 「导出诊断日志」（设置 → 通用）",
-  "notes_en": "- **Fix** Status-bar \"Manager / Settings / Automation rules\" not responding when the app was launched at login (#66, thanks @Zxxxxxl @miniers @ghostman-git for the reports)\n- **New** \"Export Diagnostic Log\" (Settings → General)",
+  "version": "1.7.7",
+  "notes_zh": "- **新增** 快捷面板「图片」筛选支持瀑布流网格：在「设置 → 偏好 → 显示」开启后，图片以更大的瀑布流缩略图呈现，方便一眼挑图；支持方向键选择、回车 / 双击粘贴、Cmd+K 命令菜单，密度可调，拉宽面板自动增减列数（#72，感谢 @hiby-arch 的反馈）\n- **新增** 图片 OCR 支持识别为 Markdown：自动识别段落、列表和表格并转为 Markdown 格式，需 macOS 26，旧系统自动回退为普通文本识别（#67，感谢 @bingoohuang 的贡献）\n- **新增** 图片 OCR 设置独立成页，后台扫描支持随时停止\n- **新增** 快捷面板中文件、以及内容为有效路径的纯文本，按 ⌘O 可直接在 Finder 中打开，预览区会显示 ⌘O 快捷键提示\n- **优化** 大尺寸图片（如 PixPin 等截图工具复制的 TIFF）现在能完整保存与粘贴，不再因体积过大被丢弃；浏览、切换历史记录更流畅\n- **优化** OCR 识别文本在快捷面板和详情页完整显示（原先超长会被截断），长文本渲染开销大幅降低\n- **优化** 列表点选时的 CPU 占用\n- **优化** 输入 `/` 唤起的分组 / 类型 / 应用子菜单：匹配项过多时收起为可滚动列表，不再撑高面板窗口\n- **优化** 链接预览精简为「在浏览器中打开」（⌘O），移除冗余的复制按钮\n- **优化** 含「运行快捷指令」的规则锁定为手动触发，避免误设为自动时静默不执行\n- **优化** 图片类规则的触发通知不再显示 \"[Image]\" 占位文本，改为显示内容类型\n- **修复** 在 macOS 26 上打开设置部分分页、或点击左侧菜单切换分页时崩溃（#70 #75，感谢 @Yricky、@DonKean 的反馈）\n- **修复** 针对图片、视频等非文本内容的自动化规则现在能正常触发（例如「自动移入分组」），此前这类规则完全不执行（#71，感谢 @hiby-arch 的反馈）\n- **修复** 在快捷面板手动应用「移入分组 / 置顶 / 标记敏感」类规则现在能正确生效\n- **修复** 规则编辑器中「移入分组」动作显示异常（行高过高、标签丢失）\n- **修复** 开启 AI Agent 集成后，App 在极少数情况下无提示自动退出\n- **修复** 快捷面板输入 `/关键词` 时，若不匹配任何子菜单项，现在会按字面搜索内容；按 Esc 可退出子菜单、保留输入并直接搜索内容\n- **修复** 设置窗口标题显示为原始键名的问题\n- **修复** 主窗口侧边栏未延伸到标题栏顶部的问题",
+  "notes_en": "- **New** The quick panel's image filter can show a waterfall (masonry) grid: enable it in Settings → Preferences → Display to browse images as larger masonry thumbnails for quick visual picking. Supports arrow-key selection, Enter / double-click to paste, the Cmd+K command menu, adjustable density, and a column count that adapts as you widen the panel (#72, thanks @hiby-arch for the report)\n- **New** Image OCR can recognize layout as Markdown: paragraphs, lists, and tables are converted automatically. Requires macOS 26; older systems fall back to plain-text recognition (#67, thanks @bingoohuang for the contribution)\n- **New** Image OCR settings moved to a dedicated pane; the background scan can be stopped at any time\n- **New** Press ⌘O on file clips — and plain-text clips whose content is a valid path — to reveal them in Finder; the preview shows the ⌘O hint\n- **Improve** Large images (e.g. TIFF screenshots from tools like PixPin) are now saved and pasted at full resolution instead of being dropped when oversized; browsing and switching history feels smoother\n- **Improve** Recognized OCR text is shown in full in the quick panel and detail view (previously truncated), with much lower rendering cost for long text\n- **Improve** Reduced CPU usage when clicking through list items\n- **Improve** The `/` group / type / app submenu caps matches into a scrollable list instead of stretching the panel\n- **Improve** Link preview streamlined to \"Open in browser\" (⌘O); removed the redundant Copy button\n- **Improve** Rules containing \"Run Shortcut\" are locked to manual triggering to avoid silently never running\n- **Improve** Trigger notifications for image rules show the content type instead of the \"[Image]\" placeholder\n- **Fix** Crash when opening certain Settings panes, or clicking the left sidebar to switch panes, on macOS 26 (#70 #75, thanks @Yricky and @DonKean for the reports)\n- **Fix** Automation rules targeting non-text content (images, videos, etc.) now trigger correctly — e.g. \"move to group\" — they previously never ran (#71, thanks @hiby-arch for the report)\n- **Fix** Manually applying \"move to group / pin / mark sensitive\" rules from the quick panel now works\n- **Fix** Display glitch for the \"move to group\" action in the rule editor (row too tall, label missing)\n- **Fix** App could quit unexpectedly with no prompt when AI Agent integration was enabled\n- **Fix** Typing `/keyword` with no submenu match now searches content literally; press Esc to leave the submenu while keeping your query\n- **Fix** Settings window title showing a raw localization key\n- **Fix** Main window sidebar not extending to the top of the title bar",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.6-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.6-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.7-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.7-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.6-arm64.dmg",
-      "size": 4890089,
-      "sha256": "8ab8ed3b38496514225de96581b6e9e6f24dd07255323166309620336f4827fe"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.7-arm64.dmg",
+      "size": 5022186,
+      "sha256": "a609d874c276a629356b1f969a62de4e03b510f481cf6b1ddb20f87bc0e2d141"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.6-x86_64.dmg",
-      "size": 5045119,
-      "sha256": "e90d9701d22a96499477d6f64d52ad0bdf8b8bd1f1cd1b0b88376651c1b38541"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.7-x86_64.dmg",
+      "size": 5184861,
+      "sha256": "a32ba69402bb32a80a2f50e22c20d64cd1a4ddaabebb12ea44e8328fb6a51c30"
     }
   },
   "beta": {
