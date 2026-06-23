@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.7-beta.4",
-    "notes_zh": "- **新增** 快捷面板中文件、以及内容为有效路径的纯文本，按 ⌘O 可直接在 Finder 中打开，预览区会显示 ⌘O 快捷键提示\n- **优化** 输入 `/` 唤起的分组 / 类型 / 应用子菜单：匹配项过多时收起为可滚动列表，不再撑高面板窗口\n- **优化** 链接预览精简为「在浏览器中打开」（⌘O），移除冗余的复制按钮\n- **修复** 快捷面板输入 `/关键词` 时，若不匹配任何子菜单项，现在会按字面搜索内容（如以 `/` 开头的命令）；按 Esc 可退出子菜单、保留输入并直接搜索内容",
-    "notes_en": "- **New** Press ⌘O on file clips — and plain-text clips whose content is a valid path — to reveal them in Finder; the preview shows the ⌘O hint\n- **Improve** The `/` group / type / app submenu now caps matches into a scrollable list instead of stretching the panel\n- **Improve** Link preview streamlined to \"Open in browser\" (⌘O); removed the redundant Copy button\n- **Fix** Typing `/keyword` with no submenu match now searches content literally (e.g. clips starting with `/`); press Esc to leave the submenu while keeping your query and searching content",
+    "version": "1.7.8-beta.1",
+    "notes_zh": "- **优化** 大幅降低浏览图片和历史记录时的内存占用：图片缓存改为按解码后的真实大小精确封顶（96MB），浏览结束后主动归还内存，不再随使用持续攀升\n- **变更** 图片 OCR 改为默认关闭：它会在后台用 Vision 识别图片中的文字、内存开销较大；需要的用户可在「设置 → 图片 OCR」手动开启，开启处会提示可能增加内存占用",
+    "notes_en": "- **Improve** Much lower memory usage when browsing images and history: the image cache is now capped by its actual decoded size (96MB) and memory is returned after browsing, so it no longer keeps climbing with use\n- **Change** Image OCR is now off by default — it recognizes text in images in the background using Vision and is memory-heavy. Enable it in Settings → Image OCR if you need it; a memory note is shown there",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.8-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.8-beta.1-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-arm64.dmg",
-        "size": 4963693,
-        "sha256": "dea04582f954aac5f6ce73d6c7304be0e3f7430724f34b6e4ec1b5096ea252bd"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.8-beta.1-arm64.dmg",
+        "size": 5024775,
+        "sha256": "5f930a750fcf53144cc325259e92d105071efd261a26ce392c5c17719940e048"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.7-beta.4-x86_64.dmg",
-        "size": 5121300,
-        "sha256": "208a6a22d478dc1ac894eec8feb8b5c3399a01226db8fd2f1c42578d706f3d62"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.8-beta.1-x86_64.dmg",
+        "size": 5188271,
+        "sha256": "8867da1ccf9c7cb0bb370b2d4185d443be2f1b57e22243a0156e7417ae0cda86"
       }
     }
   }
