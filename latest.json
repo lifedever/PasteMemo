@@ -1,21 +1,21 @@
 {
-  "version": "1.7.8",
-  "notes_zh": "- **优化** 降低浏览图片和历史记录时的内存占用\n- **变更** 图片 OCR 改为默认关闭（会在后台识别图片中的文字、有一定内存开销）；需要的用户可在「设置 → 图片 OCR」开启",
-  "notes_en": "- **Improve** Lower memory usage when browsing images and history\n- **Change** Image OCR is now off by default (it recognizes text in images in the background and uses extra memory); enable it in Settings → Image OCR if you need it",
+  "version": "1.7.9",
+  "notes_zh": "- **修复** 在剪映等部分应用打开导出/弹窗时，快捷面板会被遮挡、无法置于最前的问题（#78，感谢 @JazZ301 的反馈）",
+  "notes_en": "- **Fix** The quick panel could be covered by other apps' export/modal windows (e.g. CapCut) and fail to stay on top",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.8-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.8-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.8-arm64.dmg",
-      "size": 5025670,
-      "sha256": "684b83a8bf08f51239cfd1107c28d12a83afdd77ef1d3787ef9d858819afaf3b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-arm64.dmg",
+      "size": 5025633,
+      "sha256": "7123baed08f9a58886c0eb95f7ac884e95d97768b164bf29e617172c534c3d79"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.8-x86_64.dmg",
-      "size": 5188824,
-      "sha256": "b30729f84800a54ef1ca7bdb22ec35252308be66eaa63f94762007a001e6522f"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-x86_64.dmg",
+      "size": 5188444,
+      "sha256": "a7614726f827e55b44c0b15ee74b72474aff15b39fcb5dc64965c9fdfc468241"
     }
   }
 }
