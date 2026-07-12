@@ -1,21 +1,21 @@
 {
-  "version": "1.7.9",
-  "notes_zh": "- **修复** 在剪映等部分应用打开导出/弹窗时，快捷面板会被遮挡、无法置于最前的问题（#78，感谢 @JazZ301 的反馈）",
-  "notes_en": "- **Fix** The quick panel could be covered by other apps' export/modal windows (e.g. CapCut) and fail to stay on top",
+  "version": "1.7.10",
+  "notes_zh": "- **新增** MCP 工具 `clipboard_select_item`：将历史条目载入系统剪贴板供直接粘贴，不产生重复历史、不打乱排序（#81，感谢 @ylorn 的贡献）\n- **新增** MCP 工具 `ui_show_quick_panel`：AI Agent 可直接唤出快捷粘贴面板（#81，感谢 @ylorn 的贡献）\n- **修复** MCP 搜索结果排序与快捷面板显示顺序不一致的问题\n- **修复** 主窗口中移入分组、重命名、调整分组顺序后，快捷面板 `/` 分组建议不更新的问题\n- **优化** 快捷面板 `/` 分组建议严格跟随侧栏的拖拽顺序\n- **优化** 应用内更新下载完成后校验安装包完整性（大小 + SHA-256），损坏或不完整的包不再进入安装流程",
+  "notes_en": "- **New** MCP tool `clipboard_select_item`: loads a history item onto the system pasteboard for direct pasting, without duplicating or reordering history (#81, thanks @ylorn for the contribution)\n- **New** MCP tool `ui_show_quick_panel`: lets AI agents open the Quick Paste panel directly (#81, thanks @ylorn for the contribution)\n- **Fix** MCP search result order now matches the Quick Panel display order\n- **Fix** Quick Panel `/` group suggestions not updating after moving items into a group, renaming, or reordering groups in the main window\n- **Improve** Quick Panel `/` group suggestions now strictly follow the sidebar's drag order\n- **Improve** In-app update downloads are verified (size + SHA-256) before install; corrupted or truncated packages are rejected",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.10-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.10-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-arm64.dmg",
-      "size": 5025633,
-      "sha256": "7123baed08f9a58886c0eb95f7ac884e95d97768b164bf29e617172c534c3d79"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.10-arm64.dmg",
+      "size": 5048675,
+      "sha256": "a1fafedae729597b7ebe9681e9e7cc151cd39d4a70bf5f80566041f79cb3b4ce"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.9-x86_64.dmg",
-      "size": 5188444,
-      "sha256": "a7614726f827e55b44c0b15ee74b72474aff15b39fcb5dc64965c9fdfc468241"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.10-x86_64.dmg",
+      "size": 5202919,
+      "sha256": "92ab8623eb2fa42d6a99717a79ab1d377289b076fc760a7893c7dc440e6ee75a"
     }
   }
 }
