@@ -17,5 +17,26 @@
       "size": 5202919,
       "sha256": "92ab8623eb2fa42d6a99717a79ab1d377289b076fc760a7893c7dc440e6ee75a"
     }
+  },
+  "beta": {
+    "version": "1.7.11-beta.1",
+    "notes_zh": "- **修复** OCR 识别逐行排版的图片（梗图、诗歌、清单等）时换行丢失、整段文字粘连的问题（macOS 26 的 Markdown OCR 路径）\n- **优化** 「OCR 转 Markdown」开关不再要求先开启图片 OCR，它同样作用于「粘贴 OCR 文字」\n- **优化** 图片条目的「重新识别」在图片 OCR 关闭时也可用，便于刷新旧的识别结果\n- **优化** 设置分区标题「图片 OCR」更名为「OCR」",
+    "notes_en": "- **Fix** OCR losing line breaks on line-structured images (memes, poems, lists) — text came out glued into one string on the macOS 26 Markdown OCR path\n- **Improve** The \"OCR to Markdown\" toggle no longer requires background image OCR to be enabled — it also governs \"Paste OCR Text\"\n- **Improve** \"Recognize again\" is now available for image clips even with image OCR off, so stale OCR results can be refreshed\n- **Improve** Settings section title renamed from \"Image OCR\" to \"OCR\"",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.11-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.11-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.11-beta.1-arm64.dmg",
+        "size": 5049313,
+        "sha256": "1f956f59159f728794e9d3262e9b8247e1bb74d3e0593adaa1764fdf08685366"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.11-beta.1-x86_64.dmg",
+        "size": 5210776,
+        "sha256": "fe2bb244bb7ab692fd2b0cbfa1a52a0d72a4cf954ec7fe6280871d2b9591a19a"
+      }
+    }
   }
 }
