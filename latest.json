@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.12-beta.5",
-    "notes_zh": "- **修复** 切换分类后移动选择时，第一条的高亮不消失的问题",
-    "notes_en": "- **Fix** After switching category, the first row's highlight could get stuck while moving the selection",
+    "version": "1.7.12-beta.6",
+    "notes_zh": "- **修复** 一次复制多张图片时，标题和预览只显示第一张的问题\n- **修复** 图片瀑布流中多图条目显示为灰色占位块的问题\n- **优化** 瀑布流键盘导航：←→ 切换分类，↓ 进入图片选择，第一行按 ↑ 返回分类\n- **修复** 点击分类标签时窗口轻微晃动的问题",
+    "notes_en": "- **Fix** Copying multiple images at once showed only the first file's name and preview\n- **Fix** Multi-image clips rendered as gray placeholder tiles in the image grid\n- **Improve** Grid keyboard navigation: ←/→ always switch categories, ↓ enters the grid, ↑ on the top row returns to the category bar\n- **Fix** Clicking a category chip slightly dragged the panel window",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.6-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.6-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-arm64.dmg",
-        "size": 5040165,
-        "sha256": "40870088ace6b8eb5d1240aa0c1f32aff685c68279dd181414ff256ff3d4d790"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.6-arm64.dmg",
+        "size": 9900682,
+        "sha256": "d54361bbaef65374e18be6094d844239b94e27c71a056c4533c09093a6ba58d4"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-x86_64.dmg",
-        "size": 5206250,
-        "sha256": "331c6211d9283f21ccc303e50a385c0d462764189642df0126096f467bc27d04"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.6-x86_64.dmg",
+        "size": 5213649,
+        "sha256": "0cb4dda11181c23383f74682bb56612b9ad24a452124fd5ea00636031b559327"
       }
     }
   }
