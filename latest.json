@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.12-beta.1",
-    "notes_zh": "- **修复** macOS 26 上快捷面板关闭（Esc / 再次按快捷键）明显卡顿约半秒的问题；粘贴出字和紧接着重新打开面板的响应速度也随之变快",
-    "notes_en": "- **Fix** On macOS 26, dismissing the quick panel (Esc or pressing the hotkey again) visibly stalled for about half a second; paste and quick-reopen latency improve as well",
+    "version": "1.7.12-beta.2",
+    "notes_zh": "- **修复** 1.7.12-beta.1 中回车/双击/⌘数字粘贴无内容输出的问题（关闭提速改动引入的回归）\n- **修复** macOS 26 上快捷面板关闭（Esc / 再次按快捷键）明显卡顿约半秒的问题；粘贴出字和紧接着重新打开面板的响应速度也随之变快",
+    "notes_en": "- **Fix** Pasting via Enter / double-click / ⌘digits produced no output in 1.7.12-beta.1 (regression introduced by the dismiss speed-up)\n- **Fix** On macOS 26, dismissing the quick panel (Esc or pressing the hotkey again) visibly stalled for about half a second; paste and quick-reopen latency improve as well",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.1-arm64.dmg",
-        "size": 5053736,
-        "sha256": "7c2d4f77c0a326949e3d4bbf6cb9ae34d9abf40a82a5453e72b94a211f092179"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.2-arm64.dmg",
+        "size": 5061873,
+        "sha256": "9cc8cbe4ff7931d7a3073e465e6ee5171f4f8a670793aa7b5e80bd6f8addbfab"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.1-x86_64.dmg",
-        "size": 5212185,
-        "sha256": "d93cfd7426d7432f1a8b0d15fdb3a674bc98e172e68153d549fe3da41bba5f16"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.2-x86_64.dmg",
+        "size": 5215015,
+        "sha256": "6c973692a7b095f14d8f7fa8093e55877045815b12d6308eb0900b47dadd248f"
       }
     }
   }
