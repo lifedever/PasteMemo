@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.12-beta.4",
-    "notes_zh": "- **修复** ⌘回车粘贴路径、粘贴图片、粘贴纯文本、粘贴 OCR 文字、保存到文件夹等操作后，条目不会回到「全部」第一条的问题（此前只有回车粘贴会置顶）",
-    "notes_en": "- **Fix** Cmd+Enter paste-path, paste image, paste as plain text, paste OCR text and save-to-folder actions now bump the clip back to the top of \"All\", matching Enter-paste behavior",
+    "version": "1.7.12-beta.5",
+    "notes_zh": "- **修复** 切换分类后移动选择时，第一条的高亮不消失的问题",
+    "notes_en": "- **Fix** After switching category, the first row's highlight could get stuck while moving the selection",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.4-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.4-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.4-arm64.dmg",
-        "size": 5039766,
-        "sha256": "5259cf83f572776b1232cacacbfdbf82b738212149f8839a2455f3acacbd61cf"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-arm64.dmg",
+        "size": 5040165,
+        "sha256": "40870088ace6b8eb5d1240aa0c1f32aff685c68279dd181414ff256ff3d4d790"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.4-x86_64.dmg",
-        "size": 5205990,
-        "sha256": "afb017540c982b6fd595bf9dd8b7e53935915aec6417a1b53d8236fdc461709d"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.5-x86_64.dmg",
+        "size": 5206250,
+        "sha256": "331c6211d9283f21ccc303e50a385c0d462764189642df0126096f467bc27d04"
       }
     }
   }
