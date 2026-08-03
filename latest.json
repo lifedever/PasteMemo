@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.7.12-beta.7",
-    "notes_zh": "- **修复** 一次复制多张图片时，标题和预览只显示第一张的问题\n- **修复** 图片瀑布流中多图条目显示为灰色占位块的问题\n- **优化** 瀑布流键盘导航：←→ 切换分类，↓ 进入图片选择，第一行按 ↑ 返回分类\n- **修复** 点击分类标签时窗口轻微晃动的问题",
-    "notes_en": "- **Fix** Copying multiple images at once showed only the first file's name and preview\n- **Fix** Multi-image clips rendered as gray placeholder tiles in the image grid\n- **Improve** Grid keyboard navigation: ←/→ always switch categories, ↓ enters the grid, ↑ on the top row returns to the category bar\n- **Fix** Clicking a category chip slightly dragged the panel window",
+    "version": "1.7.12-beta.8",
+    "notes_zh": "- **新增** 快捷面板适配 macOS 26 的 Liquid Glass（液态玻璃）外观；可在 设置 → 外观 → 快捷面板背景 中选择「液态玻璃」或「不透明」\n- **新增** App 图标适配 macOS 26：分层液态玻璃图标，深色模式自动适配（旧系统保持原图标）\n- **优化** 设置窗口全新布局：原生悬浮侧边栏（macOS 26 上呈现玻璃质感），窗口支持调整大小并记住位置\n- **优化** 设置分类重组：「偏好」更名为「快捷面板」；「链接预览」与「OCR」合并为「预览与识别」；「语言」与「剪贴板监听」移至「通用」\n- **修复** 繁体中文、日语、韩语、俄语等语言中 100+ 条未翻译的界面文案",
+    "notes_en": "- **New** Quick Panel adopts the macOS 26 Liquid Glass look; choose between \"Liquid Glass\" and \"Opaque\" backgrounds in Settings → Appearance\n- **New** App icon updated for macOS 26: layered Liquid Glass icon with automatic dark mode variant (older systems keep the original icon)\n- **Improve** Redesigned Settings window: native floating sidebar (glass on macOS 26), resizable window that remembers its position\n- **Improve** Settings reorganized: \"Preferences\" renamed to \"Quick Paste\"; \"Link Preview\" and \"OCR\" merged into \"Preview & Recognition\"; language and clipboard monitoring moved to \"General\"\n- **Fix** 100+ untranslated UI strings in Traditional Chinese, Japanese, Korean, and Russian",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.7-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.7-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.8-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.8-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.7-arm64.dmg",
-        "size": 5056326,
-        "sha256": "f8d3e51b2f75cbc054060d32c08763432be225cc2d3db931dc1681aad7b5ce13"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.8-arm64.dmg",
+        "size": 6388594,
+        "sha256": "3c18f5f7b1665ca845903b536a80568b47481f3ba0cfa6c03e6777b3ba19cfa3"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.7-x86_64.dmg",
-        "size": 5213662,
-        "sha256": "673b7be3e1d8d1a979e5382b9d56b9cc0f0babc48fc890867b2c22511b476968"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.8-x86_64.dmg",
+        "size": 6580741,
+        "sha256": "7c92265b7c40f0d485e57f3a4279ff003ce94666cf3d955af29ca3fa37934eb3"
       }
     }
   }
