@@ -1,42 +1,21 @@
 {
-  "version": "1.7.11",
-  "notes_zh": "- **修复** OCR 识别逐行排版的图片（梗图、诗歌、清单等）时换行丢失、整段文字粘连的问题（macOS 26 的 Markdown OCR 路径）\n- **优化** 「OCR 转 Markdown」开关不再要求先开启图片 OCR，它同样作用于「粘贴 OCR 文字」\n- **优化** 图片条目的「重新识别」在图片 OCR 关闭时也可用，便于刷新旧的识别结果\n- **优化** 设置分区标题「图片 OCR」更名为「OCR」",
-  "notes_en": "- **Fix** OCR losing line breaks on line-structured images (memes, poems, lists) — text came out glued into one string on the macOS 26 Markdown OCR path\n- **Improve** The \"OCR to Markdown\" toggle no longer requires background image OCR to be enabled — it also governs \"Paste OCR Text\"\n- **Improve** \"Recognize again\" is now available for image clips even with image OCR off, so stale OCR results can be refreshed\n- **Improve** Settings section title renamed from \"Image OCR\" to \"OCR\"",
+  "version": "1.7.12",
+  "notes_zh": "- **修复** macOS 26 上快捷面板关闭（Esc / 再次按快捷键）明显卡顿约半秒的问题；粘贴出字和重新打开面板的响应速度也随之变快\n- **修复** 一次复制多张图片时，标题和预览只显示第一张的问题\n- **修复** 图片瀑布流中多图条目显示为灰色占位块的问题\n- **修复** 点击面板外部关闭时偶发的窗口闪烁，以及焦点被拉回旧应用而不是落在所点应用的问题\n- **修复** ⌘回车粘贴、粘贴图片、粘贴纯文本、粘贴 OCR 文字、保存到文件夹等操作后，条目不会回到「全部」第一条的问题\n- **修复** 重新打开快捷面板的瞬间恰好有新复制内容到达时，预览区与列表第一条不一致的问题\n- **修复** 切换分类后移动选择时，第一条的高亮不消失的问题\n- **修复** 点击分类标签时窗口轻微晃动的问题\n- **修复** 繁体中文、日语、韩语、俄语等语言中 100+ 条未翻译的界面文案\n- **优化** 设置窗口全新布局：原生悬浮侧边栏（macOS 26 上呈现玻璃质感），窗口支持调整大小并记住位置\n- **优化** 设置分类重组：「偏好」更名为「快捷面板」；「链接预览」与「OCR」合并为「预览与识别」；「语言」与「剪贴板监听」移至「通用」\n- **优化** 瀑布流键盘导航：←→ 切换分类，↓ 进入图片选择，第一行按 ↑ 返回分类\n- **优化** 窄窗口下用 Tab/方向键切换分类时，选中的分类标签自动滚动到可见区域\n- **优化** ⌘K 快捷操作菜单换用更通透的材质背景",
+  "notes_en": "- **Fix** Quick Panel taking ~0.5s to close (Esc / hotkey toggle) on macOS 26; pasting and reopening the panel feel snappier as well\n- **Fix** Title and preview showing only the first image when multiple images are copied at once\n- **Fix** Multi-image entries rendering as gray placeholder blocks in the image grid\n- **Fix** Occasional window flicker when dismissing the panel by clicking outside, and focus being pulled back to the previous app instead of the one you clicked\n- **Fix** Items not moving to the top of \"All\" after ⌘Enter paste, image paste, plain-text paste, OCR-text paste, or save-to-folder (previously only Enter paste did)\n- **Fix** Preview pane and the first list row disagreeing when new content arrives at the exact moment the panel reopens\n- **Fix** First row's highlight not clearing when moving the selection after switching filters\n- **Fix** Slight window jiggle when clicking filter tabs\n- **Fix** 100+ untranslated UI strings in Traditional Chinese, Japanese, Korean, and Russian\n- **Improve** Redesigned Settings window: native floating sidebar (glass look on macOS 26), resizable window that remembers its position\n- **Improve** Settings reorganized: \"Preferences\" renamed to \"Quick Paste\"; \"Link Preview\" and \"OCR\" merged into \"Preview & Recognition\"; language and clipboard monitoring moved to \"General\"\n- **Improve** Image grid keyboard navigation: ←/→ switch filters, ↓ enters the grid, ↑ on the first row returns to the filter bar\n- **Improve** In narrow windows, switching filters via Tab/arrow keys now auto-scrolls the selected tab into view\n- **Improve** The ⌘K command palette uses a more translucent material background",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.11-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.11-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.11-arm64.dmg",
-      "size": 5049343,
-      "sha256": "64acc2393e8e4394b81c9371a53bd623c3ae37482321dfff8f1b925ef7f29a7e"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-arm64.dmg",
+      "size": 5047077,
+      "sha256": "a16b5ffc1034a9c2edab3bd561aa388760fe2f37a030b059b95c12293135ffd3"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.11-x86_64.dmg",
-      "size": 5210792,
-      "sha256": "5595aaf7e220785d01de0f1cbfc56fcb49fb5ce6d7789a2eb6cc0537508a2bb0"
-    }
-  },
-  "beta": {
-    "version": "1.7.12-beta.9",
-    "notes_zh": "- **修复** 快捷面板在浅色外观下叠深色窗口时背景发灰、文字对比度差的问题：面板背景改回外观锁定的系统材质方案（同时移除上一版的「快捷面板背景」设置项）\n- **修复** 点击面板外部关闭时偶发的窗口闪烁，以及焦点被拉回旧应用而不是落在所点应用的问题\n- **修复** App 图标恢复为原扁平样式\n- **优化** 窄窗口下用 Tab/方向键切换分类时，选中的分类标签自动滚动到可见区域\n- **优化** ⌘K 快捷操作菜单换用更通透的材质背景",
-    "notes_en": "- **Fix** Quick Panel turning gray-washed with poor text contrast in light appearance over dark windows: the panel backdrop is back on the appearance-locked system material (the \"Quick Paste background\" setting from the previous beta is removed)\n- **Fix** Occasional window flicker when dismissing the panel by clicking outside, and focus being pulled back to the previous app instead of the one you clicked\n- **Fix** App icon restored to the original flat style\n- **Improve** In narrow windows, switching filters via Tab/arrow keys now auto-scrolls the selected tab into view\n- **Improve** The ⌘K command palette uses a more translucent material background",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.9-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.9-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.9-arm64.dmg",
-        "size": 5047133,
-        "sha256": "c09d319f789fba7026efdc6282f1428c2e4d7983b50d57ecd6b63c08190d65d7"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.12-beta.9-x86_64.dmg",
-        "size": 5215162,
-        "sha256": "d9270ca39acf2c0326897bdd971c39585a4447f19a95b604164f206691783b55"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-x86_64.dmg",
+      "size": 5212616,
+      "sha256": "056d562244949221ddb74487640e161437b10df90d82858c4a661adebe60c129"
     }
   }
 }
