@@ -17,5 +17,26 @@
       "size": 5212616,
       "sha256": "056d562244949221ddb74487640e161437b10df90d82858c4a661adebe60c129"
     }
+  },
+  "beta": {
+    "version": "1.7.13-beta.1",
+    "notes_zh": "- **修复** 剪贴板历史条目较多时（数千至上万条），复制新内容后调出快捷面板明显卡顿、甚至长时间无响应的问题\n- **修复** 一次复制多张图片的条目：列表缩略图显示文件数量角标，预览区正确显示文件列表而非只显示第一张图",
+    "notes_en": "- **Fix** Noticeable lag (or long hangs) when invoking the quick panel right after copying, on large histories (thousands to tens of thousands of clips)\n- **Fix** Multi-image copies now show a file-count badge on the list thumbnail and preview as a file list instead of only the first image",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-arm64.dmg",
+        "size": 5047968,
+        "sha256": "3c837d7e6c37e9d1c123212f5318f4bc19e8256ccf8160955091f289fdd90b47"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-x86_64.dmg",
+        "size": 5215373,
+        "sha256": "5089c650721bf9c70eeeafd050e2bbe309e49c05a90cb82c3705df27c6c57aa3"
+      }
+    }
   }
 }
