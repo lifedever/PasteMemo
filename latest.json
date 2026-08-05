@@ -1,42 +1,21 @@
 {
-  "version": "1.7.12",
-  "notes_zh": "- **修复** macOS 26 上快捷面板关闭（Esc / 再次按快捷键）明显卡顿约半秒的问题；粘贴出字和重新打开面板的响应速度也随之变快\n- **修复** 一次复制多张图片时，标题和预览只显示第一张的问题\n- **修复** 图片瀑布流中多图条目显示为灰色占位块的问题\n- **修复** 点击面板外部关闭时偶发的窗口闪烁，以及焦点被拉回旧应用而不是落在所点应用的问题\n- **修复** ⌘回车粘贴、粘贴图片、粘贴纯文本、粘贴 OCR 文字、保存到文件夹等操作后，条目不会回到「全部」第一条的问题\n- **修复** 重新打开快捷面板的瞬间恰好有新复制内容到达时，预览区与列表第一条不一致的问题\n- **修复** 切换分类后移动选择时，第一条的高亮不消失的问题\n- **修复** 点击分类标签时窗口轻微晃动的问题\n- **修复** 繁体中文、日语、韩语、俄语等语言中 100+ 条未翻译的界面文案\n- **优化** 设置窗口全新布局：原生悬浮侧边栏（macOS 26 上呈现玻璃质感），窗口支持调整大小并记住位置\n- **优化** 设置分类重组：「偏好」更名为「快捷面板」；「链接预览」与「OCR」合并为「预览与识别」；「语言」与「剪贴板监听」移至「通用」\n- **优化** 瀑布流键盘导航：←→ 切换分类，↓ 进入图片选择，第一行按 ↑ 返回分类\n- **优化** 窄窗口下用 Tab/方向键切换分类时，选中的分类标签自动滚动到可见区域\n- **优化** ⌘K 快捷操作菜单换用更通透的材质背景",
-  "notes_en": "- **Fix** Quick Panel taking ~0.5s to close (Esc / hotkey toggle) on macOS 26; pasting and reopening the panel feel snappier as well\n- **Fix** Title and preview showing only the first image when multiple images are copied at once\n- **Fix** Multi-image entries rendering as gray placeholder blocks in the image grid\n- **Fix** Occasional window flicker when dismissing the panel by clicking outside, and focus being pulled back to the previous app instead of the one you clicked\n- **Fix** Items not moving to the top of \"All\" after ⌘Enter paste, image paste, plain-text paste, OCR-text paste, or save-to-folder (previously only Enter paste did)\n- **Fix** Preview pane and the first list row disagreeing when new content arrives at the exact moment the panel reopens\n- **Fix** First row's highlight not clearing when moving the selection after switching filters\n- **Fix** Slight window jiggle when clicking filter tabs\n- **Fix** 100+ untranslated UI strings in Traditional Chinese, Japanese, Korean, and Russian\n- **Improve** Redesigned Settings window: native floating sidebar (glass look on macOS 26), resizable window that remembers its position\n- **Improve** Settings reorganized: \"Preferences\" renamed to \"Quick Paste\"; \"Link Preview\" and \"OCR\" merged into \"Preview & Recognition\"; language and clipboard monitoring moved to \"General\"\n- **Improve** Image grid keyboard navigation: ←/→ switch filters, ↓ enters the grid, ↑ on the first row returns to the filter bar\n- **Improve** In narrow windows, switching filters via Tab/arrow keys now auto-scrolls the selected tab into view\n- **Improve** The ⌘K command palette uses a more translucent material background",
+  "version": "1.7.13",
+  "notes_zh": "- **修复** 剪贴板历史条目较多时（数千至上万条），复制新内容后调出快捷面板明显卡顿、甚至长时间无响应的问题\n- **修复** 一次复制多张图片的条目：列表缩略图显示文件数量角标，预览区正确显示文件列表而非只显示第一张图",
+  "notes_en": "- **Fix** Noticeable lag (or long hangs) when invoking the quick panel right after copying, on large histories (thousands to tens of thousands of clips)\n- **Fix** Multi-image copies now show a file-count badge on the list thumbnail and preview as a file list instead of only the first image",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-arm64.dmg",
-      "size": 5047077,
-      "sha256": "a16b5ffc1034a9c2edab3bd561aa388760fe2f37a030b059b95c12293135ffd3"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-arm64.dmg",
+      "size": 5047978,
+      "sha256": "9a4348c0469ae98b29bdcd601a32f37dfd05d7856b9e32d154cbf80e3e89454e"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.12-x86_64.dmg",
-      "size": 5212616,
-      "sha256": "056d562244949221ddb74487640e161437b10df90d82858c4a661adebe60c129"
-    }
-  },
-  "beta": {
-    "version": "1.7.13-beta.1",
-    "notes_zh": "- **修复** 剪贴板历史条目较多时（数千至上万条），复制新内容后调出快捷面板明显卡顿、甚至长时间无响应的问题\n- **修复** 一次复制多张图片的条目：列表缩略图显示文件数量角标，预览区正确显示文件列表而非只显示第一张图",
-    "notes_en": "- **Fix** Noticeable lag (or long hangs) when invoking the quick panel right after copying, on large histories (thousands to tens of thousands of clips)\n- **Fix** Multi-image copies now show a file-count badge on the list thumbnail and preview as a file list instead of only the first image",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-arm64.dmg",
-        "size": 5047968,
-        "sha256": "3c837d7e6c37e9d1c123212f5318f4bc19e8256ccf8160955091f289fdd90b47"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.13-beta.1-x86_64.dmg",
-        "size": 5215373,
-        "sha256": "5089c650721bf9c70eeeafd050e2bbe309e49c05a90cb82c3705df27c6c57aa3"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-x86_64.dmg",
+      "size": 5215397,
+      "sha256": "2b48e465574526426c8445eb26ec65bada6da009ff67f3592d518c8fae531e30"
     }
   }
 }
