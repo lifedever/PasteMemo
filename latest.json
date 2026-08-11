@@ -1,42 +1,21 @@
 {
-  "version": "1.7.13",
-  "notes_zh": "- **修复** 剪贴板历史条目较多时（数千至上万条），复制新内容后调出快捷面板明显卡顿、甚至长时间无响应的问题\n- **修复** 一次复制多张图片的条目：列表缩略图显示文件数量角标，预览区正确显示文件列表而非只显示第一张图",
-  "notes_en": "- **Fix** Noticeable lag (or long hangs) when invoking the quick panel right after copying, on large histories (thousands to tens of thousands of clips)\n- **Fix** Multi-image copies now show a file-count badge on the list thumbnail and preview as a file list instead of only the first image",
+  "version": "1.7.14",
+  "notes_zh": "- **修复** 连接多个 AI Agent（MCP）会话后，App 可能整体卡住：状态栏菜单点不开、设置窗口只显示 Dock 图标不出窗口、快捷面板按 ESC 关闭延迟约 1 秒\n- **修复** 音效开关显示已开启但复制/粘贴实际无声的问题\n- **新增** 4 组新的复制/粘贴配对音效，音效选择旁增加试听按钮",
+  "notes_en": "- **Fix** With many concurrent AI Agent (MCP) sessions connected, the app could become unresponsive — status bar menu not opening, the settings window showing only a Dock icon, and quick panel ESC dismissal delayed by about 1 second\n- **Fix** Sound toggle appeared enabled while copy/paste sounds stayed silent\n- **New** 4 new paired copy/paste sounds, with a preview button next to each sound picker",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-arm64.dmg",
-      "size": 5047978,
-      "sha256": "9a4348c0469ae98b29bdcd601a32f37dfd05d7856b9e32d154cbf80e3e89454e"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-arm64.dmg",
+      "size": 5165058,
+      "sha256": "07c2875005fd83e019c372579d6955ef70b3ab0e9bbb9c92257568285e7d8316"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.13-x86_64.dmg",
-      "size": 5215397,
-      "sha256": "2b48e465574526426c8445eb26ec65bada6da009ff67f3592d518c8fae531e30"
-    }
-  },
-  "beta": {
-    "version": "1.7.14-beta.1",
-    "notes_zh": "- **修复** 连接多个 AI Agent（MCP）会话后，App 可能整体卡住：状态栏菜单点不开、设置窗口只显示 Dock 图标不出窗口、快捷面板按 ESC 关闭延迟约 1 秒",
-    "notes_en": "- **Fix** With many concurrent AI Agent (MCP) sessions connected, the app could become unresponsive — status bar menu not opening, the settings window showing only a Dock icon, and quick panel ESC dismissal delayed by about 1 second",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-arm64.dmg",
-        "size": 5165011,
-        "sha256": "aceb6428534356c10a777e3a675c2ba2b94be6397eaa298400b8dec029a6f0e7"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-x86_64.dmg",
-        "size": 5330081,
-        "sha256": "bcc43d892333f22e6ffece0987690c856da8f822f9b37a098a68ec1155c53454"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-x86_64.dmg",
+      "size": 5330071,
+      "sha256": "e4544e1e1cfb696adb9c7a9763d01a5c5683062a11bd0bbdff615d2f38d2e986"
     }
   }
 }
