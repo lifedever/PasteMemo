@@ -17,5 +17,26 @@
       "size": 5215397,
       "sha256": "2b48e465574526426c8445eb26ec65bada6da009ff67f3592d518c8fae531e30"
     }
+  },
+  "beta": {
+    "version": "1.7.14-beta.1",
+    "notes_zh": "- **修复** 连接多个 AI Agent（MCP）会话后，App 可能整体卡住：状态栏菜单点不开、设置窗口只显示 Dock 图标不出窗口、快捷面板按 ESC 关闭延迟约 1 秒",
+    "notes_en": "- **Fix** With many concurrent AI Agent (MCP) sessions connected, the app could become unresponsive — status bar menu not opening, the settings window showing only a Dock icon, and quick panel ESC dismissal delayed by about 1 second",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-arm64.dmg",
+        "size": 5165011,
+        "sha256": "aceb6428534356c10a777e3a675c2ba2b94be6397eaa298400b8dec029a6f0e7"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.7.14-beta.1-x86_64.dmg",
+        "size": 5330081,
+        "sha256": "bcc43d892333f22e6ffece0987690c856da8f822f9b37a098a68ec1155c53454"
+      }
+    }
   }
 }
