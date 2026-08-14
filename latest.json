@@ -1,21 +1,21 @@
 {
-  "version": "1.7.14",
-  "notes_zh": "- **修复** 连接多个 AI Agent（MCP）会话后，App 可能整体卡住：状态栏菜单点不开、设置窗口只显示 Dock 图标不出窗口、快捷面板按 ESC 关闭延迟约 1 秒\n- **修复** 音效开关显示已开启但复制/粘贴实际无声的问题\n- **新增** 4 组新的复制/粘贴配对音效，音效选择旁增加试听按钮",
-  "notes_en": "- **Fix** With many concurrent AI Agent (MCP) sessions connected, the app could become unresponsive — status bar menu not opening, the settings window showing only a Dock icon, and quick panel ESC dismissal delayed by about 1 second\n- **Fix** Sound toggle appeared enabled while copy/paste sounds stayed silent\n- **New** 4 new paired copy/paste sounds, with a preview button next to each sound picker",
+  "version": "1.8.0",
+  "notes_zh": "- **新增** App 已完成 Apple 开发者签名与公证：下载安装不再被 macOS 拦截提示「无法打开」，之后每次升级也不再需要重新授权辅助功能（感谢 @CoZooo 提供签名与公证支持）\n- **说明** 升级到本版本时，因签名身份变更需重新授权一次辅助功能，此后永久保留\n- **修复** 全局快捷键在 macOS 26/27 测试版系统上可能导致的崩溃",
+  "notes_en": "- **New** The app is now signed and notarized with an Apple Developer ID: downloads are no longer blocked by macOS, and future updates will no longer require re-granting Accessibility permission (thanks @CoZooo for sponsoring the signing & notarization)\n- **Note** Upgrading to this version requires re-granting Accessibility permission once due to the signing identity change; it persists permanently afterwards\n- **Fix** A crash that global hotkeys could trigger on macOS 26/27 beta systems",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.8.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.8.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-arm64.dmg",
-      "size": 5165058,
-      "sha256": "07c2875005fd83e019c372579d6955ef70b3ab0e9bbb9c92257568285e7d8316"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.8.0-arm64.dmg",
+      "size": 5179285,
+      "sha256": "5824c60761ed23e4ace858ac864e8f2b2fb96dea3d3d39310f3c977a738d76db"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.7.14-x86_64.dmg",
-      "size": 5330071,
-      "sha256": "e4544e1e1cfb696adb9c7a9763d01a5c5683062a11bd0bbdff615d2f38d2e986"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.8.0-x86_64.dmg",
+      "size": 5354918,
+      "sha256": "39b699fb234c83791e5dc0283c03e930d36c2611a2098f906d7dc17240760b15"
     }
   }
 }
