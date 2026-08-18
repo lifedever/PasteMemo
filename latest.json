@@ -17,5 +17,26 @@
       "size": 5354918,
       "sha256": "39b699fb234c83791e5dc0283c03e930d36c2611a2098f906d7dc17240760b15"
     }
+  },
+  "beta": {
+    "version": "1.8.1-beta.1",
+    "notes_zh": "- **修复** 一次性复制上千个文件时，快捷面板 / 主窗口预览该条记录会卡死数秒的问题（文件列表改为按需渲染，图标与统计信息改为缓存 / 异步计算）\n- **修复** 快捷面板切换分类再切回来后，选中项停留在中途分类自动选中的条目上的问题；现在每次切换分类都选中该分类的第一条",
+    "notes_en": "- **Fix** Selecting a clip with thousands of copied files no longer freezes the quick panel / main window preview (file list now renders lazily; icons and stats are cached / computed asynchronously)\n- **Fix** Switching category tabs back and forth no longer leaves a stale selection carried over from the intermediate tab; each switch now selects the first item of that category",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.8.1-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.8.1-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.8.1-beta.1-arm64.dmg",
+        "size": 5184614,
+        "sha256": "93feb27d342c49383d6f9fb12a5b2e5fe931f59f1de165339d503602b11483a0"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.8.1-beta.1-x86_64.dmg",
+        "size": 5361000,
+        "sha256": "bb34671663b8c09e22a3fa8a7b194a2102bb37031f095fe692e73ed5ceb92d87"
+      }
+    }
   }
 }
