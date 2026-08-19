@@ -17,5 +17,26 @@
       "size": 5360964,
       "sha256": "2defd002957e3036545b50c8241d2d75e17107ebf03f2f07a7542958bcf0e5d6"
     }
+  },
+  "beta": {
+    "version": "1.9.0-beta.1",
+    "notes_zh": "- **新增** 短信验证码自动提取：iPhone 开启「短信转发」到 Mac 后，收到验证码短信会自动提取验证码、复制到剪贴板并发送通知，任意输入框直接 ⌘V 粘贴。默认关闭，可在 设置 → 预览与识别 中开启（需授权完全磁盘访问权限）\n- **新增** 验证码条目在列表中带 OTP 角标，预览区以验证码格子 + 短信原文卡片展示\n- **修复** 手机号/邮箱类型的历史条目无法在「文本」分类中筛选到的问题",
+    "notes_en": "- **New** Automatic SMS verification codes: with iPhone Text Message Forwarding enabled, incoming codes are extracted, copied to the clipboard and announced via notification — just ⌘V anywhere. Off by default; enable it in Settings → Preview & Recognition (requires Full Disk Access)\n- **New** Verification-code clips get an OTP badge in lists and a dedicated preview showing the code cells alongside the original message\n- **Fix** Phone/email-type clips were missing from the Text category filter",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.0-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.0-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.0-beta.1-arm64.dmg",
+        "size": 5236740,
+        "sha256": "900e8dc49f0ff158f38b0d5ae58a2a96ca44aca391da5ee773906aa83fa97a58"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.0-beta.1-x86_64.dmg",
+        "size": 5416033,
+        "sha256": "772b24275b9d97ab4de923c672793ce38e1226dabb13eb7fea15c85f6e4e56bf"
+      }
+    }
   }
 }
