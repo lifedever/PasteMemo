@@ -1,4 +1,12 @@
-# PasteMemo
+# PasteMemo — Website & Distribution
+
+> [!IMPORTANT]
+> **This repository is the PasteMemo website and update-distribution channel — it does not contain the app source code.**
+>
+> - 💻 **Source code, issues and releases live at [lifedever/PasteMemo-app](https://github.com/lifedever/PasteMemo-app).** Please report bugs and open pull requests there.
+> - 🌐 This repo is published via GitHub Pages at **[www.lifedever.com/PasteMemo](https://www.lifedever.com/PasteMemo/)**.
+> - ⚙️ It is live infrastructure, written to by every release: `latest.json` powers the app's built-in update check, `downloads/` hosts the DMGs the in-app updater fetches, and `beta/` serves the beta channel.
+> - ⚠️ **Do not archive or delete this repository.** Archiving makes it read-only, which breaks the release pipeline — `publish-release.sh` can no longer push here and every release (stable and beta) fails.
 
 <p align="center">
   <img src="logo.svg" width="128" height="128" alt="PasteMemo Icon">

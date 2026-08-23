@@ -1,4 +1,12 @@
-# PasteMemo
+# PasteMemo — 官网与分发仓库
+
+> [!IMPORTANT]
+> **本仓库是 PasteMemo 的官网与更新分发通道，不包含 App 源代码。**
+>
+> - 💻 **源代码、Issue 和 Release 都在 [lifedever/PasteMemo-app](https://github.com/lifedever/PasteMemo-app)**，请到那边提交 Bug 和 Pull Request。
+> - 🌐 本仓库通过 GitHub Pages 发布在 **[www.lifedever.com/PasteMemo](https://www.lifedever.com/PasteMemo/)**。
+> - ⚙️ 它是每次发版都会写入的线上基础设施：`latest.json` 驱动 App 内的检查更新，`downloads/` 托管自动更新拉取的 DMG，`beta/` 提供 Beta 通道。
+> - ⚠️ **请勿归档或删除本仓库。** 归档会让仓库变为只读，`publish-release.sh` 将无法推送，导致所有正式版和 Beta 发版失败。
 
 <p align="center">
   <img src="logo.svg" width="128" height="128" alt="PasteMemo Icon">
