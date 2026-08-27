@@ -20,8 +20,8 @@
   },
   "beta": {
     "version": "1.9.1-beta.1",
-    "notes_zh": "- **新增** 视频条目保存预览帧：以前视频预览要实时读源文件，而视频大多来自会自动清理的临时目录（CleanShot 录屏、微信、浏览器下载），源文件一被清掉预览就永久变成灰色图标。现在复制时就保存一帧，源文件没了也还能看到画面；已有的视频条目会在启动时自动补上（源文件还在的）\n- **优化** 文件条目区分「文件已不存在」和「无访问权限」：这两种情况以前都只显示灰色占位和「文件数 0」，看不出到底是文件被删了还是 PasteMemo 读不了，现在会明确标出是哪一种",
-    "notes_en": "- **New** Video clips now keep a poster frame. Previews used to be read from the source file every time, and video clips overwhelmingly come from self-cleaning temp folders (CleanShot recordings, WeChat, browser downloads) — so the moment the source app tidied up, the preview turned permanently gray. The frame is now saved on copy and survives the source file; existing video clips are backfilled at launch where the file is still around\n- **Improve** File clips now distinguish \"file no longer exists\" from \"no permission to access\". Both used to render as the same gray placeholder with a \"0 files\" count, giving no clue whether the file had been deleted or simply couldn't be read — the reason is now stated explicitly",
+    "notes_zh": "- **新增** 视频条目保存预览帧，源文件被清理后依然看得到画面；已有条目在启动时自动补上\n- **优化** 文件条目明确区分「文件已不存在」和「无访问权限」，不再都显示成灰色占位",
+    "notes_en": "- **New** Video clips now keep a poster frame, so the preview survives the source file being cleaned up. Existing clips are backfilled at launch\n- **Improve** File clips now state whether the file is missing or unreadable, instead of showing the same gray placeholder for both",
     "downloads": {
       "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-arm64.dmg",
       "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-x86_64.dmg"
