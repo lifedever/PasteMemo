@@ -1,42 +1,21 @@
 {
-  "version": "1.9.0",
-  "notes_zh": "- **新增** 短信验证码自动提取：iPhone 开启「短信转发」到 Mac 后，收到验证码短信会自动提取验证码、复制到剪贴板并发送通知，任意输入框直接 ⌘V 粘贴。默认关闭，可在 设置 → 预览与识别 中开启（需授权完全磁盘访问权限）\n- **新增** 验证码条目在列表中带 OTP 角标，预览区以验证码格子 + 短信原文卡片展示\n- **新增** 列表条目显示内容计量：文本/代码显示字数与行数，图片显示像素尺寸与文件大小，链接显示网站域名。只在标题没能说全内容时才出现——短词短语标题本就完整显示，保持干净\n- **优化** WebDAV 备份服务器地址可以省略 `http(s)://` 前缀，自动探测（优先 HTTPS）；连接测试会明确区分认证失败、证书错误、无法访问等原因；使用明文 HTTP 地址时给出风险提示\n- **修复** 手机号/邮箱类型的历史条目无法在「文本」分类中筛选到的问题",
-  "notes_en": "- **New** Automatic SMS verification codes: with iPhone Text Message Forwarding enabled, incoming codes are extracted, copied to the clipboard and announced via notification — just ⌘V anywhere. Off by default; enable it in Settings → Preview & Recognition (requires Full Disk Access)\n- **New** Verification-code clips get an OTP badge in lists and a dedicated preview showing the code cells alongside the original message\n- **New** List rows now show content metrics: character and line counts for text and code, pixel dimensions and file size for images, and the site domain for links. They only appear once the title no longer tells the whole story, so short snippets stay clean\n- **Improve** WebDAV backup server addresses may omit the `http(s)://` prefix — the scheme is probed automatically (HTTPS first). Test Connection now distinguishes auth failures, certificate errors and unreachable hosts, and a warning appears while a plain-text HTTP address is in use\n- **Fix** Phone/email-type clips were missing from the Text category filter",
+  "version": "1.9.1",
+  "notes_zh": "- **新增** 视频条目保存预览帧，源文件被清理后依然看得到画面；已有条目在启动时自动补上\n- **优化** 文件条目明确区分「文件已不存在」和「无访问权限」，不再都显示成灰色占位\n- **修复** 在 Finder 的搜索框、「前往文件夹」、重命名输入框里粘贴时，内容被存成文件放进当前文件夹、却没粘进输入框",
+  "notes_en": "- **New** Video clips now keep a poster frame, so the preview survives the source file being cleaned up. Existing clips are backfilled at launch\n- **Improve** File clips now state whether the file is missing or unreadable, instead of showing the same gray placeholder for both\n- **Fix** Pasting into Finder's search field, Go to Folder sheet or a rename field saved a file into the current folder instead of pasting the text",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.0-arm64.dmg",
-      "size": 5269904,
-      "sha256": "ece5b020686da9b36b12f6a1ee0f4e0a7001e87b4e2965967d6032c6489a46a4"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-arm64.dmg",
+      "size": 5291272,
+      "sha256": "f408a806fb2421116b061254b9727e73de9631f110af3693cec0e0749eb39449"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.0-x86_64.dmg",
-      "size": 5448726,
-      "sha256": "978dba3f470a034d49c7a12bbf737ccf282d9cc4e4f35ca1d0a76ae9764db723"
-    }
-  },
-  "beta": {
-    "version": "1.9.1-beta.1",
-    "notes_zh": "- **新增** 视频条目保存预览帧，源文件被清理后依然看得到画面；已有条目在启动时自动补上\n- **优化** 文件条目明确区分「文件已不存在」和「无访问权限」，不再都显示成灰色占位",
-    "notes_en": "- **New** Video clips now keep a poster frame, so the preview survives the source file being cleaned up. Existing clips are backfilled at launch\n- **Improve** File clips now state whether the file is missing or unreadable, instead of showing the same gray placeholder for both",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-arm64.dmg",
-        "size": 5288634,
-        "sha256": "b10458b37df4a2cf6088452d14ee9eb913992fe5eb62df60cebdaf8e088740f4"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.9.1-beta.1-x86_64.dmg",
-        "size": 5466322,
-        "sha256": "deccb4434f73872950ff4c866da85b50e2c5162be0cde7db855c4cfcc7201650"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-x86_64.dmg",
+      "size": 5469292,
+      "sha256": "09b275392e9789b1fb315ba94d658c52cbeb837c5044ec221ca1353601b3b78f"
     }
   }
 }
