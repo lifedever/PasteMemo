@@ -1,21 +1,21 @@
 {
-  "version": "1.9.1",
-  "notes_zh": "- **新增** 视频条目保存预览帧，源文件被清理后依然看得到画面；已有条目在启动时自动补上\n- **优化** 文件条目明确区分「文件已不存在」和「无访问权限」，不再都显示成灰色占位\n- **修复** 在 Finder 的搜索框、「前往文件夹」、重命名输入框里粘贴时，内容被存成文件放进当前文件夹、却没粘进输入框",
-  "notes_en": "- **New** Video clips now keep a poster frame, so the preview survives the source file being cleaned up. Existing clips are backfilled at launch\n- **Improve** File clips now state whether the file is missing or unreadable, instead of showing the same gray placeholder for both\n- **Fix** Pasting into Finder's search field, Go to Folder sheet or a rename field saved a file into the current folder instead of pasting the text",
+  "version": "1.9.2",
+  "notes_zh": "- **修复** 接力模式下按接力粘贴快捷键，进度往前走但内容没粘出来的问题（#87，感谢 @hu9491 的反馈）\n- **修复** 按住接力粘贴快捷键不放时，队列会被快速刷空的问题\n- **优化** 设置中的「接力」分类并入「快捷键」，接力粘贴快捷键移到那里设置\n- **优化** 快捷键页按作用对象分为「快捷面板」「管理器窗口」「接力」三组，提示文字紧跟所属条目",
+  "notes_en": "- **Fix** Relay Mode advancing through the queue without actually pasting when you pressed the relay paste shortcut (#87, thanks @hu9491 for the report)\n- **Fix** Holding the relay paste shortcut draining the queue at key-repeat speed\n- **Improve** The \"Relay\" settings section is now part of \"Shortcuts\", where the relay paste shortcut lives\n- **Improve** The Shortcuts page is grouped by what each shortcut controls: Quick Paste, Manager Window, and Relay, with each hint next to the row it describes",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-arm64.dmg",
-      "size": 5291272,
-      "sha256": "f408a806fb2421116b061254b9727e73de9631f110af3693cec0e0749eb39449"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-arm64.dmg",
+      "size": 5284914,
+      "sha256": "d0626d050eaeee3583a978a58c1fa25faa3a68de53275cc918759a66aa04253b"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.1-x86_64.dmg",
-      "size": 5469292,
-      "sha256": "09b275392e9789b1fb315ba94d658c52cbeb837c5044ec221ca1353601b3b78f"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-x86_64.dmg",
+      "size": 5464106,
+      "sha256": "79bbe415f792e881e33692611b09cef708809f885bb2247f4fcdca155fe2a089"
     }
   }
 }
