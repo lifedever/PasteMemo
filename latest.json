@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.10.0-beta.1",
-    "notes_zh": "- **优化** 快捷面板界面更新\n- **优化** ⌘K 快捷操作菜单重做，跟随选中条目弹出，不再遮挡列表",
-    "notes_en": "- **Improve** Refreshed the quick panel interface\n- **Improve** Rebuilt the ⌘K actions menu — it now follows the selected item and no longer covers the list",
+    "version": "1.10.0-beta.2",
+    "notes_zh": "- **新增** 可在设置中选择标签栏显示哪些分类\n- **优化** 快捷面板界面更新\n- **优化** ⌘K 快捷操作菜单重做，跟随选中条目弹出，不再遮挡列表",
+    "notes_en": "- **New** Choose which categories appear in the tab bar from Settings\n- **Improve** Refreshed the quick panel interface\n- **Improve** Rebuilt the ⌘K actions menu — it now follows the selected item and no longer covers the list",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-arm64.dmg",
-        "size": 5335161,
-        "sha256": "60c6448bc4b90b3ed4670c6d675005ecdab36e8fcebbcf4f12bd455cba5bc031"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.2-arm64.dmg",
+        "size": 5343121,
+        "sha256": "11901d738258f1d33fe2f7a49cc839e32fcfd3e1878df17c1f8ab52d671b642a"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-x86_64.dmg",
-        "size": 5519070,
-        "sha256": "7a417451882fbf2bce11c69a87a93c293043d92137aeacc0adde22dd6f3dbbad"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.2-x86_64.dmg",
+        "size": 5526357,
+        "sha256": "29a95fb473d7e33b35c7d0b8967b6247cd4234e0ea4bc08a2bad61f5dbdcc0e7"
       }
     }
   }
