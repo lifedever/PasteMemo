@@ -17,5 +17,26 @@
       "size": 5464106,
       "sha256": "79bbe415f792e881e33692611b09cef708809f885bb2247f4fcdca155fe2a089"
     }
+  },
+  "beta": {
+    "version": "1.10.0-beta.1",
+    "notes_zh": "- **优化** 快捷面板界面更新\n- **优化** ⌘K 快捷操作菜单重做，跟随选中条目弹出，不再遮挡列表",
+    "notes_en": "- **Improve** Refreshed the quick panel interface\n- **Improve** Rebuilt the ⌘K actions menu — it now follows the selected item and no longer covers the list",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-arm64.dmg",
+        "size": 5324220,
+        "sha256": "d0fa550bcae84b95b7fec18c46050812046c9e910934c32919836f05c98521aa"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.1-x86_64.dmg",
+        "size": 5501253,
+        "sha256": "65fabde6b823bf9dc6c2e5174dce3897ab3286f9dec4b0286303ca7fefbd1864"
+      }
+    }
   }
 }
