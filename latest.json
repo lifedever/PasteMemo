@@ -1,42 +1,21 @@
 {
-  "version": "1.9.2",
-  "notes_zh": "- **修复** 接力模式下按接力粘贴快捷键，进度往前走但内容没粘出来的问题（#87，感谢 @hu9491 的反馈）\n- **修复** 按住接力粘贴快捷键不放时，队列会被快速刷空的问题\n- **优化** 设置中的「接力」分类并入「快捷键」，接力粘贴快捷键移到那里设置\n- **优化** 快捷键页按作用对象分为「快捷面板」「管理器窗口」「接力」三组，提示文字紧跟所属条目",
-  "notes_en": "- **Fix** Relay Mode advancing through the queue without actually pasting when you pressed the relay paste shortcut (#87, thanks @hu9491 for the report)\n- **Fix** Holding the relay paste shortcut draining the queue at key-repeat speed\n- **Improve** The \"Relay\" settings section is now part of \"Shortcuts\", where the relay paste shortcut lives\n- **Improve** The Shortcuts page is grouped by what each shortcut controls: Quick Paste, Manager Window, and Relay, with each hint next to the row it describes",
+  "version": "1.10.0",
+  "notes_zh": "- **新增** 可在设置中选择标签栏显示哪些分类\n- **优化** 快捷面板界面更新\n- **修复** 从部分编辑器复制的内容在预览中显示为一串方框（#88，感谢 @ShicYang 的反馈）",
+  "notes_en": "- **New** Choose which categories appear in the tab bar from Settings\n- **Improve** Refreshed the quick panel interface\n- **Fix** Content copied from some editors rendered as a row of boxes in the preview (#88, thanks @ShicYang for the report)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-arm64.dmg",
-      "size": 5284914,
-      "sha256": "d0626d050eaeee3583a978a58c1fa25faa3a68de53275cc918759a66aa04253b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-arm64.dmg",
+      "size": 5344434,
+      "sha256": "bb43fdd3280559a8d43a608f70897171b68f3882b898364ba9d2f38fc4b73a93"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.9.2-x86_64.dmg",
-      "size": 5464106,
-      "sha256": "79bbe415f792e881e33692611b09cef708809f885bb2247f4fcdca155fe2a089"
-    }
-  },
-  "beta": {
-    "version": "1.10.0-beta.3",
-    "notes_zh": "- **新增** 可在设置中选择标签栏显示哪些分类\n- **优化** 快捷面板界面更新\n- **优化** ⌘K 快捷操作菜单重做，跟随选中条目弹出，不再遮挡列表\n- **修复** 从部分编辑器复制的内容在预览中显示为一串方框（#88，感谢 @ShicYang 的反馈）",
-    "notes_en": "- **New** Choose which categories appear in the tab bar from Settings\n- **Improve** Refreshed the quick panel interface\n- **Improve** Rebuilt the ⌘K actions menu — it now follows the selected item and no longer covers the list\n- **Fix** Content copied from some editors rendered as a row of boxes in the preview (#88, thanks @ShicYang for the report)",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.3-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.3-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.3-arm64.dmg",
-        "size": 5344398,
-        "sha256": "6b3da88388c2bbec673880f1c4d37ffb43d18c3f4bca253aa218c6e11abc1910"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.0-beta.3-x86_64.dmg",
-        "size": 5526814,
-        "sha256": "bb59c8dd1d72889936939a1649b9efff154c7b0257dea801a60a6c01e3156897"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-x86_64.dmg",
+      "size": 5526747,
+      "sha256": "0cf491d09ea8e4db036b16c8efb1701e061cd9e70a9c3ff19f2d410ce138ee55"
     }
   }
 }
