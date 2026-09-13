@@ -17,5 +17,26 @@
       "size": 5526747,
       "sha256": "0cf491d09ea8e4db036b16c8efb1701e061cd9e70a9c3ff19f2d410ce138ee55"
     }
+  },
+  "beta": {
+    "version": "1.10.1-beta.1",
+    "notes_zh": "- **优化** 启动速度：历史条目多、图片多的库，启动初始化从 1 秒以上降到几十毫秒\n- **优化** AI Agent 通过 MCP 按 ID 读取条目不再卡住主线程（原先每次读取都会扫一遍全部历史）\n- **修复** 快捷面板 ⌘K「在 Finder 中显示」不收面板、Finder 窗口不到前台；文件已不存在时给出提示\n- **修复** 启动时数据库被占用或应用被强退的极端情况下，搜索可能静默失效、直到重启才恢复",
+    "notes_en": "- **Improve** Startup: on libraries with lots of history and images, launch initialization dropped from over a second to tens of milliseconds\n- **Improve** AI agents fetching an item by ID over MCP no longer stall the main thread (each read used to scan the entire history)\n- **Fix** Quick panel ⌘K \"Show in Finder\" left the panel open and Finder behind it; a missing file now shows a notice\n- **Fix** In rare cases (database busy at launch, or a force quit), search could silently stop working until the next relaunch",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-arm64.dmg",
+        "size": 5348946,
+        "sha256": "427794642b4c554ad66fcdf29351b70de6dbdd89737ec227d88b3dc5ea1f6d51"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-x86_64.dmg",
+        "size": 5529990,
+        "sha256": "002904b78eb2fcbfe3db8cb6d84a8526db38680b5fd99a628cc2caf6e0d0a17e"
+      }
+    }
   }
 }
