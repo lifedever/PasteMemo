@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.10.1-beta.1",
-    "notes_zh": "- **优化** 启动速度：历史条目多、图片多的库，启动初始化从 1 秒以上降到几十毫秒\n- **优化** AI Agent 通过 MCP 按 ID 读取条目不再卡住主线程（原先每次读取都会扫一遍全部历史）\n- **修复** 快捷面板 ⌘K「在 Finder 中显示」不收面板、Finder 窗口不到前台；文件已不存在时给出提示\n- **修复** 启动时数据库被占用或应用被强退的极端情况下，搜索可能静默失效、直到重启才恢复",
-    "notes_en": "- **Improve** Startup: on libraries with lots of history and images, launch initialization dropped from over a second to tens of milliseconds\n- **Improve** AI agents fetching an item by ID over MCP no longer stall the main thread (each read used to scan the entire history)\n- **Fix** Quick panel ⌘K \"Show in Finder\" left the panel open and Finder behind it; a missing file now shows a notice\n- **Fix** In rare cases (database busy at launch, or a force quit), search could silently stop working until the next relaunch",
+    "version": "1.10.1-beta.2",
+    "notes_zh": "- **修复** 反诈提示、安全宣传类短信被当成验证码短信通知",
+    "notes_en": "- **Fix** Anti-fraud advisories and awareness SMS were flagged as suspected verification codes",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-arm64.dmg",
-        "size": 5348946,
-        "sha256": "427794642b4c554ad66fcdf29351b70de6dbdd89737ec227d88b3dc5ea1f6d51"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.2-arm64.dmg",
+        "size": 5348864,
+        "sha256": "38c82c48c9ac4e163ca1473e74dfe9ec660ae7443746cf38408ccc1883068b10"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.1-x86_64.dmg",
-        "size": 5529990,
-        "sha256": "002904b78eb2fcbfe3db8cb6d84a8526db38680b5fd99a628cc2caf6e0d0a17e"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.2-x86_64.dmg",
+        "size": 5530488,
+        "sha256": "ca0b45a57a15c20cedc799d51525ab538ff9ab94b941de265b37e90547078a63"
       }
     }
   }
