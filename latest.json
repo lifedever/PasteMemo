@@ -17,5 +17,26 @@
       "size": 5544155,
       "sha256": "78df29e55cea1c7e8261e171fb98d2ba90bac2c75e1b24c2b92317b27c30cc8a"
     }
+  },
+  "beta": {
+    "version": "1.10.2-beta.1",
+    "notes_zh": "- **优化** 快捷面板筛选标签和底栏快捷键说明的文字对比度，在玻璃上更清楚\n- **优化** 快捷面板头部：筛选胶囊与列表的间距更均衡，去掉标签栏下方的分割线，固定按钮与计数徽标统一样式\n- **修复** 快捷面板按 ⌘K 后搜索框占位文字会轻微下移的问题\n- **优化** 设置窗口侧边栏改为彩色图标块、行距放大，标题栏显示当前页名，与系统设置一致\n- **优化** 快捷键设置改为胶囊样式显示键位，配圆形清除按钮",
+    "notes_en": "- **Improve** Higher text contrast for the filter tabs and footer shortcut hints in the Quick Paste panel\n- **Improve** Quick Paste panel header: better spacing between the filter capsule and the list, the divider under the tabs is gone, and the pin button now matches the count badge\n- **Fix** The search field placeholder shifting down slightly after pressing ⌘K\n- **Improve** Settings sidebar now uses colored icon tiles with roomier rows, and the title bar shows the current page, matching System Settings\n- **Improve** Keyboard shortcut settings show the key combo in a capsule with a round clear button",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-arm64.dmg",
+        "size": 5372813,
+        "sha256": "98c50dd82635cc4c85156886af65274bb5add695bbc72628f7414877be52eb5f"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-x86_64.dmg",
+        "size": 5554633,
+        "sha256": "41c93082bacc49b8625a80cdc3071d0b54e448fd16c5b56c851bf62872a1b5ff"
+      }
+    }
   }
 }
