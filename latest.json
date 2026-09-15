@@ -1,42 +1,21 @@
 {
-  "version": "1.10.0",
-  "notes_zh": "- **新增** 可在设置中选择标签栏显示哪些分类\n- **优化** 快捷面板界面更新\n- **修复** 从部分编辑器复制的内容在预览中显示为一串方框（#88，感谢 @ShicYang 的反馈）",
-  "notes_en": "- **New** Choose which categories appear in the tab bar from Settings\n- **Improve** Refreshed the quick panel interface\n- **Fix** Content copied from some editors rendered as a row of boxes in the preview (#88, thanks @ShicYang for the report)",
+  "version": "1.10.1",
+  "notes_zh": "- **优化** 启动速度：历史条目多、图片多的库，启动初始化从 1 秒以上降到几十毫秒\n- **优化** 快捷面板的 Liquid Glass 分层：面板本体更安静，标签栏、底栏快捷键提示、⌘K 菜单统一为同一种玻璃材质\n- **优化** ⌘K 菜单高度跟随内容，不再盖住底栏，四角不再露出方角；新增短促的入场动画\n- **优化** AI Agent 通过 MCP 按 ID 读取条目不再卡住主线程（原先每次读取都会扫一遍全部历史）\n- **修复** ⌘K 菜单弹出时是一块灰底、点一下条目才变成玻璃的问题，以及菜单四周的黑边\n- **修复** ⌘K 里文本条目点「用『预览』打开」没反应的问题，现在图片走预览、其他类型走 Quick Look\n- **修复** ⌘K「在 Finder 中显示」不收面板、Finder 窗口不到前台；文件已不存在时给出提示\n- **修复** 反诈提示、安全宣传类短信被当成验证码短信通知\n- **修复** 启动时数据库被占用或应用被强退的极端情况下，搜索可能静默失效、直到重启才恢复",
+  "notes_en": "- **Improve** Startup: on libraries with lots of history and images, launch initialization dropped from over a second to tens of milliseconds\n- **Improve** Liquid Glass layering in the Quick Paste panel: a calmer panel body, with the tab bar, footer shortcut hints and the ⌘K menu sharing one glass material\n- **Improve** The ⌘K menu now sizes to its content, stays clear of the footer, no longer shows square corners, and gets a short entrance animation\n- **Improve** AI agents fetching an item by ID over MCP no longer stall the main thread (each read used to scan the entire history)\n- **Fix** The ⌘K menu appearing as a flat grey card until you clicked an item, and the dark border around it\n- **Fix** \"Open in Preview\" doing nothing for text items in ⌘K; images now open in Preview and other types in Quick Look\n- **Fix** Quick panel ⌘K \"Show in Finder\" left the panel open and Finder behind it; a missing file now shows a notice\n- **Fix** Anti-fraud advisories and awareness SMS were flagged as suspected verification codes\n- **Fix** In rare cases (database busy at launch, or a force quit), search could silently stop working until the next relaunch",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-arm64.dmg",
-      "size": 5344434,
-      "sha256": "bb43fdd3280559a8d43a608f70897171b68f3882b898364ba9d2f38fc4b73a93"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-arm64.dmg",
+      "size": 5358720,
+      "sha256": "df3566a5bc5874cdaf4ef01293a817e667275def65466b7ae456b73d78eb490b"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.0-x86_64.dmg",
-      "size": 5526747,
-      "sha256": "0cf491d09ea8e4db036b16c8efb1701e061cd9e70a9c3ff19f2d410ce138ee55"
-    }
-  },
-  "beta": {
-    "version": "1.10.1-beta.3",
-    "notes_zh": "- **优化** 快捷面板的 Liquid Glass 分层：面板本体更安静，标签栏、底栏快捷键提示、⌘K 菜单统一为同一种玻璃材质，底栏键位标签与 ⌘K 菜单同款\n- **修复** ⌘K 菜单弹出时是一块灰底、点一下条目才变成玻璃的问题，以及菜单四周的黑边\n- **优化** ⌘K 菜单高度跟随内容，不再盖住底栏，四角不再露出方角；新增短促的入场动画\n- **修复** ⌘K 里文本条目点「用『预览』打开」没反应的问题，现在图片走预览、其他类型走 Quick Look",
-    "notes_en": "- **Improve** Liquid Glass layering in the Quick Paste panel: a calmer panel body, with the tab bar, footer shortcut hints and the ⌘K menu sharing one glass material; footer key badges now match the ⌘K menu\n- **Fix** The ⌘K menu appearing as a flat grey card until you clicked an item, and the dark border around it\n- **Improve** The ⌘K menu now sizes to its content, stays clear of the footer, no longer shows square corners, and gets a short entrance animation\n- **Fix** \"Open in Preview\" doing nothing for text items in ⌘K; images now open in Preview and other types in Quick Look",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.3-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.3-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.3-arm64.dmg",
-        "size": 5358786,
-        "sha256": "60a85086277aebd7594cf178ba68c6685543edac6f2085f7020d66fea320f7d5"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.1-beta.3-x86_64.dmg",
-        "size": 5544220,
-        "sha256": "975d499c683b52c4d2d4cfcebc18a16300f2860c59e89c87a8d4359bfaf5eee1"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-x86_64.dmg",
+      "size": 5544155,
+      "sha256": "78df29e55cea1c7e8261e171fb98d2ba90bac2c75e1b24c2b92317b27c30cc8a"
     }
   }
 }
