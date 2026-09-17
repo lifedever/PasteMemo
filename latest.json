@@ -1,42 +1,21 @@
 {
-  "version": "1.10.1",
-  "notes_zh": "- **优化** 启动速度：历史条目多、图片多的库，启动初始化从 1 秒以上降到几十毫秒\n- **优化** 快捷面板的 Liquid Glass 分层：面板本体更安静，标签栏、底栏快捷键提示、⌘K 菜单统一为同一种玻璃材质\n- **优化** ⌘K 菜单高度跟随内容，不再盖住底栏，四角不再露出方角；新增短促的入场动画\n- **优化** AI Agent 通过 MCP 按 ID 读取条目不再卡住主线程（原先每次读取都会扫一遍全部历史）\n- **修复** ⌘K 菜单弹出时是一块灰底、点一下条目才变成玻璃的问题，以及菜单四周的黑边\n- **修复** ⌘K 里文本条目点「用『预览』打开」没反应的问题，现在图片走预览、其他类型走 Quick Look\n- **修复** ⌘K「在 Finder 中显示」不收面板、Finder 窗口不到前台；文件已不存在时给出提示\n- **修复** 反诈提示、安全宣传类短信被当成验证码短信通知\n- **修复** 启动时数据库被占用或应用被强退的极端情况下，搜索可能静默失效、直到重启才恢复",
-  "notes_en": "- **Improve** Startup: on libraries with lots of history and images, launch initialization dropped from over a second to tens of milliseconds\n- **Improve** Liquid Glass layering in the Quick Paste panel: a calmer panel body, with the tab bar, footer shortcut hints and the ⌘K menu sharing one glass material\n- **Improve** The ⌘K menu now sizes to its content, stays clear of the footer, no longer shows square corners, and gets a short entrance animation\n- **Improve** AI agents fetching an item by ID over MCP no longer stall the main thread (each read used to scan the entire history)\n- **Fix** The ⌘K menu appearing as a flat grey card until you clicked an item, and the dark border around it\n- **Fix** \"Open in Preview\" doing nothing for text items in ⌘K; images now open in Preview and other types in Quick Look\n- **Fix** Quick panel ⌘K \"Show in Finder\" left the panel open and Finder behind it; a missing file now shows a notice\n- **Fix** Anti-fraud advisories and awareness SMS were flagged as suspected verification codes\n- **Fix** In rare cases (database busy at launch, or a force quit), search could silently stop working until the next relaunch",
+  "version": "1.11.0",
+  "notes_zh": "- **新增** 认出文案里的链接和网盘提取码：「分享文案 + 短链」「网盘链接 + 提取码」这类内容整条不是网址，以前只能手动选中再走右键服务，现在 ⌘K 里直接多出「打开 xxx」（P）和「粘贴提取码」（K）（#89，感谢 @zhhlwd 的反馈）\n- **新增** 短信验证码独立成一类，快捷面板标签栏和主窗口侧边栏都能直接筛；没开短信转发的不会看到这一项\n- **新增** 快捷面板的标签栏分类可以拖着排序、单独关掉，全关时整排不再占位（感谢 @csdog 的贡献）\n- **新增** 预览区正文字号可调，11 到 20pt（感谢 @csdog 的贡献）\n- **优化** ⌘↩ 现在对所有条目都是纯文本粘贴，链接条目也不例外；打开网页改走 ⌘K 里的「打开链接」（P）或 ⌘O\n- **优化** 设置窗口向系统设置看齐：侧边栏固定宽度、不再可拖，标题栏加上前进 / 后退\n- **优化** 快捷面板的滚动条去掉灰色槽轨，只留滑块\n- **优化** 状态栏菜单的退出项不再带应用名，就叫「退出」\n- **修复** 重命名分组后，该组条目还挂在旧名字下：新名字点进去是空的，旧名字又没有入口\n- **修复** 用输入法打拼音时，搜索框的占位文字盖在拼音上",
+  "notes_en": "- **New** Links and access codes are now recognized inside mixed text. Share blurbs and cloud-drive messages aren't URLs as a whole, so they used to need manual selection plus a right-click service; ⌘K now offers \"Open xxx\" (P) and \"Paste code\" (K) directly (#89, thanks @zhhlwd for the report)\n- **New** SMS verification codes are their own filter, available in both the Quick Paste tab bar and the main window sidebar — hidden entirely if SMS forwarding is off\n- **New** Quick Paste tab categories can be reordered by dragging and switched off individually; the bar disappears when all are off (thanks @csdog for the contribution)\n- **New** Preview body font size is configurable, 11 to 20 pt (thanks @csdog for the contribution)\n- **Improve** ⌘↩ now means plain-text paste for every item, links included; opening a link moved to \"Open Link\" (P) in ⌘K, or ⌘O\n- **Improve** The Settings window follows System Settings more closely: fixed sidebar width, no longer draggable, with back / forward in the title bar\n- **Improve** The Quick Paste scrollbar drops its grey track and keeps just the knob\n- **Improve** The status bar menu's quit item no longer carries the app name — it's simply \"Quit\"\n- **Fix** Renaming a group left its clips under the old name: the new name opened empty and the old one had no entry point\n- **Fix** The search field's placeholder covered pinyin while composing with an input method",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-arm64.dmg",
-      "size": 5358720,
-      "sha256": "df3566a5bc5874cdaf4ef01293a817e667275def65466b7ae456b73d78eb490b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.0-arm64.dmg",
+      "size": 5458621,
+      "sha256": "7ff9ff93b6f87c1b824d93bc1161c1e334876baed4f34dd97de2750f6e769f22"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.10.1-x86_64.dmg",
-      "size": 5544155,
-      "sha256": "78df29e55cea1c7e8261e171fb98d2ba90bac2c75e1b24c2b92317b27c30cc8a"
-    }
-  },
-  "beta": {
-    "version": "1.10.2-beta.1",
-    "notes_zh": "- **优化** 快捷面板筛选标签和底栏快捷键说明的文字对比度，在玻璃上更清楚\n- **优化** 快捷面板头部：筛选胶囊与列表的间距更均衡，去掉标签栏下方的分割线，固定按钮与计数徽标统一样式\n- **修复** 快捷面板按 ⌘K 后搜索框占位文字会轻微下移的问题\n- **优化** 设置窗口侧边栏改为彩色图标块、行距放大，标题栏显示当前页名，与系统设置一致\n- **优化** 快捷键设置改为胶囊样式显示键位，配圆形清除按钮",
-    "notes_en": "- **Improve** Higher text contrast for the filter tabs and footer shortcut hints in the Quick Paste panel\n- **Improve** Quick Paste panel header: better spacing between the filter capsule and the list, the divider under the tabs is gone, and the pin button now matches the count badge\n- **Fix** The search field placeholder shifting down slightly after pressing ⌘K\n- **Improve** Settings sidebar now uses colored icon tiles with roomier rows, and the title bar shows the current page, matching System Settings\n- **Improve** Keyboard shortcut settings show the key combo in a capsule with a round clear button",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-arm64.dmg",
-        "size": 5372813,
-        "sha256": "98c50dd82635cc4c85156886af65274bb5add695bbc72628f7414877be52eb5f"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.10.2-beta.1-x86_64.dmg",
-        "size": 5554633,
-        "sha256": "41c93082bacc49b8625a80cdc3071d0b54e448fd16c5b56c851bf62872a1b5ff"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.0-x86_64.dmg",
+      "size": 5639092,
+      "sha256": "71f6f59800a8d060012e0568ffacd804e0be3f7c5dad084733c54dfe6498391b"
     }
   }
 }
