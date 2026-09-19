@@ -17,5 +17,26 @@
       "size": 5645653,
       "sha256": "0124d7de6a72fb29c7531650fbe75ad27b555a773104e4aac0370915e936ed0d"
     }
+  },
+  "beta": {
+    "version": "1.12.0-beta.1",
+    "notes_zh": "- **新增 AI 功能**：在设置里填上你自己的模型接口（OpenAI 兼容，DeepSeek、Kimi、智谱、火山方舟、Ollama 都能用），就能在自动化规则里加「AI 改写」动作，用一句话告诉它怎么改，⌘K 或右键一按，文本就地改好。翻译、润色、整理 OCR 结果、改写措辞都行；只处理文本，敏感条目和黑名单来源不会发送。附带两条现成规则：中英互译、文字整理\n- **新增** 规则可以设置结果去向：替换当前条目、生成新条目、仅写入剪贴板、直接粘贴到前台\n- **优化** 自动化规则编辑器重做为「触发 → 条件 → 动作 → 结果」的流程布局，查看与编辑分开，改动需保存；内置规则可以修改和删除\n- **优化** 主窗口、快捷面板和规则列表的右键菜单改为系统原生样式；「文件」菜单新增「打开管理器」",
+    "notes_en": "- **New: AI**. Point Settings at your own model endpoint (OpenAI-compatible: DeepSeek, Kimi, Zhipu, Volcengine Ark, Ollama and more), add an \"AI rewrite\" action to a rule, tell it what to do in one line, and run it on a text clip from ⌘K or the context menu. Translate, polish, tidy up OCR output, rephrase. Text only; sensitive clips and blocklisted apps are never sent. Two ready-made rules included: Chinese ⇄ English translation and text tidy-up\n- **New** Rules can choose where the result goes: replace the clip, create a new clip, clipboard only, or paste into the front app\n- **Improve** The rule editor is now a Trigger → Conditions → Actions → Result flow with separate view and edit modes and explicit Save; built-in rules can be edited and deleted\n- **Improve** Native context menus in the main window, Quick Panel and rule list; \"Open Manager\" added to the File menu",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.1-arm64.dmg",
+        "size": 5799026,
+        "sha256": "bd92d3d3dde28ecebdb202727e26ea3cba544c43b7599e1c9450f75150eb33c6"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.1-x86_64.dmg",
+        "size": 5989887,
+        "sha256": "f6db167603ec3f31b997134aaef7ad51b8aaf59c5264c073ffbf92bef12f6157"
+      }
+    }
   }
 }
