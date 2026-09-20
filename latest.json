@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.13.0-beta.1",
-    "notes_zh": "- **新增** AI 改写可以直接调用本机装好的 Claude Code 或 Codex，用它们自己的登录，不用另配 API key（感谢 @ashishbhateja 的建议）\n- **新增** 本地 Agent 可以指定模型，留空则跟着 Agent 自己的设置走\n- **修复** 设置窗口标题栏没有前进 / 后退箭头，也不显示当前页名",
-    "notes_en": "- **New** AI rewrite can call Claude Code or Codex installed on your Mac, using their own sign-in instead of a separate API key (thanks @ashishbhateja for the suggestion)\n- **New** A local agent can be pointed at a specific model; leave it empty to follow the agent's own setting\n- **Fix** The Settings title bar had no back/forward arrows and didn't show the current page name",
+    "version": "1.13.0-beta.2",
+    "notes_zh": "- **新增** 本地 Agent 可以填附加参数，比如用 `--effort low` 调低推理强度（感谢 @ashishbhateja 的建议）\n- **优化** 本地 Agent 只做文本改写，不能创建或修改文件\n- **修复** 本地 Agent 选 Codex 时跑不起来（感谢 @ashishbhateja 的反馈）\n- **修复** 本地 Agent 执行失败时，显示的是进度信息而不是真正的报错原因",
+    "notes_en": "- **New** A local agent takes extra arguments, e.g. `--effort low` to dial down reasoning (thanks @ashishbhateja for the suggestion)\n- **Improve** A local agent only rewrites text now — it can't create or modify files\n- **Fix** The Codex preset couldn't run at all (thanks @ashishbhateja for the report)\n- **Fix** When a local agent failed, the message shown was its progress output rather than the actual error",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.1-arm64.dmg",
-        "size": 5874850,
-        "sha256": "9540b3a9bfc8418711986ec0bb33dcafeb0d8500086e70cce7a8bdd94b37727c"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-arm64.dmg",
+        "size": 5877158,
+        "sha256": "9fc44e6e6072c96825f992cbbaed6df7e98db6e3d86c7edd60b68c840f9c5a0e"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.1-x86_64.dmg",
-        "size": 6069781,
-        "sha256": "0ea53fcfa1d58d509ef8029126a6dafc56df3fa5d60c20d76036102547e5c598"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-x86_64.dmg",
+        "size": 6073323,
+        "sha256": "53c5859e7254e5c9e56cac5ea7f7499a31cff0954c5ebc78a49cbc0235faf6e5"
       }
     }
   }
