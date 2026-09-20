@@ -1,42 +1,21 @@
 {
-  "version": "1.11.1",
-  "notes_zh": "- **修复** 对还没识别过的图片用「粘贴 OCR 文字」（⌘K → G），可能长时间没有任何反应，甚至等到最后也没粘进来。现在识别换成更快的引擎，识别期间会有提示；万一识别慢到你已经切去别的窗口，文字会写进剪贴板，而不是粘到一个看不见的地方",
-  "notes_en": "- **Fix** \"Paste OCR Text\" (⌘K → G) on an image that hadn't been recognized yet could sit for minutes with no feedback, and sometimes never paste at all. Recognition now runs on a faster engine and shows progress while it works; if it does take long enough that you've switched away, the text goes to the clipboard instead of into a window you can no longer see",
+  "version": "1.12.0",
+  "notes_zh": "- **新增 AI 功能**：在设置里填上你自己的模型接口（OpenAI 兼容，DeepSeek、Kimi、智谱、火山方舟、Ollama 都能用），就能在自动化规则里加「AI 改写」动作，用一句话告诉它怎么改，⌘K 或右键一按，文本就地改好。翻译、润色、整理 OCR 结果、改写措辞都行；只处理文本，敏感条目和黑名单来源不会发送。附带两条现成规则：中英互译、文字整理\n- **新增** 规则可以设置结果去向：替换当前条目、生成新条目、仅写入剪贴板、直接粘贴到前台\n- **优化** 自动化规则编辑器重做为「触发 → 条件 → 动作 → 结果」的流程布局，查看与编辑分开，改动需保存；内置规则可以修改和删除\n- **优化** 主窗口、快捷面板和规则列表的右键菜单改为系统原生样式；「文件」菜单新增「打开管理器」\n- **修复** 规则改写文本后，粘贴出来仍是原文的问题",
+  "notes_en": "- **New: AI**. Point Settings at your own model endpoint (OpenAI-compatible: DeepSeek, Kimi, Zhipu, Volcengine Ark, Ollama and more), add an \"AI rewrite\" action to a rule, tell it what to do in one line, and run it on a text clip from ⌘K or the context menu. Translate, polish, tidy up OCR output, rephrase. Text only; sensitive clips and blocklisted apps are never sent. Two ready-made rules included: Chinese ⇄ English translation and text tidy-up\n- **New** Rules can choose where the result goes: replace the clip, create a new clip, clipboard only, or paste into the front app\n- **Improve** The rule editor is now a Trigger → Conditions → Actions → Result flow with separate view and edit modes and explicit Save; built-in rules can be edited and deleted\n- **Improve** Native context menus in the main window, Quick Panel and rule list; \"Open Manager\" added to the File menu\n- **Fix** Pasting after a rule rewrote a clip still pasted the original text",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.1-arm64.dmg",
-      "size": 5461134,
-      "sha256": "49ed8ff3d49a22d5ff775bb1893e30a4d8d8d944bc4d05f584c59ea5e2902315"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-arm64.dmg",
+      "size": 5799049,
+      "sha256": "75da5d07addfa7e241d85c4641f99e7a327750cccec2482dec706ed836c09168"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.11.1-x86_64.dmg",
-      "size": 5645653,
-      "sha256": "0124d7de6a72fb29c7531650fbe75ad27b555a773104e4aac0370915e936ed0d"
-    }
-  },
-  "beta": {
-    "version": "1.12.0-beta.2",
-    "notes_zh": "- **新增 AI 功能**：在设置里填上你自己的模型接口（OpenAI 兼容，DeepSeek、Kimi、智谱、火山方舟、Ollama 都能用），就能在自动化规则里加「AI 改写」动作，用一句话告诉它怎么改，⌘K 或右键一按，文本就地改好。翻译、润色、整理 OCR 结果、改写措辞都行；只处理文本，敏感条目和黑名单来源不会发送。附带两条现成规则：中英互译、文字整理\n- **新增** 规则可以设置结果去向：替换当前条目、生成新条目、仅写入剪贴板、直接粘贴到前台\n- **优化** 自动化规则编辑器重做为「触发 → 条件 → 动作 → 结果」的流程布局，查看与编辑分开，改动需保存；内置规则可以修改和删除\n- **优化** 主窗口、快捷面板和规则列表的右键菜单改为系统原生样式；「文件」菜单新增「打开管理器」\n- **修复** 规则改写文本后，粘贴出来仍是原文的问题",
-    "notes_en": "- **New: AI**. Point Settings at your own model endpoint (OpenAI-compatible: DeepSeek, Kimi, Zhipu, Volcengine Ark, Ollama and more), add an \"AI rewrite\" action to a rule, tell it what to do in one line, and run it on a text clip from ⌘K or the context menu. Translate, polish, tidy up OCR output, rephrase. Text only; sensitive clips and blocklisted apps are never sent. Two ready-made rules included: Chinese ⇄ English translation and text tidy-up\n- **New** Rules can choose where the result goes: replace the clip, create a new clip, clipboard only, or paste into the front app\n- **Improve** The rule editor is now a Trigger → Conditions → Actions → Result flow with separate view and edit modes and explicit Save; built-in rules can be edited and deleted\n- **Improve** Native context menus in the main window, Quick Panel and rule list; \"Open Manager\" added to the File menu\n- **Fix** Pasting after a rule rewrote a clip still pasted the original text",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.2-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.2-arm64.dmg",
-        "size": 5799049,
-        "sha256": "08a4bacb57974936ba5dfe7c979d461a61f3dbba98189e77c44d84e74918448a"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.0-beta.2-x86_64.dmg",
-        "size": 5989265,
-        "sha256": "2822bb6e617dbd27f2999a57fc34938751c307422ca6b3b57bc33b85e0e70205"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-x86_64.dmg",
+      "size": 5989277,
+      "sha256": "19c29ffce330fd52f670c73fbb65fdfea6249553de8c0540d9fc956b43d17c1c"
     }
   }
 }
