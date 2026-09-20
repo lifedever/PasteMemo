@@ -17,5 +17,26 @@
       "size": 5989277,
       "sha256": "19c29ffce330fd52f670c73fbb65fdfea6249553de8c0540d9fc956b43d17c1c"
     }
+  },
+  "beta": {
+    "version": "1.12.1-beta.1",
+    "notes_zh": "- **修复** 设置窗口标题栏没有前进 / 后退箭头，也不显示当前页名",
+    "notes_en": "- **Fix** The Settings title bar had no back/forward arrows and didn't show the current page name",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.1-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.1-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.1-beta.1-arm64.dmg",
+        "size": 5798918,
+        "sha256": "5b8123c418687960d74246952332715dd4bd88318af51e1e3d9df84c4258fb92"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.12.1-beta.1-x86_64.dmg",
+        "size": 5989170,
+        "sha256": "7743c81b2f76a3c086bfedcb13af1afb90c3202bb5fb4cd397917518069865f4"
+      }
+    }
   }
 }
