@@ -1,42 +1,21 @@
 {
-  "version": "1.12.0",
-  "notes_zh": "- **新增 AI 功能**：在设置里填上你自己的模型接口（OpenAI 兼容，DeepSeek、Kimi、智谱、火山方舟、Ollama 都能用），就能在自动化规则里加「AI 改写」动作，用一句话告诉它怎么改，⌘K 或右键一按，文本就地改好。翻译、润色、整理 OCR 结果、改写措辞都行；只处理文本，敏感条目和黑名单来源不会发送。附带两条现成规则：中英互译、文字整理\n- **新增** 规则可以设置结果去向：替换当前条目、生成新条目、仅写入剪贴板、直接粘贴到前台\n- **优化** 自动化规则编辑器重做为「触发 → 条件 → 动作 → 结果」的流程布局，查看与编辑分开，改动需保存；内置规则可以修改和删除\n- **优化** 主窗口、快捷面板和规则列表的右键菜单改为系统原生样式；「文件」菜单新增「打开管理器」\n- **修复** 规则改写文本后，粘贴出来仍是原文的问题",
-  "notes_en": "- **New: AI**. Point Settings at your own model endpoint (OpenAI-compatible: DeepSeek, Kimi, Zhipu, Volcengine Ark, Ollama and more), add an \"AI rewrite\" action to a rule, tell it what to do in one line, and run it on a text clip from ⌘K or the context menu. Translate, polish, tidy up OCR output, rephrase. Text only; sensitive clips and blocklisted apps are never sent. Two ready-made rules included: Chinese ⇄ English translation and text tidy-up\n- **New** Rules can choose where the result goes: replace the clip, create a new clip, clipboard only, or paste into the front app\n- **Improve** The rule editor is now a Trigger → Conditions → Actions → Result flow with separate view and edit modes and explicit Save; built-in rules can be edited and deleted\n- **Improve** Native context menus in the main window, Quick Panel and rule list; \"Open Manager\" added to the File menu\n- **Fix** Pasting after a rule rewrote a clip still pasted the original text",
+  "version": "1.13.0",
+  "notes_zh": "- **新增** AI 改写可以直接调用本机装好的 Claude Code 或 Codex，用它们自己的登录，不用另配 API key（感谢 @ashishbhateja 的建议）\n- **新增** 本地 Agent 可以指定模型和附加参数，比如用 `--effort low` 调低推理强度；模型留空则跟着 Agent 自己的设置走\n- **优化** 本地 Agent 只做文本改写，不能创建或修改文件\n- **修复** AI 改写很短的内容时，返回的是「请提供需要整理的文本内容」而不是改写结果\n- **修复** 本地 Agent 选 Codex 时跑不起来（感谢 @ashishbhateja 的反馈）\n- **修复** 本地 Agent 执行失败时，显示的是进度信息而不是真正的报错原因\n- **修复** 设置窗口标题栏没有前进 / 后退箭头，也不显示当前页名",
+  "notes_en": "- **New** AI rewrite can call Claude Code or Codex installed on your Mac, using their own sign-in instead of a separate API key (thanks @ashishbhateja for the suggestion)\n- **New** A local agent can be pointed at a specific model and takes extra arguments, e.g. `--effort low` to dial down reasoning; leave the model empty to follow the agent's own setting\n- **Improve** A local agent only rewrites text now — it can't create or modify files\n- **Fix** Rewriting a very short clip returned a request for text instead of the rewritten result\n- **Fix** The Codex preset couldn't run at all (thanks @ashishbhateja for the report)\n- **Fix** When a local agent failed, the message shown was its progress output rather than the actual error\n- **Fix** The Settings title bar had no back/forward arrows and didn't show the current page name",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-arm64.dmg",
-      "size": 5799049,
-      "sha256": "75da5d07addfa7e241d85c4641f99e7a327750cccec2482dec706ed836c09168"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-arm64.dmg",
+      "size": 5876935,
+      "sha256": "2504af90ac1470e31df39155296ac281a7723011a6e78a580e951aaaadc43539"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.12.0-x86_64.dmg",
-      "size": 5989277,
-      "sha256": "19c29ffce330fd52f670c73fbb65fdfea6249553de8c0540d9fc956b43d17c1c"
-    }
-  },
-  "beta": {
-    "version": "1.13.0-beta.2",
-    "notes_zh": "- **新增** 本地 Agent 可以填附加参数，比如用 `--effort low` 调低推理强度（感谢 @ashishbhateja 的建议）\n- **优化** 本地 Agent 只做文本改写，不能创建或修改文件\n- **修复** 本地 Agent 选 Codex 时跑不起来（感谢 @ashishbhateja 的反馈）\n- **修复** 本地 Agent 执行失败时，显示的是进度信息而不是真正的报错原因",
-    "notes_en": "- **New** A local agent takes extra arguments, e.g. `--effort low` to dial down reasoning (thanks @ashishbhateja for the suggestion)\n- **Improve** A local agent only rewrites text now — it can't create or modify files\n- **Fix** The Codex preset couldn't run at all (thanks @ashishbhateja for the report)\n- **Fix** When a local agent failed, the message shown was its progress output rather than the actual error",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-arm64.dmg",
-        "size": 5877158,
-        "sha256": "9fc44e6e6072c96825f992cbbaed6df7e98db6e3d86c7edd60b68c840f9c5a0e"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.0-beta.2-x86_64.dmg",
-        "size": 6073323,
-        "sha256": "53c5859e7254e5c9e56cac5ea7f7499a31cff0954c5ebc78a49cbc0235faf6e5"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-x86_64.dmg",
+      "size": 6072406,
+      "sha256": "54a1e351d46fd846448031eac6ad0b8b56a19e98186514868eeb9e63383d62cf"
     }
   }
 }
