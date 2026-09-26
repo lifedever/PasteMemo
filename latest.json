@@ -17,5 +17,26 @@
       "size": 6075215,
       "sha256": "f0f47f0fe9f5f3e47dfc07cb5e03b3ad09744185ae8014fdfbbcaed6c7e64fae"
     }
+  },
+  "beta": {
+    "version": "1.13.2-beta.1",
+    "notes_zh": "- **优化** 快捷面板的底色、边线和投影：深色模式下更沉，浅色模式下更亮，两种外观都能透出一点背后的内容",
+    "notes_en": "- **Improve** Quick panel background, hairline and shadow: deeper in dark mode, brighter in light mode, with a hint of the content behind showing through in both",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-arm64.dmg",
+        "size": 5889520,
+        "sha256": "219d6b04e8c3d1c28f7fa5c63ca5d88e5c0feefb0ba3857c1e078259807d0ead"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-x86_64.dmg",
+        "size": 6077723,
+        "sha256": "dfa70782b14ca0f8bdbca24c26fb4c99257c016e0eab1dd13e073a5b4652b225"
+      }
+    }
   }
 }
