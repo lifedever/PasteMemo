@@ -1,21 +1,21 @@
 {
-  "version": "1.13.0",
-  "notes_zh": "- **新增** AI 改写可以直接调用本机装好的 Claude Code 或 Codex，用它们自己的登录，不用另配 API key（感谢 @ashishbhateja 的建议）\n- **新增** 本地 Agent 可以指定模型和附加参数，比如用 `--effort low` 调低推理强度；模型留空则跟着 Agent 自己的设置走\n- **优化** 本地 Agent 只做文本改写，不能创建或修改文件\n- **修复** AI 改写很短的内容时，返回的是「请提供需要整理的文本内容」而不是改写结果\n- **修复** 本地 Agent 选 Codex 时跑不起来（感谢 @ashishbhateja 的反馈）\n- **修复** 本地 Agent 执行失败时，显示的是进度信息而不是真正的报错原因\n- **修复** 设置窗口标题栏没有前进 / 后退箭头，也不显示当前页名",
-  "notes_en": "- **New** AI rewrite can call Claude Code or Codex installed on your Mac, using their own sign-in instead of a separate API key (thanks @ashishbhateja for the suggestion)\n- **New** A local agent can be pointed at a specific model and takes extra arguments, e.g. `--effort low` to dial down reasoning; leave the model empty to follow the agent's own setting\n- **Improve** A local agent only rewrites text now — it can't create or modify files\n- **Fix** Rewriting a very short clip returned a request for text instead of the rewritten result\n- **Fix** The Codex preset couldn't run at all (thanks @ashishbhateja for the report)\n- **Fix** When a local agent failed, the message shown was its progress output rather than the actual error\n- **Fix** The Settings title bar had no back/forward arrows and didn't show the current page name",
+  "version": "1.13.1",
+  "notes_zh": "- **修复** 在访达里用快捷面板粘贴图片、文字或链接时，PasteMemo 可能卡死，面板一直停在最上层（#92，感谢 @zhhlwd 的反馈）",
+  "notes_en": "- **Fix** Pasting an image, text or link into Finder from the quick panel could freeze PasteMemo, leaving the panel stuck on top (#92, thanks @zhhlwd for the report)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-arm64.dmg",
-      "size": 5876935,
-      "sha256": "2504af90ac1470e31df39155296ac281a7723011a6e78a580e951aaaadc43539"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-arm64.dmg",
+      "size": 5882726,
+      "sha256": "b9892d5186fccfa9028b05618603590e1be18f9a272d8d2634c354f2b5d0181d"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.0-x86_64.dmg",
-      "size": 6072406,
-      "sha256": "54a1e351d46fd846448031eac6ad0b8b56a19e98186514868eeb9e63383d62cf"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-x86_64.dmg",
+      "size": 6075215,
+      "sha256": "f0f47f0fe9f5f3e47dfc07cb5e03b3ad09744185ae8014fdfbbcaed6c7e64fae"
     }
   }
 }
