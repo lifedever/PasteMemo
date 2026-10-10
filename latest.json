@@ -1,42 +1,21 @@
 {
-  "version": "1.13.1",
-  "notes_zh": "- **修复** 在访达里用快捷面板粘贴图片、文字或链接时，PasteMemo 可能卡死，面板一直停在最上层（#92，感谢 @zhhlwd 的反馈）",
-  "notes_en": "- **Fix** Pasting an image, text or link into Finder from the quick panel could freeze PasteMemo, leaving the panel stuck on top (#92, thanks @zhhlwd for the report)",
+  "version": "1.13.2",
+  "notes_zh": "- **优化** 快捷面板的底色、边线和投影：深色模式下更沉，浅色模式下更亮，两种外观都能透出一点背后的内容",
+  "notes_en": "- **Improve** Quick panel background, hairline and shadow: deeper in dark mode, brighter in light mode, with a hint of the content behind showing through in both",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-arm64.dmg",
-      "size": 5882726,
-      "sha256": "b9892d5186fccfa9028b05618603590e1be18f9a272d8d2634c354f2b5d0181d"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.2-arm64.dmg",
+      "size": 5889462,
+      "sha256": "ce39e5e917b5c755a9f7f4a047902a44aceaeedd1b69eaeb3ed2c608edac51e5"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.1-x86_64.dmg",
-      "size": 6075215,
-      "sha256": "f0f47f0fe9f5f3e47dfc07cb5e03b3ad09744185ae8014fdfbbcaed6c7e64fae"
-    }
-  },
-  "beta": {
-    "version": "1.13.2-beta.1",
-    "notes_zh": "- **优化** 快捷面板的底色、边线和投影：深色模式下更沉，浅色模式下更亮，两种外观都能透出一点背后的内容",
-    "notes_en": "- **Improve** Quick panel background, hairline and shadow: deeper in dark mode, brighter in light mode, with a hint of the content behind showing through in both",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-arm64.dmg",
-        "size": 5889520,
-        "sha256": "219d6b04e8c3d1c28f7fa5c63ca5d88e5c0feefb0ba3857c1e078259807d0ead"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.13.2-beta.1-x86_64.dmg",
-        "size": 6077723,
-        "sha256": "dfa70782b14ca0f8bdbca24c26fb4c99257c016e0eab1dd13e073a5b4652b225"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.13.2-x86_64.dmg",
+      "size": 6077717,
+      "sha256": "d64e86908b54a76940ca79eebe3b21be3d36d2a7459d210ada4c350f9e99e9e6"
     }
   }
 }
