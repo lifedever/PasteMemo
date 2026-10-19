@@ -17,5 +17,26 @@
       "size": 6077717,
       "sha256": "d64e86908b54a76940ca79eebe3b21be3d36d2a7459d210ada4c350f9e99e9e6"
     }
+  },
+  "beta": {
+    "version": "1.14.0-beta.1",
+    "notes_zh": "- **新增** 快捷指令和 Spotlight 里可以使用 PasteMemo：打开快捷面板、搜索剪贴板历史、获取最近的条目、用规则处理文本\n- **新增** 规则可以使用 ⌘K 里的提取、识别、打开和接力功能，也能删除原条目、播放提示音\n- **新增** 13 个规则文本工具：JSON 格式化 / 压缩、Base64 编解码、驼峰 / 下划线命名、全角半角互转、简体转繁体、按行去重 / 排序 / 合并、去掉 HTML 标签\n- **新增** 规则条件：粘贴到的应用、字数、行数、是否置顶、是否敏感、所在分组、时间段、星期；每个条件都可以设为「不满足」\n- **新增** 规则结果可以存到文件夹或发到 Webhook\n- **新增** 敏感条目可以单独设置保留时长\n- **优化** 「添加条件」菜单按内容、应用、条目状态、时间分组\n- **修复** 系统自动填充短信验证码时，这条验证码有时被记成前台 App 复制的，没有短信原文",
+    "notes_en": "- **New** PasteMemo actions in Shortcuts and Spotlight: open the Quick Panel, search clipboard history, get a recent clip, process text with a rule\n- **New** Rules can use the extract, recognize, open and relay features from ⌘K, and can also delete the original clip or play a sound\n- **New** 13 text tools for rules: format / minify JSON, Base64 encode / decode, camelCase / snake_case, full-width ⇄ half-width, Simplified to Traditional Chinese, dedupe / sort / join lines, strip HTML tags\n- **New** Rule conditions: target app, character count, line count, pinned, sensitive, group, time of day, day of week; any condition can be set to \"Not met\"\n- **New** Rule results can be saved to a folder or sent to a webhook\n- **New** Sensitive clips can have their own retention period\n- **Improve** The \"Add Condition\" menu is grouped into Content, Apps, Clip State and Time\n- **Fix** When macOS autofilled an SMS verification code, the code was sometimes recorded as copied from the front app, without the message text",
+    "downloads": {
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.14.0-beta.1-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.14.0-beta.1-x86_64.dmg"
+    },
+    "checksums": {
+      "arm64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.14.0-beta.1-arm64.dmg",
+        "size": 6176470,
+        "sha256": "408676de896cc73c42a7519d5be46648794edcfb6e8d521b9ff505c4d92384b0"
+      },
+      "x86_64": {
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.14.0-beta.1-x86_64.dmg",
+        "size": 6377054,
+        "sha256": "99da2c82fc19251c48e03ac27b1414d1a70ec49daf499ca01ede7de74bbfb667"
+      }
+    }
   }
 }
