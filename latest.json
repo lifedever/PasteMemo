@@ -1,21 +1,21 @@
 {
-  "version": "1.14.0",
-  "notes_zh": "- **新增** 快捷指令和 Spotlight 里可以使用 PasteMemo：打开快捷面板、搜索剪贴板历史、获取最近的条目、用规则处理文本\n- **新增** 规则可以使用 ⌘K 里的提取、识别、打开和接力功能，也能删除原条目、播放提示音\n- **新增** 13 个规则文本工具：JSON 格式化 / 压缩、Base64 编解码、驼峰 / 下划线命名、全角半角互转、简体转繁体、按行去重 / 排序 / 合并、去掉 HTML 标签\n- **新增** 规则条件：粘贴到的应用、字数、行数、是否置顶、是否敏感、所在分组、时间段、星期；每个条件都可以设为「不满足」\n- **新增** 规则结果可以存到文件夹或发到 Webhook\n- **新增** 敏感条目可以单独设置保留时长\n- **优化** 「添加条件」菜单按内容、应用、条目状态、时间分组\n- **修复** 系统自动填充短信验证码时，这条验证码有时被记成前台 App 复制的，没有短信原文",
-  "notes_en": "- **New** PasteMemo actions in Shortcuts and Spotlight: open the Quick Panel, search clipboard history, get a recent clip, process text with a rule\n- **New** Rules can use the extract, recognize, open and relay features from ⌘K, and can also delete the original clip or play a sound\n- **New** 13 text tools for rules: format / minify JSON, Base64 encode / decode, camelCase / snake_case, full-width ⇄ half-width, Simplified to Traditional Chinese, dedupe / sort / join lines, strip HTML tags\n- **New** Rule conditions: target app, character count, line count, pinned, sensitive, group, time of day, day of week; any condition can be set to \"Not met\"\n- **New** Rule results can be saved to a folder or sent to a webhook\n- **New** Sensitive clips can have their own retention period\n- **Improve** The \"Add Condition\" menu is grouped into Content, Apps, Clip State and Time\n- **Fix** When macOS autofilled an SMS verification code, the code was sometimes recorded as copied from the front app, without the message text",
+  "version": "1.15.0",
+  "notes_zh": "- **新增** 设置里的「数据」页显示 PasteMemo 占用的空间，可以按来源、类型、时间挑选并删除历史记录，原文件不受影响\n- **新增** 微信等 app 复制的 TIFF 图片自动无损转为 PNG，占用更小，可在「数据」页关闭\n- **优化** 「保留时长」和「清理数据」挪到「数据」页\n- **优化** 删除记录后立即释放磁盘空间\n- **优化** 备份、导入和导出在历史记录很多时不再占用大量内存\n- **修复** 从照片 app 复制的照片不显示缩略图，也粘贴不出来\n- **修复** 微信聊天里复制的图片，过一段时间后粘贴不出来\n- **修复** 复制相同的文字或同一个图片文件，有时会重复生成条目\n- **修复** 导入数据时，已有的内容会重复出现\n- **修复** 备份和导出没有带上原图和剪贴板格式等内容，恢复后图片只剩缩略图\n- **修复** 「保留时长」没改过时显示 90 天，实际一直永久保留\n- **修复** 快捷面板把多张图片存到访达时，只存了第一张",
+  "notes_en": "- **New** The Data page in Settings shows how much space PasteMemo uses and lets you pick history to delete by source, type or age; your original files are never touched\n- **New** TIFF images copied from WeChat and similar apps are converted to PNG losslessly to take less space; this can be turned off on the Data page\n- **Improve** Keep History and Clear Data moved to the Data page\n- **Improve** Deleting clips frees disk space right away\n- **Improve** Backup, import and export no longer use a lot of memory with a large history\n- **Fix** Photos copied from the Photos app showed no thumbnail and couldn't be pasted\n- **Fix** Images copied in WeChat chats couldn't be pasted after a while\n- **Fix** Copying the same text or the same image file again sometimes added a duplicate clip\n- **Fix** Importing data could duplicate clips already in your history\n- **Fix** Backups and exports left out original images and clipboard formatting, so restored images were only thumbnails\n- **Fix** Keep History showed 90 days when never changed, but history was actually kept forever\n- **Fix** Saving several images to Finder from the Quick Panel only saved the first one",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.14.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.14.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.14.0-arm64.dmg",
-      "size": 6176407,
-      "sha256": "e12a32bc756e8962edfe1f19b3c896fddda1aa7a103c53e860feab0227fb678b"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-arm64.dmg",
+      "size": 6573580,
+      "sha256": "6de4893d0d5c44b92baae2cc82e1eb94ab07696d98a94ca9df8b04146d9d75fb"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.14.0-x86_64.dmg",
-      "size": 6377118,
-      "sha256": "ba303d902f9adb8fa16fd1e82daede5dabae210bc2bcb3b9dce579f1d9bcc98d"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-x86_64.dmg",
+      "size": 6798266,
+      "sha256": "d774283b57b533a86951aa73a4a7d72a17933f316409a655f9812bbb91a2f165"
     }
   }
 }
