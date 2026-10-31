@@ -1,21 +1,21 @@
 {
-  "version": "1.15.0",
-  "notes_zh": "- **新增** 设置里的「数据」页显示 PasteMemo 占用的空间，可以按来源、类型、时间挑选并删除历史记录，原文件不受影响\n- **新增** 微信等 app 复制的 TIFF 图片自动无损转为 PNG，占用更小，可在「数据」页关闭\n- **优化** 「保留时长」和「清理数据」挪到「数据」页\n- **优化** 删除记录后立即释放磁盘空间\n- **优化** 备份、导入和导出在历史记录很多时不再占用大量内存\n- **修复** 从照片 app 复制的照片不显示缩略图，也粘贴不出来\n- **修复** 微信聊天里复制的图片，过一段时间后粘贴不出来\n- **修复** 复制相同的文字或同一个图片文件，有时会重复生成条目\n- **修复** 导入数据时，已有的内容会重复出现\n- **修复** 备份和导出没有带上原图和剪贴板格式等内容，恢复后图片只剩缩略图\n- **修复** 「保留时长」没改过时显示 90 天，实际一直永久保留\n- **修复** 快捷面板把多张图片存到访达时，只存了第一张",
-  "notes_en": "- **New** The Data page in Settings shows how much space PasteMemo uses and lets you pick history to delete by source, type or age; your original files are never touched\n- **New** TIFF images copied from WeChat and similar apps are converted to PNG losslessly to take less space; this can be turned off on the Data page\n- **Improve** Keep History and Clear Data moved to the Data page\n- **Improve** Deleting clips frees disk space right away\n- **Improve** Backup, import and export no longer use a lot of memory with a large history\n- **Fix** Photos copied from the Photos app showed no thumbnail and couldn't be pasted\n- **Fix** Images copied in WeChat chats couldn't be pasted after a while\n- **Fix** Copying the same text or the same image file again sometimes added a duplicate clip\n- **Fix** Importing data could duplicate clips already in your history\n- **Fix** Backups and exports left out original images and clipboard formatting, so restored images were only thumbnails\n- **Fix** Keep History showed 90 days when never changed, but history was actually kept forever\n- **Fix** Saving several images to Finder from the Quick Panel only saved the first one",
+  "version": "1.16.0",
+  "notes_zh": "- **新增** 快捷面板多选时可以用 ⌘K 菜单批量操作\n- **新增** 快捷面板多选后可以合并：文字合成一条，图片和文件合成一条\n- **优化** 多文件预览列表里的图片显示缩略图\n- **优化** 多张图片一起粘贴到微信更快\n- **修复** 多选粘贴到微信、钉钉等聊天 app 时，第一条被直接发送\n- **修复** 多选粘贴图片时，有的图片重复、有的缺失，或文字跑到图片前面\n- **修复** 删除记录时退出或崩溃后，剪贴板监听一直停着，不再记录复制的内容",
+  "notes_en": "- **New** Select several clips in the Quick Panel and press ⌘K to act on all of them\n- **New** Merge selected clips in the Quick Panel: texts into one clip, images and files into one clip\n- **Improve** Images in a multi-file preview list show thumbnails\n- **Improve** Pasting several images into WeChat at once is faster\n- **Fix** Pasting several clips into WeChat, DingTalk and other chat apps sent the first one right away\n- **Fix** Pasting several images could duplicate one, drop another, or put text ahead of an image\n- **Fix** Quitting or a crash while deleting clips left clipboard monitoring paused, so new copies weren't recorded",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.16.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.16.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-arm64.dmg",
-      "size": 6573580,
-      "sha256": "6de4893d0d5c44b92baae2cc82e1eb94ab07696d98a94ca9df8b04146d9d75fb"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.16.0-arm64.dmg",
+      "size": 6593833,
+      "sha256": "bb09d2b92f44e5f551ddc5ccfdc5dea436dbdb859e2aca8a6517759020412b1d"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.15.0-x86_64.dmg",
-      "size": 6798266,
-      "sha256": "d774283b57b533a86951aa73a4a7d72a17933f316409a655f9812bbb91a2f165"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.16.0-x86_64.dmg",
+      "size": 6822780,
+      "sha256": "2df0c42c42191e770d4eafeb1d82f8b97a3d49749776cd4589f2317378f3ed36"
     }
   }
 }
