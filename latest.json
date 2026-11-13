@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.17.1-beta.1",
-    "notes_zh": "- **修复** 复制图片后内存占用居高不下（#98，感谢 @gexiaosen 的反馈）",
-    "notes_en": "- **Fix** Memory use stayed high after copying images (#98, thanks @gexiaosen for the report)",
+    "version": "1.17.1-beta.2",
+    "notes_zh": "- **修复** 启动后及复制图片后内存占用居高不下（#98，感谢 @gexiaosen 的反馈）",
+    "notes_en": "- **Fix** High memory use after launch and after copying images (#98, thanks @gexiaosen for the report)",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.1-arm64.dmg",
-        "size": 6642209,
-        "sha256": "c18631a6dc06f8e0aed9beaaf1c9d37ac51d1f1db5f640468dc8ada17d158998"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-arm64.dmg",
+        "size": 6642659,
+        "sha256": "7d855dd185dd8e3d41415e5837fc34da66c77f8ad78bac59b894e287874aaf75"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.1-x86_64.dmg",
-        "size": 6859511,
-        "sha256": "634b2d2fa2cdad3eea9101fe4258c99d6ed81f155178687394425c556c9804ef"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-x86_64.dmg",
+        "size": 6860385,
+        "sha256": "a56c40b55e453f9b35c91b4263acc75f42bad854e6634da39fb202c22fbfdd7e"
       }
     }
   }
