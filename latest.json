@@ -1,42 +1,21 @@
 {
-  "version": "1.17.0",
-  "notes_zh": "- **新增** 快捷面板里可以编辑条目文字：按 ⌘E、右键或从 ⌘K 菜单进入，⌘↩ 保存并粘贴，⌘S 保存（#97，感谢 @bRkka71 的反馈）\n- **优化** 主窗口里的链接、颜色和电话号码也可以编辑\n- **优化** ⌘K 菜单里「标记为敏感」的快捷键由 E 改为 H\n- **修复** 在主窗口编辑带格式的文字后，粘贴出来的仍是编辑前的内容",
-  "notes_en": "- **New** Edit a clip's text in the Quick Panel: press ⌘E, right-click, or use the ⌘K menu; ⌘↩ saves and pastes, ⌘S saves (#97, thanks @bRkka71 for the report)\n- **Improve** Links, colors and phone numbers can now be edited in the main window\n- **Improve** The ⌘K shortcut for Mark as Sensitive changed from E to H\n- **Fix** After editing formatted text in the main window, pasting still gave the text from before the edit",
+  "version": "1.17.1",
+  "notes_zh": "- **修复** 启动后及复制图片后内存占用居高不下（#98，感谢 @gexiaosen 的贡献）",
+  "notes_en": "- **Fix** High memory use after launch and after copying images (#98, thanks @gexiaosen for the contribution)",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.0-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.0-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.1-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.1-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.0-arm64.dmg",
-      "size": 6635470,
-      "sha256": "4637322ed0dcc01262703ce3242d9a39312b27ff39bd2a60d959436468330eaf"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.1-arm64.dmg",
+      "size": 6642573,
+      "sha256": "999fc6f68895783f1dde3574317dbd8b42de65900d4602530345dc327b3de508"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.0-x86_64.dmg",
-      "size": 6853402,
-      "sha256": "b4b21105d8995698ebd7cf330d119fc1c94349d90bdfc171bb8c3f5e7f600b5b"
-    }
-  },
-  "beta": {
-    "version": "1.17.1-beta.2",
-    "notes_zh": "- **修复** 启动后及复制图片后内存占用居高不下（#98，感谢 @gexiaosen 的反馈）",
-    "notes_en": "- **Fix** High memory use after launch and after copying images (#98, thanks @gexiaosen for the report)",
-    "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-x86_64.dmg"
-    },
-    "checksums": {
-      "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-arm64.dmg",
-        "size": 6642659,
-        "sha256": "7d855dd185dd8e3d41415e5837fc34da66c77f8ad78bac59b894e287874aaf75"
-      },
-      "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.17.1-beta.2-x86_64.dmg",
-        "size": 6860385,
-        "sha256": "a56c40b55e453f9b35c91b4263acc75f42bad854e6634da39fb202c22fbfdd7e"
-      }
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.17.1-x86_64.dmg",
+      "size": 6860390,
+      "sha256": "2aab40eb3b34bec9b578ebe193f8698e541db6d648df251d7d7ea9bff8582ef6"
     }
   }
 }
