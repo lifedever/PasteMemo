@@ -19,23 +19,23 @@
     }
   },
   "beta": {
-    "version": "1.18.0-beta.1",
-    "notes_zh": "- **新增** 拆分：把一条记录拆成多条，在 ⌘K 菜单或右键里使用。可以按行、段落、编号、分隔符或正则拆，拆之前逐段预览，不要的段可以去掉；多个文件的记录拆成每个文件一条\n- **新增** 合并、拆分、手动执行自动化规则、编辑保存之后，8 秒内可以撤销\n- **新增** 内置自动化规则「转为纯文本」，去掉文字的格式\n- **新增** 自动化规则条件「带格式」\n- **优化** 「拆分并接力」并入「拆分」，在拆分页按 ⌘R 开启接力\n- **优化** 删除后可以撤销的时间从 5 秒延长到 8 秒",
-    "notes_en": "- **New** Split: turn one clip into several, from the ⌘K menu or right-click. Split by line, paragraph, number, delimiter or regex, preview every piece first and drop the ones you don't want; a clip of several files splits into one clip per file\n- **New** Merging, splitting, running an automation rule by hand and saving an edit can be undone for 8 seconds\n- **New** Built-in automation rule \"Convert to plain text\" removes the formatting from text\n- **New** Automation rule condition \"Has formatting\"\n- **Improve** \"Split and Relay\" is now part of Split: press ⌘R on the split page to start Relay\n- **Improve** A delete can now be undone for 8 seconds instead of 5",
+    "version": "1.18.0-beta.2",
+    "notes_zh": "- **修复** 快捷面板里右键「移入分组 → 新建分组」，弹窗被面板挡住、无法输入\n- **修复** 快捷面板的「快捷操作」菜单（⌘K）点击菜单外面不会关闭\n- **修复** 鼠标在「快捷操作」菜单上移动时菜单跟着滚动，中间的项很难点中",
+    "notes_en": "- **Fix** In the Quick Panel, the dialog from right-click → Assign to Group → New Group was hidden behind the panel and couldn't be typed into\n- **Fix** The Quick Panel's Quick Actions menu (⌘K) didn't close when clicking outside it\n- **Fix** The Quick Actions menu scrolled along with the pointer, making items in the middle hard to click",
     "downloads": {
-      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.1-arm64.dmg",
-      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.1-x86_64.dmg"
+      "arm64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.2-arm64.dmg",
+      "x86_64": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.2-x86_64.dmg"
     },
     "checksums": {
       "arm64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.1-arm64.dmg",
-        "size": 6720340,
-        "sha256": "238d49145fd4b0d8c5fc5753da29aa91362012e2fa6670ad51376251489b5e58"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.2-arm64.dmg",
+        "size": 6726165,
+        "sha256": "41fbe5eb44ec82bf67728e7bf9ad5d4fc2f38eeba228998299e285349fa9b87c"
       },
       "x86_64": {
-        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.1-x86_64.dmg",
-        "size": 6949728,
-        "sha256": "339cc2ee69c3032413919e24d3e8a28816e37bde29430d5dda50a98f64b8901c"
+        "url": "https://www.lifedever.com/PasteMemo/beta/downloads/PasteMemo-1.18.0-beta.2-x86_64.dmg",
+        "size": 6958426,
+        "sha256": "da7c117523e734ca1bdaf52e732b4296b39ddea875182b9f07dd22daeb6925e0"
       }
     }
   }
