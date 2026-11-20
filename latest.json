@@ -1,21 +1,21 @@
 {
-  "version": "1.18.1",
-  "notes_zh": "- **修复** 设置里的「关于」「支持」「自动化」页面无法滚动，窗口较矮时下面的内容看不到（#99，感谢 @gexiaosen 的反馈）\n- **修复** 新手引导的部分步骤内容显示不全",
-  "notes_en": "- **Fix** The About, Sponsor and Automation pages in Settings couldn't scroll, so content at the bottom was hidden when the window was short (#99, thanks @gexiaosen for the report)\n- **Fix** Some steps of the Welcome Guide were cut off",
+  "version": "1.18.2",
+  "notes_zh": "- **修复** 快捷面板样式从「贴边条」切回「窗口」后，面板左上角出现关闭、最小化、缩放按钮",
+  "notes_en": "- **Fix** After switching the Quick Panel Style from Edge Bar back to Window, the close, minimize and zoom buttons appeared in the panel's top-left corner",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.1-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.1-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.1-arm64.dmg",
-      "size": 7056700,
-      "sha256": "4825deb750c3cb53e8e9e941cc2c2aaeac341a928f51810a5f06ac3a6fefbf87"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-arm64.dmg",
+      "size": 7057319,
+      "sha256": "d41a16fa17dcb3c4c54de6564ce34cc8e7bce89cb2163ee379b8c95bf66fb2f3"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.1-x86_64.dmg",
-      "size": 7308517,
-      "sha256": "2532d83948fe6c29fa20bc96cc213025b626dc61d55eb83775d2d69f4ea21527"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-x86_64.dmg",
+      "size": 7308410,
+      "sha256": "9ad0f4d65a1057540f597046b5fabf37c6d347a0af2c09726ad161efaf9b81b4"
     }
   }
 }
