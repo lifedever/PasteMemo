@@ -1,21 +1,21 @@
 {
-  "version": "1.18.2",
-  "notes_zh": "- **修复** 快捷面板样式从「贴边条」切回「窗口」后，面板左上角出现关闭、最小化、缩放按钮",
-  "notes_en": "- **Fix** After switching the Quick Panel Style from Edge Bar back to Window, the close, minimize and zoom buttons appeared in the panel's top-left corner",
+  "version": "1.18.3",
+  "notes_zh": "- **修复** 快捷面板多选时，先选中的条目不显示顺序号，取消某一条后其他条目的顺序号也不更新",
+  "notes_en": "- **Fix** When multi-selecting in the Quick Panel, the first picked item didn't show its order number, and the numbers didn't update after unpicking an item",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-arm64.dmg",
-      "size": 7057319,
-      "sha256": "d41a16fa17dcb3c4c54de6564ce34cc8e7bce89cb2163ee379b8c95bf66fb2f3"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-arm64.dmg",
+      "size": 7056035,
+      "sha256": "e5ab07c317b5573b08083e996081e247c2b95c110ec9bb18e3662ada35741b4f"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.2-x86_64.dmg",
-      "size": 7308410,
-      "sha256": "9ad0f4d65a1057540f597046b5fabf37c6d347a0af2c09726ad161efaf9b81b4"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-x86_64.dmg",
+      "size": 7308019,
+      "sha256": "c59244a14b71c207c6f3b4a9b1e053b69bfce08bf03fb167edc9966a176dbb61"
     }
   }
 }
