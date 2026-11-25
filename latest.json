@@ -1,21 +1,21 @@
 {
-  "version": "1.18.3",
-  "notes_zh": "- **修复** 快捷面板多选时，先选中的条目不显示顺序号，取消某一条后其他条目的顺序号也不更新",
-  "notes_en": "- **Fix** When multi-selecting in the Quick Panel, the first picked item didn't show its order number, and the numbers didn't update after unpicking an item",
+  "version": "1.19.0",
+  "notes_zh": "- **新增** 设置里新增「软件更新」页，可以查看新版本、更新内容和下载进度；自动检查、参与 Beta 测试等更新设置也挪到了这里\n- **新增** 「自动安装更新」开关（默认关闭）：新版本在后台下载，电脑闲置时自动安装并重启 PasteMemo\n- **优化** 发现新版本时不再弹出更新窗口打断当前操作（全屏游戏、视频也会被拉出来），改为系统通知，状态栏图标和设置里的「软件更新」会有标记\n- **修复** 「检查频率」默认显示每 24 小时，实际每 6 小时检查一次\n- **修复** 下载更新时点「取消」，过一会儿又弹出「下载失败」\n- **修复** 设置窗口已经打开时，点自动化规则里的「去设置」不会跳到对应页面",
+  "notes_en": "- **New** A Software Update page in Settings shows the new version, what's new and download progress; update settings such as automatic checks and the beta channel moved here\n- **New** \"Install updates automatically\" (off by default): new versions download in the background and install when your Mac is idle, then PasteMemo restarts\n- **Improve** A new version no longer pops up an update window over what you're doing (full-screen games and videos included); you get a system notification instead, and the menu bar icon and Software Update in Settings show a badge\n- **Fix** Check interval showed \"Every 24 hours\" by default but checked every 6 hours\n- **Fix** Canceling an update download showed \"Download Failed\" shortly after\n- **Fix** With Settings already open, \"Open settings\" in an automation rule didn't jump to the right page",
   "downloads": {
-    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-arm64.dmg",
-    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-x86_64.dmg"
+    "arm64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.19.0-arm64.dmg",
+    "x86_64": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.19.0-x86_64.dmg"
   },
   "checksums": {
     "arm64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-arm64.dmg",
-      "size": 7056035,
-      "sha256": "e5ab07c317b5573b08083e996081e247c2b95c110ec9bb18e3662ada35741b4f"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.19.0-arm64.dmg",
+      "size": 7075255,
+      "sha256": "59b306f0d77c834fefea0af1c5473e3a844b43c63aff3bcabe496234fcf0c10d"
     },
     "x86_64": {
-      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.18.3-x86_64.dmg",
-      "size": 7308019,
-      "sha256": "c59244a14b71c207c6f3b4a9b1e053b69bfce08bf03fb167edc9966a176dbb61"
+      "url": "https://www.lifedever.com/PasteMemo/downloads/PasteMemo-1.19.0-x86_64.dmg",
+      "size": 7324290,
+      "sha256": "d843f9daef3bcf31bd05eb2da5b3b5c785ecf8e11fb11e41f009d5045b8a8661"
     }
   }
 }
