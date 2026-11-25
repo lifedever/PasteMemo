@@ -14,16 +14,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # 上传和部署分成两个 job。放在同一个 job 里时，上传完零点几秒部署就去取产物，
+  # GitHub 偶尔还查不到刚上传的，部署报「No artifacts named "github-pages"」
+  # （v1.19.0 连续失败两次）。deploy 等 build 整个跑完再开始，中间隔几秒，不会再撞上。
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
